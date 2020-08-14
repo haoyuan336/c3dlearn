@@ -1,0 +1,6 @@
+{
+    "resolveMap": {
+        "./CubeGroup": "CubeGroup.ts",
+        "./My2Array": "My2Array.ts"
+    }
+}
