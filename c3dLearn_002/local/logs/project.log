@@ -1,0 +1,176 @@
+2020-08-04 15:35:32-log: [Package] builder@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] lightmap@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] alipay-mini-game@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] android@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] baidu-mini-game@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] cocos-play@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] huawei-mini-game@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] mac@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] ios@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] native@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] oppo-mini-game@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] vivo-mini-game@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] web-desktop@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] web-mobile@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] wechatgame@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] xiaomi-quick-game@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] windows@1.0.0 enable
+2020-08-04 15:35:29-log: [Package] ui-kit@1.0.0 enable
+2020-08-04 15:35:31-log: [Package] engine@1.0.0 enable
+2020-08-04 15:35:31-log: [Package] console@1.0.0 enable
+2020-08-04 15:35:31-log: [Package] asset-db@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] scene@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] packager@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] project-setting@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] about@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] server@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] utils@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] profile@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] assets@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] inspector@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] hierarchy@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] preview@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] animator@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] builder@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] lightmap@1.0.0 enable
+2020-08-04 15:35:29-log: [Package] ipc@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] android@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] baidu-mini-game@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] cocos-play@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] huawei-mini-game@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] ios@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] mac@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] native@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] oppo-mini-game@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] vivo-mini-game@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] web-desktop@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] web-mobile@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] wechatgame@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] windows@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] xiaomi-quick-game@1.0.0 enable
+2020-08-04 15:35:29-log: [Package] preferences@1.0.0 enable
+2020-08-04 15:35:29-log: [Package] tester@1.0.0 enable
+2020-08-04 15:35:32-log: [Package] alipay-mini-game@1.0.0 enable
+2020-08-04 15:51:53-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/scene.scene) saved
+2020-08-04 15:53:51-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 15:54:14-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 15:54:28-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 16:05:04-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 16:05:04-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 16:05:04-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 16:05:46-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 16:06:02-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 16:06:28-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 16:06:29-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 16:06:29-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 16:06:57-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 16:06:58-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 16:06:58-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 16:07:17-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 16:07:17-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 16:07:18-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 16:07:35-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 16:17:16-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 16:18:24-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 16:18:25-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 16:18:36-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 16:18:36-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 16:18:37-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 16:18:37-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 16:22:24-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/OneStep.anim) saved
+2020-08-04 16:22:25-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/OneStep.anim) saved
+2020-08-04 16:22:27-warn: [Window] 882070ad-06d4-4cd8-9482-a313dc51c88f change play status stop failed！
+2020-08-04 16:23:59-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Animations/OneStep.anim) saved
+2020-08-04 16:25:06-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Animations/TwoStep.anim) saved
+2020-08-04 16:25:06-warn: [Window] a4e8b98e-23c0-479c-80ab-86cdbea14a3d change play status stop failed！
+2020-08-04 16:26:29-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 16:27:34-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 16:28:12-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 16:29:06-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 16:29:17-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 16:33:29-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 16:40:22-warn: [Scene] Can not indicate the 'type' attribute for "GameManager.roadLength", which its default value is type of number.
+2020-08-04 16:40:22-warn: [Scene] Can not indicate the 'type' attribute for "GameManager.roadLength", which its default value is type of number.
+2020-08-04 16:51:39-warn: [Scene] Can not indicate the 'type' attribute for "GameManager.roadLength", which its default value is type of number.
+2020-08-04 16:51:39-warn: [Scene] Can not indicate the 'type' attribute for "GameManager.roadLength", which its default value is type of number.
+2020-08-04 16:51:39-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 16:52:25-warn: [Scene] The type of "GameManager.roadLength" must be CCFloat or CCInteger, not Number.
+2020-08-04 16:52:25-warn: [Scene] The type of "GameManager.roadLength" must be CCFloat or CCInteger, not Number.
+2020-08-04 16:53:32-warn: [Scene] The type of "GameManager.roadLength" must be CCFloat or CCInteger, not Number.
+2020-08-04 16:53:32-warn: [Scene] The type of "GameManager.roadLength" must be CCFloat or CCInteger, not Number.
+2020-08-04 16:53:41-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 17:00:58-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 17:02:01-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 17:02:44-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 17:03:41-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 17:03:55-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 17:04:04-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 17:04:09-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 17:04:22-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 17:04:33-error: [Asset DB] Failed to transform script /Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scripts/GameManager.ts: SyntaxError: /Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scripts/GameManager.ts: Unexpected token, expected "{" (8:15)
+
+   6 |     BT_STONE
+   7 | }
+>  8 | enum GameState = {
+     |                ^
+   9 |     
+  10 | }
+  11 | @ccclass('GameManager') {asset(b469fac2-8c87-4723-8f6e-04598c9b1e58)}
+2020-08-04 17:09:28-error: [Scene] Error: Error loading file:///Users/chy/workspace/c3dlearn/c3dLearn_002/library/9e/9e215947-0aa3-41b5-8a8f-02d9efe3e6f7.js from project:///assets/Scripts/GameManager.js
+2020-08-04 17:09:29-warn: [Scene] The type of "GameManager.roadLength" must be CCFloat or CCInteger, not Number.
+2020-08-04 17:09:41-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 17:15:28-warn: [Scene] The type of "GameManager.roadLength" must be CCFloat or CCInteger, not Number.
+2020-08-04 17:15:29-warn: [Scene] The type of "GameManager.roadLength" must be CCFloat or CCInteger, not Number.
+2020-08-04 17:15:37-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 17:21:50-warn: [Scene] The type of "GameManager.roadLength" must be CCFloat or CCInteger, not Number.
+2020-08-04 17:21:50-warn: [Scene] The type of "GameManager.roadLength" must be CCFloat or CCInteger, not Number.
+2020-08-04 17:39:58-warn: [Scene] The type of "GameManager.roadLength" must be CCFloat or CCInteger, not Number.
+2020-08-04 17:39:58-warn: [Scene] The type of "GameManager.roadLength" must be CCFloat or CCInteger, not Number.
+2020-08-04 17:40:08-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 17:59:58-warn: [Scene] The type of "GameManager.roadLength" must be CCFloat or CCInteger, not Number.
+2020-08-04 17:59:59-warn: [Scene] The type of "GameManager.roadLength" must be CCFloat or CCInteger, not Number.
+2020-08-04 18:02:52-warn: [Scene] The type of "GameManager.roadLength" must be CCFloat or CCInteger, not Number.
+2020-08-04 18:02:52-warn: [Scene] The type of "GameManager.roadLength" must be CCFloat or CCInteger, not Number.
+2020-08-04 18:04:32-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 18:05:03-warn: [Scene] The type of "GameManager.roadLength" must be CCFloat or CCInteger, not Number.
+2020-08-04 18:05:03-warn: [Scene] The type of "GameManager.roadLength" must be CCFloat or CCInteger, not Number.
+2020-08-04 18:05:18-warn: [Scene] The type of "GameManager.roadLength" must be CCFloat or CCInteger, not Number.
+2020-08-04 18:05:18-warn: [Scene] The type of "GameManager.roadLength" must be CCFloat or CCInteger, not Number.
+2020-08-04 18:05:18-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 18:05:24-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 18:06:31-warn: [Scene] The type of "GameManager.roadLength" must be CCFloat or CCInteger, not Number.
+2020-08-04 18:06:31-warn: [Scene] The type of "GameManager.roadLength" must be CCFloat or CCInteger, not Number.
+2020-08-04 18:06:31-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 18:07:07-warn: [Scene] The type of "GameManager.roadLength" must be CCFloat or CCInteger, not Number.
+2020-08-04 18:07:07-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 18:07:07-warn: [Scene] The type of "GameManager.roadLength" must be CCFloat or CCInteger, not Number.
+2020-08-04 18:07:49-warn: [Scene] The type of "GameManager.roadLength" must be CCFloat or CCInteger, not Number.
+2020-08-04 18:07:49-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 18:07:49-warn: [Scene] The type of "GameManager.roadLength" must be CCFloat or CCInteger, not Number.
+2020-08-04 18:08:50-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 19:09:53-warn: [Scene] The type of "GameManager.roadLength" must be CCFloat or CCInteger, not Number.
+2020-08-04 19:09:53-warn: [Scene] The type of "GameManager.roadLength" must be CCFloat or CCInteger, not Number.
+2020-08-04 19:10:05-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 19:10:33-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 19:25:43-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 19:25:47-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 19:26:50-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 19:26:56-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 19:27:45-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 19:28:44-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 19:28:54-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 19:28:59-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 19:29:52-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 19:29:56-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 19:30:50-warn: [Scene] The type of "GameManager.roadLength" must be CCFloat or CCInteger, not Number.
+2020-08-04 19:30:50-warn: [Scene] The type of "GameManager.roadLength" must be CCFloat or CCInteger, not Number.
+2020-08-04 19:30:51-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 19:31:39-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 19:31:39-warn: [Scene] The type of "GameManager.roadLength" must be CCFloat or CCInteger, not Number.
+2020-08-04 19:31:39-warn: [Scene] The type of "GameManager.roadLength" must be CCFloat or CCInteger, not Number.
+2020-08-04 19:32:56-warn: [Scene] The type of "GameManager.roadLength" must be CCFloat or CCInteger, not Number.
+2020-08-04 19:32:56-warn: [Scene] The type of "GameManager.roadLength" must be CCFloat or CCInteger, not Number.
+2020-08-04 19:32:56-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 19:33:17-info: asset(/Users/chy/workspace/c3dlearn/c3dLearn_002/assets/Scene/MainScene.scene) saved
+2020-08-04 19:33:18-warn: [Scene] The type of "GameManager.roadLength" must be CCFloat or CCInteger, not Number.
+2020-08-04 19:33:18-warn: [Scene] The type of "GameManager.roadLength" must be CCFloat or CCInteger, not Number.
