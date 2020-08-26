@@ -1,0 +1,422 @@
+2020-08-26 10:20:20-log: [Package] builder@1.0.0 enable
+2020-08-26 10:20:20-log: [Package] lightmap@1.0.0 enable
+2020-08-26 10:20:20-log: [Package] alipay-mini-game@1.0.0 enable
+2020-08-26 10:20:20-log: [Package] android@1.0.0 enable
+2020-08-26 10:20:20-log: [Package] baidu-mini-game@1.0.0 enable
+2020-08-26 10:20:20-log: [Package] bytedance-mini-game@1.0.0 enable
+2020-08-26 10:20:20-log: [Package] cocos-play@1.0.0 enable
+2020-08-26 10:20:20-log: [Package] huawei-mini-game@1.0.0 enable
+2020-08-26 10:20:20-log: [Package] mac@1.0.0 enable
+2020-08-26 10:20:20-log: [Package] ios@1.0.0 enable
+2020-08-26 10:20:20-log: [Package] native@1.0.0 enable
+2020-08-26 10:20:20-log: [Package] oppo-mini-game@1.0.0 enable
+2020-08-26 10:20:20-log: [Package] vivo-mini-game@1.0.0 enable
+2020-08-26 10:20:20-log: [Package] web-desktop@1.0.0 enable
+2020-08-26 10:20:20-log: [Package] web-mobile@1.0.0 enable
+2020-08-26 10:20:20-log: [Package] wechatgame@1.0.0 enable
+2020-08-26 10:20:20-log: [Package] windows@1.0.0 enable
+2020-08-26 10:20:20-log: [Package] xiaomi-quick-game@1.0.0 enable
+2020-08-26 10:20:17-log: [Package] ui-kit@1.0.0 enable
+2020-08-26 10:20:17-log: [Package] ipc@1.0.0 enable
+2020-08-26 10:20:17-log: [Package] tester@1.0.0 enable
+2020-08-26 10:20:17-log: [Package] preferences@1.0.0 enable
+2020-08-26 10:20:19-log: [Package] engine@1.0.0 enable
+2020-08-26 10:20:19-log: [Package] asset-db@1.0.0 enable
+2020-08-26 10:20:19-log: [Package] console@1.0.0 enable
+2020-08-26 10:20:19-log: [Package] scene@1.0.0 enable
+2020-08-26 10:20:19-log: [Package] packager@1.0.0 enable
+2020-08-26 10:20:19-log: [Package] project-setting@1.0.0 enable
+2020-08-26 10:20:19-log: [Package] about@1.0.0 enable
+2020-08-26 10:20:19-log: [Package] server@1.0.0 enable
+2020-08-26 10:20:19-log: [Package] utils@1.0.0 enable
+2020-08-26 10:20:19-log: [Package] profile@1.0.0 enable
+2020-08-26 10:20:19-log: [Package] assets@1.0.0 enable
+2020-08-26 10:20:19-log: [Package] inspector@1.0.0 enable
+2020-08-26 10:20:19-log: [Package] hierarchy@1.0.0 enable
+2020-08-26 10:20:19-log: [Package] preview@1.0.0 enable
+2020-08-26 10:20:19-log: [Package] animator@1.0.0 enable
+2020-08-26 10:20:20-log: [Package] builder@1.0.0 enable
+2020-08-26 10:20:20-log: [Package] lightmap@1.0.0 enable
+2020-08-26 10:20:20-log: [Package] alipay-mini-game@1.0.0 enable
+2020-08-26 10:20:20-log: [Package] android@1.0.0 enable
+2020-08-26 10:20:20-log: [Package] baidu-mini-game@1.0.0 enable
+2020-08-26 10:20:20-log: [Package] bytedance-mini-game@1.0.0 enable
+2020-08-26 10:20:20-log: [Package] cocos-play@1.0.0 enable
+2020-08-26 10:20:20-log: [Package] huawei-mini-game@1.0.0 enable
+2020-08-26 10:20:20-log: [Package] ios@1.0.0 enable
+2020-08-26 10:20:20-log: [Package] mac@1.0.0 enable
+2020-08-26 10:20:20-log: [Package] native@1.0.0 enable
+2020-08-26 10:20:20-log: [Package] oppo-mini-game@1.0.0 enable
+2020-08-26 10:20:20-log: [Package] vivo-mini-game@1.0.0 enable
+2020-08-26 10:20:20-log: [Package] web-desktop@1.0.0 enable
+2020-08-26 10:20:20-log: [Package] web-mobile@1.0.0 enable
+2020-08-26 10:20:20-log: [Package] wechatgame@1.0.0 enable
+2020-08-26 10:20:20-log: [Package] windows@1.0.0 enable
+2020-08-26 10:20:20-log: [Package] xiaomi-quick-game@1.0.0 enable
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/assets/index.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/data/index.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/event/index.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/game.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/scheduler.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/platform/index.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/director.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/gfx/index.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/pipeline/index.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/load-pipeline/index.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/scene-graph/index.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/utils/profiler/profiler.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/deprecated.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/components/index.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/3d/index.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/animation/index.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/splash-screen-webgl.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/renderer/utils.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/renderer/config.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/renderer/core/constants.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/renderer/core/pass-utils.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/renderer/core/pass.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/renderer/core/program-lib.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/renderer/core/sampler-lib.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/renderer/core/texture-buffer-pool.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/renderer/core/material-instance.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/renderer/core/pass-instance.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/renderer/models/skeletal-animation-utils.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/renderer/models/skinning-model.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/renderer/models/baked-skinning-model.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/renderer/scene/ambient.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/renderer/scene/camera.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/renderer/scene/deprecated.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/renderer/scene/directional-light.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/renderer/scene/light.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/renderer/scene/model.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/renderer/scene/render-scene.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/renderer/scene/spot-light.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/renderer/ui/render-data.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/renderer/scene/submodel.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/primitive/utils.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/primitive/define.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/primitive/box.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/primitive/cone.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/primitive/cylinder.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/primitive/plane.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/primitive/quad.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/primitive/sphere.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/primitive/torus.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/primitive/capsule.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/primitive/circle.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/primitive/transform.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/renderer/scene/planar-shadows.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/3d/misc/utils.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/assets/mesh.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/data/class-decorator.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/renderer/scene/skybox.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/renderer/scene/sphere-light.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/value-types/enum.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/platform/sys.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/gfx/define.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/gfx/device.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/gfx/webgl/webgl-binding-layout.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/gfx/webgl/webgl-buffer.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/gfx/webgl/webgl-command-allocator.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/gfx/webgl/webgl-command-buffer.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/gfx/webgl/webgl-commands.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/gfx/webgl/webgl-framebuffer.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/gfx/webgl/webgl-pipeline-layout.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/gfx/webgl/webgl-input-assembler.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/gfx/webgl/webgl-pipeline-state.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/gfx/webgl/webgl-primary-command-buffer.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/gfx/webgl/webgl-queue.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/gfx/webgl/webgl-render-pass.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/gfx/webgl/webgl-sampler.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/gfx/webgl/webgl-shader.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/gfx/webgl/webgl-state-cache.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/gfx/webgl/webgl-texture.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/gfx/webgl/webgl-texture-view.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/gfx/webgl/webgl-window.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/gfx/webgl2/webgl2-binding-layout.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/gfx/webgl2/webgl2-buffer.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/gfx/webgl2/webgl2-command-allocator.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/gfx/webgl2/webgl2-command-buffer.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/gfx/webgl2/webgl2-pipeline-state.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/gfx/webgl2/webgl2-input-assembler.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/gfx/webgl2/webgl2-primary-command-buffer.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/gfx/webgl2/webgl2-queue.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/gfx/webgl2/webgl2-commands.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/gfx/webgl2/webgl2-framebuffer.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/gfx/webgl2/webgl2-pipeline-layout.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/gfx/webgl2/webgl2-render-pass.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/gfx/webgl2/webgl2-sampler.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/gfx/webgl2/webgl2-state-cache.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/gfx/webgl2/webgl2-texture.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/gfx/webgl2/webgl2-window.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/gfx/webgl2/webgl2-shader.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/gfx/webgl2/webgl2-texture-view.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/assets/asset.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/components/component.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/audio/assets/player.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/audio/assets/player-dom.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/particle/billboard-component.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/audio/assets/player-web.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/particle/line-component.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/particle/particle-system-component.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/particle/particle-utils.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/particle/deprecated.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/particle/animator/curve-range.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/assembler/index.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/renderer/ui/mesh-buffer.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/renderer/ui/ui-vertex-format.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/renderer/ui/stencil-manager.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/index.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/tween/tween-system.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/tween/tween.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/tween/export-api.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/framework/physics-system.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/framework/components/collider/collider-component.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/framework/components/collider/sphere-collider-component.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/framework/components/collider/capsule-collider-component.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/framework/components/collider/cylinder-collider-component.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/framework/components/collider/mesh-collider-component.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/framework/components/rigid-body-component.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/framework/components/constant-force.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/framework/physics-enum.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/framework/physics-selector.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/cocos/builtin-world.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/cocos/shapes/builtin-box-shape.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/cocos/shapes/builtin-sphere-shape.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/cocos/shapes/builtin-capsule-shape.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/cocos/deprecated.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/framework/deprecated.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/cannon/cannon-rigid-body.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/cannon/cannon-world.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/cannon/shapes/cannon-box-shape.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/cannon/shapes/cannon-trimesh-shape.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/cannon/shapes/cannon-sphere-shape.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/cannon/shapes/cannon-cylinder-shape.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/.extdep-chunks/_commonjsHelpers-f660b1c2 failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/ammo/ammo-rigid-body.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/ammo/ammo-world.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/ammo/shapes/ammo-box-shape.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/ammo/shapes/ammo-capsule-shape.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/framework/assets/physic-material.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/framework/physics-ray-result.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/framework/components/collider/box-collider-component.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/ammo/shapes/ammo-sphere-shape.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/ammo/shapes/ammo-cylinder-shape.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/terrain/height-field.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/terrain/terrain.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/DebugInfos.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/geometry/enums.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/geometry/distance.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/geometry/intersect.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/terrain/terrain-asset.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/ammo/shapes/ammo-bvh-triangle-mesh-shape.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/ammo/deprecated.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/geometry/plane.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/geometry/ray.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/geometry/aabb.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/geometry/obb.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/geometry/capsule.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/geometry/triangle.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/geometry/line.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/geometry/sphere.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/geometry/frustum.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/geometry/curve.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/geometry/spec.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/geometry/deprecated.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/math/bits.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/math/vec2.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/math/vec3.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/math/quat.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/math/mat4.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/math/affine-transform.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/math/mat3.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/math/size.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/math/rect.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/math/vec4.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/math/color.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/math/utils.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/math/deprecated.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/memop/pool.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/value-types/value-type.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/utils/js.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/utils/misc.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/utils/deprecated.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/memop/cached-array.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/value-types/bitmask.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/memop/recycle-pool.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/utils/text-utils.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/utils/prefab-helper.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/utils/batch-utils.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/utils/coordinates-converts-utils.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/utils/murmurhash2_gc.js failed
+2020-08-26 10:20:23-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/utils/html-text-parser.js failed
+2020-08-26 10:33:45-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 10:34:59-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 10:35:10-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 10:35:10-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 10:35:38-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 10:35:45-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 10:35:45-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 10:36:22-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 10:36:43-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 10:53:47-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 10:54:11-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 10:54:40-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/EnemyPrefab.prefab) saved
+2020-08-26 10:54:45-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 10:56:11-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 10:56:27-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 10:56:28-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 10:56:52-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 10:56:57-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 10:58:35-warn: [Build] Generated an empty bundle
+2020-08-26 10:58:35-warn: [Build] Browserslist: caniuse-lite is outdated. Please run next command `npm update`
+2020-08-26 11:00:51-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 11:01:17-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 11:01:30-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 11:01:34-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 11:01:55-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 11:33:57-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 11:34:25-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 11:34:31-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 11:34:37-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 11:34:55-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 11:35:41-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 11:35:47-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 11:36:36-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 11:38:55-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 11:39:11-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 11:39:20-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 11:39:24-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 11:39:31-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 11:39:34-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 11:39:36-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 11:39:37-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 11:40:30-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 11:40:34-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 11:40:42-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 11:40:52-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 11:42:11-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 11:42:11-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/terrain.terrain) saved
+2020-08-26 11:42:19-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 11:42:19-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/terrain.terrain) saved
+2020-08-26 11:42:25-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 11:43:12-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 11:43:12-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/terrain.terrain) saved
+2020-08-26 11:44:17-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 11:55:42-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Material/yezishuMaterial.mtl) saved
+2020-08-26 11:56:33-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 11:56:46-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 11:56:49-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 11:56:57-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 11:57:02-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 11:57:17-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 11:57:33-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 11:57:47-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 11:58:08-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 12:02:15-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 12:09:33-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 12:22:47-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 12:23:02-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 12:23:16-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 12:24:55-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 12:25:30-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 12:25:48-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 12:28:26-error: [Asset DB] Failed to transform script /Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scripts/Tower.ts: SyntaxError: /Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scripts/Tower.ts: Unexpected token (77:8)
+
+  75 |         bulletNode.emit("init-data", {
+  76 |             direction: 
+> 77 |         })
+     |         ^
+  78 |     }
+  79 | }
+  80 |  {asset(9396558b-3bfd-46a6-8471-2f4ba84d2f5a)}
+2020-08-26 12:28:44-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 12:28:47-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 12:28:47-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 12:31:34-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 12:31:48-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 12:32:18-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 12:32:45-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 12:33:47-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 12:34:07-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 12:34:55-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 12:40:46-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 12:41:12-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 12:41:12-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 12:41:58-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 12:42:03-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 12:44:44-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 12:48:19-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 12:49:25-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 12:50:38-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 12:51:30-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 12:52:25-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 12:52:49-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 12:57:03-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 12:57:26-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 12:57:57-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 12:58:30-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 13:01:18-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 13:01:18-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 13:02:25-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 13:03:20-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 13:50:24-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 14:02:42-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 14:07:25-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 14:09:20-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:09:23-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:09:27-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:10:47-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:10:49-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:11:18-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:12:44-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:12:47-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:12:59-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:14:17-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:14:20-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Scenes/scene.scene) saved
+2020-08-26 14:16:33-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:20:01-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:20:09-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:20:51-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:21:42-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:21:51-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:22:26-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:23:34-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:23:35-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:24:00-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:24:15-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:24:23-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:25:28-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:27:48-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:28:09-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:28:15-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:28:18-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:28:19-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:28:46-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:28:46-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:29:15-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:30:27-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:30:50-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:31:04-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:31:43-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:31:43-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:31:51-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:32:19-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:32:27-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:32:27-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:32:28-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:32:33-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:33:10-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:33:11-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:33:17-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:33:41-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:33:42-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:33:42-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:33:48-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:34:13-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:34:15-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:34:16-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:34:33-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:35:33-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:35:58-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved
+2020-08-26 14:36:07-info: asset(/Users/chy/workspace/c3dlearn/c3dtowerdefence/assets/Prefab/Bullet.prefab) saved

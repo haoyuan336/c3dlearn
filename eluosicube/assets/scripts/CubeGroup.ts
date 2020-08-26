@@ -18,7 +18,7 @@ class CubeSet {
     constructor(type: CubeGroupType, gameManager: GameManager) {
         let mapSize = gameManager.getMapSize();
         this.gameManager = gameManager;
-        this.currentXStep = Math.round(mapSize.width / 2);
+        this.currentXStep = Math.round(mapSize.width / 2) - 2;
         this.currentYStep = mapSize.height;
         for (let i = 0; i < 4; i++) {
             let node: Node = gameManager.createOneCubeNode();
@@ -68,12 +68,10 @@ class CubeSet {
         for (let i = 0; i < 4; i++) {
             for (let j = 0; j < 4; j++) {
                 let result = this.numberList.getValue(j, i);
-                console.log("result", result);
                 if (result === 1) {
                     let hang: number = y - i;
                     let lie: number = x + j;
                     let checkResult = this.gameManager.checkIsNull(hang, lie);
-                    console.log("check result", checkResult);
                     if (checkResult) {
                         isCan = false;
                         break;
@@ -87,8 +85,30 @@ class CubeSet {
         }
         return isCan;
     }
-    toMove(x: number, y: number) {
-
+    toMove(direction: string) {
+        let currentXStep = this.currentXStep;
+        return new Promise(() => {
+            switch (direction) {
+                case 'left':
+                    if (currentXStep > 0) {
+                        currentXStep--;
+                    }
+                    break;
+                case 'right':
+                    let mapSize = this.gameManager.getMapSize();
+                    if (currentXStep < mapSize.width) {
+                        currentXStep++;
+                    }
+                    break;
+                default:
+                    break;
+            }
+            let isCan = this.isCanMove(currentXStep, this.currentYStep);
+            if (isCan) {
+                this.currentXStep = currentXStep;
+                this.referPos();
+            }
+        });
     }
     show(v3: Vec3) {
         let cubeDis = this.gameManager.getCubeDistance();
@@ -109,40 +129,39 @@ class CubeSet {
         return new Promise((resolve, reject) => {
             let nextYStep = this.currentYStep - 1;
             let isCanMove = this.isCanMove(this.currentXStep, nextYStep);
-            let mapSize = this.gameManager.getMapSize();
-
-            console.log("is can move", isCanMove);
             if (isCanMove) {
-                let index = 0;
                 this.currentYStep = nextYStep;
-                for (let i = 0; i < 4; i++) {
-                    for (let j = 0; j < 4; j++) {
-                        let result = this.numberList.getValue(i, j);
-                        if (result === 1) {
-                            let node = this.nodeList[index];
-                            let x = this.currentXStep + i;
-                            let y = this.currentYStep - j;
-                            console.log("x", x);
-                            console.log("y", y);
-                            node.setPosition(v3(
-                                x * this.gameManager.getCubeDistance() - mapSize.width * 0.5 - 2,
-                                y * this.gameManager.getCubeDistance() - mapSize.height * 0.5,
-                                0
-                            ))
-                            index++;
-                        }
-                    }
-                }
+                this.referPos();
             }
             if (resolve) {
                 resolve(isCanMove);
             }
         })
     }
-    getSetData():My2Array<number>{
+    referPos() {
+        let index = 0;
+        let mapSize = this.gameManager.getMapSize();
+        for (let i = 0; i < 4; i++) {
+            for (let j = 0; j < 4; j++) {
+                let result = this.numberList.getValue(i, j);
+                if (result === 1) {
+                    let node = this.nodeList[index];
+                    let x = this.currentXStep + i;
+                    let y = this.currentYStep - j;
+                    node.setPosition(v3(
+                        x * this.gameManager.getCubeDistance() - mapSize.width * 0.5,
+                        y * this.gameManager.getCubeDistance() - mapSize.height * 0.5,
+                        0
+                    ))
+                    index++;
+                }
+            }
+        }
+    }
+    getSetData(): My2Array<number> {
         return this.numberList;
     }
-    getCurrentPos(){
+    getCurrentPos() {
         return {
             lie: this.currentXStep,
             hang: this.currentYStep

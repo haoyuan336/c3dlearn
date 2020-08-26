@@ -1,75 +1,84 @@
-2020-08-14 19:19:04-log: [Package] builder@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] lightmap@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] alipay-mini-game@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] android@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] baidu-mini-game@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] bytedance-mini-game@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] cocos-play@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] huawei-mini-game@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] ios@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] mac@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] native@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] oppo-mini-game@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] vivo-mini-game@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] web-desktop@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] web-mobile@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] wechatgame@1.0.0 enable
-2020-08-14 19:19:05-log: [Package] windows@1.0.0 enable
-2020-08-14 19:19:05-log: [Package] xiaomi-quick-game@1.0.0 enable
-2020-08-14 19:19:01-log: [Package] ui-kit@1.0.0 enable
-2020-08-14 19:19:01-log: [Package] ipc@1.0.0 enable
-2020-08-14 19:19:01-log: [Package] tester@1.0.0 enable
-2020-08-14 19:19:01-log: [Package] preferences@1.0.0 enable
-2020-08-14 19:19:03-log: [Package] engine@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] asset-db@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] console@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] scene@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] packager@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] project-setting@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] about@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] server@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] utils@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] profile@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] assets@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] inspector@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] hierarchy@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] preview@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] animator@1.0.0 enable
-2020-08-14 19:19:04-warn: Port 7456 is occupied
-2020-08-14 19:19:04-log: [Package] builder@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] lightmap@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] alipay-mini-game@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] android@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] baidu-mini-game@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] bytedance-mini-game@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] cocos-play@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] huawei-mini-game@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] ios@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] mac@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] native@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] oppo-mini-game@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] vivo-mini-game@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] web-desktop@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] web-mobile@1.0.0 enable
-2020-08-14 19:19:04-log: [Package] wechatgame@1.0.0 enable
-2020-08-14 19:19:05-log: [Package] windows@1.0.0 enable
-2020-08-14 19:19:05-log: [Package] xiaomi-quick-game@1.0.0 enable
-2020-08-14 19:23:23-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
-2020-08-14 19:24:05-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
-2020-08-14 19:24:06-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
-2020-08-14 19:24:06-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
-2020-08-14 19:24:13-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
-2020-08-14 19:24:14-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
-2020-08-14 19:24:45-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
-2020-08-14 19:24:45-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
-2020-08-14 19:28:38-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
-2020-08-14 19:30:27-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
-2020-08-14 19:31:15-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
-2020-08-14 19:31:31-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
-2020-08-14 19:32:00-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
-2020-08-14 19:33:11-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
-2020-08-14 19:33:37-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
-2020-08-14 19:36:57-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
-2020-08-14 19:37:04-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
-2020-08-14 19:37:27-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
-2020-08-14 19:37:43-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
+2020-08-17 20:00:33-log: [Package] builder@1.0.0 enable
+2020-08-17 20:00:33-log: [Package] lightmap@1.0.0 enable
+2020-08-17 20:00:33-log: [Package] alipay-mini-game@1.0.0 enable
+2020-08-17 20:00:33-log: [Package] android@1.0.0 enable
+2020-08-17 20:00:33-log: [Package] baidu-mini-game@1.0.0 enable
+2020-08-17 20:00:33-log: [Package] bytedance-mini-game@1.0.0 enable
+2020-08-17 20:00:33-log: [Package] cocos-play@1.0.0 enable
+2020-08-17 20:00:33-log: [Package] huawei-mini-game@1.0.0 enable
+2020-08-17 20:00:33-log: [Package] ios@1.0.0 enable
+2020-08-17 20:00:33-log: [Package] mac@1.0.0 enable
+2020-08-17 20:00:33-log: [Package] native@1.0.0 enable
+2020-08-17 20:00:33-log: [Package] oppo-mini-game@1.0.0 enable
+2020-08-17 20:00:33-log: [Package] vivo-mini-game@1.0.0 enable
+2020-08-17 20:00:33-log: [Package] web-desktop@1.0.0 enable
+2020-08-17 20:00:33-log: [Package] web-mobile@1.0.0 enable
+2020-08-17 20:00:33-log: [Package] wechatgame@1.0.0 enable
+2020-08-17 20:00:33-log: [Package] windows@1.0.0 enable
+2020-08-17 20:00:33-log: [Package] xiaomi-quick-game@1.0.0 enable
+2020-08-17 20:00:30-log: [Package] ui-kit@1.0.0 enable
+2020-08-17 20:00:30-log: [Package] ipc@1.0.0 enable
+2020-08-17 20:00:32-log: [Package] asset-db@1.0.0 enable
+2020-08-17 20:00:32-log: [Package] console@1.0.0 enable
+2020-08-17 20:00:32-log: [Package] scene@1.0.0 enable
+2020-08-17 20:00:32-log: [Package] packager@1.0.0 enable
+2020-08-17 20:00:32-log: [Package] project-setting@1.0.0 enable
+2020-08-17 20:00:32-log: [Package] about@1.0.0 enable
+2020-08-17 20:00:32-log: [Package] server@1.0.0 enable
+2020-08-17 20:00:32-log: [Package] utils@1.0.0 enable
+2020-08-17 20:00:32-log: [Package] profile@1.0.0 enable
+2020-08-17 20:00:32-log: [Package] assets@1.0.0 enable
+2020-08-17 20:00:32-log: [Package] inspector@1.0.0 enable
+2020-08-17 20:00:32-log: [Package] hierarchy@1.0.0 enable
+2020-08-17 20:00:32-log: [Package] preview@1.0.0 enable
+2020-08-17 20:00:32-log: [Package] animator@1.0.0 enable
+2020-08-17 20:00:32-warn: Port 7456 is occupied
+2020-08-17 20:00:33-log: [Package] builder@1.0.0 enable
+2020-08-17 20:00:33-log: [Package] lightmap@1.0.0 enable
+2020-08-17 20:00:33-log: [Package] alipay-mini-game@1.0.0 enable
+2020-08-17 20:00:33-log: [Package] android@1.0.0 enable
+2020-08-17 20:00:33-log: [Package] baidu-mini-game@1.0.0 enable
+2020-08-17 20:00:33-log: [Package] bytedance-mini-game@1.0.0 enable
+2020-08-17 20:00:33-log: [Package] cocos-play@1.0.0 enable
+2020-08-17 20:00:33-log: [Package] huawei-mini-game@1.0.0 enable
+2020-08-17 20:00:33-log: [Package] ios@1.0.0 enable
+2020-08-17 20:00:33-log: [Package] mac@1.0.0 enable
+2020-08-17 20:00:33-log: [Package] native@1.0.0 enable
+2020-08-17 20:00:33-log: [Package] oppo-mini-game@1.0.0 enable
+2020-08-17 20:00:33-log: [Package] vivo-mini-game@1.0.0 enable
+2020-08-17 20:00:33-log: [Package] web-desktop@1.0.0 enable
+2020-08-17 20:00:33-log: [Package] web-mobile@1.0.0 enable
+2020-08-17 20:00:33-log: [Package] wechatgame@1.0.0 enable
+2020-08-17 20:00:33-log: [Package] windows@1.0.0 enable
+2020-08-17 20:00:33-log: [Package] xiaomi-quick-game@1.0.0 enable
+2020-08-17 20:00:30-log: [Package] tester@1.0.0 enable
+2020-08-17 20:00:30-log: [Package] preferences@1.0.0 enable
+2020-08-17 20:00:32-log: [Package] engine@1.0.0 enable
+2020-08-18 15:05:49-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
+2020-08-18 15:05:49-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
+2020-08-18 15:06:10-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
+2020-08-18 15:06:44-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
+2020-08-18 15:07:34-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
+2020-08-18 15:08:41-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
+2020-08-18 15:10:13-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
+2020-08-18 15:10:42-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
+2020-08-18 15:11:08-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
+2020-08-18 15:12:42-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
+2020-08-18 15:12:58-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
+2020-08-18 15:13:11-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
+2020-08-18 15:13:25-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
+2020-08-18 15:13:44-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
+2020-08-18 15:14:15-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
+2020-08-18 15:14:59-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
+2020-08-18 15:15:29-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
+2020-08-18 15:15:48-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
+2020-08-18 15:30:58-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
+2020-08-18 15:31:54-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
+2020-08-18 15:32:21-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
+2020-08-18 15:32:48-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
+2020-08-18 15:33:51-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
+2020-08-18 15:34:13-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
+2020-08-18 15:34:55-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
+2020-08-18 15:35:30-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
+2020-08-18 17:14:21-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved
+2020-08-18 17:19:25-info: asset(/Users/chy/workspace/c3dlearn/eluosicube/assets/scenes/scene.scene) saved

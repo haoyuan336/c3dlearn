@@ -18,17 +18,17 @@ export class GameManager extends Component {
     private currentMoveCubeSet: CubeSet = null;
     private myMapData: My2dArray<number> = new My2dArray(this.widthCount, this.hieghtCount, 0);
     private currentMoveTime: number = 0;
+    private gameState: string = "ready";
+    private moveDownSpeed: number = 0.5;
     start() {
         this.drawFrame(v3(((this.widthCount + 2) * -0.5 + 3) * this.cubeDistance, 14 * this.cubeDistance, 0), 6, 6);
         this.drawFrame(v3(0, 0, 0), this.widthCount + 2, this.hieghtCount + 2);
-
+        this.gameState = 'run';
     }
     checkIsNull(x: number, y: number) {
-        console.log("x", x)
         if (y < 0 || y >= this.widthCount) {
             return true;
         }
-        console.log('check null', y);
         if (x >= this.hieghtCount) {
             return false;
         }
@@ -60,10 +60,12 @@ export class GameManager extends Component {
         }
     }
     update(dt: number) {
+        if (this.gameState !== 'run') {
+            return;
+        }
         if (!this.currentShowCubeSet) {
             //如果当前显示的方块不可用，那么创建一个显示的方块
             //随机一个枚举值
-            console.log(CubeGroupType);
             let length: number = Object.keys(CubeGroupType).length / 2;
             // console.log("length", length);
             let randomIndex = Math.round(Math.random() * (length - 1));
@@ -79,20 +81,32 @@ export class GameManager extends Component {
             this.currentMoveCubeSet = this.currentShowCubeSet;
             this.currentShowCubeSet = undefined;
         }
-        if (this.currentMoveCubeSet && this.currentMoveTime > 0.1) {
+        if (this.currentMoveCubeSet && this.currentMoveTime >= this.moveDownSpeed) {
             this.currentMoveTime = 0;
             this.currentMoveCubeSet.moveDown().then((type) => {
                 if (!type) {
-
                     let setData: My2dArray<number> = this.currentMoveCubeSet.getSetData();
+                    let currentPos = this.currentMoveCubeSet.getCurrentPos();
                     for (let i = 0; i < 4; i++) {
                         for (let j = 0; j < 4; j++) {
                             let result = setData.getValue(j, i);
+                            if (result === 1) {
+                                let lie = currentPos.lie + j;
+                                let hang = currentPos.hang - i;
+                                this.myMapData.setValue(lie, hang, 1);
+                            }
                         }
                     }
                     this.currentMoveCubeSet = undefined;
                     this.currentMoveTime = 0;
                     //下落完成 更新地图
+                    // console.log("移动失败");
+                    // this.gameState = 'over';
+                    if (currentPos.hang >= this.hieghtCount) {
+                        this.gameState = 'over';
+                        console.log("游戏失败");
+                    }
+                } else {
 
                 }
             });
@@ -110,5 +124,13 @@ export class GameManager extends Component {
     }
     getCubeDistance(): number {
         return this.cubeDistance;
+    }
+    onButtonClick(event: Event, customData: string) {
+        console.log("on button click", customData);
+        if (customData ==='left' || customData === 'right'){
+            if (this.currentMoveCubeSet){
+                this.currentMoveCubeSet.toMove(customData);
+            }
+        }
     }
 }

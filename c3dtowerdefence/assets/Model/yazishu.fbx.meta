@@ -1,0 +1,123 @@
+{
+  "ver": "1.3.21",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "a9dbf86d-f0e1-4310-a804-8ba149f2cad2",
+  "files": [],
+  "subMetas": {
+    "49b7c": {
+      "importer": "gltf-mesh",
+      "uuid": "a9dbf86d-f0e1-4310-a804-8ba149f2cad2@49b7c",
+      "displayName": "",
+      "id": "49b7c",
+      "name": "柱体.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "9881e": {
+      "importer": "gltf-embeded-image",
+      "uuid": "a9dbf86d-f0e1-4310-a804-8ba149f2cad2@9881e",
+      "displayName": "",
+      "id": "9881e",
+      "name": "colorTexture.png.image",
+      "ver": "1.0.2",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "7d6ab": {
+      "importer": "texture",
+      "uuid": "a9dbf86d-f0e1-4310-a804-8ba149f2cad2@7d6ab",
+      "displayName": "",
+      "id": "7d6ab",
+      "name": "base_color_texture.texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "a9dbf86d-f0e1-4310-a804-8ba149f2cad2@9881e"
+      }
+    },
+    "22e2a": {
+      "importer": "gltf-material",
+      "uuid": "a9dbf86d-f0e1-4310-a804-8ba149f2cad2@22e2a",
+      "displayName": "",
+      "id": "22e2a",
+      "name": "材质.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "c2846": {
+      "importer": "gltf-scene",
+      "uuid": "a9dbf86d-f0e1-4310-a804-8ba149f2cad2@c2846",
+      "displayName": "",
+      "id": "c2846",
+      "name": "yazishu.prefab",
+      "ver": "1.0.11",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "colorTexture.png",
+        "uri": "a9dbf86d-f0e1-4310-a804-8ba149f2cad2@9881e"
+      }
+    ],
+    "redirect": "a9dbf86d-f0e1-4310-a804-8ba149f2cad2@c2846",
+    "assetFinder": {
+      "meshes": [
+        "a9dbf86d-f0e1-4310-a804-8ba149f2cad2@49b7c"
+      ],
+      "skeletons": [],
+      "textures": [
+        "a9dbf86d-f0e1-4310-a804-8ba149f2cad2@7d6ab"
+      ],
+      "materials": [
+        "a9dbf86d-f0e1-4310-a804-8ba149f2cad2@22e2a"
+      ],
+      "scenes": [
+        "a9dbf86d-f0e1-4310-a804-8ba149f2cad2@c2846"
+      ]
+    }
+  }
+}

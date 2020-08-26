@@ -13,7 +13,6 @@ class My2dArray<T>{
         return this.numberList[y][x];
     }
     setValue(x: number, y: number, value: T) {
-        console.log('x,', x, 'y', y, 'v', value);
         this.numberList[x][y] = value;
     }
 }
