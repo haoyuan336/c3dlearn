@@ -1,5 +1,6 @@
-import { _decorator, Component, Node, Prefab, instantiate, Tween } from 'cc';
+import { _decorator, Component, Node, Prefab, instantiate, Tween, JsonAsset } from 'cc';
 import { State } from './util/State'
+import { EnemyBase } from './Enemys/EnemyBase';
 const { ccclass, property } = _decorator;
 
 @ccclass('GameController')
@@ -9,12 +10,19 @@ export class GameController extends Component {
     @property({ type: Node })
     public pathNodeList: Node[] = [];
     @property({ type: Prefab })
-    public enemyPrefab: Prefab = null;
+    public enemyCubePrefab: Prefab = null;
+    @property({type: Node})
+    public enemyHealthBarCtlNode: Node = null;
+
+    @property({type: JsonAsset})
+    public gameConfigJson:JsonAsset = null;
+
 
     private state = new State();
     private currentAddEnemyTime: number = 0;
     private addEnemyDuraction: number = 4;
     private enemyNodeList: Node[] = [];
+    public static enemyBeLockMaxNum: number = 1;
     start() {
         // Your initialization goes here.
         this.state.addState("ready", () => {
@@ -36,16 +44,20 @@ export class GameController extends Component {
         return this.enemyNodeList;
     }
     addOneEnemy() {
-        let enemyNode: Node = instantiate(this.enemyPrefab);
+        let enemyNode: Node = instantiate(this.enemyCubePrefab);
         enemyNode.parent = this.node.parent;
-        enemyNode.emit("init-data", this.pathNodeList);
+        // enemyNode.emit("init-data", this.pathNodeList, this.gameConfigJson);
+        enemyNode.getComponent(EnemyBase).init(this.gameConfigJson, this.pathNodeList);
         enemyNode.on("destroy-self", () => {
             for (let i = 0; i < this.enemyNodeList.length; i++) {
-                if (this.enemyNodeList[i] === enemyNode) {
+                // console.log("this.enemt node list uuid", this.enemyNodeList[i].uuid);
+                // console.log("enemy node uuid", enemyNode.uuid);
+                if (this.enemyNodeList[i].uuid === enemyNode.uuid) {
                     this.enemyNodeList.splice(i, 1);
                 }
             }
         });
         this.enemyNodeList.push(enemyNode);
+        this.enemyHealthBarCtlNode.emit("add-one-enemy", enemyNode);
     }
 }

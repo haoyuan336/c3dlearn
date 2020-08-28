@@ -1,0 +1,123 @@
+{
+  "ver": "1.3.21",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "9eafa6f4-c61a-4bc8-bcbb-8cd9e68b3475",
+  "files": [],
+  "subMetas": {
+    "9ae49": {
+      "importer": "gltf-mesh",
+      "uuid": "9eafa6f4-c61a-4bc8-bcbb-8cd9e68b3475@9ae49",
+      "displayName": "",
+      "id": "9ae49",
+      "name": "棱角球.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "9106e": {
+      "importer": "gltf-embeded-image",
+      "uuid": "9eafa6f4-c61a-4bc8-bcbb-8cd9e68b3475@9106e",
+      "displayName": "",
+      "id": "9106e",
+      "name": "Cat_Texture.png.image",
+      "ver": "1.0.2",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "7d6ab": {
+      "importer": "texture",
+      "uuid": "9eafa6f4-c61a-4bc8-bcbb-8cd9e68b3475@7d6ab",
+      "displayName": "",
+      "id": "7d6ab",
+      "name": "base_color_texture.texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "9eafa6f4-c61a-4bc8-bcbb-8cd9e68b3475@9106e"
+      }
+    },
+    "22e2a": {
+      "importer": "gltf-material",
+      "uuid": "9eafa6f4-c61a-4bc8-bcbb-8cd9e68b3475@22e2a",
+      "displayName": "",
+      "id": "22e2a",
+      "name": "材质.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "0b8a7": {
+      "importer": "gltf-scene",
+      "uuid": "9eafa6f4-c61a-4bc8-bcbb-8cd9e68b3475@0b8a7",
+      "displayName": "",
+      "id": "0b8a7",
+      "name": "Monster_1.prefab",
+      "ver": "1.0.11",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "Cat_Texture.png",
+        "uri": "9eafa6f4-c61a-4bc8-bcbb-8cd9e68b3475@9106e"
+      }
+    ],
+    "redirect": "9eafa6f4-c61a-4bc8-bcbb-8cd9e68b3475@0b8a7",
+    "assetFinder": {
+      "meshes": [
+        "9eafa6f4-c61a-4bc8-bcbb-8cd9e68b3475@9ae49"
+      ],
+      "skeletons": [],
+      "textures": [
+        "9eafa6f4-c61a-4bc8-bcbb-8cd9e68b3475@7d6ab"
+      ],
+      "materials": [
+        "9eafa6f4-c61a-4bc8-bcbb-8cd9e68b3475@22e2a"
+      ],
+      "scenes": [
+        "9eafa6f4-c61a-4bc8-bcbb-8cd9e68b3475@0b8a7"
+      ]
+    }
+  }
+}

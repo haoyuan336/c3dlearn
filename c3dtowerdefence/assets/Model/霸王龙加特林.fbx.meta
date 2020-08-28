@@ -1,0 +1,352 @@
+{
+  "ver": "1.3.21",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "0d682a90-4542-49e8-992d-4f31e9ed6cae",
+  "files": [],
+  "subMetas": {
+    "42349": {
+      "importer": "gltf-mesh",
+      "uuid": "0d682a90-4542-49e8-992d-4f31e9ed6cae@42349",
+      "displayName": "",
+      "id": "42349",
+      "name": "枪管.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 1
+      }
+    },
+    "97775": {
+      "importer": "gltf-animation",
+      "uuid": "0d682a90-4542-49e8-992d-4f31e9ed6cae@97775",
+      "displayName": "",
+      "id": "97775",
+      "name": "rig|Idle.animation",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 1,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 3.2916667461395264
+        },
+        "events": []
+      }
+    },
+    "850ad": {
+      "importer": "gltf-mesh",
+      "uuid": "0d682a90-4542-49e8-992d-4f31e9ed6cae@850ad",
+      "displayName": "",
+      "id": "850ad",
+      "name": "霸王龙.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "f5313": {
+      "importer": "gltf-mesh",
+      "uuid": "0d682a90-4542-49e8-992d-4f31e9ed6cae@f5313",
+      "displayName": "",
+      "id": "f5313",
+      "name": "加特林.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 2
+      }
+    },
+    "73f34": {
+      "importer": "gltf-mesh",
+      "uuid": "0d682a90-4542-49e8-992d-4f31e9ed6cae@73f34",
+      "displayName": "",
+      "id": "73f34",
+      "name": "霸王龙机枪手.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 3
+      }
+    },
+    "50c2d": {
+      "importer": "gltf-animation",
+      "uuid": "0d682a90-4542-49e8-992d-4f31e9ed6cae@50c2d",
+      "displayName": "",
+      "id": "50c2d",
+      "name": "rig|Attack.animation",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 3.2916667461395264
+        },
+        "events": []
+      }
+    },
+    "58e91": {
+      "importer": "gltf-animation",
+      "uuid": "0d682a90-4542-49e8-992d-4f31e9ed6cae@58e91",
+      "displayName": "",
+      "id": "58e91",
+      "name": "rig|Walk.animation",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 2,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 3.2916667461395264
+        },
+        "events": []
+      }
+    },
+    "c098e": {
+      "importer": "gltf-animation",
+      "uuid": "0d682a90-4542-49e8-992d-4f31e9ed6cae@c098e",
+      "displayName": "",
+      "id": "c098e",
+      "name": "rig|WalkLeft.animation",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 3,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 3.2916667461395264
+        },
+        "events": []
+      }
+    },
+    "02b69": {
+      "importer": "gltf-animation",
+      "uuid": "0d682a90-4542-49e8-992d-4f31e9ed6cae@02b69",
+      "displayName": "",
+      "id": "02b69",
+      "name": "rig|WalkRight.animation",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 4,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 3.2916667461395264
+        },
+        "events": []
+      }
+    },
+    "438fe": {
+      "importer": "gltf-skeleton",
+      "uuid": "0d682a90-4542-49e8-992d-4f31e9ed6cae@438fe",
+      "displayName": "",
+      "id": "438fe",
+      "name": "UnnamedSkeleton.skeleton",
+      "ver": "1.0.1",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0,
+        "jointsLength": 218
+      }
+    },
+    "fcca0": {
+      "importer": "gltf-material",
+      "uuid": "0d682a90-4542-49e8-992d-4f31e9ed6cae@fcca0",
+      "displayName": "",
+      "id": "fcca0",
+      "name": "DefaultMaterial-0.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "b74de": {
+      "importer": "gltf-material",
+      "uuid": "0d682a90-4542-49e8-992d-4f31e9ed6cae@b74de",
+      "displayName": "",
+      "id": "b74de",
+      "name": "DefaultMaterial-1.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 1
+      }
+    },
+    "75fa8": {
+      "importer": "gltf-scene",
+      "uuid": "0d682a90-4542-49e8-992d-4f31e9ed6cae@75fa8",
+      "displayName": "",
+      "id": "75fa8",
+      "name": "霸王龙加特林.prefab",
+      "ver": "1.0.11",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "animationImportSettings": [
+      {
+        "name": "rig|Attack",
+        "duration": 3.2916667461395264,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "rig|Attack",
+            "from": 0,
+            "to": 3.2916667461395264,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "rig|Idle",
+        "duration": 3.2916667461395264,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "rig|Idle",
+            "from": 0,
+            "to": 3.2916667461395264,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "rig|Walk",
+        "duration": 3.2916667461395264,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "rig|Walk",
+            "from": 0,
+            "to": 3.2916667461395264,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "rig|WalkLeft",
+        "duration": 3.2916667461395264,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "rig|WalkLeft",
+            "from": 0,
+            "to": 3.2916667461395264,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "rig|WalkRight",
+        "duration": 3.2916667461395264,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "rig|WalkRight",
+            "from": 0,
+            "to": 3.2916667461395264,
+            "wrapMode": 2
+          }
+        ]
+      }
+    ],
+    "redirect": "0d682a90-4542-49e8-992d-4f31e9ed6cae@75fa8",
+    "assetFinder": {
+      "meshes": [
+        "0d682a90-4542-49e8-992d-4f31e9ed6cae@850ad",
+        "0d682a90-4542-49e8-992d-4f31e9ed6cae@42349",
+        "0d682a90-4542-49e8-992d-4f31e9ed6cae@f5313",
+        "0d682a90-4542-49e8-992d-4f31e9ed6cae@73f34"
+      ],
+      "skeletons": [
+        "0d682a90-4542-49e8-992d-4f31e9ed6cae@438fe"
+      ],
+      "textures": [],
+      "materials": [
+        "0d682a90-4542-49e8-992d-4f31e9ed6cae@fcca0",
+        "0d682a90-4542-49e8-992d-4f31e9ed6cae@b74de"
+      ],
+      "scenes": [
+        "0d682a90-4542-49e8-992d-4f31e9ed6cae@75fa8"
+      ]
+    }
+  }
+}

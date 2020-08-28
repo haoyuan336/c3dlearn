@@ -1,7 +1,9 @@
 {
     "resolveMap": {
-        "./util/State": "util/State.ts",
-        "./GameController": "GameController.ts",
-        "./Enemy": "Enemy.ts"
+        "./../util/State": "../util/State.ts",
+        "./../GameController": "../GameController.ts",
+        "./../Enemys/EnemyBase": "../Enemys/EnemyBase.ts",
+        "./../BulletBase": "../BulletBase.ts",
+        "./../BaseObject": "../BaseObject.ts"
     }
 }

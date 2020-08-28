@@ -1,0 +1,13 @@
+{
+    "EnemyName": ["CubeEnemy"],
+    "Tower_1": {
+        "BulletType": "BulletOne"
+    },
+    "CubeEnemy": {
+        "MoveSpeed": 1,
+        "HealthCount": 10
+    },
+    "Bullet_1": {
+        "BaseAttackNum": 1
+    }
+}
