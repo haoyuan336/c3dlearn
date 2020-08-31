@@ -1,13 +1,50 @@
 {
-    "EnemyName": ["CubeEnemy"],
+    "EnemyName": [
+        "Monster_1",
+        "DragonMonster"
+    ],
     "Tower_1": {
-        "BulletType": "BulletOne"
+        "BulletType": "BulletOne",
+        "ShootRate": 2,
+        "AttackRange": 10
     },
-    "CubeEnemy": {
-        "MoveSpeed": 1,
-        "HealthCount": 10
+    "Tower_2": {
+        "BulletType": "BulletOne",
+        "ShootRate": 5,
+        "AttackRange": 10
+
+    },
+    "DragonMonster": {
+        "MoveSpeed": 5,
+        "HealthCount": 20,
+        "BeLockedCount": 3
+    },
+    "Monster_1": {
+        "MoveSpeed": 0.2,
+        "HealthCount": 40,
+        "BeLockedCount": 5
     },
     "Bullet_1": {
         "BaseAttackNum": 1
+    },
+    "Level_0": {
+        "EnemyCount": [
+            10,
+            20,
+            40,
+            100
+        ],
+        "AddEnemyDuraction": [
+            0.1,
+            0.1,
+            0.5,
+            0.2
+        ],
+        "EnemyType": [
+            [0],
+            [1],
+            [0,1],
+            [0,1]
+        ]
     }
 }

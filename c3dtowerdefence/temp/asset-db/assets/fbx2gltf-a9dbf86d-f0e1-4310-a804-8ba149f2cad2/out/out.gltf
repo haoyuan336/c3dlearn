@@ -95,7 +95,7 @@
     ],
     "textures": [
         {
-            "name": "base_color_texture",
+            "name": "emission_color_texture",
             "sampler": 0,
             "source": 0
         }
@@ -110,19 +110,24 @@
                     "isTruePBR": false
                 }
             },
+            "emissiveTexture": {
+                "index": 0,
+                "texCoord": 0
+            },
+            "emissiveFactor": [
+                1.0,
+                1.0,
+                1.0
+            ],
             "pbrMetallicRoughness": {
-                "baseColorTexture": {
-                    "index": 0,
-                    "texCoord": 0
-                },
                 "baseColorFactor": [
-                    1.0,
-                    1.0,
-                    1.0,
+                    0.800000011920929,
+                    0.800000011920929,
+                    0.800000011920929,
                     1.0
                 ],
                 "metallicFactor": 0.400000005960464,
-                "roughnessFactor": 0.272165536880493
+                "roughnessFactor": 0.997312247753143
             }
         }
     ],

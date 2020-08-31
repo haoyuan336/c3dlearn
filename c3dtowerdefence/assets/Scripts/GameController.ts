@@ -1,63 +1,56 @@
-import { _decorator, Component, Node, Prefab, instantiate, Tween, JsonAsset } from 'cc';
+import { _decorator, Component, Node, Prefab, instantiate, Tween, JsonAsset, v3, PhysicsSystem } from 'cc';
 import { State } from './util/State'
 import { EnemyBase } from './Enemys/EnemyBase';
+import { TowerBuildBase } from './TowerBuildBase';
 const { ccclass, property } = _decorator;
 
 @ccclass('GameController')
 export class GameController extends Component {
     //重力加速度
-    public static accY: number = -20;
+    public static accY: number = -100;
     @property({ type: Node })
     public pathNodeList: Node[] = [];
-    @property({ type: Prefab })
-    public enemyCubePrefab: Prefab = null;
-    @property({type: Node})
+
+    @property({ type: Node })
     public enemyHealthBarCtlNode: Node = null;
 
-    @property({type: JsonAsset})
-    public gameConfigJson:JsonAsset = null;
+    @property({ type: JsonAsset })
+    public gameConfigJson: JsonAsset = null;
 
+    @property({ type: Prefab })
+    public towersPrefabList: Node[] = [];
 
     private state = new State();
-    private currentAddEnemyTime: number = 0;
-    private addEnemyDuraction: number = 4;
-    private enemyNodeList: Node[] = [];
+    // private currentAddEnemyTime: number = 0;
+    // private addEnemyDuraction: number = 4;
+    // private enemyNodeList: Node[] = [];
     public static enemyBeLockMaxNum: number = 1;
     start() {
+        PhysicsSystem.instance.enable = true;
         // Your initialization goes here.
         this.state.addState("ready", () => {
             console.log("enter state ", this.state.getState());
         })
         this.state.setState("run");
+
+        this.node.on("build-one-tower", (index, towerBaseNode: Node) => {
+            //建造一座塔
+            if (index < this.towersPrefabList.length) {
+                let node = instantiate(this.towersPrefabList[index]);
+                node.parent = this.node;
+                let pos = v3(towerBaseNode.position.x, 0, towerBaseNode.position.z);
+                node.setPosition(pos);
+                towerBaseNode.getComponent(TowerBuildBase).setTargetTower(node);
+            }
+
+        });
     }
     update(dt: number) {
-        if (this.state.getState() === 'run') {
-            if (this.currentAddEnemyTime > this.addEnemyDuraction) {
-                this.currentAddEnemyTime = 0;
-                this.addOneEnemy();
-            } else {
-                this.currentAddEnemyTime += dt;
-            }
-        }
+        
     }
-    getCurrentEnemyNodeList() {
-        return this.enemyNodeList;
+    getGameConfig():JsonAsset{
+        return this.gameConfigJson;
     }
-    addOneEnemy() {
-        let enemyNode: Node = instantiate(this.enemyCubePrefab);
-        enemyNode.parent = this.node.parent;
-        // enemyNode.emit("init-data", this.pathNodeList, this.gameConfigJson);
-        enemyNode.getComponent(EnemyBase).init(this.gameConfigJson, this.pathNodeList);
-        enemyNode.on("destroy-self", () => {
-            for (let i = 0; i < this.enemyNodeList.length; i++) {
-                // console.log("this.enemt node list uuid", this.enemyNodeList[i].uuid);
-                // console.log("enemy node uuid", enemyNode.uuid);
-                if (this.enemyNodeList[i].uuid === enemyNode.uuid) {
-                    this.enemyNodeList.splice(i, 1);
-                }
-            }
-        });
-        this.enemyNodeList.push(enemyNode);
-        this.enemyHealthBarCtlNode.emit("add-one-enemy", enemyNode);
-    }
+   
+    
 }

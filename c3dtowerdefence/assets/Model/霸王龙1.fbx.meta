@@ -1,0 +1,142 @@
+{
+  "ver": "1.3.21",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "7c4984de-582d-441b-904b-c08f890ec419",
+  "files": [],
+  "subMetas": {
+    "25299": {
+      "importer": "gltf-scene",
+      "uuid": "7c4984de-582d-441b-904b-c08f890ec419@25299",
+      "displayName": "",
+      "id": "25299",
+      "name": "霸王龙1.prefab",
+      "ver": "1.0.11",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "850ad": {
+      "importer": "gltf-mesh",
+      "uuid": "7c4984de-582d-441b-904b-c08f890ec419@850ad",
+      "displayName": "",
+      "id": "850ad",
+      "name": "霸王龙.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "438fe": {
+      "importer": "gltf-skeleton",
+      "uuid": "7c4984de-582d-441b-904b-c08f890ec419@438fe",
+      "displayName": "",
+      "id": "438fe",
+      "name": "UnnamedSkeleton.skeleton",
+      "ver": "1.0.1",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0,
+        "jointsLength": 18
+      }
+    },
+    "9881e": {
+      "importer": "gltf-embeded-image",
+      "uuid": "7c4984de-582d-441b-904b-c08f890ec419@9881e",
+      "displayName": "",
+      "id": "9881e",
+      "name": "colorTexture.png.image",
+      "ver": "1.0.2",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "7d6ab": {
+      "importer": "texture",
+      "uuid": "7c4984de-582d-441b-904b-c08f890ec419@7d6ab",
+      "displayName": "",
+      "id": "7d6ab",
+      "name": "base_color_texture.texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "7c4984de-582d-441b-904b-c08f890ec419@9881e"
+      }
+    },
+    "22e2a": {
+      "importer": "gltf-material",
+      "uuid": "7c4984de-582d-441b-904b-c08f890ec419@22e2a",
+      "displayName": "",
+      "id": "22e2a",
+      "name": "材质.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "colorTexture.png",
+        "uri": "7c4984de-582d-441b-904b-c08f890ec419@9881e"
+      }
+    ],
+    "redirect": "7c4984de-582d-441b-904b-c08f890ec419@25299",
+    "assetFinder": {
+      "meshes": [
+        "7c4984de-582d-441b-904b-c08f890ec419@850ad"
+      ],
+      "skeletons": [
+        "7c4984de-582d-441b-904b-c08f890ec419@438fe"
+      ],
+      "textures": [
+        "7c4984de-582d-441b-904b-c08f890ec419@7d6ab"
+      ],
+      "materials": [
+        "7c4984de-582d-441b-904b-c08f890ec419@22e2a"
+      ],
+      "scenes": [
+        "7c4984de-582d-441b-904b-c08f890ec419@25299"
+      ]
+    }
+  }
+}

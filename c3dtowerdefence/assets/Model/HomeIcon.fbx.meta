@@ -1,0 +1,75 @@
+{
+  "ver": "1.3.21",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "4bb37dd0-1281-4c0c-9d70-a992b3364ee6",
+  "files": [],
+  "subMetas": {
+    "70696": {
+      "importer": "gltf-mesh",
+      "uuid": "4bb37dd0-1281-4c0c-9d70-a992b3364ee6@70696",
+      "displayName": "",
+      "id": "70696",
+      "name": "猴头.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "ea6e2": {
+      "importer": "gltf-material",
+      "uuid": "4bb37dd0-1281-4c0c-9d70-a992b3364ee6@ea6e2",
+      "displayName": "",
+      "id": "ea6e2",
+      "name": "DefaultMaterial.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "adcc6": {
+      "importer": "gltf-scene",
+      "uuid": "4bb37dd0-1281-4c0c-9d70-a992b3364ee6@adcc6",
+      "displayName": "",
+      "id": "adcc6",
+      "name": "HomeIcon.prefab",
+      "ver": "1.0.11",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "4bb37dd0-1281-4c0c-9d70-a992b3364ee6@adcc6",
+    "assetFinder": {
+      "meshes": [
+        "4bb37dd0-1281-4c0c-9d70-a992b3364ee6@70696"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "4bb37dd0-1281-4c0c-9d70-a992b3364ee6@ea6e2"
+      ],
+      "scenes": [
+        "4bb37dd0-1281-4c0c-9d70-a992b3364ee6@adcc6"
+      ]
+    }
+  }
+}

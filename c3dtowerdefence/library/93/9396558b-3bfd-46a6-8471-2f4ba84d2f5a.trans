@@ -4,6 +4,7 @@
         "./../GameController": "../GameController.ts",
         "./../Enemys/EnemyBase": "../Enemys/EnemyBase.ts",
         "./../BulletBase": "../BulletBase.ts",
-        "./../BaseObject": "../BaseObject.ts"
+        "./../BaseObject": "../BaseObject.ts",
+        "../EnemyController": "../EnemyController.ts"
     }
 }

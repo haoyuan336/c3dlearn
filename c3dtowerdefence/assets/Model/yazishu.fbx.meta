@@ -39,12 +39,12 @@
         "gltfIndex": 0
       }
     },
-    "7d6ab": {
+    "9bbd3": {
       "importer": "texture",
-      "uuid": "a9dbf86d-f0e1-4310-a804-8ba149f2cad2@7d6ab",
+      "uuid": "a9dbf86d-f0e1-4310-a804-8ba149f2cad2@9bbd3",
       "displayName": "",
-      "id": "7d6ab",
-      "name": "base_color_texture.texture",
+      "id": "9bbd3",
+      "name": "emission_color_texture.texture",
       "ver": "1.0.19",
       "imported": true,
       "files": [
@@ -110,7 +110,7 @@
       ],
       "skeletons": [],
       "textures": [
-        "a9dbf86d-f0e1-4310-a804-8ba149f2cad2@7d6ab"
+        "a9dbf86d-f0e1-4310-a804-8ba149f2cad2@9bbd3"
       ],
       "materials": [
         "a9dbf86d-f0e1-4310-a804-8ba149f2cad2@22e2a"

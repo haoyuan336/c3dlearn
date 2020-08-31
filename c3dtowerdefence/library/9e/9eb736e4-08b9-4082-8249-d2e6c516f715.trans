@@ -1,0 +1,6 @@
+{
+    "resolveMap": {
+        "./util/State": "util/State.ts",
+        "./Enemys/EnemyBase": "Enemys/EnemyBase.ts"
+    }
+}

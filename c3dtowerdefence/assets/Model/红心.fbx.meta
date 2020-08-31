@@ -1,0 +1,123 @@
+{
+  "ver": "1.3.21",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "72ce1904-c7a5-4b70-a697-3898a9d78efc",
+  "files": [],
+  "subMetas": {
+    "e10e4": {
+      "importer": "gltf-mesh",
+      "uuid": "72ce1904-c7a5-4b70-a697-3898a9d78efc@e10e4",
+      "displayName": "",
+      "id": "e10e4",
+      "name": "立方体.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "9881e": {
+      "importer": "gltf-embeded-image",
+      "uuid": "72ce1904-c7a5-4b70-a697-3898a9d78efc@9881e",
+      "displayName": "",
+      "id": "9881e",
+      "name": "colorTexture.png.image",
+      "ver": "1.0.2",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "7d6ab": {
+      "importer": "texture",
+      "uuid": "72ce1904-c7a5-4b70-a697-3898a9d78efc@7d6ab",
+      "displayName": "",
+      "id": "7d6ab",
+      "name": "base_color_texture.texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "72ce1904-c7a5-4b70-a697-3898a9d78efc@9881e"
+      }
+    },
+    "22e2a": {
+      "importer": "gltf-material",
+      "uuid": "72ce1904-c7a5-4b70-a697-3898a9d78efc@22e2a",
+      "displayName": "",
+      "id": "22e2a",
+      "name": "材质.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "eba42": {
+      "importer": "gltf-scene",
+      "uuid": "72ce1904-c7a5-4b70-a697-3898a9d78efc@eba42",
+      "displayName": "",
+      "id": "eba42",
+      "name": "红心.prefab",
+      "ver": "1.0.11",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "colorTexture.png",
+        "uri": "72ce1904-c7a5-4b70-a697-3898a9d78efc@9881e"
+      }
+    ],
+    "redirect": "72ce1904-c7a5-4b70-a697-3898a9d78efc@eba42",
+    "assetFinder": {
+      "meshes": [
+        "72ce1904-c7a5-4b70-a697-3898a9d78efc@e10e4"
+      ],
+      "skeletons": [],
+      "textures": [
+        "72ce1904-c7a5-4b70-a697-3898a9d78efc@7d6ab"
+      ],
+      "materials": [
+        "72ce1904-c7a5-4b70-a697-3898a9d78efc@22e2a"
+      ],
+      "scenes": [
+        "72ce1904-c7a5-4b70-a697-3898a9d78efc@eba42"
+      ]
+    }
+  }
+}

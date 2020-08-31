@@ -1,7 +1,7 @@
-import { _decorator, Component, Node, v3, v2, Vec2, math, ColliderComponent, SphereColliderComponent, TriggerEventType, ITriggerEvent } from 'cc';
+import { _decorator, Component, Node, v3, v2, Vec2, math, ColliderComponent, SphereColliderComponent, TriggerEventType, ITriggerEvent, isValid } from 'cc';
 import { State } from './util/State';
 import { GameController } from './GameController';
-import {BaseObject} from './BaseObject'
+import { BaseObject } from './BaseObject'
 const { ccclass, property } = _decorator;
 
 @ccclass('BulletBase')
@@ -58,9 +58,9 @@ export class BulletBase extends BaseObject {
     onTriggerEnter(event: ITriggerEvent) {
         // console.log("onTriggerEnter", event);
         // this.state.setState("sleep");
-        
+
         let otherCollider: ColliderComponent = event.otherCollider;
-        if (otherCollider){
+        if (otherCollider) {
             otherCollider.node.emit("be-attacked", this.baseAttackNum);
         }
     }

@@ -1,14 +1,14 @@
-import { _decorator, Component, Node, Vec2, Vec3, Quat, v3, v2, Prefab, instantiate, JsonAsset } from 'cc';
+import { _decorator, Component, Node, Vec2, Vec3, Quat, v3, v2, Prefab, instantiate, JsonAsset, CameraComponent, find, ColliderComponent, SkeletalAnimationComponent, isValid } from 'cc';
 import { State } from './../util/State';
 import { GameController } from './../GameController'
 import { EnemyBase } from './../Enemys/EnemyBase'
 import { BulletBase } from './../BulletBase';
-import {BaseObject} from './../BaseObject'
+import { BaseObject } from './../BaseObject'
+import { EnemyController } from '../EnemyController';
 const { ccclass, property } = _decorator;
 
 @ccclass('TowerBase')
 export class TowerBase extends BaseObject {
-    @property({ type: Node })
     public gameController: Node = null;
     private state: State = new State();
     private currentTargetEnemy: Node = null;
@@ -22,19 +22,49 @@ export class TowerBase extends BaseObject {
 
     private bulletMoveTime: number = null;
     private currentShootDiraction: Vec2 = v2(0, 0);
+    // @property({ type: Node })
+    // public rootNode: Node = null;
 
-    @property({type: JsonAsset})
-    public gameConfig: JsonAsset = null;
-    init(){
+    private attackRate: number = null;
+
+    private gameConfig: Object = null;
+    init() {
 
     }
     start() {
         this.state.setState("run");
         let moveDistance = this.bulletStartPos.worldPosition.y - 0.5; //子弹的发射高度 - 敌人的 高度
         let accY = GameController.accY;
-        
+        this.gameController = find("GameController");
 
-        // this.bulletMoveTime = Math.sqrt()
+        this.gameConfig = this.gameController.getComponent(GameController).getGameConfig().json;
+
+        let attackRate = this.gameConfig[this.objectType].ShootRate;
+        this.attackRate = attackRate;
+        this.shootDuraction = 1 / attackRate;
+
+        this.gameController.on("touch-screen-to-3d", (collider: ColliderComponent) => {
+            if (collider.node.uuid === this.node.uuid) {
+                this.gameController.emit("touch-tower", this.node);
+            }
+        });
+        // this.rootNode.getComponent(SkeletalAnimationComponent).getAnimationState("骨架|骨架Action").speed = attackRate;
+        // let length = this.rootNode.getComponent(SkeletalAnimationComponent).getAnimationState("骨架|骨架Action").length * 1 / attackRate;
+        // console.log("length = ", length);
+        // let count = 0;
+        // this.schedule(() => {
+        //     if (count === 1) {
+        //         this.shootOneBullet();
+        //     }
+        //     if (count >= 1) {
+        //         count = 0;
+        //     } else {
+        //         count++;
+        //     }
+        // }, length / 2);
+
+
+
     }
     update(deltaTime: number) {
         //     // Your update function goes here.
@@ -44,7 +74,7 @@ export class TowerBase extends BaseObject {
             // this.node.rotate(new Quat(0,0.001,0,0));
             // this.node.eulerAngles = new Vec3(0,90,0);
             if (this.currentTargetEnemy === null) {
-                let enemyNodeList = this.gameController.getComponent(GameController).getCurrentEnemyNodeList();
+                let enemyNodeList = this.gameController.getComponent(EnemyController).getCurrentEnemyNodeList();
                 let minLength = 10000;
                 for (let i = 0; i < enemyNodeList.length; i++) {
                     let enemyNode = enemyNodeList[i];
@@ -86,17 +116,66 @@ export class TowerBase extends BaseObject {
         }
     }
     shootOneBullet() {
+
+        let skeleteAnim = this.rootNode.getComponent(SkeletalAnimationComponent);
+        if (skeleteAnim) {
+            let defaultAnimName = skeleteAnim.defaultClip.name;
+            let animState = skeleteAnim.getState(defaultAnimName);
+            let length = animState.length * 1 / this.attackRate;
+            skeleteAnim.play(defaultAnimName);
+            animState.repeatCount = 1;
+            this.scheduleOnce(() => {
+                if (isValid(this.currentTargetEnemy)) {
+                    let bulletNode = instantiate(this.bulletPrefab);
+                    bulletNode.parent = this.node.parent;
+                    bulletNode.active = false;
+                    bulletNode.setPosition(this.bulletStartPos.worldPosition);
+                    bulletNode.active = true;
+                    bulletNode.getComponent(BulletBase).init({
+                        direction: this.currentShootDiraction,
+                        targetEnemy: this.currentTargetEnemy,
+                        gameConfigJson: this.gameConfig
+                    })
+                }
+            }, length * 0.45)
+        }
+
+        // this.rootNode.getComponent(SkeletalAnimationComponent).getState("骨架|骨架Action.001").speed = this.attackRate;
+        // this.rootNode.getComponent(SkeletalAnimationComponent).getState("骨架|骨架Action.001").repeatCount = 1;
+        // let length = this.rootNode.getComponent(SkeletalAnimationComponent).getState("骨架|骨架Action.001").length * 1 / this.attackRate;
+        // this.rootNode.getComponent(SkeletalAnimationComponent).play("骨架|骨架Action.001");
+        // this.scheduleOnce(() => {
+        //     if (isValid(this.currentTargetEnemy)) {
+        //         let bulletNode = instantiate(this.bulletPrefab);
+        //         bulletNode.parent = this.node.parent;
+        //         bulletNode.active = false;
+        //         bulletNode.setPosition(this.bulletStartPos.worldPosition);
+        //         bulletNode.active = true;
+        //         bulletNode.getComponent(BulletBase).init({
+        //             direction: this.currentShootDiraction,
+        //             targetEnemy: this.currentTargetEnemy,
+        //             gameConfigJson: this.gameConfig
+        //         })
+        //     }
+
+        // }, length * 0.45)
+
+
+
+
+
+
         // console.log("发射一枚子弹");
-        let bulletNode = instantiate(this.bulletPrefab);
-        bulletNode.parent = this.node.parent;
-        bulletNode.active = false;
-        bulletNode.setPosition(this.bulletStartPos.worldPosition);
-        bulletNode.active = true;
-        bulletNode.getComponent(BulletBase).init({
-            direction: this.currentShootDiraction,
-            targetEnemy: this.currentTargetEnemy,
-            gameConfigJson: this.gameConfig.json
-        })
+        // let bulletNode = instantiate(this.bulletPrefab);
+        // bulletNode.parent = this.node.parent;
+        // bulletNode.active = false;
+        // bulletNode.setPosition(this.bulletStartPos.worldPosition);
+        // bulletNode.active = true;
+        // bulletNode.getComponent(BulletBase).init({
+        //     direction: this.currentShootDiraction,
+        //     targetEnemy: this.currentTargetEnemy,
+        //     gameConfigJson: this.gameConfig
+        // })
         // bulletNode.emit("init-data", {
         //     direction: this.currentShootDiraction,
         //     targetEnemy: this.currentTargetEnemy

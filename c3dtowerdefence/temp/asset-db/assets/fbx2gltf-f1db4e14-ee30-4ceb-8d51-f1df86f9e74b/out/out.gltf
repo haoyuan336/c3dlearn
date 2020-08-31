@@ -6,34 +6,61 @@
     "scene": 0,
     "buffers": [
         {
-            "byteLength": 2824,
+            "byteLength": 32188,
             "uri": "buffer.bin"
         }
     ],
     "bufferViews": [
         {
             "buffer": 0,
-            "byteLength": 264,
-            "byteOffset": 0,
+            "byteLength": 48,
+            "byteOffset": 0
+        },
+        {
+            "buffer": 0,
+            "byteLength": 192,
+            "byteOffset": 48
+        },
+        {
+            "buffer": 0,
+            "byteLength": 2202,
+            "byteOffset": 240,
             "target": 34963
         },
         {
             "buffer": 0,
-            "byteLength": 960,
-            "byteOffset": 264,
+            "byteLength": 6360,
+            "byteOffset": 2444,
             "target": 34962
         },
         {
             "buffer": 0,
-            "byteLength": 960,
-            "byteOffset": 1224,
+            "byteLength": 6360,
+            "byteOffset": 8804,
             "target": 34962
         },
         {
             "buffer": 0,
-            "byteLength": 640,
-            "byteOffset": 2184,
+            "byteLength": 4240,
+            "byteOffset": 15164,
             "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 4240,
+            "byteOffset": 19404,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 8480,
+            "byteOffset": 23644,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 64,
+            "byteOffset": 32124
         }
     ],
     "scenes": [
@@ -46,41 +73,82 @@
     ],
     "accessors": [
         {
-            "componentType": 5123,
-            "type": "SCALAR",
-            "count": 132,
-            "bufferView": 0,
-            "byteOffset": 0
-        },
-        {
             "componentType": 5126,
-            "type": "VEC3",
-            "count": 80,
-            "bufferView": 1,
+            "type": "SCALAR",
+            "count": 12,
+            "bufferView": 0,
             "byteOffset": 0,
             "min": [
-                -0.00999999977648258,
-                -0.00999999977648258,
-                -0.00999999977648258
+                0.0
             ],
             "max": [
-                0.00999999977648258,
-                0.0161837004125118,
-                0.0229402910917997
+                0.458333343267441
             ]
         },
         {
             "componentType": 5126,
-            "type": "VEC3",
-            "count": 80,
+            "type": "VEC4",
+            "count": 12,
+            "bufferView": 1,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5123,
+            "type": "SCALAR",
+            "count": 1101,
             "bufferView": 2,
             "byteOffset": 0
         },
         {
             "componentType": 5126,
-            "type": "VEC2",
-            "count": 80,
+            "type": "VEC3",
+            "count": 530,
             "bufferView": 3,
+            "byteOffset": 0,
+            "min": [
+                -0.0305663980543613,
+                -0.0311572849750519,
+                -0.000191955565242097
+            ],
+            "max": [
+                0.0332230664789677,
+                0.0311572849750519,
+                0.0565701611340046
+            ]
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC3",
+            "count": 530,
+            "bufferView": 4,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC2",
+            "count": 530,
+            "bufferView": 5,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5123,
+            "type": "VEC4",
+            "count": 530,
+            "bufferView": 6,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 530,
+            "bufferView": 7,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "MAT4",
+            "count": 1,
+            "bufferView": 8,
             "byteOffset": 0
         }
     ],
@@ -89,7 +157,7 @@
     ],
     "materials": [
         {
-            "name": "Material",
+            "name": "材质",
             "alphaMode": "OPAQUE",
             "extras": {
                 "fromFBX": {
@@ -111,17 +179,49 @@
     ],
     "meshes": [
         {
-            "name": "Cube",
+            "name": "柱体",
             "primitives": [
                 {
                     "material": 0,
                     "mode": 4,
                     "attributes": {
-                        "NORMAL": 2,
-                        "POSITION": 1,
-                        "TEXCOORD_0": 3
+                        "JOINTS_0": 6,
+                        "NORMAL": 4,
+                        "POSITION": 3,
+                        "TEXCOORD_0": 5,
+                        "WEIGHTS_0": 7
                     },
-                    "indices": 0
+                    "indices": 2
+                }
+            ]
+        }
+    ],
+    "skins": [
+        {
+            "joints": [
+                3
+            ],
+            "inverseBindMatrices": 8,
+            "skeleton": 3
+        }
+    ],
+    "animations": [
+        {
+            "name": "骨架|骨架Action.001",
+            "channels": [
+                {
+                    "sampler": 0,
+                    "target": {
+                        "node": 3,
+                        "path": "rotation"
+                    }
+                }
+            ],
+            "samplers": [
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 1
                 }
             ]
         }
@@ -146,11 +246,33 @@
                 1.0
             ],
             "children": [
-                1
+                1,
+                2
             ]
         },
         {
-            "name": "Cube",
+            "name": "柱体",
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                -0.500000059604645,
+                -0.499999910593033,
+                -0.5,
+                0.5
+            ],
+            "scale": [
+                100.0,
+                100.0,
+                100.0
+            ],
+            "mesh": 0,
+            "skin": 0
+        },
+        {
+            "name": "骨架",
             "translation": [
                 0.0,
                 0.0,
@@ -167,7 +289,50 @@
                 100.0,
                 100.0
             ],
-            "mesh": 0
+            "children": [
+                3
+            ]
+        },
+        {
+            "name": "Bone",
+            "translation": [
+                0.000136003262014128,
+                -0.0178165584802628,
+                0.0102003179490566
+            ],
+            "rotation": [
+                0.332602262496948,
+                -0.00256940722465515,
+                0.0013459101319313,
+                0.943062722682953
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                4
+            ]
+        },
+        {
+            "name": "Bone_end",
+            "translation": [
+                -6.93889374881086e-20,
+                0.0480273179709911,
+                -4.44089199923895e-18
+            ],
+            "rotation": [
+                1.61630473238065e-37,
+                5.96311194867027e-19,
+                -2.71050543121376e-19,
+                1.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
         }
     ]
 }

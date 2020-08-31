@@ -9,7 +9,7 @@
   "_techIdx": 0,
   "_defines": [
     {
-      "USE_ALBEDO_MAP": true
+      "USE_EMISSIVE_MAP": true
     }
   ],
   "_states": [
@@ -25,17 +25,31 @@
   ],
   "_props": [
     {
-      "mainTexture": {
-        "__uuid__": "a9dbf86d-f0e1-4310-a804-8ba149f2cad2@7d6ab"
-      },
       "albedoScale": {
         "__type__": "cc.Vec3",
-        "x": 1,
-        "y": 1,
-        "z": 1
+        "x": 0.800000011920929,
+        "y": 0.800000011920929,
+        "z": 0.800000011920929
       },
       "metallic": 0.400000005960464,
-      "roughness": 0.272165536880493
+      "roughness": 0.997312247753143,
+      "emissiveMap": {
+        "__uuid__": "a9dbf86d-f0e1-4310-a804-8ba149f2cad2@9bbd3"
+      },
+      "emissive": {
+        "__type__": "cc.Vec4",
+        "x": 1,
+        "y": 1,
+        "z": 1,
+        "w": 1
+      },
+      "emissiveScale": {
+        "__type__": "cc.Vec4",
+        "x": 1,
+        "y": 1,
+        "z": 1,
+        "w": 1
+      }
     }
   ]
 }
