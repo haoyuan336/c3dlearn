@@ -22,12 +22,12 @@
         "gltfIndex": 0
       }
     },
-    "9106e": {
+    "48b02": {
       "importer": "gltf-embeded-image",
-      "uuid": "9eafa6f4-c61a-4bc8-bcbb-8cd9e68b3475@9106e",
+      "uuid": "9eafa6f4-c61a-4bc8-bcbb-8cd9e68b3475@48b02",
       "displayName": "",
-      "id": "9106e",
-      "name": "Cat_Texture.png.image",
+      "id": "48b02",
+      "name": "base_color_texture.image",
       "ver": "1.0.2",
       "imported": true,
       "files": [
@@ -60,7 +60,7 @@
         "premultiplyAlpha": false,
         "anisotropy": 1,
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "9eafa6f4-c61a-4bc8-bcbb-8cd9e68b3475@9106e"
+        "imageUuidOrDatabaseUri": "9eafa6f4-c61a-4bc8-bcbb-8cd9e68b3475@48b02"
       }
     },
     "22e2a": {
@@ -99,8 +99,8 @@
   "userData": {
     "imageMetas": [
       {
-        "name": "Cat_Texture.png",
-        "uri": "9eafa6f4-c61a-4bc8-bcbb-8cd9e68b3475@9106e"
+        "name": "base_color_texture",
+        "uri": "9eafa6f4-c61a-4bc8-bcbb-8cd9e68b3475@48b02"
       }
     ],
     "redirect": "9eafa6f4-c61a-4bc8-bcbb-8cd9e68b3475@0b8a7",
