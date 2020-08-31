@@ -78,7 +78,7 @@ export class TowerBase extends BaseObject {
                 let minLength = 10000;
                 for (let i = 0; i < enemyNodeList.length; i++) {
                     let enemyNode = enemyNodeList[i];
-                    if (enemyNode.getComponent(EnemyBase).getIsCanLock() &&
+                    if (isValid(enemyNode) && enemyNode.getComponent(EnemyBase).getIsCanLock() &&
                         !enemyNode.getComponent(EnemyBase).getIsDead()) {
                         let length = new Vec3(enemyNode.position).subtract(this.node.position).length()
                         if (length < minLength) {

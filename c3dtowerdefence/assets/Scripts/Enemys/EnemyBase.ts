@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, CCInteger, v3, Vec3, tween, path, Tween, CameraComponent, Vec2, v2, JsonAsset, game, isValid, ProgressBarComponent, RigidBodyComponent, SkeletalAnimationComponent } from 'cc';
+import { _decorator, Component, Node, CCInteger, v3, Vec3, tween, path, Tween, CameraComponent, Vec2, v2, JsonAsset, game, isValid, ProgressBarComponent, RigidBodyComponent, SkeletalAnimationComponent, ParticleSystemComponent } from 'cc';
 import { State } from './../util/State'
 import { GameController } from './../GameController';
 // import { Enemy } from './Enemy';
@@ -19,7 +19,8 @@ export class EnemyBase extends BaseObject {
     public currentHealthCount: number = 0;
     private endPos: Vec3 = null;
     private startPos: Vec3 = null;
-
+    @property({ type: Node })
+    public deadParticleNode: Node = null;
     public init(gameConfig: Object, startPos: Vec3, endPos: Vec3) {
         // console.log("enemy base init")
         this.gameConfigJson = gameConfig;
@@ -41,7 +42,7 @@ export class EnemyBase extends BaseObject {
             this.state.setState("run");
             let skeleteAnim = this.rootNode.getComponent(SkeletalAnimationComponent)
             if (skeleteAnim) {
-                if (skeleteAnim.defaultClip){
+                if (skeleteAnim.defaultClip) {
                     let defaultClip = skeleteAnim.defaultClip.name;
                     let animState = skeleteAnim.getState(defaultClip);
                     let length = animState.length;
@@ -60,10 +61,19 @@ export class EnemyBase extends BaseObject {
         this.state.addState("to-dead", () => {
             // this.healthBar.destroy();
             let tw = new Tween(this.node);
-            tw.to(0.2, { scale: v3(0, 0, 0) });
+            tw.to(0.2, { scale: v3(2, 2, 2) });
             tw.call(() => {
-                this.state.setState("over");
-                this.node.emit("destroy-self");
+                this.rootNode.active = false;
+                if (this.deadParticleNode){
+                    this.deadParticleNode.active = true;
+                    this.deadParticleNode.getComponent(ParticleSystemComponent).play();
+                    this.state.setState("over");
+                    this.node.emit("destroy-self");
+                }
+               
+            })
+            .delay(0.6)
+            .call(()=>{
                 this.node.destroy();
             })
             tw.start();

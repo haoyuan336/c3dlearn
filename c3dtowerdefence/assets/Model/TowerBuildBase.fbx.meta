@@ -2,15 +2,15 @@
   "ver": "1.3.21",
   "importer": "fbx",
   "imported": true,
-  "uuid": "9eafa6f4-c61a-4bc8-bcbb-8cd9e68b3475",
+  "uuid": "8a94bff8-a35d-405f-b4a1-f06d0b9218a3",
   "files": [],
   "subMetas": {
-    "9ae49": {
+    "49b7c": {
       "importer": "gltf-mesh",
-      "uuid": "9eafa6f4-c61a-4bc8-bcbb-8cd9e68b3475@9ae49",
+      "uuid": "8a94bff8-a35d-405f-b4a1-f06d0b9218a3@49b7c",
       "displayName": "",
-      "id": "9ae49",
-      "name": "棱角球.mesh",
+      "id": "49b7c",
+      "name": "柱体.mesh",
       "ver": "1.1.0",
       "imported": true,
       "files": [
@@ -22,12 +22,12 @@
         "gltfIndex": 0
       }
     },
-    "9106e": {
+    "9881e": {
       "importer": "gltf-embeded-image",
-      "uuid": "9eafa6f4-c61a-4bc8-bcbb-8cd9e68b3475@9106e",
+      "uuid": "8a94bff8-a35d-405f-b4a1-f06d0b9218a3@9881e",
       "displayName": "",
-      "id": "9106e",
-      "name": "Cat_Texture.png.image",
+      "id": "9881e",
+      "name": "colorTexture.png.image",
       "ver": "1.0.2",
       "imported": true,
       "files": [
@@ -41,7 +41,7 @@
     },
     "7d6ab": {
       "importer": "texture",
-      "uuid": "9eafa6f4-c61a-4bc8-bcbb-8cd9e68b3475@7d6ab",
+      "uuid": "8a94bff8-a35d-405f-b4a1-f06d0b9218a3@7d6ab",
       "displayName": "",
       "id": "7d6ab",
       "name": "base_color_texture.texture",
@@ -60,12 +60,12 @@
         "premultiplyAlpha": false,
         "anisotropy": 1,
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "9eafa6f4-c61a-4bc8-bcbb-8cd9e68b3475@9106e"
+        "imageUuidOrDatabaseUri": "8a94bff8-a35d-405f-b4a1-f06d0b9218a3@9881e"
       }
     },
     "22e2a": {
       "importer": "gltf-material",
-      "uuid": "9eafa6f4-c61a-4bc8-bcbb-8cd9e68b3475@22e2a",
+      "uuid": "8a94bff8-a35d-405f-b4a1-f06d0b9218a3@22e2a",
       "displayName": "",
       "id": "22e2a",
       "name": "材质.material",
@@ -79,12 +79,12 @@
         "gltfIndex": 0
       }
     },
-    "0b8a7": {
+    "c5d69": {
       "importer": "gltf-scene",
-      "uuid": "9eafa6f4-c61a-4bc8-bcbb-8cd9e68b3475@0b8a7",
+      "uuid": "8a94bff8-a35d-405f-b4a1-f06d0b9218a3@c5d69",
       "displayName": "",
-      "id": "0b8a7",
-      "name": "Monster_1.prefab",
+      "id": "c5d69",
+      "name": "TowerBuildBase.prefab",
       "ver": "1.0.11",
       "imported": true,
       "files": [
@@ -99,24 +99,24 @@
   "userData": {
     "imageMetas": [
       {
-        "name": "Cat_Texture.png",
-        "uri": "9eafa6f4-c61a-4bc8-bcbb-8cd9e68b3475@9106e"
+        "name": "colorTexture.png",
+        "uri": "8a94bff8-a35d-405f-b4a1-f06d0b9218a3@9881e"
       }
     ],
-    "redirect": "9eafa6f4-c61a-4bc8-bcbb-8cd9e68b3475@0b8a7",
+    "redirect": "8a94bff8-a35d-405f-b4a1-f06d0b9218a3@c5d69",
     "assetFinder": {
       "meshes": [
-        "9eafa6f4-c61a-4bc8-bcbb-8cd9e68b3475@9ae49"
+        "8a94bff8-a35d-405f-b4a1-f06d0b9218a3@49b7c"
       ],
       "skeletons": [],
       "textures": [
-        "9eafa6f4-c61a-4bc8-bcbb-8cd9e68b3475@7d6ab"
+        "8a94bff8-a35d-405f-b4a1-f06d0b9218a3@7d6ab"
       ],
       "materials": [
-        "9eafa6f4-c61a-4bc8-bcbb-8cd9e68b3475@22e2a"
+        "8a94bff8-a35d-405f-b4a1-f06d0b9218a3@22e2a"
       ],
       "scenes": [
-        "9eafa6f4-c61a-4bc8-bcbb-8cd9e68b3475@0b8a7"
+        "8a94bff8-a35d-405f-b4a1-f06d0b9218a3@c5d69"
       ]
     }
   }

@@ -1,1 +1,1 @@
-/// <reference path="/Applications/CocosCreator/Creator3D/1.1.2/CocosCreator3D.app/Contents/Resources/resources/3d/engine/bin/.declarations/cc.d.ts"/>
+/// <reference path="D:\CocosDashboard_1.0.4\resources\.editors\Creator3D\1.1.2\resources\resources\3d\engine\bin\.declarations\cc.d.ts"/>
