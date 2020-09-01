@@ -5,46 +5,66 @@
     ],
     "Tower_1": {
         "BulletType": "BulletOne",
-        "ShootRate": 2,
+        "ShootRate": 1,
         "AttackRange": 10
     },
     "Tower_2": {
         "BulletType": "BulletOne",
-        "ShootRate": 5,
+        "ShootRate": 3,
         "AttackRange": 10
-
     },
     "DragonMonster": {
         "MoveSpeed": 1,
-        "HealthCount": 1,
-        "BeLockedCount": 3
+        "HealthCount": 2,
+        "BeLockedCount": 3,
+        "BaseGasNum": 5
     },
     "Monster_1": {
         "MoveSpeed": 0.2,
         "HealthCount": 2,
-        "BeLockedCount": 5
+        "BeLockedCount": 5,
+        "BaseGasNum": 5
     },
     "Bullet_1": {
-        "BaseAttackNum": 1
+        "MoveSpeed": 15,
+        "BaseAttackNum": 1,
+        "BaseGasNum": 0.2,
+        "isCollisionGround": true
+    },
+    "Bullet_2": {
+        "MoveSpeed": 30,
+        "BaseAttackNum": 2,
+        "BaseGasNum": 0,
+        "isCollisionGround": false
     },
     "Level_0": {
+        "ActivedTower": [0,1],
         "EnemyCount": [
-            10,
-            20,
-            40,
-            100
+            1,
+            2,
+            4,
+            1000
+
         ],
         "AddEnemyDuraction": [
             1,
             1,
             1,
-            1
+            0.2
         ],
         "EnemyType": [
-            [0],
-            [1],
-            [0,1],
-            [0,1]
+            [
+                0
+            ],
+            [
+                1
+            ],
+            [
+                0
+            ],
+            [
+                0
+            ]
         ]
     }
 }

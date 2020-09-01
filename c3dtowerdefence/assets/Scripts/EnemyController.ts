@@ -46,9 +46,12 @@ export class EnemyController extends Component {
             this.referCurrentLevelData();
            
         })
-        this.node.on("player-click-game", () => {
-            this.state.setState("enter-next-wave");
-        });
+        // this.node.on("player-click-game", () => {
+        //     this.state.setState("enter-next-wave");
+        // });
+    }
+    startGame(){
+        this.state.setState("enter-next-wave");
     }
     referCurrentLevelData() {
         if (this.currentWaveIndex == this.waveData['EnemyType'].length) {

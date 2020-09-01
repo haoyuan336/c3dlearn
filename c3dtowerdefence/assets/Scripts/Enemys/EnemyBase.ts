@@ -9,7 +9,7 @@ export class EnemyBase extends BaseObject {
     public pathList: Node[] = [];
     public state: State = new State();
     public currentPathIndex: number = 0;
-    public moveSpeed: number = 10;
+    // public moveSpeed: number = 10;
     public beLockedMaxNum: number = GameController.enemyBeLockMaxNum;
     public currentbeLockedCount = 0;
     public cameraNode: CameraComponent = null;
@@ -19,12 +19,13 @@ export class EnemyBase extends BaseObject {
     public currentHealthCount: number = 0;
     private endPos: Vec3 = null;
     private startPos: Vec3 = null;
-    @property({ type: Node })
-    public deadParticleNode: Node = null;
+    // @property({ type: Node })
+    // public deadParticleNode: Node = null;
     public init(gameConfig: Object, startPos: Vec3, endPos: Vec3) {
         // console.log("enemy base init")
+        super.init(gameConfig);
         this.gameConfigJson = gameConfig;
-        this.moveSpeed = this.gameConfigJson[this.objectType].MoveSpeed;
+        // this.moveSpeed = this.gameConfigJson[this.objectType].MoveSpeed;
         this.healthCount = this.gameConfigJson[this.objectType].HealthCount;
         this.beLockedMaxNum = this.gameConfigJson[this.objectType].BeLockedCount;
         this.currentHealthCount = this.healthCount;
@@ -59,27 +60,30 @@ export class EnemyBase extends BaseObject {
 
         });
         this.state.addState("to-dead", () => {
-            // this.healthBar.destroy();
-            let tw = new Tween(this.node);
-            tw.to(0.2, { scale: v3(2, 2, 2) });
-            tw.call(() => {
-                this.rootNode.active = false;
-                if (this.deadParticleNode){
-                    this.deadParticleNode.active = true;
-                    this.deadParticleNode.getComponent(ParticleSystemComponent).play();
-                    this.state.setState("over");
-                    this.node.emit("destroy-self");
-                }
-               
-            })
-            .delay(0.6)
-            .call(()=>{
-                this.node.destroy();
-            })
-            tw.start();
             if (isValid(this.healthBar)) {
                 this.healthBar.destroy();
             }
+            // this.healthBar.destroy();
+            let tw = new Tween(this.node);
+            tw.by(0.2, { scale: v3(1, 1, 1) });
+            tw.call(() => {
+                this.rootNode.active = false;
+                // if (this.deadParticleNode){
+                //     this.deadParticleNode.active = true;
+                //     this.deadParticleNode.getComponent(ParticleSystemComponent).play();
+                //     this.state.setState("over");
+                //     this.node.emit("destroy-self");
+                // }
+                this.state.setState("over");
+                this.node.emit("destroy-self");
+
+            })
+                .delay(0.6)
+                .call(() => {
+                    this.node.destroy();
+                })
+            tw.start();
+            
         });
         this.state.addState("run", () => {
             // console.log("start move");
@@ -102,7 +106,7 @@ export class EnemyBase extends BaseObject {
             // this.node.getComponent(RigidBodyComponent).setLinearVelocity(direction);
             tw.to(moveTime, { position: this.endPos });
             tw.call(() => {
-                this.state.setState("to-dead");
+                // this.state.setState("to-dead");
             })
             tw.to(0.2, { scale: v3(0, 0, 0) });
             tw.call(() => {
@@ -111,7 +115,7 @@ export class EnemyBase extends BaseObject {
             })
                 .delay(0.2)
                 .call(() => {
-                    this.node.destroy();
+                    // this.node.destroy();
                     this.state.setState("to-dead");
                 })
             tw.to(1, { position: v3(0, 0, 0) });
@@ -121,10 +125,21 @@ export class EnemyBase extends BaseObject {
                 // this.healthBar.active = true;
             }
         });
-        this.node.on("be-attacked", (attackNum) => {
+        this.node.on("be-attacked", (data) => {
             //被攻击
             // console.log("被攻击", attackNum);
-            this.currentHealthCount -= attackNum
+            this.currentHealthCount -= data.baseAttackNum;
+            let baseGasNum = data.baseGasNum; //取处基础气值
+
+            this.currentGasNum += baseGasNum;
+
+            // scale = 0;
+
+            let scale = this.currentGasNum / this.baseGasNum;
+            // console.log("scale", scale);
+            let tw = new Tween(this.node);
+            tw.to(0.2, { scale: v3(scale, scale, scale) });
+            tw.start();
 
             if (this.currentHealthCount <= 0) {
                 this.currentHealthCount = 0;

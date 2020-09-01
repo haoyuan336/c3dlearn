@@ -1,13 +1,14 @@
-import { _decorator, Component, Node, Prefab, instantiate, Tween, JsonAsset, v3, PhysicsSystem } from 'cc';
+import { _decorator, Component, Node, Prefab, instantiate, Tween, JsonAsset, v3, PhysicsSystem, ColliderComponent, SkeletalAnimationComponent } from 'cc';
 import { State } from './util/State'
 import { EnemyBase } from './Enemys/EnemyBase';
 import { TowerBuildBase } from './TowerBuildBase';
+import { EnemyController } from './EnemyController';
 const { ccclass, property } = _decorator;
 
 @ccclass('GameController')
 export class GameController extends Component {
     //重力加速度
-    public static accY: number = -100;
+    public static accY: number = -1;
     @property({ type: Node })
     public pathNodeList: Node[] = [];
 
@@ -20,18 +21,25 @@ export class GameController extends Component {
     @property({ type: Prefab })
     public towersPrefabList: Node[] = [];
 
+    @property({ type: Node })
+    public startGameButton: Node = null;
     private state = new State();
     // private currentAddEnemyTime: number = 0;
     // private addEnemyDuraction: number = 4;
     // private enemyNodeList: Node[] = [];
     public static enemyBeLockMaxNum: number = 1;
+
+
+    @property({type: Node})
+    public mapNode: Node = null;
+    public currentLevelNum:number = 0;
     start() {
         PhysicsSystem.instance.enable = true;
         // Your initialization goes here.
         this.state.addState("ready", () => {
             console.log("enter state ", this.state.getState());
         })
-        this.state.setState("run");
+        this.state.setState("ready");
 
         this.node.on("build-one-tower", (index, towerBaseNode: Node) => {
             //建造一座塔
@@ -44,13 +52,82 @@ export class GameController extends Component {
             }
 
         });
+
+
+        this.state.addState("play-start-button-anim", ()=>{
+            // console.log("玩家点中了开始游戏按钮");
+            this.playStatrButtonPressAnim().then(()=>{
+                return new Promise((resolve, reject)=>{
+                    let tw = new Tween(this.startGameButton)
+                    .by(1, {position: v3(0,-10,0)})
+                    .call(()=>{
+                        console.log('play over');
+                        resolve();
+                    })
+                    .start()
+                })
+            }).then(()=>{
+                return this.showMapNode();
+            }).then(()=>{
+                this.node.getComponent(EnemyController).startGame();
+            })
+        });
+
+        // this.node.on("")
+    }
+    showMapNode(){
+        return new Promise((resolve, reject)=>{
+            this.mapNode.active = true;
+            let tw = new Tween(this.mapNode)
+            .to(1, {position: v3(0,0,0)})
+            .call(()=>{
+                // this.mapNode.active = true;
+                resolve();
+            })
+            .start();
+
+        });
+    }
+    playStatrButtonPressAnim(){
+        return new Promise((resolve, reject)=>{
+            let skeleAnim = this.startGameButton.getChildByName("StartGameButton").getComponent(SkeletalAnimationComponent);
+            if (skeleAnim) {
+                let defaultAnim = skeleAnim.defaultClip;
+                // defaultAnim
+                let animState = skeleAnim.getState(defaultAnim.name);
+                animState.repeatCount = 1;
+                let length = animState.length;
+                skeleAnim.play(defaultAnim.name);
+                this.scheduleOnce(() => {
+                    console.log("播放完成");
+                    resolve();
+                }, length);
+            }else{
+                resolve();
+            }
+        })
+    }
+    playerTouch3dObject(collider: ColliderComponent) {
+        if (this.state.getState() === 'ready') {
+            if (collider.node.uuid == this.startGameButton.uuid) {
+                this.state.setState("play-start-button-anim");
+               
+            }
+        } else {
+            this.node.emit("touch-screen-to-3d", PhysicsSystem.instance.raycastClosestResult.collider);
+
+        }
+        // this.gameCtl.emit("touch-screen-to-3d", PhysicsSystem.instance.raycastClosestResult.collider);
     }
     update(dt: number) {
-        
+
     }
-    getGameConfig():JsonAsset{
+    getGameConfig(): JsonAsset {
         return this.gameConfigJson;
     }
-   
-    
+
+    getCurrentLevelNum(){
+        return this.currentLevelNum;
+    }
+
 }

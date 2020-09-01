@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, Vec2, Vec3, Quat, v3, v2, Prefab, instantiate, JsonAsset, CameraComponent, find, ColliderComponent, SkeletalAnimationComponent, isValid } from 'cc';
+import { _decorator, Component, Node, Vec2, Vec3, Quat, v3, v2, Prefab, instantiate, JsonAsset, CameraComponent, find, ColliderComponent, SkeletalAnimationComponent, isValid, CCFloat } from 'cc';
 import { State } from './../util/State';
 import { GameController } from './../GameController'
 import { EnemyBase } from './../Enemys/EnemyBase'
@@ -26,8 +26,10 @@ export class TowerBase extends BaseObject {
     // public rootNode: Node = null;
 
     private attackRate: number = null;
-
     private gameConfig: Object = null;
+
+    @property({type: CCFloat})
+    public attackAnimEventTimeOffset = 0;
     init() {
 
     }
@@ -131,13 +133,13 @@ export class TowerBase extends BaseObject {
                     bulletNode.active = false;
                     bulletNode.setPosition(this.bulletStartPos.worldPosition);
                     bulletNode.active = true;
-                    bulletNode.getComponent(BulletBase).init({
+                    bulletNode.getComponent(BulletBase).init(this.gameConfig, {
                         direction: this.currentShootDiraction,
                         targetEnemy: this.currentTargetEnemy,
-                        gameConfigJson: this.gameConfig
+
                     })
                 }
-            }, length * 0.45)
+            }, length * this.attackAnimEventTimeOffset)
         }
 
         // this.rootNode.getComponent(SkeletalAnimationComponent).getState("骨架|骨架Action.001").speed = this.attackRate;
