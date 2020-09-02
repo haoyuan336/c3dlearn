@@ -10,7 +10,7 @@ export class TowerBuildBase extends Component {
     private targetTower: Node = null;
     start() {
         this.gameController.on("touch-screen-to-3d", (collider: ColliderComponent) => {
-            if (collider.node.uuid === this.node.uuid && !isValid(this.targetTower)) {
+            if (collider.node && collider.node.uuid === this.node.uuid && !isValid(this.targetTower)) {
                 console.log("点中了 此塔座");
 
                 this.gameController.emit("touch-base-build-base", this.node);

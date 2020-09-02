@@ -3,6 +3,7 @@
         "./util/State": "util/State.ts",
         "./TowerBuildBase": "TowerBuildBase.ts",
         "./EnemyController": "EnemyController.ts",
-        "./GroundMapCtl": "GroundMapCtl.ts"
+        "./GroundMapCtl": "GroundMapCtl.ts",
+        "./UI/UIController": "UI/UIController.ts"
     }
 }

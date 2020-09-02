@@ -1,9 +1,10 @@
-import { _decorator, Component, Node, Prefab, instantiate, Tween, JsonAsset, v3, PhysicsSystem, ColliderComponent, SkeletalAnimationComponent } from 'cc';
+import { _decorator, Component, Node, Prefab, instantiate, Tween, JsonAsset, v3, PhysicsSystem, ColliderComponent, SkeletalAnimationComponent, find } from 'cc';
 import { State } from './util/State'
 import { EnemyBase } from './Enemys/EnemyBase';
 import { TowerBuildBase } from './TowerBuildBase';
 import { EnemyController } from './EnemyController';
 import { GroundMapCtl } from './GroundMapCtl';
+import { UIController } from './UI/UIController';
 const { ccclass, property } = _decorator;
 
 @ccclass('GameController')
@@ -31,9 +32,13 @@ export class GameController extends Component {
     public static enemyBeLockMaxNum: number = 1;
 
 
-    @property({type: Node})
+    @property({ type: Node })
     public mapNode: Node = null;
-    public currentLevelNum:number = 0;
+    public currentLevelNum: number = 0;
+
+
+    @property({type: Node})
+    public gameStartButtonBase: Node = null;
     start() {
         PhysicsSystem.instance.enable = true;
         // Your initialization goes here.
@@ -55,43 +60,64 @@ export class GameController extends Component {
         });
 
 
-        this.state.addState("play-start-button-anim", ()=>{
+        this.state.addState("play-start-button-anim", () => {
             // console.log("玩家点中了开始游戏按钮");
-            this.playStatrButtonPressAnim().then(()=>{
-                return new Promise((resolve, reject)=>{
+            this.playStatrButtonPressAnim().then(() => {
+                return new Promise((resolve, reject) => {
                     let tw = new Tween(this.startGameButton)
-                    .by(1, {position: v3(0,-10,0)})
-                    .call(()=>{
-                        console.log('play over');
-                        resolve();
-                    })
-                    .start()
+                        .by(1, { position: v3(0, -10, 0) })
+                        .call(() => {
+                            console.log('play over');
+                            this.startGameButton.destroy();
+                            resolve();
+                        })
+                        .start()
                 })
-            }).then(()=>{
+            }).then(() => {
+                let tw = new Tween(this.gameStartButtonBase);
+                tw.to(0.2, {scale: v3(0,0,0)})
+                tw.call(()=>{
+                    this.gameStartButtonBase.destroy();
+                })
+                tw.start();
+
+
+
+                // return this.showCountDownAnim();
+                return this.showGroundMapEnterAnim();
+            }).then(() => {
                 return this.showMapNode();
-            }).then(()=>{
+            }).then(() => {
                 this.node.getComponent(EnemyController).startGame();
-                this.node.getComponent(GroundMapCtl).startGame();
+                // this.node.getComponent(GroundMapCtl).startGame();
             })
         });
 
         // this.node.on("")
     }
-    showMapNode(){
-        return new Promise((resolve, reject)=>{
+    showGroundMapEnterAnim(){
+        return this.node.getComponent(GroundMapCtl).showGroundEnterAnim();
+    }
+    showCountDownAnim() {
+        // return new Promise((resolve, reject)=>{
+        return find("Canvas").getComponent(UIController).playCountDownAnim();
+        // })
+    }
+    showMapNode() {
+        return new Promise((resolve, reject) => {
             this.mapNode.active = true;
             let tw = new Tween(this.mapNode)
-            .to(1, {position: v3(0,0,0)})
-            .call(()=>{
-                // this.mapNode.active = true;
-                resolve();
-            })
-            .start();
+                .to(1, { position: v3(0, 0, 0) })
+                .call(() => {
+                    // this.mapNode.active = true;
+                    resolve();
+                })
+                .start();
 
         });
     }
-    playStatrButtonPressAnim(){
-        return new Promise((resolve, reject)=>{
+    playStatrButtonPressAnim() {
+        return new Promise((resolve, reject) => {
             let skeleAnim = this.startGameButton.getChildByName("StartGameButton").getComponent(SkeletalAnimationComponent);
             if (skeleAnim) {
                 let defaultAnim = skeleAnim.defaultClip;
@@ -104,7 +130,7 @@ export class GameController extends Component {
                     console.log("播放完成");
                     resolve();
                 }, length);
-            }else{
+            } else {
                 resolve();
             }
         })
@@ -113,7 +139,7 @@ export class GameController extends Component {
         if (this.state.getState() === 'ready') {
             if (collider.node.uuid == this.startGameButton.uuid) {
                 this.state.setState("play-start-button-anim");
-               
+
             }
         } else {
             this.node.emit("touch-screen-to-3d", PhysicsSystem.instance.raycastClosestResult.collider);
@@ -128,7 +154,7 @@ export class GameController extends Component {
         return this.gameConfigJson;
     }
 
-    getCurrentLevelNum(){
+    getCurrentLevelNum() {
         return this.currentLevelNum;
     }
 

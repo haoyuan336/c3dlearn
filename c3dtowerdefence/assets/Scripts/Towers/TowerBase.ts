@@ -46,7 +46,7 @@ export class TowerBase extends BaseObject {
         this.shootDuraction = 1 / attackRate;
 
         this.gameController.on("touch-screen-to-3d", (collider: ColliderComponent) => {
-            if (collider.node.uuid === this.node.uuid) {
+            if (collider.node && collider.node.uuid === this.node.uuid) {
                 this.gameController.emit("touch-tower", this.node);
             }
         });
