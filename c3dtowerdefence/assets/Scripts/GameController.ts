@@ -3,6 +3,7 @@ import { State } from './util/State'
 import { EnemyBase } from './Enemys/EnemyBase';
 import { TowerBuildBase } from './TowerBuildBase';
 import { EnemyController } from './EnemyController';
+import { GroundMapCtl } from './GroundMapCtl';
 const { ccclass, property } = _decorator;
 
 @ccclass('GameController')
@@ -70,6 +71,7 @@ export class GameController extends Component {
                 return this.showMapNode();
             }).then(()=>{
                 this.node.getComponent(EnemyController).startGame();
+                this.node.getComponent(GroundMapCtl).startGame();
             })
         });
 

@@ -11,13 +11,13 @@ export class EnemyHealthBarCtl extends Component {
     onLoad() {
 
         this.node.on("add-one-enemy", (enemyNode: Node) => {
-            enemyNode.on("run", () => {
-                let healthBar = instantiate(this.enemyHealthBarPrefab);
-                healthBar.parent = this.node;
-                healthBar.active = false;
-                enemyNode.emit("set-health-bar", healthBar, this.cameraNode);
+            // enemyNode.on("run", () => {
+            //     let healthBar = instantiate(this.enemyHealthBarPrefab);
+            //     healthBar.parent = this.node;
+            //     healthBar.active = false;
+            //     enemyNode.emit("set-health-bar", healthBar, this.cameraNode);
 
-            })
+            // })
         });
         this.node.on("remove-one-enemy", () => {
 

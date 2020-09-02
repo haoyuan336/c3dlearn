@@ -2,6 +2,7 @@
     "resolveMap": {
         "./util/State": "util/State.ts",
         "./TowerBuildBase": "TowerBuildBase.ts",
-        "./EnemyController": "EnemyController.ts"
+        "./EnemyController": "EnemyController.ts",
+        "./GroundMapCtl": "GroundMapCtl.ts"
     }
 }

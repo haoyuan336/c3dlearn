@@ -1,0 +1,123 @@
+{
+  "ver": "1.3.21",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "9ea3cc07-03a0-41a2-a382-607dc03eb6db",
+  "files": [],
+  "subMetas": {
+    "e10e4": {
+      "importer": "gltf-mesh",
+      "uuid": "9ea3cc07-03a0-41a2-a382-607dc03eb6db@e10e4",
+      "displayName": "",
+      "id": "e10e4",
+      "name": "立方体.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "9881e": {
+      "importer": "gltf-embeded-image",
+      "uuid": "9ea3cc07-03a0-41a2-a382-607dc03eb6db@9881e",
+      "displayName": "",
+      "id": "9881e",
+      "name": "colorTexture.png.image",
+      "ver": "1.0.2",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "7d6ab": {
+      "importer": "texture",
+      "uuid": "9ea3cc07-03a0-41a2-a382-607dc03eb6db@7d6ab",
+      "displayName": "",
+      "id": "7d6ab",
+      "name": "base_color_texture.texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "9ea3cc07-03a0-41a2-a382-607dc03eb6db@9881e"
+      }
+    },
+    "22e2a": {
+      "importer": "gltf-material",
+      "uuid": "9ea3cc07-03a0-41a2-a382-607dc03eb6db@22e2a",
+      "displayName": "",
+      "id": "22e2a",
+      "name": "材质.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "1b68f": {
+      "importer": "gltf-scene",
+      "uuid": "9ea3cc07-03a0-41a2-a382-607dc03eb6db@1b68f",
+      "displayName": "",
+      "id": "1b68f",
+      "name": "GroundTiled.prefab",
+      "ver": "1.0.11",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "colorTexture.png",
+        "uri": "9ea3cc07-03a0-41a2-a382-607dc03eb6db@9881e"
+      }
+    ],
+    "redirect": "9ea3cc07-03a0-41a2-a382-607dc03eb6db@1b68f",
+    "assetFinder": {
+      "meshes": [
+        "9ea3cc07-03a0-41a2-a382-607dc03eb6db@e10e4"
+      ],
+      "skeletons": [],
+      "textures": [
+        "9ea3cc07-03a0-41a2-a382-607dc03eb6db@7d6ab"
+      ],
+      "materials": [
+        "9ea3cc07-03a0-41a2-a382-607dc03eb6db@22e2a"
+      ],
+      "scenes": [
+        "9ea3cc07-03a0-41a2-a382-607dc03eb6db@1b68f"
+      ]
+    }
+  }
+}
