@@ -2,6 +2,7 @@ import { _decorator, Component, Node, v3, v2, Vec2, math, ColliderComponent, Sph
 import { State } from './util/State';
 import { GameController } from './GameController';
 import { BaseObject } from './BaseObject'
+import { EnemyBase } from './Enemys/EnemyBase';
 const { ccclass, property } = _decorator;
 
 @ccclass('BulletBase')
@@ -66,7 +67,7 @@ export class BulletBase extends BaseObject {
         // this.state.setState("sleep");
 
         let otherCollider: ColliderComponent = event.otherCollider;
-        if (otherCollider) {
+        if (otherCollider && otherCollider.getComponent(EnemyBase) && !otherCollider.getComponent(EnemyBase).getIsDead()) {
             otherCollider.node.emit("be-attacked", {
                 baseAttackNum: this.baseAttackNum,
                 baseGasNum: this.baseGasNum

@@ -3,6 +3,7 @@ import { State } from './../util/State'
 import { GameController } from './../GameController';
 // import { Enemy } from './Enemy';
 import { BaseObject } from './../BaseObject'
+import { EnemyController } from '../EnemyController';
 const { ccclass, property } = _decorator;
 @ccclass('EnemyBase')
 export class EnemyBase extends BaseObject {
@@ -19,91 +20,82 @@ export class EnemyBase extends BaseObject {
     public currentHealthCount: number = 0;
     private endPos: Vec3 = null;
     private startPos: Vec3 = null;
-    // @property({ type: Node })
-    // public deadParticleNode: Node = null;
+    private enemyCtl: EnemyController = null;
     public init(gameConfig: Object, startPos: Vec3, endPos: Vec3) {
-        // console.log("enemy base init")
         super.init(gameConfig);
         this.gameConfigJson = gameConfig;
-        // this.moveSpeed = this.gameConfigJson[this.objectType].MoveSpeed;
         this.healthCount = this.gameConfigJson[this.objectType].HealthCount;
         this.beLockedMaxNum = this.gameConfigJson[this.objectType].BeLockedCount;
         this.currentHealthCount = this.healthCount;
         this.endPos = endPos;
         this.startPos = startPos;
-        // this.pathList = pathList;
-        // let pos = pathList[0].getPosition();
-        // pos.y = 0;
-        // this.node.setPosition(pos);
-        this.node.setPosition(startPos);
-        this.node.scale = v3(0, 0, 0);
-        let tw = new Tween(this.node);
-        tw.to(0.2, { scale: v3(1, 1, 1) })
-        tw.call(() => {
-            this.state.setState("run");
-            let skeleteAnim = this.rootNode.getComponent(SkeletalAnimationComponent)
-            if (skeleteAnim) {
-                if (skeleteAnim.defaultClip) {
-                    let defaultClip = skeleteAnim.defaultClip.name;
-                    let animState = skeleteAnim.getState(defaultClip);
-                    let length = animState.length;
-                    animState.speed = this.moveSpeed * this.animSpeedMulOffset;
-                }
+        let direction = new Vec3(this.startPos).subtract(this.endPos).normalize();
+        let angle = new Vec2(direction.x, direction.z).signAngle(v2(-1, 0));
+        this.node.eulerAngles = new Vec3(0, angle * 180 / Math.PI, 0);
+
+    }
+    showEnemyEnterAnim(index: number, enemtCtl: EnemyController) {
+        let node = this.node;
+        this.enemyCtl = enemtCtl;
+        return new Promise((resolve, reject) => {
+            let tw = new Tween(node);
+            let pos = node.position;
+            tw.delay(0.1 * index)
+            tw.set({ scale: v3(0, 0, 0) })
+            tw.call(() => {
+                node.active = true;
+            })
+            tw.to(0.1, { scale: v3(1, 1, 1) })
+            // bounceOut quartIn
+            tw.to(0.4, { position: v3(pos.x, 0, pos.z) }, { easing: "bounceOut" })
+            tw.call(() => {
+                // node.getComponent(EnemyBase).startRun();
+                this.startRun();
+                resolve();
+            })
+            tw.start();
+        })
+    }
+    startRun() {
+        this.state.setState("run");
+        let skeleteAnim = this.rootNode.getComponent(SkeletalAnimationComponent)
+        if (skeleteAnim) {
+            if (skeleteAnim.defaultClip) {
+                let defaultClip = skeleteAnim.defaultClip.name;
+                let animState = skeleteAnim.getState(defaultClip);
+                let length = animState.length;
+                animState.speed = this.moveSpeed * this.animSpeedMulOffset;
             }
-        });
-        tw.start();
+        }
     }
     onLoad() {
-        this.node.on("set-health-bar", (healthBar: Node, cameraNode: CameraComponent) => {
-            this.healthBar = healthBar;
-            this.cameraNode = cameraNode;
+        // this.node.on("set-health-bar", (healthBar: Node, cameraNode: CameraComponent) => {
+        //     this.healthBar = healthBar;
+        //     this.cameraNode = cameraNode;
+
+        // });
+        this.state.addState("over", ()=>{
+            this.enemyCtl.removeEnemyInList(this.node);
+            this.node.destroy();
 
         });
         this.state.addState("to-dead", () => {
-            if (isValid(this.healthBar)) {
-                this.healthBar.destroy();
-            }
+            // if (isValid(this.healthBar)) {
+            //     this.healthBar.destroy();
+            // }
             // this.healthBar.destroy();
             let tw = new Tween(this.node);
             tw.by(0.2, { scale: v3(1, 1, 1) });
             tw.call(() => {
-                this.rootNode.active = false;
-                // if (this.deadParticleNode){
-                //     this.deadParticleNode.active = true;
-                //     this.deadParticleNode.getComponent(ParticleSystemComponent).play();
-                //     this.state.setState("over");
-                //     this.node.emit("destroy-self");
-                // }
                 this.state.setState("over");
-                this.node.emit("destroy-self");
-
             })
-                .delay(0.6)
-                .call(() => {
-                    this.node.destroy();
-                })
             tw.start();
-            
+
         });
         this.state.addState("run", () => {
             // console.log("start move");
             let tw = new Tween(this.node);
-            // for (let i = 1; i < this.pathList.length; i++) {
-            //     let currentPos = this.pathList[i - 1].position;
-            //     let nextPos = this.pathList[i].position;
-            //     let moveTime = new Vec3(nextPos).subtract(currentPos).length() / this.moveSpeed;
-            //     // console.log("length ", length);
-            //     // console.log("move time", moveTime);
-            //     tw.to(moveTime, { position: v3(nextPos.x,0, nextPos.z) });
-            // }
-
             let moveTime = new Vec3(this.startPos).subtract(this.endPos).length() / this.moveSpeed;
-            // this.node.getComponent(RigidBodyComponent).applyForce(v3(0,0,1));
-            let direction = new Vec3(this.startPos).subtract(this.endPos).normalize();
-            let angle = new Vec2(direction.x, direction.z).signAngle(v2(-1, 0));
-            // console.log('angle', angle);
-            this.node.eulerAngles = new Vec3(0, angle * 180 / Math.PI, 0);
-            // this.node.getComponent(RigidBodyComponent).setLinearVelocity(direction);
             tw.to(moveTime, { position: this.endPos });
             tw.call(() => {
                 // this.state.setState("to-dead");
@@ -111,19 +103,12 @@ export class EnemyBase extends BaseObject {
             tw.to(0.2, { scale: v3(0, 0, 0) });
             tw.call(() => {
                 this.state.setState("over");
-                this.node.emit("destroy-self");
             })
-                .delay(0.2)
-                .call(() => {
-                    // this.node.destroy();
-                    this.state.setState("to-dead");
-                })
-            tw.to(1, { position: v3(0, 0, 0) });
             tw.start();
-            this.node.emit("run");
-            if (this.healthBar) {
-                // this.healthBar.active = true;
-            }
+
+            // if (this.healthBar) {
+            //     // this.healthBar.active = true;
+            // }
         });
         this.node.on("be-attacked", (data) => {
             //被攻击

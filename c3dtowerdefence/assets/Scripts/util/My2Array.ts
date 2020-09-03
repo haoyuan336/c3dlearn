@@ -19,6 +19,12 @@ class My2dArray<T>{
         this.numberList.push(value);
     }
     getValue(x: number, y: number): T {
+        if (y >= this.numberList.length){
+            return null;
+        }
+        if (x >= this.numberList[y].length){
+            return null;
+        }
         return this.numberList[y][x];
     }
     setValue(x: number, y: number, value: T) {

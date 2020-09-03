@@ -1,20 +1,21 @@
 import { _decorator, Component, Node, EventTouch, CCObject, CameraComponent, Vec2, geometry, PhysicsSystem, systemEvent, find } from 'cc';
-import { State } from '../util/State';
 import { GameController } from '../GameController';
 const { ccclass, property } = _decorator;
 
 @ccclass('TouchScreenLayer')
 export class TouchScreenLayer extends Component {
-    @property({ type: Node })
+    // @property({ type: Node })
     public cameraNode: CameraComponent = null;
-    @property({ type: Node })
+    // @property({ type: Node })
     public gameCtl: Node = null;
 
 
     start() {
+        this.cameraNode = find("Camera").getComponent(CameraComponent);
+        this.gameCtl = find("GameController");
         // Your initialization goes here.
         this.node.on(Node.EventType.TOUCH_START, (event: EventTouch) => {
-            console.log("touch start", event.getLocation());
+            // console.log("touch start", event.getLocation());
             let touchPos: Vec2 = event.getLocation();
             let ray = this.cameraNode.getComponent(CameraComponent).screenPointToRay(touchPos.x, touchPos.y);
             // PhysicsRayResult.

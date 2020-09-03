@@ -1,6 +1,8 @@
 {
     "resolveMap": {
         "./util/State": "util/State.ts",
-        "./Enemys/EnemyBase": "Enemys/EnemyBase.ts"
+        "./Enemys/EnemyBase": "Enemys/EnemyBase.ts",
+        "./GroundMapCtl": "GroundMapCtl.ts",
+        "./GroundTiled/GroundTiled": "GroundTiled/GroundTiled.ts"
     }
 }

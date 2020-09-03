@@ -21,12 +21,13 @@ export class UIController extends Component {
     @property({ type: Node })
     public currentWaveLabelNode: Node = null;
 
-    @property({ type: Prefab })
-    public startGameCountDownAnimPrefab: Prefab = null;
+    // @property({ type: Prefab })
+    // public startGameCountDownAnimPrefab: Prefab = null;
 
-    @property({ type: Prefab })
-    public goAnimPrefab: Prefab = null;
+    // @property({ type: Prefab })
+    // public goAnimPrefab: Prefab = null;
     start() {
+        console.log("ui controller start")
         this.gameController.on("touch-base-build-base", (node: Node) => {
             //玩家点中了塔的基座
             //显示建造tower 的UI
@@ -50,44 +51,44 @@ export class UIController extends Component {
             this.currentWaveLabelNode.getComponent(LabelComponent).string = waveNum;
         });
     }
-    playCountDownAnim() {
-        return new Promise((resolve, reject) => {
-            let node = instantiate(this.startGameCountDownAnimPrefab);
-            node.parent = this.node;
-            let goNode: Node = null;
-            let tw = new Tween(this.node);
-            tw.delay(3);
-            tw.call(() => {
-                node.destroy();
-                goNode = instantiate(this.goAnimPrefab);
-                goNode.parent = this.node;
-            });
-            tw.delay(1);
-            tw.call(() => {
-                if (isValid(goNode)) {
-                    goNode.destroy();
-                }
-                resolve();
-            })
-            tw.start();
-            // node.on("play-anim-cb", () => {
-            //     console.log("play anim end");
-            //     node.destroy();
-            //     resolve();
-            // })
-            // let animation = node.getComponent(AnimationComponent)
-            // if (animation && animation.defaultClip){
-            //     let defaultClip = animation.defaultClip;
-            //     defaultClip.events.push({
-            //         frame: 2.9,
-            //         func: "countDonwAnimEnd"
-            //     })
-            // }   
-        });
-    }
-    countDonwAnimEnd() {
-        console.log("倒计时动画播放完成");
-    }
+    // playCountDownAnim() {
+    //     return new Promise((resolve, reject) => {
+    //         let node = instantiate(this.startGameCountDownAnimPrefab);
+    //         node.parent = this.node;
+    //         let goNode: Node = null;
+    //         let tw = new Tween(this.node);
+    //         tw.delay(3);
+    //         tw.call(() => {
+    //             node.destroy();
+    //             goNode = instantiate(this.goAnimPrefab);
+    //             goNode.parent = this.node;
+    //         });
+    //         tw.delay(1);
+    //         tw.call(() => {
+    //             if (isValid(goNode)) {
+    //                 goNode.destroy();
+    //             }
+    //             resolve();
+    //         })
+    //         tw.start();
+    //         // node.on("play-anim-cb", () => {
+    //         //     console.log("play anim end");
+    //         //     node.destroy();
+    //         //     resolve();
+    //         // })
+    //         // let animation = node.getComponent(AnimationComponent)
+    //         // if (animation && animation.defaultClip){
+    //         //     let defaultClip = animation.defaultClip;
+    //         //     defaultClip.events.push({
+    //         //         frame: 2.9,
+    //         //         func: "countDonwAnimEnd"
+    //         //     })
+    //         // }   
+    //     });
+    // }
+    // countDonwAnimEnd() {
+    //     console.log("倒计时动画播放完成");
+    // }
     setUINodeTo3dPos(uiNode: Node, node3d: Node) {
         let pos: Vec3;
         pos = this.cameraNode.getComponent(CameraComponent).convertToUINode(node3d.position, this.node);

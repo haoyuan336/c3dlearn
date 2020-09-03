@@ -47,30 +47,52 @@
         0,
         1
       ],
-      "EnemyCount": [
-        1,
-        2,
-        4,
-        1000000
-      ],
       "AddEnemyDuraction": [
         1,
-        1,
-        1,
-        0.2
+        2,
+        2,
+        2
       ],
       "EnemyType": [
         [
-          0
+          {
+            "type": 0,
+            "count": 5
+          },
+          {
+            "type": 1,
+            "count": 5
+          }
         ],
         [
-          1
+          {
+            "type": 0,
+            "count": 3
+          },
+          {
+            "type": 1,
+            "count": 3
+          }
         ],
         [
-          0
+          {
+            "type": 0,
+            "count": 2
+          },
+          {
+            "type": 1,
+            "count": 2
+          }
         ],
         [
-          0
+          {
+            "type": 0,
+            "count": 3
+          },
+          {
+            "type": 1,
+            "count": 3
+          }
         ]
       ]
     }
