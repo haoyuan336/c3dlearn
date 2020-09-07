@@ -50,6 +50,9 @@ export class UIController extends Component {
         this.gameController.on("refer-current-wave", (waveNum) => {
             this.currentWaveLabelNode.getComponent(LabelComponent).string = waveNum;
         });
+
+
+        
     }
     // playCountDownAnim() {
     //     return new Promise((resolve, reject) => {

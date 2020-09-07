@@ -95,9 +95,9 @@
     },
     "_lscale": {
       "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
-      "z": 1
+      "x": 1.5,
+      "y": 1.5,
+      "z": 1.5
     },
     "_layer": 1073741824,
     "_euler": {
@@ -869,7 +869,7 @@
         }
       ]
     },
-    "multiplier": 1
+    "multiplier": 3
   },
   {
     "__type__": "cc.GradientRange",
@@ -879,7 +879,7 @@
       "r": 255,
       "g": 255,
       "b": 255,
-      "a": 72
+      "a": 150
     }
   },
   {
@@ -889,8 +889,8 @@
       "__type__": "cc.Color",
       "r": 255,
       "g": 255,
-      "b": 255,
-      "a": 93
+      "b": 72,
+      "a": 152
     }
   },
   {
@@ -920,25 +920,6 @@
     }
   },
   {
-    "__type__": "cc.SphereColliderComponent",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "_material": null,
-    "_isTrigger": true,
-    "_center": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_radius": 0.243,
-    "_id": ""
-  },
-  {
     "__type__": "90e683Z9ntM7pLuSDO8IdqW",
     "_name": "Bullet<Bullet>",
     "_objFlags": 0,
@@ -951,6 +932,27 @@
       "__id__": 2
     },
     "animSpeedMulOffset": 1,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.CapsuleColliderComponent",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "_material": null,
+    "_isTrigger": false,
+    "_center": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_radius": 0.5,
+    "_cylinderHeight": 1.928,
+    "_direction": 2,
     "_id": ""
   },
   {

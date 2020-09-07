@@ -19,7 +19,7 @@ export class BulletBase extends BaseObject {
     private maxLeftTime: number = 1 + Math.random(); //最大生存时间
     private colliderComponent: ColliderComponent = null; //碰撞组件
 
-    protected baseAttackNum: number = 0; //基础攻击值
+    // protected baseAttackNum: number = 0; //基础攻击值
     protected gameConfigJson: Object = {}; //游戏配置
     onLoad() {
         // this.node.on("init-data", (data) => {
@@ -38,14 +38,19 @@ export class BulletBase extends BaseObject {
     }
     init(gameConfig: {}, data) {
         super.init(gameConfig);
+        this.baseAttackNum += data.baseAttackNum;
+        // console.log("base attack num", this.baseAttackNum);
         let direction = data.direction;
         this.currentDirection = direction;
-        // let angle: number = new Vec2(direction.x, direction.z).signAngle(v2(0, -1));
-        // this.node.eulerAngles = v3(0, angle * 180 / Math.PI, 0);
-        let targetEnemy: Node = data.targetEnemy;
-        this.node.lookAt(targetEnemy.position);
+        let angle: number = new Vec2(direction.x, direction.y).signAngle(v2(0, -1));
+        this.node.eulerAngles = v3(0, angle * 180 / Math.PI, 0);
+        // let targetEnemy: Node = data.targetEnemy;
+        // if(targetEnemy){
+        //     this.node.lookAt(targetEnemy.position);
+
+        // }
         this.gameConfigJson = gameConfig
-        this.baseAttackNum = this.gameConfigJson[this.objectType].BaseAttackNum;
+        // this.baseAttackNum = this.gameConfigJson[this.objectType].BaseAttackNum;
 
         this.state.setState("run");
         let s = this.node.getPosition().y * 2 / this.accY * -1;

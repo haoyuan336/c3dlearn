@@ -11,6 +11,11 @@ export class BaseObject extends Component {
     public animSpeedMulOffset: number = 1;
 
     public baseGasNum: number = 0; //基础气值
+    public baseAttackNum: number = 0; //基础攻击值
+    public baseAttackRate: number = 0; //基础攻击频率
+    public baseRotateAngle: number = 0; //基础旋转技能，旋转角度
+
+
     protected currentGasNum: number = 0; //当前的气值
 
     protected moveSpeed: number = 0; //移动速度
@@ -28,5 +33,26 @@ export class BaseObject extends Component {
         if (gameConfig[this.objectType].isCollisionGround){
             this.isCollisionGround = gameConfig[this.objectType].isCollisionGround;
         }
+        if(gameConfig[this.objectType].BaseAttackNum){
+            this.baseAttackNum = gameConfig[this.objectType].BaseAttackNum;
+        }
+        if (gameConfig[this.objectType].ShootRate){
+            this.baseAttackRate = gameConfig[this.objectType].ShootRate;
+        }
+        if (gameConfig[this.objectType].BaseRotateAngle){
+            this.baseRotateAngle = gameConfig[this.objectType].BaseRotateAngle;
+        }
+    }
+    getCurrentAttackNum(){
+        return this.baseAttackNum;
+    }
+    getCurrentSkillRotateAngle() {
+        //获取旋转技能的旋转角度
+        return this.baseRotateAngle;
+    }
+  
+    getCurrentShootRate(){
+        // baseAttackNum
+        return this.baseAttackRate + this.node.getComponent(BaseObject).baseAttackRate;
     }
 }

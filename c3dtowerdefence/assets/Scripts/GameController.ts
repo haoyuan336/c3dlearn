@@ -1,10 +1,13 @@
-import { _decorator, Component, Node, Prefab, instantiate, Tween, JsonAsset, v3, PhysicsSystem, ColliderComponent, SkeletalAnimationComponent, find } from 'cc';
+import { _decorator, Component, Node, Prefab, instantiate, Tween, JsonAsset, v3, PhysicsSystem, ColliderComponent, SkeletalAnimationComponent, find, PhysicsRayResult } from 'cc';
 import { State } from './util/State'
 import { TowerBuildBase } from './TowerBuildBase/TowerBuildBase';
 import { EnemyController } from './EnemyController';
 import { GroundMapCtl } from './GroundMapCtl';
 import { UIController } from './UI/UIController';
 import { TowerBuildBaseCtl } from './TowerBuildBaseCtl';
+import { PlayData } from './Data/PlayerData';
+import { BaseObject } from './BaseObject';
+import { TowerBase } from './Towers/TowerBase';
 const { ccclass, property } = _decorator;
 
 @ccclass('GameController')
@@ -39,6 +42,11 @@ export class GameController extends Component {
     public homeIconPrefab: Prefab = null;
 
     public homeIconNode: Node = null;
+
+    public playerData: PlayData;
+    onLoad() {
+        this.playerData = new PlayData();
+    }
     start() {
         PhysicsSystem.instance.enable = true;
         // Your initialization goes here.
@@ -52,6 +60,7 @@ export class GameController extends Component {
             if (index < this.towersPrefabList.length) {
                 let node = instantiate(this.towersPrefabList[index]);
                 node.parent = this.node;
+                node.getComponent(TowerBase).init(this.gameConfigJson.json);
                 let pos = v3(towerBaseNode.position.x, 0, towerBaseNode.position.z);
                 node.setPosition(pos);
                 towerBaseNode.getComponent(TowerBuildBase).setTargetTower(node);
@@ -99,6 +108,10 @@ export class GameController extends Component {
 
     // }
 
+    // playerTouchOnSkillNode(skillNode: Node, targetTower: Node) {
+
+    // }
+ 
     showHomeIconEnterAnim() {
         return new Promise((resolve, reject) => {
             this.homeIconNode = instantiate(this.homeIconPrefab);
@@ -109,11 +122,11 @@ export class GameController extends Component {
                 this.homeIconNode.position = v3(node.position.x, 20, node.position.z);
                 node.active = false;
                 let tw = new Tween(this.homeIconNode);
-                tw.call(()=>{
+                tw.call(() => {
                     node.active = true;
                 });
-                tw.to(2, {position: v3(node.position.x, 0, node.position.z)}, {easing: "quadOut"})
-                tw.call(()=>{
+                tw.to(2, { position: v3(node.position.x, 0, node.position.z) }, { easing: "quadOut" })
+                tw.call(() => {
                     resolve();
                 })
                 tw.start()
@@ -140,14 +153,20 @@ export class GameController extends Component {
             }
         })
     }
-    playerTouch3dObject(collider: ColliderComponent) {
+    playerTouch3dObject(result:PhysicsRayResult[]) {
         if (this.state.getState() === 'ready') {
-            if (collider.node.uuid == this.startGameButton.uuid) {
-                this.state.setState("play-start-button-anim");
-
+            for (let i = 0 ; i < result.length ; i ++){
+                let  collider = result[i].collider;
+                if (collider.node.uuid === this.startGameButton.uuid){
+                    this.state.setState("play-start-button-anim");
+                }
             }
+            // if (collider.node.uuid == this.startGameButton.uuid) {
+            //     this.state.setState("play-start-button-anim");
+
+            // }
         } else {
-            this.node.emit("touch-screen-to-3d", PhysicsSystem.instance.raycastClosestResult.collider);
+            this.node.emit("touch-screen-to-3d", PhysicsSystem.instance.raycastResults);
 
         }
         // this.gameCtl.emit("touch-screen-to-3d", PhysicsSystem.instance.raycastClosestResult.collider);

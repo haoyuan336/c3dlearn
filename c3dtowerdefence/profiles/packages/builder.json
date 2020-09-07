@@ -23,7 +23,8 @@
   },
   "wechatgame": {
     "wechatgame": {
-      "appid": "wxb27d263a17ae5528"
+      "appid": "wxb27d263a17ae5528",
+      "buildSubPackage": true
     }
   },
   "BuildTaskManager": {
