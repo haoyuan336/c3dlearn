@@ -2,11 +2,15 @@ import { _decorator, Component, Node, ButtonComponent, Tween, Vec3, v3, find, Pr
 const { ccclass, property } = _decorator;
 import { MenuUIBase } from './MenuUIBase'
 import { GameController } from '../../GameController';
+import { BuildTowerUITowerIcon } from './BuildTowerUITowerIcon';
 @ccclass('BuildTowerUI')
 export class BuildTowerUI extends MenuUIBase {
 
     @property({ type: Prefab })
     public towerShowAnimPrefabList: Prefab[] = [];
+
+    @property({type: Prefab})
+    public buildTowerUITowerIcon:Prefab = null;
     start() {
         let gameCtl = find("GameController").getComponent(GameController);
         let currentLevelNum = gameCtl.getCurrentLevelNum();
@@ -14,11 +18,13 @@ export class BuildTowerUI extends MenuUIBase {
         let activedTowerIndexList: number[] = currentLevelData.ActivedTower;
         let length = activedTowerIndexList.length;
         for (let i = 0; i < length; i++) {
-            let node = instantiate(this.towerShowAnimPrefabList[activedTowerIndexList[i]]);
+            // let node = instantiate(this.towerShowAnimPrefabList[activedTowerIndexList[i]]);
+            let node = instantiate(this.buildTowerUITowerIcon);
             node.name = "tower_" + activedTowerIndexList[i];
             node.addComponent(ButtonComponent);
             node.on("click", this.onButtonClick.bind(this));
             node.parent = this.node;
+            node.getComponent(BuildTowerUITowerIcon).init(activedTowerIndexList[i]);
             let scale = 76 / node.width;
             node.scale = v3(scale, scale, 1);
             let v = v2(0, 1);

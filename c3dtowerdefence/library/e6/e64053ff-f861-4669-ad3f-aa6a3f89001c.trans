@@ -1,6 +1,7 @@
 {
     "resolveMap": {
         "./MenuUIBase": "MenuUIBase.ts",
-        "../../GameController": "../../GameController.ts"
+        "../../GameController": "../../GameController.ts",
+        "./BuildTowerUITowerIcon": "BuildTowerUITowerIcon.ts"
     }
 }

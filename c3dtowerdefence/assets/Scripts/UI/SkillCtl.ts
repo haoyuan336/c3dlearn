@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, View,Prefab, CCInteger, isValid, instantiate, v3, UITransformComponent, PhysicsSystem, EventTouch, Rect, Vec2, find, CameraComponent, SpriteFrame, SpriteComponent, ColliderComponent, PhysicsRayResult, view, Tween, v2 } from 'cc';
+import { _decorator, Component, Node, View, Prefab, CCInteger, isValid, instantiate, v3, UITransformComponent, PhysicsSystem, EventTouch, Rect, Vec2, find, CameraComponent, SpriteFrame, SpriteComponent, ColliderComponent, PhysicsRayResult, view, Tween, v2 } from 'cc';
 import { GameController } from '../GameController';
 import { TowerBase } from '../Towers/TowerBase';
 import { BaseObject } from '../BaseObject';
@@ -166,9 +166,9 @@ export class SkillCtl extends Component {
                     // let objectType = this.currentTouchNode.getComponent(KuangBaoSkill).objectType;
                     // console.log("object type", objectType);
                     this.targetTower.getComponent(TowerBase).releaseSkill();
-                    for (let i = 0 ; i < this.skillNodeList.length ; i ++){
+                    for (let i = 0; i < this.skillNodeList.length; i++) {
                         let skillNode = this.skillNodeList[i];
-                        if (skillNode.uuid === this.currentTouchNode.uuid){
+                        if (skillNode.uuid === this.currentTouchNode.uuid) {
                             this.skillNodeList.splice(i, 1);
                             break;
                         }
@@ -183,20 +183,20 @@ export class SkillCtl extends Component {
 
         })
     }
-    showEnterAnim(){
-        return new Promise((resolve, reject)=>{
+    showEnterAnim() {
+        return new Promise((resolve, reject) => {
             let v = view.getVisibleSize();
             let height = v.height;
             console.log("height", height);
             let tw = new Tween(this.skillsNode);
             tw.to(0.2, {
-                position: v3(0,height * -0.5 + 100 , 0)
+                position: v3(0, height * -0.5 + 74, 0)
             });
-            tw.call(()=>{
+            tw.call(() => {
                 resolve();
             })
             tw.start();
         })
-      
+
     }
 }

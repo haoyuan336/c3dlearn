@@ -56,10 +56,11 @@ export class EnemyController extends Component {
 
             this.currentRandomEnemyTypeList = this.waveData["EnemyType"][this.currentWaveIndex];
             this.addEnemyDuraction = this.waveData['AddEnemyDuraction'][this.currentWaveIndex];
+            this.node.emit("refer-current-wave", this.currentWaveIndex);
 
-            this.node.emit("refer-current-wave", (this.currentWaveIndex + 1));
             this.addOneWaveEnemy().then(() => {
                 this.currentWaveIndex++;
+
                 this.scheduleOnce(() => {
                     this.state.setState("enter-next-wave");
                 }, this.addEnemyDuraction)
@@ -74,7 +75,7 @@ export class EnemyController extends Component {
     startGame() {
         this.state.setState("enter-next-wave");
     }
-    
+
 
     addOneWaveEnemy() {
         //增加一波敌人

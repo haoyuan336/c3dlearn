@@ -49,9 +49,9 @@ export class UIController extends Component {
             }
             this.setUINodeTo3dPos(this.updateUINode, targetTower);
         })
-        this.gameController.on("refer-current-wave", (waveNum) => {
-            this.currentWaveLabelNode.getComponent(LabelComponent).string = waveNum;
-        });
+        // this.gameController.on("refer-current-wave", (waveNum) => {
+        //     this.currentWaveLabelNode.getComponent(LabelComponent).string = waveNum;
+        // });
 
 
 
