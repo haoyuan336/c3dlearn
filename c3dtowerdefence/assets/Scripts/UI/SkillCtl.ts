@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, Prefab, CCInteger, isValid, instantiate, v3, UITransformComponent, PhysicsSystem, EventTouch, Rect, Vec2, find, CameraComponent, SpriteFrame, SpriteComponent, ColliderComponent, PhysicsRayResult } from 'cc';
+import { _decorator, Component, Node, View,Prefab, CCInteger, isValid, instantiate, v3, UITransformComponent, PhysicsSystem, EventTouch, Rect, Vec2, find, CameraComponent, SpriteFrame, SpriteComponent, ColliderComponent, PhysicsRayResult, view, Tween, v2 } from 'cc';
 import { GameController } from '../GameController';
 import { TowerBase } from '../Towers/TowerBase';
 import { BaseObject } from '../BaseObject';
@@ -182,5 +182,21 @@ export class SkillCtl extends Component {
             }
 
         })
+    }
+    showEnterAnim(){
+        return new Promise((resolve, reject)=>{
+            let v = view.getVisibleSize();
+            let height = v.height;
+            console.log("height", height);
+            let tw = new Tween(this.skillsNode);
+            tw.to(0.2, {
+                position: v3(0,height * -0.5 + 100 , 0)
+            });
+            tw.call(()=>{
+                resolve();
+            })
+            tw.start();
+        })
+      
     }
 }

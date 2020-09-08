@@ -1,9 +1,11 @@
-import { _decorator, Component, Node, CCInteger, v3, Vec3, tween, path, Tween, CameraComponent, Vec2, v2, JsonAsset, game, isValid, ProgressBarComponent, RigidBodyComponent, SkeletalAnimationComponent, ParticleSystemComponent } from 'cc';
+import { _decorator, Component, Node, CCInteger, v3, Vec3, tween, path, Tween, CameraComponent, Vec2, v2, JsonAsset, game, isValid, ProgressBarComponent, RigidBodyComponent, SkeletalAnimationComponent, ParticleSystemComponent, bezier } from 'cc';
 import { State } from './../util/State'
 import { GameController } from './../GameController';
 // import { Enemy } from './Enemy';
 import { BaseObject } from './../BaseObject'
 import { EnemyController } from '../EnemyController';
+import { BezierN } from '../util/BezierN';
+// import { Besize } from '../util/Besize';
 const { ccclass, property } = _decorator;
 @ccclass('EnemyBase')
 export class EnemyBase extends BaseObject {
@@ -21,6 +23,9 @@ export class EnemyBase extends BaseObject {
     private endPos: Vec3 = null;
     private startPos: Vec3 = null;
     private enemyCtl: EnemyController = null;
+    private currentMoveTw: Tween = null;
+    @property({ type: Node })
+    public caidaiEffect: Node = null;
     public init(gameConfig: Object, startPos: Vec3, endPos: Vec3) {
         super.init(gameConfig);
         this.gameConfigJson = gameConfig;
@@ -69,27 +74,73 @@ export class EnemyBase extends BaseObject {
         }
     }
     onLoad() {
-        // this.node.on("set-health-bar", (healthBar: Node, cameraNode: CameraComponent) => {
-        //     this.healthBar = healthBar;
-        //     this.cameraNode = cameraNode;
-
-        // });
-        this.state.addState("over", ()=>{
+        
+        this.state.addState("over", () => {
             this.enemyCtl.removeEnemyInList(this.node);
             this.node.destroy();
 
         });
         this.state.addState("to-dead", () => {
-            // if (isValid(this.healthBar)) {
-            //     this.healthBar.destroy();
-            // }
-            // this.healthBar.destroy();
-            let tw = new Tween(this.node);
-            tw.by(0.2, { scale: v3(1, 1, 1) });
+            if (this.currentMoveTw) {
+                this.currentMoveTw.stop();
+            }
+            let tw = new Tween(this.rootNode);
+            tw.by(0.1, { scale: v3(1, 1, 1) })
+            tw.call(() => {
+                this.rootNode.active = false;
+                this.caidaiEffect.eulerAngles = v3(0, 360 * Math.random(), 0)
+                let dis = v3(this.node.position).subtract(v3(0, 0, 0)).length();
+                // console.log("dis ", dis);
+                if (dis < 18) {
+                    this.caidaiEffect.active = true;
+                }
+            });
+            tw.delay(1)
             tw.call(() => {
                 this.state.setState("over");
             })
             tw.start();
+            // let currentPos = this.node.position;
+            // let bezier = new BezierN(
+            //     [
+            //         currentPos,
+            //         v3(currentPos.x + Math.random() * 100 - 50, 10 + 10 * Math.random(), currentPos.z + Math.random() * 100 - 50),
+            //         v3(currentPos.x + Math.random() * 100 - 50, 20 + 10 * Math.random(), currentPos.z + Math.random() * 100 - 50),
+            //         v3(currentPos.x + Math.random() * 100 - 50, 20 + 10 * Math.random(), currentPos.z + Math.random() * 100 - 50),
+            //         v3(currentPos.x + Math.random() * 100 - 50, 20 + 10 * Math.random(), currentPos.z + Math.random() * 100 - 50)
+
+            //     ]
+            // );
+            // let pointList = bezier.getPointList(100);
+            // let tw = new Tween(this.node);
+            // // this.node.eulerAngles
+            // for (let i = 0; i < pointList.length; i++) {
+            //     let point = pointList[i];
+            //     let subV3 = v3(point).subtract(this.node.position)
+            //     let eulerAngles = this.node.eulerAngles.y;
+            //     if (subV3.x !== 0 && subV3.z !== 0) {
+            //         eulerAngles = v2(1, 0).signAngle(v2(subV3.x, subV3.z)) * 180 / Math.PI;
+            //     }
+            //     tw.to(0.008, {
+            //         position: pointList[i],
+            //         eulerAngles: v3(0, eulerAngles, 0),
+            //         scale: v3((1 - i / pointList.length),(1 - i / pointList.length),(1 - i / pointList.length))
+            //     })
+            // }
+            // tw.call(()=>{
+            //     this.state.setState("over");
+            // })
+            // // tw.to(0.2 * pointList.length, {scale: v3(0,0,0)})
+            // // tw.parallel(new Tween(this.node).to(0.007 * pointList.length, { scale: v3(0, 0, 0) }));
+            // // tw.
+            // tw.start();
+
+            // let tw = new Tween(this.node);
+            // tw.by(0.2, { scale: v3(1, 1, 1) });
+            // tw.call(() => {
+            //     this.state.setState("over");
+            // })
+            // tw.start();
 
         });
         this.state.addState("run", () => {
@@ -105,6 +156,7 @@ export class EnemyBase extends BaseObject {
                 this.state.setState("over");
             })
             tw.start();
+            this.currentMoveTw = tw;
 
             // if (this.healthBar) {
             //     // this.healthBar.active = true;
@@ -113,6 +165,9 @@ export class EnemyBase extends BaseObject {
         this.node.on("be-attacked", (data) => {
             //被攻击
             // console.log("被攻击", attackNum);
+            if (this.state.getState() !== 'run') {
+                return;
+            }
             this.currentHealthCount -= data.baseAttackNum;
             let baseGasNum = data.baseGasNum; //取处基础气值
 

@@ -129,7 +129,7 @@ export class TowerBase extends BaseObject {
             animState.repeatCount = 1;
             this.scheduleOnce(() => {
                 // if (isValid(this.currentTargetEnemy)) {
-                this.createOneBullet(currentShootDiraction, this.getCurrentAttackNum());
+                this.createOneBullet(currentShootDiraction, this.getCurrentAttackNum(attackNum));
                 // }
             }, length * this.attackAnimEventTimeOffset)
         }
@@ -140,7 +140,7 @@ export class TowerBase extends BaseObject {
         bulletNode.active = false;
         bulletNode.setPosition(this.bulletStartPos.worldPosition);
         bulletNode.active = true;
-        // console.log("base attack num", this.baseAttackNum);
+        // console.log("createOneBullet base attack num", attackNum);
         bulletNode.getComponent(BulletBase).init(this.gameConfig, {
             direction: direction,
             targetEnemy: this.currentTargetEnemy,

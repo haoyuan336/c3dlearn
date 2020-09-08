@@ -16,20 +16,21 @@
       "BaseAttackNum": 1
     },
     "CrazyRotateSkill": {
-      "BaseAttackNum": 10,
+      "BaseAttackNum": 20,
       "ShootRate": 10,
-      "BaseRotateAngle": 720
+      "BaseRotateAngle": 720,
+      "RotateSpeed": 180
     },
     "Tower_2": {
       "BulletType": "BulletOne",
       "ShootRate": 1.2,
       "AttackRange": 10,
       "SkillType": "CrazyRotate",
-      "BaseAttackNum": 10
+      "BaseAttackNum": 1
     },
     "DragonMonster": {
       "MoveSpeed": 1,
-      "HealthCount": 2,
+      "HealthCount": 5,
       "BeLockedCount": 3,
       "BaseGasNum": 5
     },
@@ -40,16 +41,18 @@
       "BaseGasNum": 5
     },
     "Bullet_1": {
-      "MoveSpeed": 15,
+      "MoveSpeed": 30,
       "BaseAttackNum": 1,
       "BaseGasNum": 0.2,
-      "isCollisionGround": true
+      "isCollisionGround": false,
+      "LeftTime": 3
     },
     "Bullet_2": {
       "MoveSpeed": 30,
       "BaseAttackNum": 2,
       "BaseGasNum": 0,
-      "isCollisionGround": false
+      "isCollisionGround": false,
+      "LeftTime": 3
     },
     "Level_0": {
       "ActivedTower": [
@@ -76,33 +79,36 @@
         [
           {
             "type": 0,
-            "count": 15
+            "count": 1
           },
           {
             "type": 1,
-            "count": 15
+            "count": 1
           }
         ],
         [
           {
             "type": 0,
-            "count": 20
+            "count": 2
           },
           {
             "type": 1,
-            "count": 12
+            "count": 1
           }
         ],
         [
           {
             "type": 0,
-            "count": 30
+            "count": 3
           },
           {
             "type": 1,
             "count": 5
           }
         ]
+      ],
+      "BossType": [
+        0
       ]
     }
   }

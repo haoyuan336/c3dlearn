@@ -1,5 +1,7 @@
 {
     "resolveMap": {
-        "./Menu/MenuUIBase": "Menu/MenuUIBase.ts"
+        "./Menu/MenuUIBase": "Menu/MenuUIBase.ts",
+        "./SkillCtl": "SkillCtl.ts",
+        "./GoldCtl": "GoldCtl.ts"
     }
 }

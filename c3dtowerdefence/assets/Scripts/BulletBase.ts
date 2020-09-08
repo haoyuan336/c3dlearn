@@ -65,21 +65,26 @@ export class BulletBase extends BaseObject {
         this.colliderComponent.on("onTriggerEnter", this.onTriggerEnter.bind(this));
         this.scheduleOnce(() => {
             this.node.destroy();
-        }, this.maxLeftTime)
+        }, this.leftTime)
     }
     onTriggerEnter(event: ITriggerEvent) {
         // console.log("onTriggerEnter", event);
         // this.state.setState("sleep");
 
         let otherCollider: ColliderComponent = event.otherCollider;
+        if (otherCollider.node && otherCollider.node.name.indexOf("Wall") > 1) {
+            console.log(" other collier node", otherCollider.node.name);
+            this.node.destroy();
+        }
         if (otherCollider && otherCollider.getComponent(EnemyBase) && !otherCollider.getComponent(EnemyBase).getIsDead()) {
+            console.log("base attack num", this.baseAttackNum);
             otherCollider.node.emit("be-attacked", {
                 baseAttackNum: this.baseAttackNum,
                 baseGasNum: this.baseGasNum
             });
-            if (this.baseGasNum !== 0){
-                this.node.destroy();
-            }
+            // if (this.baseGasNum !== 0) {
+            //     this.node.destroy();
+            // }
         }
     }
     start() {
@@ -103,15 +108,15 @@ export class BulletBase extends BaseObject {
             this.node.setPosition(v3(pos.x + v.x, y, pos.z + v.y));
             if (this.node.getPosition().y <= 0) {
                 // this.node.destroy()
-                if (this.isCollisionGround){
+                if (this.isCollisionGround) {
                     this.speedY = this.currentInitSpeedY;
                     this.currentInitSpeedY += this.currentCostAcc;
                     if (this.currentInitSpeedY < 0) {
                         this.state.setState('sleep');
-    
+
                     }
                 }
-                
+
             }
 
         }

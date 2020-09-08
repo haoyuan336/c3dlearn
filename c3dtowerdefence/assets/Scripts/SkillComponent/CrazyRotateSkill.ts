@@ -37,9 +37,9 @@ export class CrazyRotateSkill extends BaseObject {
             // let shootRate = data.shootRate + this.baseAttackRate;
             // let baseAttackNum = data.baseAttackNum;
             let shootRate = this.getCurrentShootRate()
-            console.log("shoot rate", shootRate);
+            // console.log("shoot rate", shootRate);
             let time = 1 / shootRate;
-            console.log("time", time);
+            // console.log("time", time);
             this.schedule(shootBullet, time);
 
             // if (cb){
@@ -47,7 +47,7 @@ export class CrazyRotateSkill extends BaseObject {
             // }
             // this.node.eulerAngles = ;
             let currentRotate = this.getCurrentSkillRotateAngle();
-            let skillTime = currentRotate / 360;
+            let skillTime = currentRotate / this.rotateSpeed;
             let tw = new Tween(this.node);
             let signDir = Math.random() - 0.5;
             tw.by(skillTime, { eulerAngles: v3(0, currentRotate * (signDir / Math.abs(signDir)), 0) });

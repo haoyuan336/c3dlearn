@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, Prefab, instantiate, Tween, JsonAsset, v3, PhysicsSystem, ColliderComponent, SkeletalAnimationComponent, find, PhysicsRayResult } from 'cc';
+import { _decorator, Component, Node, Prefab, instantiate, Tween, JsonAsset, Vec3, v3, PhysicsSystem, ColliderComponent, SkeletalAnimationComponent, find, PhysicsRayResult, Vec2 } from 'cc';
 import { State } from './util/State'
 import { TowerBuildBase } from './TowerBuildBase/TowerBuildBase';
 import { EnemyController } from './EnemyController';
@@ -8,6 +8,7 @@ import { TowerBuildBaseCtl } from './TowerBuildBaseCtl';
 import { PlayData } from './Data/PlayerData';
 import { BaseObject } from './BaseObject';
 import { TowerBase } from './Towers/TowerBase';
+import { BezierN } from './util/BezierN';
 const { ccclass, property } = _decorator;
 
 @ccclass('GameController')
@@ -44,8 +45,26 @@ export class GameController extends Component {
     public homeIconNode: Node = null;
 
     public playerData: PlayData;
+
+    // @property({ type: Node })
+    // public testNode: Node = null;
     onLoad() {
         this.playerData = new PlayData();
+
+
+        // let bezier = new BezierN([v3(0, 0, 0), v3(10, 30, 10), v3(20, 3, 0),v3(20, 100, 30)]);
+        // let pointList: Vec3[] = bezier.getPointList(10);
+        // console.log("point", pointList);
+        // let tw = new Tween(this.testNode);
+        // for (let i = 0; i < pointList.length; i++) {
+        //     tw.to(0.2, { position: pointList[i] });
+        // }
+        // tw.call(() => {
+        //     this.testNode.position = v3(0, 0, 0)
+        // })
+        // tw.repeatForever();
+        // tw.start();
+
     }
     start() {
         PhysicsSystem.instance.enable = true;
@@ -96,6 +115,10 @@ export class GameController extends Component {
             }).then(() => {
                 return this.showHomeIconEnterAnim();
             }).then(() => {
+                // return this.node.getCom
+                return this.showUIEnterAnim();
+            }).then(() => {
+                this.state.setState("run");
                 this.node.getComponent(EnemyController).startGame();
                 // this.node.getComponent(GroundMapCtl).startGame();
             })
@@ -104,6 +127,16 @@ export class GameController extends Component {
         // this.node.on("")
     }
 
+    showUIEnterAnim() {
+        return new Promise((resolve, reject) => {
+            let uiCtl = find("Canvas").getComponent(UIController);
+            if (uiCtl){
+                uiCtl.showUIEnterAnim().then(()=>{
+                    resolve();
+                })
+            }
+        })
+    }
     // showGroundMapEnterAnim(){
 
     // }
@@ -111,7 +144,7 @@ export class GameController extends Component {
     // playerTouchOnSkillNode(skillNode: Node, targetTower: Node) {
 
     // }
- 
+
     showHomeIconEnterAnim() {
         return new Promise((resolve, reject) => {
             this.homeIconNode = instantiate(this.homeIconPrefab);
@@ -153,11 +186,11 @@ export class GameController extends Component {
             }
         })
     }
-    playerTouch3dObject(result:PhysicsRayResult[]) {
+    playerTouch3dObject(result: PhysicsRayResult[]) {
         if (this.state.getState() === 'ready') {
-            for (let i = 0 ; i < result.length ; i ++){
-                let  collider = result[i].collider;
-                if (collider.node.uuid === this.startGameButton.uuid){
+            for (let i = 0; i < result.length; i++) {
+                let collider = result[i].collider;
+                if (collider.node.uuid === this.startGameButton.uuid) {
                     this.state.setState("play-start-button-anim");
                 }
             }
@@ -165,7 +198,7 @@ export class GameController extends Component {
             //     this.state.setState("play-start-button-anim");
 
             // }
-        } else {
+        } else if (this.state.getState() === 'run') { } {
             this.node.emit("touch-screen-to-3d", PhysicsSystem.instance.raycastResults);
 
         }

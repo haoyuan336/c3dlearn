@@ -5,6 +5,30 @@
   "uuid": "cd6296b5-877b-429a-9512-1ee21b9d9af2",
   "files": [],
   "subMetas": {
+    "28587": {
+      "importer": "gltf-animation",
+      "uuid": "cd6296b5-877b-429a-9512-1ee21b9d9af2@28587",
+      "displayName": "",
+      "id": "28587",
+      "name": "骨架|ShowAnim.animation",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.2083333730697632
+        },
+        "events": []
+      }
+    },
     "e62c1": {
       "importer": "gltf-mesh",
       "uuid": "cd6296b5-877b-429a-9512-1ee21b9d9af2@e62c1",
@@ -22,6 +46,30 @@
         "gltfIndex": 0
       }
     },
+    "278e3": {
+      "importer": "gltf-animation",
+      "uuid": "cd6296b5-877b-429a-9512-1ee21b9d9af2@278e3",
+      "displayName": "",
+      "id": "278e3",
+      "name": "骨架|ShowAnimation.animation",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 1,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.2083333730697632
+        },
+        "events": []
+      }
+    },
     "09a43": {
       "importer": "gltf-animation",
       "uuid": "cd6296b5-877b-429a-9512-1ee21b9d9af2@09a43",
@@ -36,7 +84,7 @@
       ],
       "subMetas": {},
       "userData": {
-        "gltfIndex": 0,
+        "gltfIndex": 2,
         "wrapMode": 2,
         "sample": 30,
         "span": {
@@ -145,6 +193,32 @@
       }
     ],
     "animationImportSettings": [
+      {
+        "name": "骨架|ShowAnim",
+        "duration": 1.2083333730697632,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "骨架|ShowAnim",
+            "from": 0,
+            "to": 1.2083333730697632,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "骨架|ShowAnimation",
+        "duration": 1.2083333730697632,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "骨架|ShowAnimation",
+            "from": 0,
+            "to": 1.2083333730697632,
+            "wrapMode": 2
+          }
+        ]
+      },
       {
         "name": "骨架|骨架Action",
         "duration": 0.375,
