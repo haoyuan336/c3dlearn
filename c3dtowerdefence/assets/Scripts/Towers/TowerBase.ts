@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, Vec2, Vec3, Quat, v3, v2, Prefab, instantiate, JsonAsset, CameraComponent, find, ColliderComponent, SkeletalAnimationComponent, isValid, CCFloat } from 'cc';
+import { _decorator,PhysicsRayResult, Component, Node, Vec2, Vec3, Quat, v3, v2, Prefab, instantiate, JsonAsset, CameraComponent, find, ColliderComponent, SkeletalAnimationComponent, isValid, CCFloat } from 'cc';
 import { State } from './../util/State';
 import { GameController } from './../GameController'
 import { EnemyBase } from './../Enemys/EnemyBase'
@@ -49,11 +49,21 @@ export class TowerBase extends BaseObject {
         // this.attackRate = attackRate;
         this.shootDuraction = 1 / this.baseAttackRate;
 
-        this.gameController.on("touch-screen-to-3d", (collider: ColliderComponent) => {
+        this.gameController.on("touch-screen-to-3d", (resultList: PhysicsRayResult[]) => {
             console.log("射线检测到了 tower");
             // if (collider.node && collider.node.uuid === this.node.uuid) {
             //     this.gameController.emit("touch-tower", this.node);
             // }
+            for (let i = 0 ; i < resultList.length ; i ++){
+                let result = resultList[i];
+                if (result.collider.node.uuid === this.node.uuid){
+                    //点中了此塔
+                    this.gameController.emit("touch-tower", this.node);
+                    break;
+                }
+            }
+
+
         });
 
         this.state.addState("releas-skill", () => {

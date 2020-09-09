@@ -131,8 +131,8 @@ export class GameController extends Component {
     showUIEnterAnim() {
         return new Promise((resolve, reject) => {
             let uiCtl = find("Canvas").getComponent(UIController);
-            if (uiCtl){
-                uiCtl.showUIEnterAnim().then(()=>{
+            if (uiCtl) {
+                uiCtl.showUIEnterAnim().then(() => {
                     resolve();
                 })
             }
@@ -199,7 +199,7 @@ export class GameController extends Component {
             //     this.state.setState("play-start-button-anim");
 
             // }
-        } else if (this.state.getState() === 'run') { } {
+        } else if (this.state.getState() === 'run') {
             this.node.emit("touch-screen-to-3d", PhysicsSystem.instance.raycastResults);
 
         }

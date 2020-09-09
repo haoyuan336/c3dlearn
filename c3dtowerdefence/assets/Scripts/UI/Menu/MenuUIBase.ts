@@ -17,6 +17,9 @@ export class MenuUIBase extends Component {
         this.targetNode = target;
         this.state.setState('open-ui');
     }
+    close(){
+        this.state.setState("close-ui");
+    }
 
     private  closeUI() {
         let tw = new Tween(this.node);

@@ -6,10 +6,13 @@ const { ccclass, property } = _decorator;
 export class WinGoldAnimEffect extends Component {
 
     public goldCount: number = 0;
+    public skelete: SkeletalAnimationComponent = null;
+
     start() {
         // Your initialization goes here.
         //开始播放动画
         let skelete = this.node.getComponent(SkeletalAnimationComponent);
+        this.skelete = skelete;
         if (skelete) {
             let defaultAnim = skelete.defaultClip;
             // defaultAnim.
@@ -26,12 +29,21 @@ export class WinGoldAnimEffect extends Component {
     }
     setGoldCount(goldCount: number, gameController: GameController) {
         //设置金币个数
+        // console.log("skelete", this.skelete);
+        // let skelete = this.node.getComponent(SkeletalAnimationComponent);
+        // if (skelete) {
+        //     let animClip = skelete.clips[1];
+        //     // console.log('anim clip name', animClip.name);
+        //     let state = skelete.getState(animClip.name);
+        //     state.repeatCount = 1;
+        //     skelete.play(animClip.name);
+        // }
         this.goldCount = goldCount;
         let tw = new Tween(this.node)
         tw.delay(3)
-        tw.to(0.8, {
+        tw.to(0.4, {
             // eulerAngles: v3(0, 0, 0),
-            position: v3(-30, 10, 0)
+            position: v3(-25, 10, 0)
         })
         tw.call(() => {
             // find("GameController").emit("")

@@ -54,6 +54,30 @@
         "gltfIndex": 0
       }
     },
+    "dd243": {
+      "importer": "gltf-animation",
+      "uuid": "ebe4143d-348e-4f19-a11b-61d9f298ac41@dd243",
+      "displayName": "",
+      "id": "dd243",
+      "name": "骨架|竖起来.animation",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.4166666567325592
+        },
+        "events": []
+      }
+    },
     "09a43": {
       "importer": "gltf-animation",
       "uuid": "ebe4143d-348e-4f19-a11b-61d9f298ac41@09a43",
@@ -68,7 +92,7 @@
       ],
       "subMetas": {},
       "userData": {
-        "gltfIndex": 0,
+        "gltfIndex": 1,
         "wrapMode": 2,
         "sample": 30,
         "span": {
@@ -180,6 +204,19 @@
       ]
     },
     "animationImportSettings": [
+      {
+        "name": "骨架|竖起来",
+        "duration": 0.4166666567325592,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "骨架|竖起来",
+            "from": 0,
+            "to": 0.4166666567325592,
+            "wrapMode": 2
+          }
+        ]
+      },
       {
         "name": "骨架|骨架Action",
         "duration": 1.2083333730697632,

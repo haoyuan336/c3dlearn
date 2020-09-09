@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "TowerInfoButton",
+    "atlas": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 105,
+      "height": 105
+    },
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "originalSize": {
+      "width": 105,
+      "height": 105
+    },
+    "rotated": false,
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "texture": "7d599a90-68db-4369-82a8-8e2a902b9b63@6c48a"
+  }
+}

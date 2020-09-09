@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "销毁按钮",
+    "atlas": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 105,
+      "height": 105
+    },
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "originalSize": {
+      "width": 105,
+      "height": 105
+    },
+    "rotated": false,
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "texture": "fe2cf962-db2c-49e1-b14e-8ce03194c22d@6c48a"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "EnemyInfoButton",
+    "atlas": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 105,
+      "height": 105
+    },
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "originalSize": {
+      "width": 105,
+      "height": 105
+    },
+    "rotated": false,
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "texture": "32ba056e-a6cf-4598-bec5-4284855cc456@6c48a"
+  }
+}
