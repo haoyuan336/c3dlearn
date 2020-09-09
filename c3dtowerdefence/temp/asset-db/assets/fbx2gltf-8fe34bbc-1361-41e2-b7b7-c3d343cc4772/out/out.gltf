@@ -1,0 +1,432 @@
+{
+    "asset": {
+        "generator": "FBX2glTF v0.9.7",
+        "version": "2.0"
+    },
+    "scene": 0,
+    "extensionsUsed": [
+        "KHR_lights_punctual"
+    ],
+    "buffers": [
+        {
+            "byteLength": 22684,
+            "uri": "buffer.bin"
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteLength": 124,
+            "byteOffset": 0
+        },
+        {
+            "buffer": 0,
+            "byteLength": 496,
+            "byteOffset": 124
+        },
+        {
+            "buffer": 0,
+            "byteLength": 3744,
+            "byteOffset": 620,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteLength": 3912,
+            "byteOffset": 4364,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 3912,
+            "byteOffset": 8276,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 2608,
+            "byteOffset": 12188,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 2608,
+            "byteOffset": 14796,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 5216,
+            "byteOffset": 17404,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 64,
+            "byteOffset": 22620
+        }
+    ],
+    "scenes": [
+        {
+            "name": "Root Scene",
+            "nodes": [
+                0
+            ]
+        }
+    ],
+    "accessors": [
+        {
+            "componentType": 5126,
+            "type": "SCALAR",
+            "count": 31,
+            "bufferView": 0,
+            "byteOffset": 0,
+            "min": [
+                0.0
+            ],
+            "max": [
+                1.25
+            ]
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 31,
+            "bufferView": 1,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5123,
+            "type": "SCALAR",
+            "count": 1872,
+            "bufferView": 2,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC3",
+            "count": 326,
+            "bufferView": 3,
+            "byteOffset": 0,
+            "min": [
+                -0.00759794097393751,
+                -0.0165884234011173,
+                -0.00300000398419797
+            ],
+            "max": [
+                0.00759795168414712,
+                2.72047509497497e-05,
+                0.00299999746493995
+            ]
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC3",
+            "count": 326,
+            "bufferView": 4,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC2",
+            "count": 326,
+            "bufferView": 5,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5123,
+            "type": "VEC4",
+            "count": 326,
+            "bufferView": 6,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 326,
+            "bufferView": 7,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "MAT4",
+            "count": 1,
+            "bufferView": 8,
+            "byteOffset": 0
+        }
+    ],
+    "images": [
+        {
+            "name": "colorTexture.png",
+            "uri": "colorTexture.png"
+        }
+    ],
+    "samplers": [
+        {}
+    ],
+    "textures": [
+        {
+            "name": "base_color_texture",
+            "sampler": 0,
+            "source": 0
+        }
+    ],
+    "materials": [
+        {
+            "name": "材质.001",
+            "alphaMode": "OPAQUE",
+            "extras": {
+                "fromFBX": {
+                    "shadingModel": "Phong",
+                    "isTruePBR": false
+                }
+            },
+            "pbrMetallicRoughness": {
+                "baseColorTexture": {
+                    "index": 0,
+                    "texCoord": 0
+                },
+                "baseColorFactor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "metallicFactor": 0.400000005960464,
+                "roughnessFactor": 0.152228176593781
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "name": "平面.001",
+            "primitives": [
+                {
+                    "material": 0,
+                    "mode": 4,
+                    "attributes": {
+                        "JOINTS_0": 6,
+                        "NORMAL": 4,
+                        "POSITION": 3,
+                        "TEXCOORD_0": 5,
+                        "WEIGHTS_0": 7
+                    },
+                    "indices": 2
+                }
+            ]
+        }
+    ],
+    "skins": [
+        {
+            "joints": [
+                4
+            ],
+            "inverseBindMatrices": 8,
+            "skeleton": 4
+        }
+    ],
+    "animations": [
+        {
+            "name": "骨架|骨架Action",
+            "channels": [
+                {
+                    "sampler": 0,
+                    "target": {
+                        "node": 4,
+                        "path": "rotation"
+                    }
+                }
+            ],
+            "samplers": [
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 1
+                }
+            ]
+        }
+    ],
+    "cameras": [
+        {
+            "name": "",
+            "type": "perspective",
+            "perspective": {
+                "znear": 10.0,
+                "zfar": 10000.0,
+                "aspectRatio": 1.5,
+                "yfov": 0.471089959144592
+            }
+        }
+    ],
+    "nodes": [
+        {
+            "name": "RootNode",
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                1,
+                2,
+                3,
+                6
+            ]
+        },
+        {
+            "name": "Light",
+            "translation": [
+                4.07624530792236,
+                5.90386199951172,
+                -1.00545394420624
+            ],
+            "rotation": [
+                0.169075712561607,
+                0.755880355834961,
+                -0.272171318531036,
+                0.570947468280792
+            ],
+            "scale": [
+                100.000007629395,
+                100.0,
+                100.0
+            ],
+            "extensions": {
+                "KHR_lights_punctual": {
+                    "light": 0
+                }
+            }
+        },
+        {
+            "name": "Camera",
+            "translation": [
+                7.35889148712158,
+                4.95830917358398,
+                6.92579078674316
+            ],
+            "rotation": [
+                -0.209972992539406,
+                0.385779976844788,
+                0.0906284004449844,
+                0.89379620552063
+            ],
+            "scale": [
+                100.0,
+                100.000007629395,
+                99.9999923706055
+            ],
+            "camera": 0
+        },
+        {
+            "name": "骨架",
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                -0.707106828689575,
+                0.0,
+                0.0,
+                0.707106709480286
+            ],
+            "scale": [
+                100.0,
+                100.0,
+                100.0
+            ],
+            "children": [
+                4
+            ]
+        },
+        {
+            "name": "Bone",
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.00860690232366323,
+                0.707054436206818,
+                0.707054316997528,
+                0.00860690139234066
+            ],
+            "scale": [
+                1.0,
+                0.999999821186066,
+                1.0
+            ],
+            "children": [
+                5
+            ]
+        },
+        {
+            "name": "Bone_end",
+            "translation": [
+                0.0,
+                0.00999999977648258,
+                0.0
+            ],
+            "rotation": [
+                -2.64697796016969e-23,
+                5.20417042793042e-18,
+                1.37753244236987e-40,
+                1.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "name": "平面.001",
+            "translation": [
+                -1.66977376480468e-20,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                -1.30824331877051e-14,
+                -9.73535918546986e-08,
+                1.0,
+                1.94707183709397e-07
+            ],
+            "scale": [
+                100.0,
+                100.0,
+                100.0
+            ],
+            "mesh": 0,
+            "skin": 0
+        }
+    ],
+    "extensions": {
+        "KHR_lights_punctual": {
+            "lights": [
+                {
+                    "name": "",
+                    "color": [
+                        1.0,
+                        1.0,
+                        1.0
+                    ],
+                    "intensity": 1000.0,
+                    "type": "point"
+                }
+            ]
+        }
+    }
+}

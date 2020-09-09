@@ -74,7 +74,7 @@ export class EnemyBase extends BaseObject {
         }
     }
     onLoad() {
-        
+
         this.state.addState("over", () => {
             this.enemyCtl.removeEnemyInList(this.node);
             this.node.destroy();
@@ -94,6 +94,7 @@ export class EnemyBase extends BaseObject {
                 if (dis < 18) {
                     this.caidaiEffect.active = true;
                 }
+                this.enemyCtl.addEnemyAddGoldAnim(this.getCurrentGoldCount(), v3(this.node.position.x, 0, this.node.position.z));
             });
             tw.delay(1)
             tw.call(() => {
@@ -226,4 +227,5 @@ export class EnemyBase extends BaseObject {
             }
         }
     }
+
 }

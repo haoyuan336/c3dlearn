@@ -49,7 +49,7 @@ export class GameController extends Component {
     // @property({ type: Node })
     // public testNode: Node = null;
     onLoad() {
-        this.playerData = new PlayData();
+        this.playerData = new PlayData(this);
 
 
         // let bezier = new BezierN([v3(0, 0, 0), v3(10, 30, 10), v3(20, 3, 0),v3(20, 100, 30)]);
@@ -116,6 +116,7 @@ export class GameController extends Component {
                 return this.showHomeIconEnterAnim();
             }).then(() => {
                 // return this.node.getCom
+                this.node.emit('update-gold-label', this.playerData.getCurrentGoldCount());
                 return this.showUIEnterAnim();
             }).then(() => {
                 this.state.setState("run");

@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "狂暴道具_灰",
+    "atlas": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 83,
+      "height": 81
+    },
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "originalSize": {
+      "width": 83,
+      "height": 81
+    },
+    "rotated": false,
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "texture": "7088e651-1f00-4194-adcb-3cfca77d4d5b@6c48a"
+  }
+}

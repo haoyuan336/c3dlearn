@@ -1,0 +1,6 @@
+{
+    "resolveMap": {
+        "./util/My2Array": "util/My2Array.ts",
+        "./GroundTiled/GroundTiled": "GroundTiled/GroundTiled.ts"
+    }
+}

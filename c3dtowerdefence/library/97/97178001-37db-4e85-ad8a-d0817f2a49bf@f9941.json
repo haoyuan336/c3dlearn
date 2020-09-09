@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "道具背景_1",
+    "atlas": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 142,
+      "height": 84
+    },
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "originalSize": {
+      "width": 142,
+      "height": 84
+    },
+    "rotated": false,
+    "capInsets": [
+      64,
+      42,
+      64,
+      42
+    ],
+    "texture": "97178001-37db-4e85-ad8a-d0817f2a49bf@6c48a"
+  }
+}

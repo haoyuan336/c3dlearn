@@ -3,6 +3,8 @@
         "./util/State": "util/State.ts",
         "./Enemys/EnemyBase": "Enemys/EnemyBase.ts",
         "./GroundMapCtl": "GroundMapCtl.ts",
-        "./GroundTiled/GroundTiled": "GroundTiled/GroundTiled.ts"
+        "./GroundTiled/GroundTiled": "GroundTiled/GroundTiled.ts",
+        "./Effect/WinGoldAnimEffect": "Effect/WinGoldAnimEffect.ts",
+        "./GameController": "GameController.ts"
     }
 }

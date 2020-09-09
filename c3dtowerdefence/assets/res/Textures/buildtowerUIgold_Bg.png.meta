@@ -21,6 +21,7 @@
       ],
       "subMetas": {},
       "userData": {
+        "imageUuidOrDatabaseUri": "d0d29d9e-54bd-48ea-ad25-805b16d7bed9",
         "wrapModeS": "repeat",
         "wrapModeT": "repeat",
         "minfilter": "linear",
@@ -28,8 +29,7 @@
         "mipfilter": "none",
         "premultiplyAlpha": false,
         "anisotropy": 1,
-        "isUuid": true,
-        "imageUuidOrDatabaseUri": "d0d29d9e-54bd-48ea-ad25-805b16d7bed9"
+        "isUuid": true
       }
     },
     "f9941": {
@@ -45,17 +45,17 @@
       ],
       "subMetas": {},
       "userData": {
-        "trimType": "auto",
+        "trimType": "custom",
         "trimThreshold": 1,
         "rotated": false,
         "offsetX": 0,
         "offsetY": 0,
         "trimX": 0,
         "trimY": 0,
-        "width": 113,
-        "height": 51,
-        "rawWidth": 113,
-        "rawHeight": 51,
+        "width": 120,
+        "height": 65,
+        "rawWidth": 120,
+        "rawHeight": 65,
         "borderTop": 0,
         "borderBottom": 0,
         "borderLeft": 0,
@@ -68,6 +68,12 @@
   },
   "userData": {
     "type": "sprite-frame",
+    "platformSettings": {
+      "default": {
+        "png": 80
+      }
+    },
+    "flipVertical": false,
     "redirect": "d0d29d9e-54bd-48ea-ad25-805b16d7bed9@f9941"
   }
 }

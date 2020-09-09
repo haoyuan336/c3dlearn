@@ -20,8 +20,8 @@ export class UIController extends Component {
     private buildUINode: Node = null;
     private updateUINode: Node = null;
 
-    @property({ type: Node })
-    public currentWaveLabelNode: Node = null;
+    // @property({ type: Node })
+    // public currentWaveLabelNode: Node = null;
 
     // @property({ type: Prefab })
     // public startGameCountDownAnimPrefab: Prefab = null;
@@ -49,6 +49,9 @@ export class UIController extends Component {
             }
             this.setUINodeTo3dPos(this.updateUINode, targetTower);
         })
+        // this.node.on("update-gold-label", (goldCount: number)=>{
+        //     this.node.getComponent(GoldCtl).updateGoldCountLabel(goldCount);
+        // });
         // this.gameController.on("refer-current-wave", (waveNum) => {
         //     this.currentWaveLabelNode.getComponent(LabelComponent).string = waveNum;
         // });

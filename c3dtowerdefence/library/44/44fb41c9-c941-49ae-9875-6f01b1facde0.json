@@ -9,11 +9,13 @@
       "DragonMonster"
     ],
     "Tower_1": {
+      "index": 0,
       "BulletType": "BulletOne",
       "ShootRate": 0.6,
       "AttackRange": 10,
       "SkillType": "CrazyRotate",
-      "BaseAttackNum": 1
+      "BaseAttackNum": 1,
+      "BuildCost": 10
     },
     "CrazyRotateSkill": {
       "BaseAttackNum": 20,
@@ -22,23 +24,27 @@
       "RotateSpeed": 180
     },
     "Tower_2": {
+      "index": 1,
       "BulletType": "BulletOne",
       "ShootRate": 1.2,
       "AttackRange": 10,
       "SkillType": "CrazyRotate",
-      "BaseAttackNum": 1
+      "BaseAttackNum": 1,
+      "BuildCost": 15
     },
     "DragonMonster": {
       "MoveSpeed": 1,
       "HealthCount": 5,
       "BeLockedCount": 3,
-      "BaseGasNum": 5
+      "BaseGasNum": 5,
+      "BaseGoldCount": 1
     },
     "Monster_1": {
       "MoveSpeed": 0.2,
       "HealthCount": 2,
       "BeLockedCount": 5,
-      "BaseGasNum": 5
+      "BaseGasNum": 5,
+      "BaseGoldCount": 1
     },
     "Bullet_1": {
       "MoveSpeed": 30,

@@ -1,0 +1,6 @@
+{
+    "resolveMap": {
+        "../GameController": "../GameController.ts",
+        "../Towers/TowerBase": "../Towers/TowerBase.ts"
+    }
+}

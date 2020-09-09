@@ -9,10 +9,14 @@ export class BuildTowerUI extends MenuUIBase {
     @property({ type: Prefab })
     public towerShowAnimPrefabList: Prefab[] = [];
 
-    @property({type: Prefab})
-    public buildTowerUITowerIcon:Prefab = null;
+    @property({ type: Prefab })
+    public buildTowerUITowerIcon: Prefab = null;
+
+    public gameController: GameController;
     start() {
+
         let gameCtl = find("GameController").getComponent(GameController);
+        this.gameController = gameCtl;
         let currentLevelNum = gameCtl.getCurrentLevelNum();
         let currentLevelData = gameCtl.getGameConfig().json['Level_' + currentLevelNum];
         let activedTowerIndexList: number[] = currentLevelData.ActivedTower;
@@ -29,7 +33,7 @@ export class BuildTowerUI extends MenuUIBase {
             node.scale = v3(scale, scale, 1);
             let v = v2(0, 1);
             v = v.rotate(Math.PI * 2 / length * i).normalize();
-            let pos = v.multiplyScalar(100);
+            let pos = v.multiplyScalar(60);
             node.setPosition(v3(pos.x, pos.y, 0));
         }
         console.log("build tower ui");
@@ -47,10 +51,23 @@ export class BuildTowerUI extends MenuUIBase {
         if (nodeName === 'BuildTowerBgNode') {
             this.state.setState("close-ui");
         } else {
-            let index = nodeName.substring(nodeName.length - 1, nodeName.length);
-            console.log("index", index);
-            this.state.setState('close-ui');
-            find("GameController").emit("build-one-tower", index, this.targetNode);
+            let towerIconCom = event.node.getComponent(BuildTowerUITowerIcon);
+            if (towerIconCom) {
+                let towerType = towerIconCom.getTowerType();
+                let buildCost = towerIconCom.getCurrentBuildCost();
+                let currentGoldCount = this.gameController.playerData.getCurrentGoldCount();
+                console.log("current gold count", currentGoldCount);
+                if (buildCost <= currentGoldCount) {
+                    //金币数目够 可以建造塔了
+                    this.gameController.playerData.addGoldCount(buildCost * -1);
+                    this.state.setState("close-ui");
+                    find("GameController").emit("build-one-tower", towerType, this.targetNode);
+                }
+            }
+            // let index = nodeName.substring(nodeName.length - 1, nodeName.length);
+            // console.log("index", index);
+            // this.state.setState('close-ui');
+            // find("GameController").emit("build-one-tower", index, this.targetNode);
         }
 
     }

@@ -15,6 +15,7 @@ export class BaseObject extends Component {
     public baseAttackRate: number = 0; //基础攻击频率
     public baseRotateAngle: number = 0; //基础旋转技能，旋转角度
     public rotateSpeed: number = 0; //旋转技能的旋转角速度
+    public baseGoldCount: number = 0; //基础的金币个数
 
     protected currentGasNum: number = 0; //当前的气值
 
@@ -50,6 +51,10 @@ export class BaseObject extends Component {
         if (gameConfig[this.objectType].RotateSpeed){
             this.rotateSpeed = gameConfig[this.objectType].RotateSpeed;
         }
+        // "BaseGoldCount": 1
+        if (gameConfig[this.objectType].BaseGoldCount){
+            this.baseGoldCount = gameConfig[this.objectType].BaseGoldCount;
+        }
     }
     getCurrentAttackNum(addValue?: number) {
         if (addValue) {
@@ -65,6 +70,9 @@ export class BaseObject extends Component {
     getCurrentShootRate() {
         // baseAttackNum
         return this.baseAttackRate + this.node.getComponent(BaseObject).baseAttackRate;
+    }
+    getCurrentGoldCount():number{
+        return this.baseGoldCount;
     }
 
 }

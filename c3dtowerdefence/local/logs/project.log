@@ -1,0 +1,109 @@
+2020-09-08 22:36:33-log: [Package] ui-kit@1.0.0 enable
+2020-09-08 22:36:33-log: [Package] ipc@1.0.0 enable
+2020-09-08 22:36:33-log: [Package] tester@1.0.0 enable
+2020-09-08 22:36:34-log: [Package] asset-db@1.0.0 enable
+2020-09-08 22:36:33-log: [Package] preferences@1.0.0 enable
+2020-09-08 22:36:34-log: [Package] scene@1.0.0 enable
+2020-09-08 22:36:35-log: [Package] packager@1.0.0 enable
+2020-09-08 22:36:34-log: [Package] engine@1.0.0 enable
+2020-09-08 22:36:35-log: [Package] project-setting@1.0.0 enable
+2020-09-08 22:36:35-log: [Package] about@1.0.0 enable
+2020-09-08 22:36:35-log: [Package] server@1.0.0 enable
+2020-09-08 22:36:35-log: [Package] utils@1.0.0 enable
+2020-09-08 22:36:35-log: [Package] profile@1.0.0 enable
+2020-09-08 22:36:35-log: [Package] assets@1.0.0 enable
+2020-09-08 22:36:35-log: [Package] inspector@1.0.0 enable
+2020-09-08 22:36:35-log: [Package] hierarchy@1.0.0 enable
+2020-09-08 22:36:34-log: [Package] console@1.0.0 enable
+2020-09-08 22:36:35-log: [Package] preview@1.0.0 enable
+2020-09-08 22:36:35-log: [Package] animator@1.0.0 enable
+2020-09-08 22:36:35-log: [Package] builder@1.0.0 enable
+2020-09-08 22:36:35-log: [Package] alipay-mini-game@1.0.0 enable
+2020-09-08 22:36:35-log: [Package] android@1.0.0 enable
+2020-09-08 22:36:35-log: [Package] baidu-mini-game@1.0.0 enable
+2020-09-08 22:36:35-log: [Package] lightmap@1.0.0 enable
+2020-09-08 22:36:35-log: [Package] bytedance-mini-game@1.0.0 enable
+2020-09-08 22:36:35-log: [Package] cocos-play@1.0.0 enable
+2020-09-08 22:36:35-log: [Package] huawei-mini-game@1.0.0 enable
+2020-09-08 22:36:35-log: [Package] ios@1.0.0 enable
+2020-09-08 22:36:35-log: [Package] mac@1.0.0 enable
+2020-09-08 22:36:35-log: [Package] native@1.0.0 enable
+2020-09-08 22:36:35-log: [Package] oppo-mini-game@1.0.0 enable
+2020-09-08 22:36:35-log: [Package] vivo-mini-game@1.0.0 enable
+2020-09-08 22:36:35-log: [Package] web-desktop@1.0.0 enable
+2020-09-08 22:36:35-log: [Package] web-mobile@1.0.0 enable
+2020-09-08 22:36:35-log: [Package] wechatgame@1.0.0 enable
+2020-09-08 22:36:35-log: [Package] windows@1.0.0 enable
+2020-09-08 22:36:35-log: [Package] xiaomi-quick-game@1.0.0 enable
+2020-09-08 22:36:36-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/geometry/index.js failed
+2020-09-08 22:36:36-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/utils/path.js failed
+2020-09-08 22:36:36-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/platform/debug.js failed
+2020-09-08 22:36:36-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/gfx/webgl/webgl-texture-view.js failed
+2020-09-08 22:36:36-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/math/index.js failed
+2020-09-08 22:39:39-info: asset meta saved
+2020-09-08 22:39:47-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-08 22:40:03-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-08 22:40:04-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-08 22:41:00-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 09:21:29-warn: [Asset DB] Browserslist: caniuse-lite is outdated. Please run the following command: `npx browserslist --update-db`
+2020-09-09 09:21:30-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 09:21:32-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 09:22:10-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 09:23:51-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 09:29:52-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 09:30:28-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 09:34:03-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 09:34:35-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 09:36:15-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 09:36:20-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 09:36:53-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 09:37:02-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 09:37:08-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 09:37:51-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 09:39:09-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 09:54:28-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 09:54:56-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 09:54:58-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 09:55:00-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 09:55:02-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 09:55:38-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 09:56:05-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 09:56:07-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 10:36:45-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 10:54:39-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 10:57:08-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 11:41:57-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 11:42:21-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 11:42:28-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 11:42:49-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 11:43:11-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 11:43:16-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 11:43:55-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 11:44:58-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\WinGoldAnim3d.prefab) saved
+2020-09-09 11:56:47-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\WinGoldAnim3d.prefab) saved
+2020-09-09 11:56:49-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\WinGoldAnim3d.prefab) saved
+2020-09-09 12:01:43-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 12:03:36-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 12:06:27-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 12:08:23-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 12:09:32-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 12:10:14-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 12:10:44-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 12:10:52-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 12:11:25-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 12:12:27-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 12:13:40-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 12:14:12-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 12:14:41-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 12:15:13-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 12:15:43-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 12:16:16-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 12:16:47-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 12:17:12-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 12:20:51-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 12:22:25-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 12:22:33-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 12:23:00-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 12:23:06-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 12:23:45-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-09 12:24:53-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved

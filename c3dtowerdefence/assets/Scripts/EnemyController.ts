@@ -4,6 +4,8 @@ import { EnemyBase } from './Enemys/EnemyBase'
 import { GroundMapCtl } from './GroundMapCtl';
 import { GroundTiled } from './GroundTiled/GroundTiled';
 import My2dArray from './util/My2Array';
+import { WinGoldAnimEffect } from './Effect/WinGoldAnimEffect';
+import { GameController } from './GameController';
 const { ccclass, property } = _decorator;
 
 @ccclass('EnemyController')
@@ -37,13 +39,15 @@ export class EnemyController extends Component {
 
     private currentWaveTime: number = 0;
     private currentWaveDuraction: number = 1;
-
+    @property({ type: Prefab })
+    public goldAnim3dPrefab: Prefab = null;
+    public gameController: GameController = null;
     start() {
         // Your initialization goes here.
         this.gameConfig = this.gameConfigRes.json;
         // this.state.setState('run');
         this.waveData = this.gameConfig['Level_' + this.currentLevelNum];
-
+        this.gameController = this.node.getComponent(GameController);
         this.endPos = v3(0, 0, 0);
 
 
@@ -147,6 +151,12 @@ export class EnemyController extends Component {
     }
     getCurrentEnemyNodeList() {
         return this.enemyNodeList;
+    }
+    addEnemyAddGoldAnim(goldCount: number, enemyTargetPos: Vec3) {
+        let node = instantiate(this.goldAnim3dPrefab);
+        node.parent = this.node;
+        node.getComponent(WinGoldAnimEffect).setGoldCount(goldCount, this.gameController);
+        node.position = enemyTargetPos;
     }
 
 }
