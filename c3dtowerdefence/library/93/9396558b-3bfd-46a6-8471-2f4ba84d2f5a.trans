@@ -5,6 +5,7 @@
         "./../Enemys/EnemyBase": "../Enemys/EnemyBase.ts",
         "./../BulletBase": "../BulletBase.ts",
         "./../BaseObject": "../BaseObject.ts",
-        "../EnemyController": "../EnemyController.ts"
+        "../EnemyController": "../EnemyController.ts",
+        "../TowerBuildBase/TowerBuildBase": "../TowerBuildBase/TowerBuildBase.ts"
     }
 }

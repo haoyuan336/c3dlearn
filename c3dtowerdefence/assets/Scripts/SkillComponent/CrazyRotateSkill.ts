@@ -36,9 +36,11 @@ export class CrazyRotateSkill extends BaseObject {
         this.node.on("release-skill", (cb) => {
             // let shootRate = data.shootRate + this.baseAttackRate;
             // let baseAttackNum = data.baseAttackNum;
-            let shootRate = this.getCurrentShootRate()
-            // console.log("shoot rate", shootRate);
-            let time = 1 / shootRate;
+            let shootRate = this.getCurrentShootRate();
+            let towerBaseShootRate = this.node.getComponent(TowerBase).getCurrentShootRate();
+            let endShootRate = shootRate + towerBaseShootRate;
+            console.log("shoot rate", endShootRate);
+            let time = 1 / endShootRate;
             // console.log("time", time);
             this.schedule(shootBullet, time);
 

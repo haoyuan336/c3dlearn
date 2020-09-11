@@ -1,27 +1,42 @@
-import { _decorator, Component, Node, Tween, Vec3, v3 } from 'cc';
+import { _decorator, Component, Node, Tween, Vec3, v3, find, isValid } from 'cc';
 import { State } from '../../util/State';
+import { TowerBase } from '../../Towers/TowerBase';
+import { BaseObject } from '../../BaseObject';
+import { GameController } from '../../GameController';
 const { ccclass, property } = _decorator;
 
 @ccclass('MenuUIBase')
-export class MenuUIBase extends Component {
+export class MenuUIBase extends BaseObject {
     public state: State = new State();
     protected targetNode: Node = null;
     start() {
         console.log('menu ui base');
         this.state.addState('open-ui', this.openUI.bind(this));
         this.state.addState('close-ui', this.closeUI.bind(this));
+        let gameConfig = find('GameController').getComponent(GameController).getGameConfig().json;
+        super.init(gameConfig);
     }
-  
-    open(target:Node){
+
+    open(target: Node) {
         console.log("打开");
+        if (isValid(this.targetNode) && this.targetNode.getComponent(TowerBase) && this.targetNode.uuid !== target.uuid) {
+            this.targetNode.getComponent(TowerBase).closeAttackRange();
+        }
+        if (target.getComponent(TowerBase)) {
+            target.getComponent(TowerBase).showAttackRange();
+        }
         this.targetNode = target;
         this.state.setState('open-ui');
     }
-    close(){
+    close() {
+
         this.state.setState("close-ui");
     }
 
-    private  closeUI() {
+    private closeUI() {
+        if (isValid(this.targetNode) && this.targetNode.getComponent(TowerBase)) {
+            this.targetNode.getComponent(TowerBase).closeAttackRange();
+        }
         let tw = new Tween(this.node);
         tw.to(0.2, { scale: v3(0, 0, 0) });
         tw.call(() => {

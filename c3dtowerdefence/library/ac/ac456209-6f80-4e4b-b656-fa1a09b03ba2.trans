@@ -2,6 +2,7 @@
     "resolveMap": {
         "./Menu/MenuUIBase": "Menu/MenuUIBase.ts",
         "./SkillCtl": "SkillCtl.ts",
-        "./GoldCtl": "GoldCtl.ts"
+        "./GoldCtl": "GoldCtl.ts",
+        "./Menu/UpdateTowerUI": "Menu/UpdateTowerUI.ts"
     }
 }

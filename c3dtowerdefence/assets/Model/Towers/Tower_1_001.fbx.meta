@@ -70,6 +70,30 @@
         "events": []
       }
     },
+    "a7771": {
+      "importer": "gltf-animation",
+      "uuid": "97d4d2d0-75fa-4bd5-bb60-aa2a38bfa0c1@a7771",
+      "displayName": "",
+      "id": "a7771",
+      "name": "骨架.001|todestroy.animation",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 2,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.2083333730697632
+        },
+        "events": []
+      }
+    },
     "438fe": {
       "importer": "gltf-skeleton",
       "uuid": "97d4d2d0-75fa-4bd5-bb60-aa2a38bfa0c1@438fe",
@@ -84,7 +108,7 @@
       "subMetas": {},
       "userData": {
         "gltfIndex": 0,
-        "jointsLength": 5
+        "jointsLength": 9
       }
     },
     "9881e": {
@@ -189,6 +213,19 @@
         "splits": [
           {
             "name": "骨架.001|ShowAnim",
+            "from": 0,
+            "to": 1.2083333730697632,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "骨架.001|todestroy",
+        "duration": 1.2083333730697632,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "骨架.001|todestroy",
             "from": 0,
             "to": 1.2083333730697632,
             "wrapMode": 2

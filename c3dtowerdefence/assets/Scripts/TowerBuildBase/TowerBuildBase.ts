@@ -33,8 +33,9 @@ export class TowerBuildBase extends Component {
         // this.node.on("onTriggerEnter")
         // this.getComponent(ColliderComponent).on("onTriggerEnter", this.onTriggerEnter.bind(this));
     }
-    unSetTargetTower() {
+    unSetTargetTower(target: Node) {
         this.targetTower = undefined;
+        this.node.active = true;
     }
     setTargetTower(targetTower: Node) {
         this.targetTower = targetTower;

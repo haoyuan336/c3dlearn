@@ -1,5 +1,6 @@
 {
     "resolveMap": {
-        "../../GameController": "../../GameController.ts"
+        "../../GameController": "../../GameController.ts",
+        "../../BaseObject": "../../BaseObject.ts"
     }
 }

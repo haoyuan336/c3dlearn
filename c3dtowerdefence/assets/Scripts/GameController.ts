@@ -46,6 +46,8 @@ export class GameController extends Component {
 
     public playerData: PlayData;
 
+
+
     // @property({ type: Node })
     // public testNode: Node = null;
     onLoad() {
@@ -83,6 +85,7 @@ export class GameController extends Component {
                 let pos = v3(towerBaseNode.position.x, 0, towerBaseNode.position.z);
                 node.setPosition(pos);
                 towerBaseNode.getComponent(TowerBuildBase).setTargetTower(node);
+                node.getComponent(TowerBase).setTowerBuildBase(towerBaseNode);
             }
 
         });
@@ -215,5 +218,7 @@ export class GameController extends Component {
     getCurrentLevelNum() {
         return this.currentLevelNum;
     }
+   
+
 
 }

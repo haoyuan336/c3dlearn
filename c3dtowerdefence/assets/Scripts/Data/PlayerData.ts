@@ -12,7 +12,8 @@ export class PlayData {
         let gameTime = this.getLocalData("game-time");
         console.log("game time", gameTime);
         // this.clearLocalData();
-        this.setLocalData("gold-count", this.currentGoldCount + '');
+        this.setLocalData("gold-count", 9999 + '');
+        // this.setLocalData()
         if (gameTime) {
             // 首次进入游戏. 初始化游戏数据
             //不是首次进入游戏，那么初始化一些游戏数据

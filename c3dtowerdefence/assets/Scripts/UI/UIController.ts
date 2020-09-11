@@ -2,6 +2,7 @@ import { _decorator, Component, Node, Prefab, instantiate, CameraComponent, Vec3
 import { MenuUIBase } from './Menu/MenuUIBase';
 import { SkillCtl } from './SkillCtl';
 import { GoldCtl } from './GoldCtl';
+import { UpdateTowerUI } from './Menu/UpdateTowerUI';
 const { ccclass, property } = _decorator;
 
 @ccclass('UIController')
@@ -25,6 +26,9 @@ export class UIController extends Component {
     @property({ type: Node })
     public towerInfoButton: Node = null;
 
+    private isHoldSkillIcon: boolean = false; //是否拖起了 技能点
+
+
     // @property({ type: Node })
     // public currentWaveLabelNode: Node = null;
 
@@ -43,6 +47,9 @@ export class UIController extends Component {
         this.gameController.on("touch-base-build-base", (node: Node) => {
             //玩家点中了塔的基座
             //显示建造tower 的UI
+            if (this.isHoldSkillIcon){
+                return;
+            }
             if (isValid(this.updateUINode)) {
                 this.updateUINode.getComponent(MenuUIBase).close();
             }
@@ -56,6 +63,10 @@ export class UIController extends Component {
         })
         this.gameController.on("touch-tower", (targetTower: Node) => {
             //点中了tower
+            //如果托着技能点，那么不需要显示UI
+            if (this.isHoldSkillIcon){
+                return;
+            }
             if (isValid(this.buildUINode)) {
                 this.buildUINode.getComponent(MenuUIBase).close();
             }
@@ -64,7 +75,8 @@ export class UIController extends Component {
                 this.updateUINode.parent = this.node;
             }
             this.setUINodeTo3dPos(this.updateUINode, targetTower);
-            this.updateUINode.getComponent(MenuUIBase).open(targetTower);
+            // this.updateUINode.getComponent(MenuUIBase).open(targetTower);
+            this.updateUINode.getComponent(UpdateTowerUI).open(targetTower);
         })
         // this.node.on("update-gold-label", (goldCount: number)=>{
         //     this.node.getComponent(GoldCtl).updateGoldCountLabel(goldCount);
@@ -130,5 +142,9 @@ export class UIController extends Component {
             default:
                 break;
         }
+    }
+    setHoldSkillIcon(value: boolean) {
+        //拖起了 技能点
+        this.isHoldSkillIcon = value;
     }
 }

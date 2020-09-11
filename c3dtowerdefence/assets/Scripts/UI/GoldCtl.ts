@@ -1,4 +1,5 @@
-import { _decorator, Component, Node, Tween, v3, view, LabelComponent, find, instantiate } from 'cc';
+import { _decorator, Component, Node, Tween, v3, view, LabelComponent, find, instantiate, tween } from 'cc';
+import { Tool } from '../util/Tool';
 const { ccclass, property } = _decorator;
 
 @ccclass('GoldCtl')
@@ -37,12 +38,21 @@ export class GoldCtl extends Component {
         gameCtlNode.on("update-gold-label", (goldCount: number, addGoldCount: number) => {
             this.updateGoldCountLabel(goldCount, addGoldCount);
         });
+        this.node.on("gold-not-enough", () => {
+            //显示金币不足的动画
+            // this.currentGoldLabel
+            let tw = new Tween(this.currentGoldLabel);
+            tw.to(0.1, { scale: v3(1.5, 1.5, 1.5) })
+            tw.to(0.1, { scale: v3(1, 1, 1) })
+            tw.start();
+        })
     }
     updateLevelLabel(level, wave) {
         this.currentLevelLabel.getComponent(LabelComponent).string = (level + 1) + '-' + (wave + 1);
     }
     updateGoldCountLabel(goldCount: number, addGoldCount?: number) {
-        this.currentGoldLabel.getComponent(LabelComponent).string = goldCount + '';
+        let endStr = Tool.convertNumToK(goldCount);
+        this.currentGoldLabel.getComponent(LabelComponent).string = endStr;
 
         if (addGoldCount) {
             if (this.addGoldEffectNodeCount > 20) {
@@ -55,7 +65,7 @@ export class GoldCtl extends Component {
             if (addGoldCount > 0) {
                 offsetStr = '+';
             }
-            effectNode.getComponent(LabelComponent).string = offsetStr + addGoldCount + '';
+            effectNode.getComponent(LabelComponent).string = offsetStr + Tool.convertNumToK(addGoldCount) + '';
             // effectNode.position = v3(eff)
             let tw = new Tween(effectNode);
             tw.by(0.2, { position: v3(0, 20, 0) })

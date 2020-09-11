@@ -4,6 +4,8 @@
   "_objFlags": 0,
   "_native": "",
   "json": {
+    "TowerMaxLevel": 20,
+    "default": {},
     "EnemyName": [
       "Monster_1",
       "DragonMonster"
@@ -19,7 +21,7 @@
     },
     "CrazyRotateSkill": {
       "BaseAttackNum": 20,
-      "ShootRate": 10,
+      "ShootRate": 15,
       "BaseRotateAngle": 720,
       "RotateSpeed": 180
     },
@@ -66,7 +68,19 @@
         1
       ],
       "AddEnemyDuraction": [
-        1,
+        10,
+        20,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
         2,
         2,
         2
@@ -75,11 +89,11 @@
         [
           {
             "type": 0,
-            "count": 10
+            "count": 0
           },
           {
             "type": 1,
-            "count": 10
+            "count": 1
           }
         ],
         [
@@ -100,6 +114,126 @@
           {
             "type": 1,
             "count": 1
+          }
+        ],
+        [
+          {
+            "type": 0,
+            "count": 3
+          },
+          {
+            "type": 1,
+            "count": 5
+          }
+        ],
+        [
+          {
+            "type": 0,
+            "count": 3
+          },
+          {
+            "type": 1,
+            "count": 5
+          }
+        ],
+        [
+          {
+            "type": 0,
+            "count": 3
+          },
+          {
+            "type": 1,
+            "count": 5
+          }
+        ],
+        [
+          {
+            "type": 0,
+            "count": 3
+          },
+          {
+            "type": 1,
+            "count": 5
+          }
+        ],
+        [
+          {
+            "type": 0,
+            "count": 3
+          },
+          {
+            "type": 1,
+            "count": 5
+          }
+        ],
+        [
+          {
+            "type": 0,
+            "count": 3
+          },
+          {
+            "type": 1,
+            "count": 5
+          }
+        ],
+        [
+          {
+            "type": 0,
+            "count": 3
+          },
+          {
+            "type": 1,
+            "count": 5
+          }
+        ],
+        [
+          {
+            "type": 0,
+            "count": 3
+          },
+          {
+            "type": 1,
+            "count": 5
+          }
+        ],
+        [
+          {
+            "type": 0,
+            "count": 3
+          },
+          {
+            "type": 1,
+            "count": 5
+          }
+        ],
+        [
+          {
+            "type": 0,
+            "count": 3
+          },
+          {
+            "type": 1,
+            "count": 5
+          }
+        ],
+        [
+          {
+            "type": 0,
+            "count": 3
+          },
+          {
+            "type": 1,
+            "count": 5
+          }
+        ],
+        [
+          {
+            "type": 0,
+            "count": 3
+          },
+          {
+            "type": 1,
+            "count": 5
           }
         ],
         [

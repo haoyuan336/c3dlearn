@@ -1,6 +1,7 @@
 {
     "resolveMap": {
         "../GameController": "../GameController.ts",
-        "../Towers/TowerBase": "../Towers/TowerBase.ts"
+        "../Towers/TowerBase": "../Towers/TowerBase.ts",
+        "./UIController": "UIController.ts"
     }
 }

@@ -22,13 +22,10 @@
         "__id__": 4
       },
       {
-        "__id__": 119
-      },
-      {
         "__id__": 7
       },
       {
-        "__id__": 122
+        "__id__": 119
       },
       {
         "__id__": 58
@@ -42,7 +39,7 @@
     "_prefab": null,
     "autoReleaseAssets": false,
     "_globals": {
-      "__id__": 125
+      "__id__": 122
     },
     "_id": "54d4b3d4-8425-49ae-9814-eff3d81e7c47"
   },
@@ -432,9 +429,9 @@
     },
     "_lscale": {
       "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
-      "z": 1
+      "x": 1.2,
+      "y": 1.2,
+      "z": 1.1
     },
     "_layer": 1073741824,
     "_euler": {
@@ -934,7 +931,7 @@
     "_prefab": null,
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -204.386,
+      "x": -191.746,
       "y": -20,
       "z": 0
     },
@@ -3680,89 +3677,6 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "AttackRange",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 1
-    },
-    "_children": [],
-    "_active": false,
-    "_components": [
-      {
-        "__id__": 120
-      }
-    ],
-    "_prefab": null,
-    "_lpos": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 6.105
-    },
-    "_lrot": {
-      "__type__": "cc.Quat",
-      "x": 0,
-      "y": 0,
-      "z": 0,
-      "w": 1
-    },
-    "_lscale": {
-      "__type__": "cc.Vec3",
-      "x": 10,
-      "y": 0.1,
-      "z": 10
-    },
-    "_layer": 1073741824,
-    "_euler": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_id": "4f5dfZgntBIYiOXt7sIRKh"
-  },
-  {
-    "__type__": "cc.ModelComponent",
-    "_name": "Cylinder<ModelComponent>",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 119
-    },
-    "_enabled": true,
-    "_materials": [
-      {
-        "__uuid__": "2a8e7799-de27-41a4-8190-4cd24393814a"
-      }
-    ],
-    "_visFlags": 0,
-    "lightmapSettings": {
-      "__id__": 121
-    },
-    "_mesh": {
-      "__uuid__": "1263d74c-8167-4928-91a6-4e2672411f47@8abdc"
-    },
-    "_shadowCastingMode": 0,
-    "_enableMorph": true,
-    "_id": "306NJuZTdKJZigS/u2bJVn"
-  },
-  {
-    "__type__": "cc.ModelLightmapSettings",
-    "texture": null,
-    "uvParam": {
-      "__type__": "cc.Vec4",
-      "x": 0,
-      "y": 0,
-      "z": 0,
-      "w": 0
-    },
-    "_bakeable": false,
-    "_castShadow": false,
-    "_receiveShadow": false,
-    "_recieveShadow": false,
-    "_lightmapSize": 64
-  },
-  {
-    "__type__": "cc.Node",
     "_name": "Directional Light",
     "_objFlags": 0,
     "_parent": {
@@ -3772,7 +3686,7 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 123
+        "__id__": 120
       }
     ],
     "_prefab": null,
@@ -3809,7 +3723,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 122
+      "__id__": 119
     },
     "_enabled": true,
     "_color": {
@@ -3822,7 +3736,7 @@
     "_useColorTemperature": false,
     "_colorTemperature": 6550,
     "_staticSettings": {
-      "__id__": 124
+      "__id__": 121
     },
     "_illuminance": 65000,
     "_id": "2fNNb97HpO451AEtsKsF1P"
@@ -3836,13 +3750,13 @@
   {
     "__type__": "cc.SceneGlobals",
     "ambient": {
-      "__id__": 126
+      "__id__": 123
     },
     "planarShadows": {
-      "__id__": 127
+      "__id__": 124
     },
     "_skybox": {
-      "__id__": 128
+      "__id__": 125
     }
   },
   {

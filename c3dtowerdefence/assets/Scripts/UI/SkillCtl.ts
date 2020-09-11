@@ -3,6 +3,7 @@ import { GameController } from '../GameController';
 import { TowerBase } from '../Towers/TowerBase';
 import { BaseObject } from '../BaseObject';
 import { KuangBaoSkill } from './道具/KuangBaoSkill';
+import { UIController } from './UIController';
 const { ccclass, property } = _decorator;
 
 @ccclass('SkillCtl')
@@ -96,6 +97,7 @@ export class SkillCtl extends Component {
         //     this.skillNodeList.push(node);
         // }
         // console.log("this skill node lsit", this.skillNodeList);
+
         this.node.on(Node.EventType.TOUCH_START, (event: EventTouch) => {
             console.log("touch start", event);
 
@@ -113,6 +115,9 @@ export class SkillCtl extends Component {
                 }
             }
             if (this.currentTouchNode) {
+                // this.gameController
+                // this.gameController.setHoldSkillIcon(true);
+                this.node.getComponent(UIController).setHoldSkillIcon(true);
                 this.startCheckSkillNode();
             }
 
@@ -125,9 +130,13 @@ export class SkillCtl extends Component {
             }
         });
         this.node.on(Node.EventType.TOUCH_END, (event: EventTouch) => {
+
             if (this.currentTouchNode) {
                 //手上有
                 this.scheduleOnce(() => {
+                    // this.gameController.setHoldSkillIcon(false);
+                    this.node.getComponent(UIController).setHoldSkillIcon(false);
+
                     if (this.timeoutResolve) {
                         this.timeoutResolve('timeout');
                         this.timeoutResolve = undefined;
@@ -145,7 +154,6 @@ export class SkillCtl extends Component {
                 this.timeoutResolve = resolve;
             })
         ]
-
         Promise.race(promiseList).then((type) => {
             //触摸结束 
             if (type === 'timeout') {
@@ -161,7 +169,6 @@ export class SkillCtl extends Component {
                 console.log("释放技能成功");
                 if (isValid(this.targetTower)) {
                     console.log("给目标塔发送消息，释放技能");
-
                     //如果存在需要释放技能的塔，那么需要让此塔来释放技能
                     // let objectType = this.currentTouchNode.getComponent(KuangBaoSkill).objectType;
                     // console.log("object type", objectType);
@@ -173,8 +180,6 @@ export class SkillCtl extends Component {
                             break;
                         }
                     }
-
-
                     this.currentTouchNode.destroy();
                     this.currentTouchNode = undefined;
 

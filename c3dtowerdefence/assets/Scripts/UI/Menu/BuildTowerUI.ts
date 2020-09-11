@@ -62,6 +62,8 @@ export class BuildTowerUI extends MenuUIBase {
                     this.gameController.playerData.addGoldCount(buildCost * -1);
                     this.state.setState("close-ui");
                     find("GameController").emit("build-one-tower", towerType, this.targetNode);
+                }else{
+                    find("Canvas").emit('gold-not-enough');
                 }
             }
             // let index = nodeName.substring(nodeName.length - 1, nodeName.length);
