@@ -60,7 +60,7 @@ export class UpdateTowerUI extends MenuUIBase {
                 break;
             case 'destroy':
 
-                this.gameController.playerData.addGoldCount(this.destroyWinCount);
+                // this.gameController.playerData.addGoldCount(this.destroyWinCount);
                 this.state.setState("close-ui");
                 this.targetNode.getComponent(TowerBase).toDestroy();
 

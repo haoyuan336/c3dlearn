@@ -4,7 +4,6 @@
         "./Enemys/EnemyBase": "Enemys/EnemyBase.ts",
         "./GroundMapCtl": "GroundMapCtl.ts",
         "./GroundTiled/GroundTiled": "GroundTiled/GroundTiled.ts",
-        "./Effect/WinGoldAnimEffect": "Effect/WinGoldAnimEffect.ts",
         "./GameController": "GameController.ts"
     }
 }

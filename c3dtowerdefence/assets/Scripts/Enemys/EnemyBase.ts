@@ -24,6 +24,8 @@ export class EnemyBase extends BaseObject {
     private startPos: Vec3 = null;
     private enemyCtl: EnemyController = null;
     private currentMoveTw: Tween = null;
+    private gameController: GameController = null;
+    private beAttackedCb = null;
     @property({ type: Node })
     public caidaiEffect: Node = null;
     public init(gameConfig: Object, startPos: Vec3, endPos: Vec3) {
@@ -39,9 +41,10 @@ export class EnemyBase extends BaseObject {
         this.node.eulerAngles = new Vec3(0, angle * 180 / Math.PI, 0);
 
     }
-    showEnemyEnterAnim(index: number, enemtCtl: EnemyController) {
+    showEnemyEnterAnim(index: number, enemtCtl: EnemyController,gameCtl: GameController) {
         let node = this.node;
         this.enemyCtl = enemtCtl;
+        this.gameController = gameCtl;
         return new Promise((resolve, reject) => {
             let tw = new Tween(node);
             let pos = node.position;
@@ -94,7 +97,8 @@ export class EnemyBase extends BaseObject {
                 if (dis < 18) {
                     this.caidaiEffect.active = true;
                 }
-                this.enemyCtl.addEnemyAddGoldAnim(this.getCurrentGoldCount(), v3(this.node.position.x, 0, this.node.position.z));
+                // this.enemyCtl.addEnemyAddGoldAnim(this.getCurrentGoldCount(), v3(this.node.position.x, 0, this.node.position.z));
+                this.gameController.showAddGoldAnimEffect(this.getCurrentGoldCount(), v3(this.node.position.x, 0, this.node.position.z));
             });
             tw.delay(1)
             tw.call(() => {
@@ -169,6 +173,7 @@ export class EnemyBase extends BaseObject {
             if (this.state.getState() !== 'run') {
                 return;
             }
+            this.beAttackedCb = data.cb;
             this.currentHealthCount -= data.baseAttackNum;
             let baseGasNum = data.baseGasNum; //取处基础气值
 
@@ -184,6 +189,10 @@ export class EnemyBase extends BaseObject {
 
             if (this.currentHealthCount <= 0) {
                 this.currentHealthCount = 0;
+                if(this.beAttackedCb){
+                    this.beAttackedCb(true);
+                    //被打死了
+                }
                 this.state.setState("to-dead");
             }
             if (isValid(this.healthBar)) {

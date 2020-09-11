@@ -6,6 +6,7 @@ import { BulletBase } from './../BulletBase';
 import { BaseObject } from './../BaseObject'
 import { EnemyController } from '../EnemyController';
 import { TowerBuildBase } from '../TowerBuildBase/TowerBuildBase';
+import { SkillCtl } from '../UI/SkillCtl';
 const { ccclass, property } = _decorator;
 
 @ccclass('TowerBase')
@@ -38,8 +39,12 @@ export class TowerBase extends BaseObject {
     @property({ type: Node })
     public attackRangeNode: Node = null;
 
+
+    private skillCtl: SkillCtl = null;
+
     init(gameConfig: Object) {
         super.init(gameConfig);
+        this.skillCtl = find("Canvas").getComponent(SkillCtl);
         this.gameConfig = gameConfig;
         console.log('tower base init');
         this.node.emit("init", gameConfig);
@@ -87,10 +92,14 @@ export class TowerBase extends BaseObject {
             stateAnim.repeatCount = 1;
             skeleteAnim.play(destroyClip.name);
             this.scheduleOnce(() => {
-                this.node.destroy();
                 if (this.towerBuildBase) {
                     this.towerBuildBase.getComponent(TowerBuildBase).unSetTargetTower(this.node);
                 }
+                let randomPos = v3(Math.random() * 2, 0, Math.random() * 2);
+                this.gameController.getComponent(GameController).showAddGoldAnimEffect(this.getDestroyCount(), v3(this.node.position.x, 0, this.node.position.z).add(randomPos));
+
+                this.node.destroy();
+
             }, stateAnim.length)
 
 
@@ -217,9 +226,18 @@ export class TowerBase extends BaseObject {
         bulletNode.getComponent(BulletBase).init(this.gameConfig, {
             direction: direction,
             targetEnemy: this.currentTargetEnemy,
-            baseAttackNum: attackNum
+            baseAttackNum: attackNum,
+            targetTower: this
 
         })
+    }
+    enemyDeadByThis(isDead: boolean){
+        //敌人被此塔打死
+        if (isDead){
+            //如果敌人被打死了, 那么此塔增加能量 一个点
+            this.skillCtl.showAddPowerAnimEffect(2, this.node.position);
+            
+        }
     }
     releaseSkill() {
         //塔释放技能

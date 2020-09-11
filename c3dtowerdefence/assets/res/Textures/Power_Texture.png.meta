@@ -1,0 +1,40 @@
+{
+  "ver": "1.0.18",
+  "importer": "image",
+  "imported": true,
+  "uuid": "956aa0a5-a659-4591-8a46-880bb4dd1434",
+  "files": [
+    ".png",
+    ".json"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "956aa0a5-a659-4591-8a46-880bb4dd1434@6c48a",
+      "displayName": "Power_Texture",
+      "id": "6c48a",
+      "name": "texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "956aa0a5-a659-4591-8a46-880bb4dd1434"
+      }
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "redirect": "956aa0a5-a659-4591-8a46-880bb4dd1434@6c48a"
+  }
+}

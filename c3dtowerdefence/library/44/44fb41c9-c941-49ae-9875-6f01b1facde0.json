@@ -63,13 +63,23 @@
       "LeftTime": 3
     },
     "Level_0": {
+      "TowerBuildPos": [
+        [
+          4,
+          4
+        ],
+        [
+          6,
+          6
+        ]
+      ],
       "ActivedTower": [
         0,
         1
       ],
       "AddEnemyDuraction": [
-        10,
-        20,
+        1,
+        2,
         2,
         2,
         2,
@@ -89,31 +99,31 @@
         [
           {
             "type": 0,
-            "count": 0
+            "count": 10
           },
           {
             "type": 1,
-            "count": 1
+            "count": 11
           }
         ],
         [
           {
             "type": 0,
-            "count": 1
+            "count": 10
           },
           {
             "type": 1,
-            "count": 1
+            "count": 10
           }
         ],
         [
           {
             "type": 0,
-            "count": 2
+            "count": 20
           },
           {
             "type": 1,
-            "count": 1
+            "count": 10
           }
         ],
         [

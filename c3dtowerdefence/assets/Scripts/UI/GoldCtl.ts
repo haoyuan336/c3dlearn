@@ -61,11 +61,12 @@ export class GoldCtl extends Component {
             this.addGoldEffectNodeCount++;
             let effectNode = instantiate(this.addGoldEffectLabel);
             effectNode.parent = this.goldsNode;
-            let offsetStr = '';
+            let offsetStr = '-';
             if (addGoldCount > 0) {
                 offsetStr = '+';
             }
-            effectNode.getComponent(LabelComponent).string = offsetStr + Tool.convertNumToK(addGoldCount) + '';
+            let endStr = Tool.convertNumToK(addGoldCount);
+            effectNode.getComponent(LabelComponent).string = offsetStr + endStr + '';
             // effectNode.position = v3(eff)
             let tw = new Tween(effectNode);
             tw.by(0.2, { position: v3(0, 20, 0) })

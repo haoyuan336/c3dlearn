@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "SkillButtonHighLight",
+    "atlas": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 230,
+      "height": 230
+    },
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "originalSize": {
+      "width": 230,
+      "height": 230
+    },
+    "rotated": false,
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "texture": "06376c11-46ed-4490-8660-64f41167dd5e@6c48a"
+  }
+}

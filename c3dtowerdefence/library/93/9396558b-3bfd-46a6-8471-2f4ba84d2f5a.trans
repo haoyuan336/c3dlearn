@@ -6,6 +6,7 @@
         "./../BulletBase": "../BulletBase.ts",
         "./../BaseObject": "../BaseObject.ts",
         "../EnemyController": "../EnemyController.ts",
-        "../TowerBuildBase/TowerBuildBase": "../TowerBuildBase/TowerBuildBase.ts"
+        "../TowerBuildBase/TowerBuildBase": "../TowerBuildBase/TowerBuildBase.ts",
+        "../UI/SkillCtl": "../UI/SkillCtl.ts"
     }
 }

@@ -5,6 +5,7 @@
         "Monster_1",
         "DragonMonster"
     ],
+    
     "Tower_1": {
         "index": 0,
         "BulletType": "BulletOne",
@@ -19,7 +20,6 @@
         "ShootRate": 15,
         "BaseRotateAngle": 720,
         "RotateSpeed": 180
-        
     },
     "Tower_2": {
         "index": 1,
@@ -28,8 +28,7 @@
         "AttackRange": 10,
         "SkillType": "CrazyRotate",
         "BaseAttackNum": 1,
-        "BuildCost":15
-
+        "BuildCost": 15
     },
     "DragonMonster": {
         "MoveSpeed": 1,
@@ -44,7 +43,6 @@
         "BeLockedCount": 5,
         "BaseGasNum": 5,
         "BaseGoldCount": 1
-
     },
     "Bullet_1": {
         "MoveSpeed": 30,
@@ -59,16 +57,18 @@
         "BaseGasNum": 0,
         "isCollisionGround": false,
         "LeftTime": 3
-
     },
     "Level_0": {
+        "TowerBuildPos": [
+            [4,4],[6,6]
+        ],
         "ActivedTower": [
             0,
             1
         ],
         "AddEnemyDuraction": [
-            10,
-            20,
+            1,
+            2,
             2,
             2,
             2,
@@ -88,31 +88,31 @@
             [
                 {
                     "type": 0,
-                    "count": 0
+                    "count": 10
                 },
                 {
                     "type": 1,
-                    "count": 1
+                    "count": 11
                 }
             ],
             [
                 {
                     "type": 0,
-                    "count": 1
+                    "count": 10
                 },
                 {
                     "type": 1,
-                    "count": 1
+                    "count": 10
                 }
             ],
             [
                 {
                     "type": 0,
-                    "count": 2
+                    "count": 20
                 },
                 {
                     "type": 1,
-                    "count": 1
+                    "count": 10
                 }
             ],
             [
@@ -246,6 +246,8 @@
                 }
             ]
         ],
-        "BossType": [0]
+        "BossType": [
+            0
+        ]
     }
 }

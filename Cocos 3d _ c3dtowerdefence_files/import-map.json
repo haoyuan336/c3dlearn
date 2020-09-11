@@ -1,0 +1,6 @@
+{
+    "imports": {
+        "@cocos/cannon": "./.extdep-chunks/332cb715-9947-4833-bfc1-7526ce7f6831.js",
+        "@cocos/ammo": "./.extdep-chunks/2954a245-e6dc-478b-8dc5-0c53444bd202.js"
+    }
+}

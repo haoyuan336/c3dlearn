@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "SkillButton_Bg_Red",
+    "atlas": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 153,
+      "height": 90
+    },
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "originalSize": {
+      "width": 153,
+      "height": 90
+    },
+    "rotated": false,
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "texture": "7e645db2-20e2-4955-8ae9-401a47ddc304@6c48a"
+  }
+}

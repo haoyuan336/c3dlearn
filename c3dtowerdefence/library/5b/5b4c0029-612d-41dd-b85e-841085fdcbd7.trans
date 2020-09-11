@@ -7,6 +7,7 @@
         "./UI/UIController": "UI/UIController.ts",
         "./TowerBuildBaseCtl": "TowerBuildBaseCtl.ts",
         "./Data/PlayerData": "Data/PlayerData.ts",
-        "./Towers/TowerBase": "Towers/TowerBase.ts"
+        "./Towers/TowerBase": "Towers/TowerBase.ts",
+        "./Effect/WinGoldAnimEffect": "Effect/WinGoldAnimEffect.ts"
     }
 }

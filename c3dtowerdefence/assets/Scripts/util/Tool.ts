@@ -4,6 +4,7 @@ export class Tool {
     }
     static convertNumToK(num: number): string {
         //将数字转换成 k结尾的显示方式
+        num = Math.abs(num);
         let key = ["", "K", "M", "B"];
         let endStr = num + '';
 
@@ -18,9 +19,12 @@ export class Tool {
         if (endStr.length > 4) {
             endStr = endStr.substring(0, 4);
         }
-        endStr += key[index - 1];
+        if (index >= 1) {
+            endStr += key[index - 1];
+
+        }
         console.log('end Str', endStr);
-        
+
         return endStr;
     }
 }

@@ -39,15 +39,15 @@ export class EnemyController extends Component {
 
     private currentWaveTime: number = 0;
     private currentWaveDuraction: number = 1;
-    @property({ type: Prefab })
-    public goldAnim3dPrefab: Prefab = null;
+   
     public gameController: GameController = null;
     start() {
         // Your initialization goes here.
         this.gameConfig = this.gameConfigRes.json;
         // this.state.setState('run');
-        this.waveData = this.gameConfig['Level_' + this.currentLevelNum];
         this.gameController = this.node.getComponent(GameController);
+        this.waveData = this.gameConfig['Level_' + this.gameController.getCurrentLevelNum()];
+
         this.endPos = v3(0, 0, 0);
 
 
@@ -127,7 +127,7 @@ export class EnemyController extends Component {
 
                     enemyNode.getComponent(EnemyBase).init(this.gameConfig, node.position, this.endPos);
                     // this.showEnemyEnterAnim(enemyNode, addEnemyCount);
-                    promiseList.push(enemyNode.getComponent(EnemyBase).showEnemyEnterAnim(addEnemyCount, this));
+                    promiseList.push(enemyNode.getComponent(EnemyBase).showEnemyEnterAnim(addEnemyCount, this, this.gameController));
                     addEnemyCount++;
                     this.enemyNodeList.push(enemyNode);
                     // console.log("增加一个敌人")
@@ -152,11 +152,6 @@ export class EnemyController extends Component {
     getCurrentEnemyNodeList() {
         return this.enemyNodeList;
     }
-    addEnemyAddGoldAnim(goldCount: number, enemyTargetPos: Vec3) {
-        let node = instantiate(this.goldAnim3dPrefab);
-        node.parent = this.node;
-        node.getComponent(WinGoldAnimEffect).setGoldCount(goldCount, this.gameController);
-        node.position = enemyTargetPos;
-    }
+    
 
 }

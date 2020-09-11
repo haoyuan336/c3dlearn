@@ -19,6 +19,9 @@ class My2dArray<T>{
         this.numberList.push(value);
     }
     getValue(x: number, y: number): T {
+        if (y < 0 || x < 0){
+            return;
+        }
         if (y >= this.numberList.length){
             return null;
         }

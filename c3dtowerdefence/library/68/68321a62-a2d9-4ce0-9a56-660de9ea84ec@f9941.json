@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "SkillButton",
+    "atlas": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 131,
+      "height": 131
+    },
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "originalSize": {
+      "width": 131,
+      "height": 131
+    },
+    "rotated": false,
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "texture": "68321a62-a2d9-4ce0-9a56-660de9ea84ec@6c48a"
+  }
+}

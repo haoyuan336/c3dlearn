@@ -9,6 +9,7 @@ import { PlayData } from './Data/PlayerData';
 import { BaseObject } from './BaseObject';
 import { TowerBase } from './Towers/TowerBase';
 import { BezierN } from './util/BezierN';
+import { WinGoldAnimEffect } from './Effect/WinGoldAnimEffect';
 const { ccclass, property } = _decorator;
 
 @ccclass('GameController')
@@ -33,7 +34,7 @@ export class GameController extends Component {
     // private enemyNodeList: Node[] = [];
     public static enemyBeLockMaxNum: number = 1;
 
-    public currentLevelNum: number = 0;
+    // public currentLevelNum: number = 0;
 
 
     @property({ type: Node })
@@ -46,7 +47,9 @@ export class GameController extends Component {
 
     public playerData: PlayData;
 
-
+    @property({ type: Prefab })
+    public goldAnim3dPrefab: Prefab = null;
+ 
 
     // @property({ type: Node })
     // public testNode: Node = null;
@@ -216,9 +219,15 @@ export class GameController extends Component {
     }
 
     getCurrentLevelNum() {
-        return this.currentLevelNum;
+        return this.playerData.currentLevelNum;
     }
-   
+    showAddGoldAnimEffect(goldCount: number, targetPos: Vec3) {
+        let node = instantiate(this.goldAnim3dPrefab);
+        node.parent = this.node;
+        node.getComponent(WinGoldAnimEffect).setGoldCount(goldCount, this);
+        node.position = targetPos;
+    }
+  
 
 
 }

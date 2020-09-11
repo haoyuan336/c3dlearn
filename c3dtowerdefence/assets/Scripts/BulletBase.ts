@@ -3,6 +3,7 @@ import { State } from './util/State';
 import { GameController } from './GameController';
 import { BaseObject } from './BaseObject'
 import { EnemyBase } from './Enemys/EnemyBase';
+import { TowerBase } from './Towers/TowerBase';
 const { ccclass, property } = _decorator;
 
 @ccclass('BulletBase')
@@ -21,6 +22,7 @@ export class BulletBase extends BaseObject {
 
     // protected baseAttackNum: number = 0; //基础攻击值
     protected gameConfigJson: Object = {}; //游戏配置
+    private targetTowerBase: TowerBase = null; //目标塔
     onLoad() {
         // this.node.on("init-data", (data) => {
 
@@ -39,6 +41,7 @@ export class BulletBase extends BaseObject {
     init(gameConfig: {}, data) {
         super.init(gameConfig);
         this.baseAttackNum += data.baseAttackNum;
+        this.targetTowerBase = data.targetTower;
         // console.log("base attack num", this.baseAttackNum);
         let direction = data.direction;
         this.currentDirection = direction;
@@ -80,7 +83,13 @@ export class BulletBase extends BaseObject {
             console.log("base attack num", this.baseAttackNum);
             otherCollider.node.emit("be-attacked", {
                 baseAttackNum: this.baseAttackNum,
-                baseGasNum: this.baseGasNum
+                baseGasNum: this.baseGasNum,
+                cb: (isDead: boolean) => {
+                    console.log("是否死了", isDead)
+                    if (this.targetTowerBase) {
+                        this.targetTowerBase.enemyDeadByThis(isDead);
+                    }
+                }
             });
             // if (this.baseGasNum !== 0) {
             //     this.node.destroy();

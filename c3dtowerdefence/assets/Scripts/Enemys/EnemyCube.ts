@@ -4,8 +4,8 @@ import { EnemyBase } from './EnemyBase';
 const { ccclass, property } = _decorator;
 @ccclass('EnemCube')
 export class EnemyCube extends EnemyBase {
-    init(gameConfig: JsonAsset, pathNodeList: Node[]){
+    // init(gameConfig: JsonAsset, pathNodeList: Node[]){
        
-        super.init(gameConfig, pathNodeList);
-    }
+    //     super.init(gameConfig, pathNodeList);
+    // }
 }

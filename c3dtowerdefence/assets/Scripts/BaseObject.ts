@@ -124,7 +124,7 @@ export class BaseObject extends Component {
     }
     getDestroyCount(): number {
         let currentLevelCost = this.getUpdateCost(this.currentLevel);
-        return Math.floor(currentLevelCost);
+        return Math.floor(currentLevelCost * 0.4);
     }
     updateLevel() {
         this.currentLevel++;
