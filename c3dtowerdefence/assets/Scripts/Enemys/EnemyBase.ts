@@ -1,10 +1,11 @@
-import { _decorator, Component, Node, CCInteger, v3, Vec3, tween, path, Tween, CameraComponent, Vec2, v2, JsonAsset, game, isValid, ProgressBarComponent, RigidBodyComponent, SkeletalAnimationComponent, ParticleSystemComponent, bezier } from 'cc';
+import { _decorator, Component, Node, CCInteger, v3, Vec3, tween, path, Tween, CameraComponent, Vec2, v2, JsonAsset, game, isValid, ProgressBarComponent, RigidBodyComponent, SkeletalAnimationComponent, ParticleSystemComponent, bezier, find } from 'cc';
 import { State } from './../util/State'
 import { GameController } from './../GameController';
 // import { Enemy } from './Enemy';
 import { BaseObject } from './../BaseObject'
 import { EnemyController } from '../EnemyController';
 import { BezierN } from '../util/BezierN';
+import { GroundMapCtl } from '../GroundMapCtl';
 // import { Besize } from '../util/Besize';
 const { ccclass, property } = _decorator;
 @ccclass('EnemyBase')
@@ -25,11 +26,13 @@ export class EnemyBase extends BaseObject {
     private enemyCtl: EnemyController = null;
     private currentMoveTw: Tween = null;
     private gameController: GameController = null;
+    private groundMapCtl: GroundMapCtl = null;
     private beAttackedCb = null;
     @property({ type: Node })
     public caidaiEffect: Node = null;
     public init(gameConfig: Object, startPos: Vec3, endPos: Vec3) {
         super.init(gameConfig);
+        this.groundMapCtl = find("GameController").getComponent(GroundMapCtl);
         this.gameConfigJson = gameConfig;
         this.healthCount = this.gameConfigJson[this.objectType].HealthCount;
         this.beLockedMaxNum = this.gameConfigJson[this.objectType].BeLockedCount;
@@ -41,7 +44,7 @@ export class EnemyBase extends BaseObject {
         this.node.eulerAngles = new Vec3(0, angle * 180 / Math.PI, 0);
 
     }
-    showEnemyEnterAnim(index: number, enemtCtl: EnemyController,gameCtl: GameController) {
+    showEnemyEnterAnim(index: number, enemtCtl: EnemyController, gameCtl: GameController, startPos: Vec2, endPos: Vec2) {
         let node = this.node;
         this.enemyCtl = enemtCtl;
         this.gameController = gameCtl;
@@ -58,23 +61,40 @@ export class EnemyBase extends BaseObject {
             tw.to(0.4, { position: v3(pos.x, 0, pos.z) }, { easing: "bounceOut" })
             tw.call(() => {
                 // node.getComponent(EnemyBase).startRun();
-                this.startRun();
+                this.startRun(startPos, endPos);
                 resolve();
             })
             tw.start();
         })
     }
-    startRun() {
-        this.state.setState("run");
-        let skeleteAnim = this.rootNode.getComponent(SkeletalAnimationComponent)
-        if (skeleteAnim) {
-            if (skeleteAnim.defaultClip) {
-                let defaultClip = skeleteAnim.defaultClip.name;
-                let animState = skeleteAnim.getState(defaultClip);
-                let length = animState.length;
-                animState.speed = this.moveSpeed * this.animSpeedMulOffset;
-            }
+    startRun(startPos: Vec2, endPos: Vec2) {
+
+        //
+        let pathList = this.groundMapCtl.getPathList(startPos, endPos);
+        console.log("path list", pathList);
+        let tw = new Tween(this.node);
+        for (let i = 0; i < pathList.length; i++) {
+            tw.to(1, {
+                position: pathList[i]
+            })
         }
+        tw.call(() => {
+            this.state.setState("over");
+        })
+        tw.start();
+
+
+
+        this.state.setState("run");
+        // let skeleteAnim = this.rootNode.getComponent(SkeletalAnimationComponent)
+        // if (skeleteAnim) {
+        //     if (skeleteAnim.defaultClip) {
+        //         let defaultClip = skeleteAnim.defaultClip.name;
+        //         let animState = skeleteAnim.getState(defaultClip);
+        //         let length = animState.length;
+        //         animState.speed = this.moveSpeed * this.animSpeedMulOffset;
+        //     }
+        // }
     }
     onLoad() {
 
@@ -150,18 +170,20 @@ export class EnemyBase extends BaseObject {
         });
         this.state.addState("run", () => {
             // console.log("start move");
-            let tw = new Tween(this.node);
-            let moveTime = new Vec3(this.startPos).subtract(this.endPos).length() / this.moveSpeed;
-            tw.to(moveTime, { position: this.endPos });
-            tw.call(() => {
-                // this.state.setState("to-dead");
-            })
-            tw.to(0.2, { scale: v3(0, 0, 0) });
-            tw.call(() => {
-                this.state.setState("over");
-            })
-            tw.start();
-            this.currentMoveTw = tw;
+            // let tw = new Tween(this.node);
+            // let moveTime = new Vec3(this.startPos).subtract(this.endPos).length() / this.moveSpeed;
+            // tw.to(moveTime, { position: this.endPos });
+            // tw.call(() => {
+            //     // this.state.setState("to-dead");
+            // })
+            // tw.to(0.2, { scale: v3(0, 0, 0) });
+            // tw.call(() => {
+            //     this.state.setState("over");
+            // })
+            // tw.start();
+            // this.currentMoveTw = tw;
+            // 开始运行之后，计算一条 最短路径
+            // let pathList = this.groundMapCtl.getPathList();
 
             // if (this.healthBar) {
             //     // this.healthBar.active = true;
@@ -189,7 +211,7 @@ export class EnemyBase extends BaseObject {
 
             if (this.currentHealthCount <= 0) {
                 this.currentHealthCount = 0;
-                if(this.beAttackedCb){
+                if (this.beAttackedCb) {
                     this.beAttackedCb(true);
                     //被打死了
                 }

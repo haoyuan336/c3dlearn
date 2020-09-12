@@ -126,9 +126,11 @@ export class SkillCtl extends Component {
 
             let boundingBox = this.skillDouIcon.getComponent(UITransformComponent).getBoundingBoxToWorld();
 
-            let pos = event.getLocation();
-            console.log("pos", pos);
-            console.log("bounding box", boundingBox);
+            let pos = event.getUILocation();
+            // let endPos = this.node.getComponent(UITransformComponent).convertToNodeSpaceAR(v3(pos.x, pos.y, 0));
+            // console.log("pos", pos);
+            // console.log("pos", endPos);
+            // console.log("bounding box", boundingBox);
             if (boundingBox.contains(pos)) {
                 console.log("点中了 技能点")
                 this.currentTouchNode = this.skillDouIcon;
@@ -232,7 +234,7 @@ export class SkillCtl extends Component {
                     this.currentTouchNode.position = this.skillButtonNode.position;
                     this.skillPowerFullEffect.active = false;
                     this.currentSkillPower = 0;
-                    
+
                     for (let i = 0; i < this.skillRedBgList.length; i++) {
                         let node = this.skillRedBgList[i];
                         node.position = v3(node.position.x, -80, node.position.z)

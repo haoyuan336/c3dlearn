@@ -1,5 +1,5 @@
 import { _decorator, Component, Node, Prefab, v2, instantiate, v3, Tween } from 'cc';
-import { GroundMapCtl } from './GroundMapCtl';
+import { CellNode, GroundMapCtl } from './GroundMapCtl';
 import My2dArray from './util/My2Array';
 import { GameController } from './GameController';
 const { ccclass, property } = _decorator;
@@ -9,7 +9,7 @@ export class TowerBuildBaseCtl extends Component {
     @property({ type: Prefab })
     public towerBuildBasePrefab: Prefab = null;
 
-    private groundTiledNodeList: My2dArray<Node> = null;
+    private groundTiledNodeList: My2dArray<CellNode> = null;
     public towerBuildBaseList: Node[] = [];
     private gameController: GameController = null;
     showTowerBuildBaseEnterAnim() {
@@ -29,7 +29,7 @@ export class TowerBuildBaseCtl extends Component {
         for (let i = 0; i < towerBasePosList.length; i++) {
             let posList = towerBasePosList[i];
             let v = v2(posList[0], posList[1])
-            let node = this.groundTiledNodeList.getValue(v.x, v.y);
+            let node = this.groundTiledNodeList.getValue(v.x, v.y).node;
             let towerBuildBase = instantiate(this.towerBuildBasePrefab);
             towerBuildBase.parent = this.node;
             towerBuildBase.position = v3(node.position.x, 20, node.position.z);

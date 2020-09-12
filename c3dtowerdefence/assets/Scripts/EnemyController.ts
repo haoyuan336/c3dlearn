@@ -1,11 +1,12 @@
 import { _decorator, Component, Node, JsonAsset, Prefab, instantiate, v3, Vec2, Tween, random, Vec3 } from 'cc';
 import { State } from './util/State';
 import { EnemyBase } from './Enemys/EnemyBase'
-import { GroundMapCtl } from './GroundMapCtl';
+import { CellNode, GroundMapCtl } from './GroundMapCtl';
 import { GroundTiled } from './GroundTiled/GroundTiled';
 import My2dArray from './util/My2Array';
 import { WinGoldAnimEffect } from './Effect/WinGoldAnimEffect';
 import { GameController } from './GameController';
+
 const { ccclass, property } = _decorator;
 
 @ccclass('EnemyController')
@@ -39,7 +40,7 @@ export class EnemyController extends Component {
 
     private currentWaveTime: number = 0;
     private currentWaveDuraction: number = 1;
-   
+
     public gameController: GameController = null;
     start() {
         // Your initialization goes here.
@@ -86,7 +87,7 @@ export class EnemyController extends Component {
         let promiseList = [];
         let addEnemyCount = 0;
         let indexList: Vec2[] = this.node.getComponent(GroundMapCtl).getInEdageIndexList();
-        let nodeMapList: My2dArray<Node> = this.node.getComponent(GroundMapCtl).getMapNodeList();
+        let nodeMapList: My2dArray<CellNode> = this.node.getComponent(GroundMapCtl).getMapNodeList();
         let randomIndex = Math.round(Math.random() * (indexList.length - 1));
         let enemyTypeIndex = 0;
         let waveAddEnemyCount = 0;
@@ -106,7 +107,7 @@ export class EnemyController extends Component {
                 randomIndex = 0;
             }
             let indexV2 = indexList[randomIndex];
-            let node = nodeMapList.getValue(indexV2.x, indexV2.y);
+            let node = nodeMapList.getValue(indexV2.x, indexV2.y).node;
             if (node && node.getComponent(GroundTiled)) {
                 let groundTiled = node.getComponent(GroundTiled);
                 if (groundTiled.getIsVoid()) {
@@ -126,8 +127,9 @@ export class EnemyController extends Component {
                     enemyNode.active = false;
 
                     enemyNode.getComponent(EnemyBase).init(this.gameConfig, node.position, this.endPos);
+
                     // this.showEnemyEnterAnim(enemyNode, addEnemyCount);
-                    promiseList.push(enemyNode.getComponent(EnemyBase).showEnemyEnterAnim(addEnemyCount, this, this.gameController));
+                    promiseList.push(enemyNode.getComponent(EnemyBase).showEnemyEnterAnim(addEnemyCount, this, this.gameController, indexV2, new Vec2(5, 5)));
                     addEnemyCount++;
                     this.enemyNodeList.push(enemyNode);
                     // console.log("增加一个敌人")
@@ -152,6 +154,6 @@ export class EnemyController extends Component {
     getCurrentEnemyNodeList() {
         return this.enemyNodeList;
     }
-    
+
 
 }
