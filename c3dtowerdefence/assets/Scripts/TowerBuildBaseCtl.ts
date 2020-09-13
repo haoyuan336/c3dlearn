@@ -9,7 +9,7 @@ export class TowerBuildBaseCtl extends Component {
     @property({ type: Prefab })
     public towerBuildBasePrefab: Prefab = null;
 
-    private groundTiledNodeList: My2dArray<CellNode> = null;
+    private groundTiledNodeList: My2dArray<Node> = null;
     public towerBuildBaseList: Node[] = [];
     private gameController: GameController = null;
     showTowerBuildBaseEnterAnim() {
@@ -29,7 +29,7 @@ export class TowerBuildBaseCtl extends Component {
         for (let i = 0; i < towerBasePosList.length; i++) {
             let posList = towerBasePosList[i];
             let v = v2(posList[0], posList[1])
-            let node = this.groundTiledNodeList.getValue(v.x, v.y).node;
+            let node = this.groundTiledNodeList.getValue(v.x, v.y);
             let towerBuildBase = instantiate(this.towerBuildBasePrefab);
             towerBuildBase.parent = this.node;
             towerBuildBase.position = v3(node.position.x, 20, node.position.z);

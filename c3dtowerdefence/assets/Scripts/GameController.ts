@@ -158,7 +158,7 @@ export class GameController extends Component {
             this.homeIconNode.parent = this.node;
             let groundMapCtl = this.node.getComponent(GroundMapCtl);
             if (groundMapCtl) {
-                let node = groundMapCtl.getMapNodeList().getValue(5, 5).node;
+                let node = groundMapCtl.getMapNodeList().getValue(5, 5);
                 this.homeIconNode.position = v3(node.position.x, 20, node.position.z);
                 node.active = false;
                 let tw = new Tween(this.homeIconNode);

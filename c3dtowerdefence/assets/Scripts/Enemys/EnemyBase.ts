@@ -6,6 +6,7 @@ import { BaseObject } from './../BaseObject'
 import { EnemyController } from '../EnemyController';
 import { BezierN } from '../util/BezierN';
 import { GroundMapCtl } from '../GroundMapCtl';
+import { FindPathWithAStart } from '../util/FindPathWithAStart';
 // import { Besize } from '../util/Besize';
 const { ccclass, property } = _decorator;
 @ccclass('EnemyBase')
@@ -70,20 +71,58 @@ export class EnemyBase extends BaseObject {
     startRun(startPos: Vec2, endPos: Vec2) {
 
         //
-        let pathList = this.groundMapCtl.getPathList(startPos, endPos);
-        console.log("path list", pathList);
-        let tw = new Tween(this.node);
+        // let pathList = this.groundMapCtl.getPathList(startPos, endPos);
+        // console.log("path list", pathList);
+        // let tw = new Tween(this.node);
+        // for (let i = 0; i < pathList.length; i++) {
+        //     tw.to(1, {
+        //         position: pathList[i]
+        //     })
+        // }
+        // tw.call(() => {
+        //     this.state.setState("over");
+        // })
+        // tw.start();
+        let mapNodeList = this.groundMapCtl.getMapNodeList();
+        let obsPosList = this.groundMapCtl.getObsPosList();
+        let pathTool = new FindPathWithAStart(mapNodeList, [startPos.x, startPos.y], [endPos.x, endPos.y]);
+        let obsPosDataList = [];
+        for (let i = 0; i < obsPosList.length; i++) {
+            let obsPos = obsPosList[i];
+            obsPosDataList.push([obsPos.x, obsPos.y]);
+        }
+        pathTool.updateObsData(obsPosDataList);
+        let pathList = pathTool.findPathList();
+        let pathPosList: Vec3[] = [];
         for (let i = 0; i < pathList.length; i++) {
+            let pos = pathList[i];
+            pathPosList.push(this.groundMapCtl.getMapNodeList().getValue(pos[0], pos[1]).position);
+        }
+        let tw = new Tween(this.node);
+
+        for (let i = 0; i < pathPosList.length; i++) {
+            // let angle = this.node.eulerAngles;
+            // if (i !== 0) {
+            //     //如果当前的点不是0点 
+            //     let startPos = pathPosList[i - 1];
+            //     let targetPos = pathPosList[i];
+            //     let targetAngle = this.getLookAtAngle(startPos, targetPos);
+            //     angle = v3(0, targetAngle, 0);
+            // }
+            // // let targetAngle = this.getLookAtAngle(pathPosList[i]) * 180 / Math.PI;
+            // // console.log("target angle", targetAngle);
+            // tw.to(0.01, {
+            //     eulerAngles: angle
+            // })
             tw.to(1, {
-                position: pathList[i]
+                position: pathPosList[i]
             })
         }
         tw.call(() => {
             this.state.setState("over");
         })
+        // this.node.eulerAngles
         tw.start();
-
-
 
         this.state.setState("run");
         // let skeleteAnim = this.rootNode.getComponent(SkeletalAnimationComponent)
@@ -95,6 +134,13 @@ export class EnemyBase extends BaseObject {
         //         animState.speed = this.moveSpeed * this.animSpeedMulOffset;
         //     }
         // }
+    }
+    getLookAtAngle(startPos, targetPoint: Vec3) {
+        //获取到朝向的角度
+        let vector = v3(startPos).subtract(targetPoint);
+        let dir = v2(0, 1);
+        let angle = v2(vector.x, vector.z).signAngle(dir);
+        return angle;
     }
     onLoad() {
 

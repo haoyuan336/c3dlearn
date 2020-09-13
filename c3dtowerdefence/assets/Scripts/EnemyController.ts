@@ -87,7 +87,7 @@ export class EnemyController extends Component {
         let promiseList = [];
         let addEnemyCount = 0;
         let indexList: Vec2[] = this.node.getComponent(GroundMapCtl).getInEdageIndexList();
-        let nodeMapList: My2dArray<CellNode> = this.node.getComponent(GroundMapCtl).getMapNodeList();
+        let nodeMapList: My2dArray<Node> = this.node.getComponent(GroundMapCtl).getMapNodeList();
         let randomIndex = Math.round(Math.random() * (indexList.length - 1));
         let enemyTypeIndex = 0;
         let waveAddEnemyCount = 0;
@@ -107,7 +107,7 @@ export class EnemyController extends Component {
                 randomIndex = 0;
             }
             let indexV2 = indexList[randomIndex];
-            let node = nodeMapList.getValue(indexV2.x, indexV2.y).node;
+            let node = nodeMapList.getValue(indexV2.x, indexV2.y);
             if (node && node.getComponent(GroundTiled)) {
                 let groundTiled = node.getComponent(GroundTiled);
                 if (groundTiled.getIsVoid()) {

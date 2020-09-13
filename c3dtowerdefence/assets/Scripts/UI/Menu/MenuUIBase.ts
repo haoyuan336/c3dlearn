@@ -17,7 +17,7 @@ export class MenuUIBase extends BaseObject {
         this.scheduleOnce(()=>{
             super.init(gameConfig);
 
-        }, 0.1)
+        }, 0.2)
     }
 
     open(target: Node) {

@@ -1,0 +1,5 @@
+{
+    "resolveMap": {
+        "./My2Array": "My2Array.ts"
+    }
+}
