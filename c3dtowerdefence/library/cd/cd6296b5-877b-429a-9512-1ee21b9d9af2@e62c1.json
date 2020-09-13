@@ -12,7 +12,7 @@
           0
         ],
         "indexView": {
-          "offset": 41544,
+          "offset": 41832,
           "length": 4452,
           "count": 2226,
           "stride": 2
@@ -23,8 +23,8 @@
       {
         "view": {
           "offset": 0,
-          "length": 41544,
-          "count": 577,
+          "length": 41832,
+          "count": 581,
           "stride": 72
         },
         "attributes": [
@@ -86,6 +86,6 @@
       ]
     ]
   },
-  "_dataLength": 45996,
-  "_hash": 780842214
+  "_dataLength": 46284,
+  "_hash": 2626616316
 }

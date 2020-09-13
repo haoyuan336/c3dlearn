@@ -54,7 +54,8 @@ export class EnemyController extends Component {
 
         this.state.addState("enter-next-wave", () => {
             if (this.currentWaveIndex == this.waveData['EnemyType'].length) {
-                this.state.setState("add-enemt-over");
+                // this.state.setState("add-enemt-over");
+                this.state.setState("add-one-boss")
                 console.log("游戏结束");
                 return;
             }
@@ -63,19 +64,40 @@ export class EnemyController extends Component {
             this.addEnemyDuraction = this.waveData['AddEnemyDuraction'][this.currentWaveIndex];
             this.node.emit("refer-current-wave", this.currentWaveIndex);
 
-            this.addOneWaveEnemy().then(() => {
-                this.currentWaveIndex++;
 
-                this.scheduleOnce(() => {
-                    this.state.setState("enter-next-wave");
-                }, this.addEnemyDuraction)
-            });
+            if (this.currentWaveIndex === this.waveData['EnemyType'].length - 1) {
+                this.addOneBossEnemy();
+            } else {
+                this.addOneWaveEnemy().then(() => {
+                    this.currentWaveIndex++;
 
-
+                    this.scheduleOnce(() => {
+                        this.state.setState("enter-next-wave");
+                    }, this.addEnemyDuraction)
+                });
+            }
+        })
+        this.state.addState("add-one-boss", () => {
+            console.log("开始增加boss");
         })
         // this.node.on("player-click-game", () => {
         //     this.state.setState("enter-next-wave");
         // });
+    }
+    addOneBossEnemy() {
+        return new Promise((resolve, reject) => {
+            let indexList: Vec2[] = this.node.getComponent(GroundMapCtl).getInEdageIndexList();
+            let randomIndex = Math.round(Math.random() * (indexList.length - 1));
+            let pos: Vec2 = indexList[randomIndex];
+            let nodeMapList: My2dArray<Node> = this.node.getComponent(GroundMapCtl).getMapNodeList();
+            let node = nodeMapList.getValue(pos.x, pos.y);
+            let type = this.currentRandomEnemyTypeList[0].type;
+            let enemyNode = instantiate(this.enemysPrefabList[type]);
+            console.log("enemy node", enemyNode)
+            enemyNode.parent = this.node;
+            enemyNode.position = v3(node.position.x, 0, node.position.z);
+            // enemyNode.active = false;
+        })
     }
     startGame() {
         this.state.setState("enter-next-wave");
@@ -122,8 +144,9 @@ export class EnemyController extends Component {
                         enemyTypeIndex++;
                     }
                     let enemyNode = instantiate(this.enemysPrefabList[type]);
+                    console.log("enemy node", enemyNode)
                     enemyNode.parent = this.node;
-                    enemyNode.position = v3(node.position.x, 20, node.position.z);
+                    enemyNode.position = v3(node.position.x, 0, node.position.z);
                     enemyNode.active = false;
 
                     enemyNode.getComponent(EnemyBase).init(this.gameConfig, node.position, this.endPos);

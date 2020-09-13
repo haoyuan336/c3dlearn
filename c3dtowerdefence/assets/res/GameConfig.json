@@ -5,7 +5,6 @@
         "Monster_1",
         "DragonMonster"
     ],
-    
     "Tower_1": {
         "index": 0,
         "BulletType": "BulletOne",
@@ -30,12 +29,19 @@
         "BaseAttackNum": 1,
         "BuildCost": 15
     },
-    "DragonMonster": {
+    "Enemy_0": {
         "MoveSpeed": 1,
-        "HealthCount": 5,
+        "HealthCount": 1,
         "BeLockedCount": 3,
         "BaseGasNum": 5,
         "BaseGoldCount": 1
+    },
+    "Enemy_1": {
+        "MoveSpeed": 0.8,
+        "HealthCount": 10,
+        "BeLockedCount": 10,
+        "BaseGasNum": 5,
+        "BaseGoldCount": 10
     },
     "Monster_1": {
         "MoveSpeed": 0.2,
@@ -60,19 +66,109 @@
     },
     "Level_0": {
         "TowerBuildPos": [
-            [3,3],[7,7],[3,7],[7,3]
+            [
+                3,
+                3
+            ],
+            [
+                7,
+                7
+            ],
+            [
+                3,
+                7
+            ],
+            [
+                7,
+                3
+            ],
+            [
+                4,
+                4
+            ],
+            [
+                6,
+                6
+            ],
+            [
+                4,
+                6
+            ],
+            [
+                6,
+                4
+            ]
         ],
         "ActivedTower": [
             0,
             1
         ],
         "AddEnemyDuraction": [
-            1,
-            2,
-            2,
-            2,
-            2,
-            2,
+            10,
+            10,
+            10,
+            10
+        ],
+        "EnemyType": [
+            [
+                {
+                    "type": 0,
+                    "count": 5
+                }
+            ],
+            [
+                {
+                    "type": 1,
+                    "count": 10
+                }
+            ],
+            [
+                {
+                    "type": 0,
+                    "count": 15
+                }
+            ],
+            [
+                {
+                    "type": 1,
+                    "count": 1
+                }
+            ]
+        ],
+        "BossType": [
+            0
+        ]
+    },
+    "Level_1": {
+        "TowerBuildPos": [
+            [
+                4,
+                4
+            ],
+            [
+                6,
+                6
+            ],
+            [
+                4,
+                6
+            ],
+            [
+                6,
+                4
+            ]
+        ],
+        "ActivedTower": [
+            0,
+            1
+        ],
+        "AddEnemyDuraction": [
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
             2,
             2,
             2,
@@ -88,11 +184,11 @@
             [
                 {
                     "type": 0,
-                    "count": 10
+                    "count": 20
                 },
                 {
                     "type": 1,
-                    "count": 11
+                    "count": 0
                 }
             ],
             [

@@ -21,7 +21,7 @@
           {
             "__id__": 2
           },
-          "rotation"
+          "position"
         ],
         "data": {
           "keys": 0,
@@ -35,7 +35,7 @@
           {
             "__id__": 2
           },
-          "position"
+          "scale"
         ],
         "data": {
           "keys": -1,
@@ -50,7 +50,7 @@
           {
             "__id__": 2
           },
-          "scale"
+          "rotation"
         ],
         "data": {
           "keys": -1,
@@ -65,14 +65,13 @@
           {
             "__id__": 6
           },
-          "position"
+          "rotation"
         ],
         "data": {
-          "keys": -1,
+          "keys": 0,
           "values": {
             "__id__": 7
-          },
-          "interpolate": false
+          }
         }
       },
       {
@@ -80,7 +79,7 @@
           {
             "__id__": 6
           },
-          "scale"
+          "position"
         ],
         "data": {
           "keys": -1,
@@ -95,7 +94,7 @@
           {
             "__id__": 6
           },
-          "rotation"
+          "scale"
         ],
         "data": {
           "keys": -1,
@@ -737,14 +736,39 @@
       }
     ],
     "_commonTargets": [],
-    "_hash": 1119440775
+    "_hash": 4169752336
   },
   {
     "__type__": "cc.CompactValueTypeArray",
-    "_byteOffset": 1104,
+    "_byteOffset": 1452,
     "_unitCount": 30,
     "_unitElement": 6,
     "_length": 30
+  },
+  {
+    "__type__": "cc.animation.HierarchyPath",
+    "path": "RootNode/骨架"
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 0,
+    "_unitCount": 90,
+    "_unitElement": 22,
+    "_length": 30
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 360,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 372,
+    "_unitCount": 4,
+    "_unitElement": 38,
+    "_length": 1
   },
   {
     "__type__": "cc.animation.HierarchyPath",
@@ -752,21 +776,21 @@
   },
   {
     "__type__": "cc.CompactValueTypeArray",
-    "_byteOffset": 0,
+    "_byteOffset": 388,
     "_unitCount": 120,
     "_unitElement": 38,
     "_length": 30
   },
   {
     "__type__": "cc.CompactValueTypeArray",
-    "_byteOffset": 480,
+    "_byteOffset": 868,
     "_unitCount": 3,
     "_unitElement": 22,
     "_length": 1
   },
   {
     "__type__": "cc.CompactValueTypeArray",
-    "_byteOffset": 492,
+    "_byteOffset": 880,
     "_unitCount": 3,
     "_unitElement": 22,
     "_length": 1
@@ -777,253 +801,10 @@
   },
   {
     "__type__": "cc.CompactValueTypeArray",
-    "_byteOffset": 504,
+    "_byteOffset": 892,
     "_unitCount": 3,
     "_unitElement": 22,
     "_length": 1
-  },
-  {
-    "__type__": "cc.CompactValueTypeArray",
-    "_byteOffset": 516,
-    "_unitCount": 3,
-    "_unitElement": 22,
-    "_length": 1
-  },
-  {
-    "__type__": "cc.CompactValueTypeArray",
-    "_byteOffset": 528,
-    "_unitCount": 4,
-    "_unitElement": 38,
-    "_length": 1
-  },
-  {
-    "__type__": "cc.animation.HierarchyPath",
-    "path": "RootNode/骨架"
-  },
-  {
-    "__type__": "cc.CompactValueTypeArray",
-    "_byteOffset": 544,
-    "_unitCount": 3,
-    "_unitElement": 22,
-    "_length": 1
-  },
-  {
-    "__type__": "cc.CompactValueTypeArray",
-    "_byteOffset": 556,
-    "_unitCount": 3,
-    "_unitElement": 22,
-    "_length": 1
-  },
-  {
-    "__type__": "cc.CompactValueTypeArray",
-    "_byteOffset": 568,
-    "_unitCount": 4,
-    "_unitElement": 38,
-    "_length": 1
-  },
-  {
-    "__type__": "cc.animation.HierarchyPath",
-    "path": "RootNode/骨架/Root/Root_0"
-  },
-  {
-    "__type__": "cc.CompactValueTypeArray",
-    "_byteOffset": 584,
-    "_unitCount": 3,
-    "_unitElement": 22,
-    "_length": 1
-  },
-  {
-    "__type__": "cc.CompactValueTypeArray",
-    "_byteOffset": 596,
-    "_unitCount": 3,
-    "_unitElement": 22,
-    "_length": 1
-  },
-  {
-    "__type__": "cc.CompactValueTypeArray",
-    "_byteOffset": 608,
-    "_unitCount": 4,
-    "_unitElement": 38,
-    "_length": 1
-  },
-  {
-    "__type__": "cc.animation.HierarchyPath",
-    "path": "RootNode/骨架/Root/Root_0/L_Up_Arm"
-  },
-  {
-    "__type__": "cc.CompactValueTypeArray",
-    "_byteOffset": 624,
-    "_unitCount": 3,
-    "_unitElement": 22,
-    "_length": 1
-  },
-  {
-    "__type__": "cc.CompactValueTypeArray",
-    "_byteOffset": 636,
-    "_unitCount": 3,
-    "_unitElement": 22,
-    "_length": 1
-  },
-  {
-    "__type__": "cc.CompactValueTypeArray",
-    "_byteOffset": 648,
-    "_unitCount": 4,
-    "_unitElement": 38,
-    "_length": 1
-  },
-  {
-    "__type__": "cc.animation.HierarchyPath",
-    "path": "RootNode/骨架/Root/Root_0/L_Up_Arm/L_D_Arm"
-  },
-  {
-    "__type__": "cc.CompactValueTypeArray",
-    "_byteOffset": 664,
-    "_unitCount": 3,
-    "_unitElement": 22,
-    "_length": 1
-  },
-  {
-    "__type__": "cc.CompactValueTypeArray",
-    "_byteOffset": 676,
-    "_unitCount": 3,
-    "_unitElement": 22,
-    "_length": 1
-  },
-  {
-    "__type__": "cc.CompactValueTypeArray",
-    "_byteOffset": 688,
-    "_unitCount": 4,
-    "_unitElement": 38,
-    "_length": 1
-  },
-  {
-    "__type__": "cc.animation.HierarchyPath",
-    "path": "RootNode/骨架/Root/Root_0/L_Up_Arm/L_D_Arm/L_Rope"
-  },
-  {
-    "__type__": "cc.CompactValueTypeArray",
-    "_byteOffset": 704,
-    "_unitCount": 3,
-    "_unitElement": 22,
-    "_length": 1
-  },
-  {
-    "__type__": "cc.CompactValueTypeArray",
-    "_byteOffset": 716,
-    "_unitCount": 3,
-    "_unitElement": 22,
-    "_length": 1
-  },
-  {
-    "__type__": "cc.CompactValueTypeArray",
-    "_byteOffset": 728,
-    "_unitCount": 4,
-    "_unitElement": 38,
-    "_length": 1
-  },
-  {
-    "__type__": "cc.animation.HierarchyPath",
-    "path": "RootNode/骨架/Root/Root_0/L_Up_Arm/L_D_Arm/L_Rope/L_Rope_end"
-  },
-  {
-    "__type__": "cc.CompactValueTypeArray",
-    "_byteOffset": 744,
-    "_unitCount": 3,
-    "_unitElement": 22,
-    "_length": 1
-  },
-  {
-    "__type__": "cc.CompactValueTypeArray",
-    "_byteOffset": 756,
-    "_unitCount": 3,
-    "_unitElement": 22,
-    "_length": 1
-  },
-  {
-    "__type__": "cc.CompactValueTypeArray",
-    "_byteOffset": 768,
-    "_unitCount": 4,
-    "_unitElement": 38,
-    "_length": 1
-  },
-  {
-    "__type__": "cc.animation.HierarchyPath",
-    "path": "RootNode/骨架/Root/Root_0/R_Up_arm"
-  },
-  {
-    "__type__": "cc.CompactValueTypeArray",
-    "_byteOffset": 784,
-    "_unitCount": 3,
-    "_unitElement": 22,
-    "_length": 1
-  },
-  {
-    "__type__": "cc.CompactValueTypeArray",
-    "_byteOffset": 796,
-    "_unitCount": 3,
-    "_unitElement": 22,
-    "_length": 1
-  },
-  {
-    "__type__": "cc.CompactValueTypeArray",
-    "_byteOffset": 808,
-    "_unitCount": 4,
-    "_unitElement": 38,
-    "_length": 1
-  },
-  {
-    "__type__": "cc.animation.HierarchyPath",
-    "path": "RootNode/骨架/Root/Root_0/R_Up_arm/R_D_Arm"
-  },
-  {
-    "__type__": "cc.CompactValueTypeArray",
-    "_byteOffset": 824,
-    "_unitCount": 3,
-    "_unitElement": 22,
-    "_length": 1
-  },
-  {
-    "__type__": "cc.CompactValueTypeArray",
-    "_byteOffset": 836,
-    "_unitCount": 3,
-    "_unitElement": 22,
-    "_length": 1
-  },
-  {
-    "__type__": "cc.CompactValueTypeArray",
-    "_byteOffset": 848,
-    "_unitCount": 4,
-    "_unitElement": 38,
-    "_length": 1
-  },
-  {
-    "__type__": "cc.animation.HierarchyPath",
-    "path": "RootNode/骨架/Root/Root_0/R_Up_arm/R_D_Arm/R_Rope"
-  },
-  {
-    "__type__": "cc.CompactValueTypeArray",
-    "_byteOffset": 864,
-    "_unitCount": 3,
-    "_unitElement": 22,
-    "_length": 1
-  },
-  {
-    "__type__": "cc.CompactValueTypeArray",
-    "_byteOffset": 876,
-    "_unitCount": 3,
-    "_unitElement": 22,
-    "_length": 1
-  },
-  {
-    "__type__": "cc.CompactValueTypeArray",
-    "_byteOffset": 888,
-    "_unitCount": 4,
-    "_unitElement": 38,
-    "_length": 1
-  },
-  {
-    "__type__": "cc.animation.HierarchyPath",
-    "path": "RootNode/骨架/Root/Root_0/R_Up_arm/R_D_Arm/R_Rope/R_Rope.001"
   },
   {
     "__type__": "cc.CompactValueTypeArray",
@@ -1035,20 +816,20 @@
   {
     "__type__": "cc.CompactValueTypeArray",
     "_byteOffset": 916,
-    "_unitCount": 3,
-    "_unitElement": 22,
-    "_length": 1
-  },
-  {
-    "__type__": "cc.CompactValueTypeArray",
-    "_byteOffset": 928,
     "_unitCount": 4,
     "_unitElement": 38,
     "_length": 1
   },
   {
     "__type__": "cc.animation.HierarchyPath",
-    "path": "RootNode/骨架/Root/Root_0/R_Up_arm/R_D_Arm/R_Rope/R_Rope.001/R_Rope.001_end"
+    "path": "RootNode/骨架/Root/Root_0"
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 932,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
   },
   {
     "__type__": "cc.CompactValueTypeArray",
@@ -1060,20 +841,20 @@
   {
     "__type__": "cc.CompactValueTypeArray",
     "_byteOffset": 956,
-    "_unitCount": 3,
-    "_unitElement": 22,
-    "_length": 1
-  },
-  {
-    "__type__": "cc.CompactValueTypeArray",
-    "_byteOffset": 968,
     "_unitCount": 4,
     "_unitElement": 38,
     "_length": 1
   },
   {
     "__type__": "cc.animation.HierarchyPath",
-    "path": "RootNode/平面.001"
+    "path": "RootNode/骨架/Root/Root_0/L_Up_Arm"
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 972,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
   },
   {
     "__type__": "cc.CompactValueTypeArray",
@@ -1085,20 +866,20 @@
   {
     "__type__": "cc.CompactValueTypeArray",
     "_byteOffset": 996,
-    "_unitCount": 3,
-    "_unitElement": 22,
-    "_length": 1
-  },
-  {
-    "__type__": "cc.CompactValueTypeArray",
-    "_byteOffset": 1008,
     "_unitCount": 4,
     "_unitElement": 38,
     "_length": 1
   },
   {
     "__type__": "cc.animation.HierarchyPath",
-    "path": "RootNode/相机"
+    "path": "RootNode/骨架/Root/Root_0/L_Up_Arm/L_D_Arm"
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1012,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
   },
   {
     "__type__": "cc.CompactValueTypeArray",
@@ -1110,20 +891,20 @@
   {
     "__type__": "cc.CompactValueTypeArray",
     "_byteOffset": 1036,
-    "_unitCount": 3,
-    "_unitElement": 22,
-    "_length": 1
-  },
-  {
-    "__type__": "cc.CompactValueTypeArray",
-    "_byteOffset": 1048,
     "_unitCount": 4,
     "_unitElement": 38,
     "_length": 1
   },
   {
     "__type__": "cc.animation.HierarchyPath",
-    "path": "RootNode/日光"
+    "path": "RootNode/骨架/Root/Root_0/L_Up_Arm/L_D_Arm/L_Rope"
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1052,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
   },
   {
     "__type__": "cc.CompactValueTypeArray",
@@ -1135,13 +916,231 @@
   {
     "__type__": "cc.CompactValueTypeArray",
     "_byteOffset": 1076,
+    "_unitCount": 4,
+    "_unitElement": 38,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.animation.HierarchyPath",
+    "path": "RootNode/骨架/Root/Root_0/L_Up_Arm/L_D_Arm/L_Rope/L_Rope_end"
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1092,
     "_unitCount": 3,
     "_unitElement": 22,
     "_length": 1
   },
   {
     "__type__": "cc.CompactValueTypeArray",
-    "_byteOffset": 1088,
+    "_byteOffset": 1104,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1116,
+    "_unitCount": 4,
+    "_unitElement": 38,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.animation.HierarchyPath",
+    "path": "RootNode/骨架/Root/Root_0/R_Up_arm"
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1132,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1144,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1156,
+    "_unitCount": 4,
+    "_unitElement": 38,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.animation.HierarchyPath",
+    "path": "RootNode/骨架/Root/Root_0/R_Up_arm/R_D_Arm"
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1172,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1184,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1196,
+    "_unitCount": 4,
+    "_unitElement": 38,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.animation.HierarchyPath",
+    "path": "RootNode/骨架/Root/Root_0/R_Up_arm/R_D_Arm/R_Rope"
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1212,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1224,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1236,
+    "_unitCount": 4,
+    "_unitElement": 38,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.animation.HierarchyPath",
+    "path": "RootNode/骨架/Root/Root_0/R_Up_arm/R_D_Arm/R_Rope/R_Rope.001"
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1252,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1264,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1276,
+    "_unitCount": 4,
+    "_unitElement": 38,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.animation.HierarchyPath",
+    "path": "RootNode/骨架/Root/Root_0/R_Up_arm/R_D_Arm/R_Rope/R_Rope.001/R_Rope.001_end"
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1292,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1304,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1316,
+    "_unitCount": 4,
+    "_unitElement": 38,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.animation.HierarchyPath",
+    "path": "RootNode/平面.001"
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1332,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1344,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1356,
+    "_unitCount": 4,
+    "_unitElement": 38,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.animation.HierarchyPath",
+    "path": "RootNode/相机"
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1372,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1384,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1396,
+    "_unitCount": 4,
+    "_unitElement": 38,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.animation.HierarchyPath",
+    "path": "RootNode/日光"
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1412,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1424,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1436,
     "_unitCount": 4,
     "_unitElement": 38,
     "_length": 1

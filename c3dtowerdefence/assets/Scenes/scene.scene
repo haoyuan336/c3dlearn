@@ -293,14 +293,20 @@
         "__id__": 51
       },
       {
-        "__id__": 54
-      },
-      {
-        "__id__": 71
+        "__id__": 68
       }
     ],
     "_active": true,
     "_components": [
+      {
+        "__id__": 71
+      },
+      {
+        "__id__": 72
+      },
+      {
+        "__id__": 73
+      },
       {
         "__id__": 74
       },
@@ -309,15 +315,6 @@
       },
       {
         "__id__": 76
-      },
-      {
-        "__id__": 77
-      },
-      {
-        "__id__": 78
-      },
-      {
-        "__id__": 79
       }
     ],
     "_prefab": null,
@@ -1811,109 +1808,6 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "SkillDou",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 7
-    },
-    "_children": [],
-    "_active": false,
-    "_components": [
-      {
-        "__id__": 52
-      },
-      {
-        "__id__": 53
-      }
-    ],
-    "_prefab": null,
-    "_lpos": {
-      "__type__": "cc.Vec3",
-      "x": 651.115,
-      "y": -267.813,
-      "z": 0
-    },
-    "_lrot": {
-      "__type__": "cc.Quat",
-      "x": 0,
-      "y": 0,
-      "z": 0,
-      "w": 1
-    },
-    "_lscale": {
-      "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
-      "z": 1
-    },
-    "_layer": 1073741824,
-    "_euler": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_id": "f7S6DZeTtFFKGU7gBcBLQv"
-  },
-  {
-    "__type__": "cc.UITransformComponent",
-    "_name": "狂暴道具_红<UITransformComponent>",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 51
-    },
-    "_enabled": true,
-    "_priority": 0,
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 84,
-      "height": 82
-    },
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
-    },
-    "_id": "1aQvvNRcZBNawyQB5CMHFl"
-  },
-  {
-    "__type__": "cc.SpriteComponent",
-    "_name": "狂暴道具_红<SpriteComponent>",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 51
-    },
-    "_enabled": true,
-    "_srcBlendFactor": 2,
-    "_dstBlendFactor": 4,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_sharedMaterial": null,
-    "_spriteFrame": {
-      "__uuid__": "320cc0c5-c2f2-45e7-ae1b-ae28f5cf57c2@f9941"
-    },
-    "_type": 0,
-    "_fillType": 0,
-    "_sizeMode": 1,
-    "_fillCenter": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_fillStart": 0,
-    "_fillRange": 0,
-    "_isTrimmedMode": true,
-    "_useGrayscale": false,
-    "_atlas": null,
-    "_id": "25y9DAawdF7qKmXiFsMKO9"
-  },
-  {
-    "__type__": "cc.Node",
     "_name": "SkillButton",
     "_objFlags": 0,
     "_parent": {
@@ -1921,19 +1815,19 @@
     },
     "_children": [
       {
-        "__id__": 55
+        "__id__": 52
+      },
+      {
+        "__id__": 61
       },
       {
         "__id__": 64
-      },
-      {
-        "__id__": 67
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 70
+        "__id__": 67
       }
     ],
     "_prefab": null,
@@ -1970,23 +1864,23 @@
     "_name": "MaskNode",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 54
+      "__id__": 51
     },
     "_children": [
       {
-        "__id__": 56
+        "__id__": 53
       },
       {
-        "__id__": 59
+        "__id__": 56
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 62
+        "__id__": 59
       },
       {
-        "__id__": 63
+        "__id__": 60
       }
     ],
     "_prefab": null,
@@ -2023,16 +1917,16 @@
     "_name": "SkillButton_Bg_Red",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 55
+      "__id__": 52
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 57
+        "__id__": 54
       },
       {
-        "__id__": 58
+        "__id__": 55
       }
     ],
     "_prefab": null,
@@ -2069,7 +1963,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 56
+      "__id__": 53
     },
     "_enabled": true,
     "_priority": 0,
@@ -2090,7 +1984,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 56
+      "__id__": 53
     },
     "_enabled": true,
     "_srcBlendFactor": 2,
@@ -2126,16 +2020,16 @@
     "_name": "SkillButton_Bg_Red-001",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 55
+      "__id__": 52
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 60
+        "__id__": 57
       },
       {
-        "__id__": 61
+        "__id__": 58
       }
     ],
     "_prefab": null,
@@ -2172,7 +2066,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 59
+      "__id__": 56
     },
     "_enabled": true,
     "_priority": 0,
@@ -2193,7 +2087,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 59
+      "__id__": 56
     },
     "_enabled": true,
     "_srcBlendFactor": 2,
@@ -2229,7 +2123,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 55
+      "__id__": 52
     },
     "_enabled": true,
     "_priority": 0,
@@ -2250,7 +2144,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 55
+      "__id__": 52
     },
     "_enabled": true,
     "_srcBlendFactor": 2,
@@ -2273,16 +2167,16 @@
     "_name": "Sprite",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 54
+      "__id__": 51
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 65
+        "__id__": 62
       },
       {
-        "__id__": 66
+        "__id__": 63
       }
     ],
     "_prefab": null,
@@ -2319,7 +2213,7 @@
     "_name": "Sprite<UITransformComponent>",
     "_objFlags": 0,
     "node": {
-      "__id__": 64
+      "__id__": 61
     },
     "_enabled": true,
     "_priority": 0,
@@ -2340,7 +2234,7 @@
     "_name": "Sprite<SpriteComponent>",
     "_objFlags": 0,
     "node": {
-      "__id__": 64
+      "__id__": 61
     },
     "_enabled": true,
     "_srcBlendFactor": 2,
@@ -2376,16 +2270,16 @@
     "_name": "EffectNode",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 54
+      "__id__": 51
     },
     "_children": [],
     "_active": false,
     "_components": [
       {
-        "__id__": 68
+        "__id__": 65
       },
       {
-        "__id__": 69
+        "__id__": 66
       }
     ],
     "_prefab": null,
@@ -2419,10 +2313,10 @@
   },
   {
     "__type__": "cc.UITransformComponent",
-    "_name": "",
+    "_name": "EffectNode<UITransformComponent>",
     "_objFlags": 0,
     "node": {
-      "__id__": 67
+      "__id__": 64
     },
     "_enabled": true,
     "_priority": 0,
@@ -2440,10 +2334,10 @@
   },
   {
     "__type__": "cc.SpriteComponent",
-    "_name": "",
+    "_name": "EffectNode<SpriteComponent>",
     "_objFlags": 0,
     "node": {
-      "__id__": 67
+      "__id__": 64
     },
     "_enabled": true,
     "_srcBlendFactor": 2,
@@ -2479,7 +2373,7 @@
     "_name": "SkillButton<UITransformComponent>",
     "_objFlags": 0,
     "node": {
-      "__id__": 54
+      "__id__": 51
     },
     "_enabled": true,
     "_priority": 0,
@@ -2497,7 +2391,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "PointNode",
+    "_name": "SkillDou",
     "_objFlags": 0,
     "_parent": {
       "__id__": 7
@@ -2506,17 +2400,17 @@
     "_active": false,
     "_components": [
       {
-        "__id__": 72
+        "__id__": 69
       },
       {
-        "__id__": 73
+        "__id__": 70
       }
     ],
     "_prefab": null,
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
+      "x": 651.115,
+      "y": -267.813,
       "z": 0
     },
     "_lrot": {
@@ -2532,42 +2426,42 @@
       "y": 1,
       "z": 1
     },
-    "_layer": 33554432,
+    "_layer": 1073741824,
     "_euler": {
       "__type__": "cc.Vec3",
       "x": 0,
       "y": 0,
       "z": 0
     },
-    "_id": "b09j7lhQhOw58spRgs9IP9"
+    "_id": "f7S6DZeTtFFKGU7gBcBLQv"
   },
   {
     "__type__": "cc.UITransformComponent",
-    "_name": "",
+    "_name": "狂暴道具_红<UITransformComponent>",
     "_objFlags": 0,
     "node": {
-      "__id__": 71
+      "__id__": 68
     },
     "_enabled": true,
     "_priority": 0,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 20,
-      "height": 20
+      "width": 84,
+      "height": 82
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
       "x": 0.5,
       "y": 0.5
     },
-    "_id": "13+ZDYqr5Mq4InUR+3rKoW"
+    "_id": "1aQvvNRcZBNawyQB5CMHFl"
   },
   {
     "__type__": "cc.SpriteComponent",
-    "_name": "",
+    "_name": "狂暴道具_红<SpriteComponent>",
     "_objFlags": 0,
     "node": {
-      "__id__": 71
+      "__id__": 68
     },
     "_enabled": true,
     "_srcBlendFactor": 2,
@@ -2581,11 +2475,11 @@
     },
     "_sharedMaterial": null,
     "_spriteFrame": {
-      "__uuid__": "7d8f9b89-4fd1-4c9f-a3ab-38ec7cded7ca@f9941"
+      "__uuid__": "320cc0c5-c2f2-45e7-ae1b-ae28f5cf57c2@f9941"
     },
     "_type": 0,
     "_fillType": 0,
-    "_sizeMode": 0,
+    "_sizeMode": 1,
     "_fillCenter": {
       "__type__": "cc.Vec2",
       "x": 0,
@@ -2596,7 +2490,7 @@
     "_isTrimmedMode": true,
     "_useGrayscale": false,
     "_atlas": null,
-    "_id": "43OhB4k1FCd5JDYXOs3GUH"
+    "_id": "25y9DAawdF7qKmXiFsMKO9"
   },
   {
     "__type__": "cc.UITransformComponent",
@@ -2691,23 +2585,23 @@
     "currentSkillCount": 4,
     "skillRedBgList": [
       {
-        "__id__": 56
+        "__id__": 53
       },
       {
-        "__id__": 59
+        "__id__": 56
       }
     ],
     "skillButtonNode": {
-      "__id__": 54
+      "__id__": 51
     },
     "skillPowerFullEffect": {
-      "__id__": 67
+      "__id__": 64
     },
     "addPowerAnim3dPrefab": {
       "__uuid__": "1d479e0d-f5de-4fce-a04c-cdd983936d5b"
     },
     "skillDouIcon": {
-      "__id__": 51
+      "__id__": 68
     },
     "_id": "9czrNkIcdAf66RiGXbaMjs"
   },
@@ -2745,9 +2639,110 @@
     },
     "_enabled": false,
     "pointNode": {
-      "__id__": 71
+      "__id__": 77
     },
     "_id": "37Dle9M2lE9qc6KbUKr7iT"
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "PointNode",
+    "_objFlags": 0,
+    "_parent": null,
+    "_children": [],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 78
+      },
+      {
+        "__id__": 79
+      }
+    ],
+    "_prefab": null,
+    "_lpos": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_lrot": {
+      "__type__": "cc.Quat",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 1
+    },
+    "_lscale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "_layer": 33554432,
+    "_euler": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_id": "b09j7lhQhOw58spRgs9IP9"
+  },
+  {
+    "__type__": "cc.UITransformComponent",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 77
+    },
+    "_enabled": true,
+    "_priority": 0,
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 20,
+      "height": 20
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_id": "13+ZDYqr5Mq4InUR+3rKoW"
+  },
+  {
+    "__type__": "cc.SpriteComponent",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 77
+    },
+    "_enabled": true,
+    "_srcBlendFactor": 2,
+    "_dstBlendFactor": 4,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_sharedMaterial": null,
+    "_spriteFrame": {
+      "__uuid__": "7d8f9b89-4fd1-4c9f-a3ab-38ec7cded7ca@f9941"
+    },
+    "_type": 0,
+    "_fillType": 0,
+    "_sizeMode": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_useGrayscale": false,
+    "_atlas": null,
+    "_id": "43OhB4k1FCd5JDYXOs3GUH"
   },
   {
     "__type__": "cc.UITransformComponent",
@@ -2860,7 +2855,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 3.145,
+      "y": 4,
       "z": 0
     },
     "_lrot": {
@@ -3428,7 +3423,7 @@
       "y": 45,
       "z": 0
     },
-    "_id": "01URgMzupDUIZxzRT9ih9+"
+    "_id": "d7JmuEqdNPrr0yM3ahBesP"
   },
   {
     "__type__": "cc.Node",
@@ -3442,7 +3437,7 @@
         "__id__": 104
       },
       {
-        "__id__": 108
+        "__id__": 112
       }
     ],
     "_active": true,
@@ -3476,24 +3471,24 @@
       "y": 0,
       "z": 0
     },
-    "_id": "1eq+H+HX5H4Iv3lg4qyY7D"
+    "_id": "79a6CsuulCtqrqnHoDAatn"
   },
   {
     "__type__": "cc.Node",
-    "_name": "柱体",
+    "_name": "骨架",
     "_objFlags": 0,
     "_parent": {
       "__id__": 103
     },
-    "_children": [],
-    "_active": true,
-    "_components": [
+    "_children": [
       {
         "__id__": 105
       }
     ],
+    "_active": true,
+    "_components": [],
     "_prefab": {
-      "__id__": 107
+      "__id__": 111
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -3521,56 +3516,138 @@
       "y": 0,
       "z": 0
     },
-    "_id": "a7KvcOb8hLxY4Ygyw9Zrha"
+    "_id": "17j0jMCs5MkamfTVVLlOi1"
   },
   {
-    "__type__": "cc.SkinningModelComponent",
-    "_name": "",
+    "__type__": "cc.Node",
+    "_name": "Root",
     "_objFlags": 0,
-    "node": {
+    "_parent": {
       "__id__": 104
     },
-    "_enabled": true,
-    "_materials": [
+    "_children": [
       {
-        "__uuid__": "88024156-8443-40d0-9798-766c608ec81b@22e2a"
-      },
-      {
-        "__uuid__": "88024156-8443-40d0-9798-766c608ec81b@dd992"
+        "__id__": 106
       }
     ],
-    "_visFlags": 0,
-    "lightmapSettings": {
-      "__id__": 106
+    "_active": true,
+    "_components": [],
+    "_prefab": {
+      "__id__": 110
     },
-    "_mesh": {
-      "__uuid__": "88024156-8443-40d0-9798-766c608ec81b@49b7c"
+    "_lpos": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
     },
-    "_shadowCastingMode": 0,
-    "_enableMorph": true,
-    "_skeleton": {
-      "__uuid__": "88024156-8443-40d0-9798-766c608ec81b@438fe"
+    "_lrot": {
+      "__type__": "cc.Quat",
+      "x": 0.7071068407911906,
+      "y": 0,
+      "z": 0,
+      "w": 0.7071067215818996
     },
-    "_skinningRoot": {
-      "__id__": 102
+    "_lscale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 0.985463440418243,
+      "z": 1
     },
-    "_id": "46hWy6EA1IK5YQ20NaFq5X"
+    "_layer": 1073741824,
+    "_euler": {
+      "__type__": "cc.Vec3",
+      "x": 90.0000096593463,
+      "y": 0,
+      "z": 0
+    },
+    "_id": "4fneg2+ntAsKk93G/gzo5g"
   },
   {
-    "__type__": "cc.ModelLightmapSettings",
-    "texture": null,
-    "uvParam": {
-      "__type__": "cc.Vec4",
+    "__type__": "cc.Node",
+    "_name": "Root.001",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 105
+    },
+    "_children": [
+      {
+        "__id__": 107
+      }
+    ],
+    "_active": true,
+    "_components": [],
+    "_prefab": {
+      "__id__": 109
+    },
+    "_lpos": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0.00486942892894149,
+      "z": 0
+    },
+    "_lrot": {
+      "__type__": "cc.Quat",
       "x": 0,
       "y": 0,
       "z": 0,
-      "w": 0
+      "w": 1
     },
-    "_bakeable": false,
-    "_castShadow": false,
-    "_receiveShadow": false,
-    "_recieveShadow": false,
-    "_lightmapSize": 64
+    "_lscale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 0.999999940395355,
+      "z": 1
+    },
+    "_layer": 1073741824,
+    "_euler": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_id": "72Q9GDNzNJ7a1ULtLytaKZ"
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "Root.001_end",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 106
+    },
+    "_children": [],
+    "_active": true,
+    "_components": [],
+    "_prefab": {
+      "__id__": 108
+    },
+    "_lpos": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0.00310626719146967,
+      "z": 0
+    },
+    "_lrot": {
+      "__type__": "cc.Quat",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 1
+    },
+    "_lscale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "_layer": 1073741824,
+    "_euler": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_id": "f4ybXImcZCnbN6/J0iGv+b"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -3580,7 +3657,52 @@
     "asset": {
       "__uuid__": "88024156-8443-40d0-9798-766c608ec81b@b2e7d"
     },
-    "fileId": "95vlsZpzxIPrNDyoI685Mr",
+    "fileId": "a7avJSrWVArIhr3ZU9ZZ4o",
+    "sync": false,
+    "_synced": {
+      "default": false,
+      "serializable": false
+    }
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 102
+    },
+    "asset": {
+      "__uuid__": "88024156-8443-40d0-9798-766c608ec81b@b2e7d"
+    },
+    "fileId": "51BwwLSeNCG5NYygX0uCq2",
+    "sync": false,
+    "_synced": {
+      "default": false,
+      "serializable": false
+    }
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 102
+    },
+    "asset": {
+      "__uuid__": "88024156-8443-40d0-9798-766c608ec81b@b2e7d"
+    },
+    "fileId": "6fv1ZM/HlHJ4jsHudOMrdv",
+    "sync": false,
+    "_synced": {
+      "default": false,
+      "serializable": false
+    }
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 102
+    },
+    "asset": {
+      "__uuid__": "88024156-8443-40d0-9798-766c608ec81b@b2e7d"
+    },
+    "fileId": "e52FYWU4RCVJFfZX41smj9",
     "sync": false,
     "_synced": {
       "default": false,
@@ -3589,18 +3711,18 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "骨架",
+    "_name": "柱体.001",
     "_objFlags": 0,
     "_parent": {
       "__id__": 103
     },
-    "_children": [
+    "_children": [],
+    "_active": true,
+    "_components": [
       {
-        "__id__": 109
+        "__id__": 113
       }
     ],
-    "_active": true,
-    "_components": [],
     "_prefab": {
       "__id__": 115
     },
@@ -3630,138 +3752,56 @@
       "y": 0,
       "z": 0
     },
-    "_id": "5f+Ep58/xNDY3aeeIvs/qS"
+    "_id": "62F24w6n5OPIe3yFat23yM"
   },
   {
-    "__type__": "cc.Node",
-    "_name": "Root",
+    "__type__": "cc.SkinningModelComponent",
+    "_name": "",
     "_objFlags": 0,
-    "_parent": {
-      "__id__": 108
-    },
-    "_children": [
-      {
-        "__id__": 110
-      }
-    ],
-    "_active": true,
-    "_components": [],
-    "_prefab": {
-      "__id__": 114
-    },
-    "_lpos": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_lrot": {
-      "__type__": "cc.Quat",
-      "x": 0.7071068407911906,
-      "y": 0,
-      "z": 0,
-      "w": 0.7071067215818996
-    },
-    "_lscale": {
-      "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 0.985463440418243,
-      "z": 1
-    },
-    "_layer": 1073741824,
-    "_euler": {
-      "__type__": "cc.Vec3",
-      "x": 90.0000096593463,
-      "y": 0,
-      "z": 0
-    },
-    "_id": "7eI6i89C5GCLW8488J/9V9"
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "Root.001",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 109
-    },
-    "_children": [
-      {
-        "__id__": 111
-      }
-    ],
-    "_active": true,
-    "_components": [],
-    "_prefab": {
-      "__id__": 113
-    },
-    "_lpos": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0.00486942892894149,
-      "z": 0
-    },
-    "_lrot": {
-      "__type__": "cc.Quat",
-      "x": 0,
-      "y": 0,
-      "z": 0,
-      "w": 1
-    },
-    "_lscale": {
-      "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 0.999999940395355,
-      "z": 1
-    },
-    "_layer": 1073741824,
-    "_euler": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_id": "d2uZX3y2JIYqX9JZxnf0em"
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "Root.001_end",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 110
-    },
-    "_children": [],
-    "_active": true,
-    "_components": [],
-    "_prefab": {
+    "node": {
       "__id__": 112
     },
-    "_lpos": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0.00310626719146967,
-      "z": 0
+    "_enabled": true,
+    "_materials": [
+      {
+        "__uuid__": "88024156-8443-40d0-9798-766c608ec81b@dd992"
+      },
+      {
+        "__uuid__": "88024156-8443-40d0-9798-766c608ec81b@22e2a"
+      }
+    ],
+    "_visFlags": 0,
+    "lightmapSettings": {
+      "__id__": 114
     },
-    "_lrot": {
-      "__type__": "cc.Quat",
+    "_mesh": {
+      "__uuid__": "88024156-8443-40d0-9798-766c608ec81b@1f532"
+    },
+    "_shadowCastingMode": 0,
+    "_enableMorph": true,
+    "_skeleton": {
+      "__uuid__": "88024156-8443-40d0-9798-766c608ec81b@438fe"
+    },
+    "_skinningRoot": {
+      "__id__": 102
+    },
+    "_id": "b1KduACQpNqpPKKJVOLM54"
+  },
+  {
+    "__type__": "cc.ModelLightmapSettings",
+    "texture": null,
+    "uvParam": {
+      "__type__": "cc.Vec4",
       "x": 0,
       "y": 0,
       "z": 0,
-      "w": 1
+      "w": 0
     },
-    "_lscale": {
-      "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
-      "z": 1
-    },
-    "_layer": 1073741824,
-    "_euler": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_id": "afp3l0zM1Jx6v49KFfCyrh"
+    "_bakeable": false,
+    "_castShadow": false,
+    "_receiveShadow": false,
+    "_recieveShadow": false,
+    "_lightmapSize": 64
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -3771,7 +3811,7 @@
     "asset": {
       "__uuid__": "88024156-8443-40d0-9798-766c608ec81b@b2e7d"
     },
-    "fileId": "eaqPQyO/lGiq2Ch7P+Ef0/",
+    "fileId": "34S6Fmm59KMJ+YP/0ZqTvt",
     "sync": false,
     "_synced": {
       "default": false,
@@ -3786,52 +3826,7 @@
     "asset": {
       "__uuid__": "88024156-8443-40d0-9798-766c608ec81b@b2e7d"
     },
-    "fileId": "c3TsSALFpBjb9KqgD9c8hD",
-    "sync": false,
-    "_synced": {
-      "default": false,
-      "serializable": false
-    }
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 102
-    },
-    "asset": {
-      "__uuid__": "88024156-8443-40d0-9798-766c608ec81b@b2e7d"
-    },
-    "fileId": "63GafvQX5KYpIDN9j/vLGA",
-    "sync": false,
-    "_synced": {
-      "default": false,
-      "serializable": false
-    }
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 102
-    },
-    "asset": {
-      "__uuid__": "88024156-8443-40d0-9798-766c608ec81b@b2e7d"
-    },
-    "fileId": "baF7xBDFtALbAbCJgNl8ZI",
-    "sync": false,
-    "_synced": {
-      "default": false,
-      "serializable": false
-    }
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 102
-    },
-    "asset": {
-      "__uuid__": "88024156-8443-40d0-9798-766c608ec81b@b2e7d"
-    },
-    "fileId": "4ddENT5HFDuroQTtQ2+NKi",
+    "fileId": "09wWZcEHZDlZYHlCnq0zCN",
     "sync": false,
     "_synced": {
       "default": false,
@@ -3840,7 +3835,7 @@
   },
   {
     "__type__": "cc.SkeletalAnimationComponent",
-    "_name": "StartGameButton<SkeletalAnimationComponent>",
+    "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 102
@@ -3857,7 +3852,7 @@
     },
     "_useBakedAnimation": true,
     "_sockets": [],
-    "_id": "7fciEdCY5CGbBwZ2mctur6"
+    "_id": "62yOavROFJKpQ+xrM9fUE9"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -3867,12 +3862,9 @@
     "asset": {
       "__uuid__": "88024156-8443-40d0-9798-766c608ec81b@b2e7d"
     },
-    "fileId": "ffop2HxGdGw647EvQR2pdv",
+    "fileId": "b45vNf2ZtDnaGTFEY0F6q5",
     "sync": false,
-    "_synced": {
-      "default": false,
-      "serializable": false
-    }
+    "_synced": {}
   },
   {
     "__type__": "cc.BoxColliderComponent",
@@ -4128,10 +4120,10 @@
     },
     "enemysPrefabList": [
       {
-        "__uuid__": "45b9b333-5cbb-4feb-83fa-da6db928ce94"
+        "__uuid__": "b440fc99-4345-4cc1-b20b-9f32c984edbc"
       },
       {
-        "__uuid__": "b042c87f-3ec1-47ff-83c1-9bdb66ccbc08"
+        "__uuid__": "e58b76b7-f7e4-4862-b1a3-4a50e901c431"
       }
     ],
     "startPosNodeList": [

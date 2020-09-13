@@ -161,7 +161,7 @@ export class SkillCtl extends Component {
         });
         this.node.on(Node.EventType.TOUCH_MOVE, (event: EventTouch) => {
             if (this.currentTouchNode) {
-                let pos = event.getLocation();
+                let pos = event.getUILocation();
                 let endPos = this.node.getComponent(UITransformComponent).convertToNodeSpaceAR(v3(pos.x, pos.y, 0));
                 // let endPos = pos;
                 this.currentTouchNode.position = v3(endPos.x, endPos.y, 0);
@@ -310,7 +310,7 @@ export class SkillCtl extends Component {
                 if (node.position.x > 153) {
                     let index = i === 0 ? 1 : 0;
                     let oNode = this.skillRedBgList[index];
-                    node.position = v3(oNode.position.x - 153, oNode.position.y, oNode.position.z);
+                    node.position = v3(oNode.position.x - 152, oNode.position.y, oNode.position.z);
                 }
             }
         }

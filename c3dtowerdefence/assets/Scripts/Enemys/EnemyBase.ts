@@ -22,13 +22,18 @@ export class EnemyBase extends BaseObject {
     public gameConfigJson: Object = null;
     public healthCount: number = 0;
     public currentHealthCount: number = 0;
-    private endPos: Vec3 = null;
-    private startPos: Vec3 = null;
+    // private endPos: Vec3 = null;
+    // private startPos: Vec3 = null;
     private enemyCtl: EnemyController = null;
     private currentMoveTw: Tween = null;
     private gameController: GameController = null;
     private groundMapCtl: GroundMapCtl = null;
     private beAttackedCb = null;
+
+    private bezierPathList: Vec3[] = [];
+    // private currentMoveIndex: number = 0;
+    // private currentMovePos: Vec3 = null;
+    // private moveSpeed: number = 0;
     @property({ type: Node })
     public caidaiEffect: Node = null;
     public init(gameConfig: Object, startPos: Vec3, endPos: Vec3) {
@@ -38,10 +43,13 @@ export class EnemyBase extends BaseObject {
         this.healthCount = this.gameConfigJson[this.objectType].HealthCount;
         this.beLockedMaxNum = this.gameConfigJson[this.objectType].BeLockedCount;
         this.currentHealthCount = this.healthCount;
-        this.endPos = endPos;
-        this.startPos = startPos;
-        let direction = new Vec3(this.startPos).subtract(this.endPos).normalize();
-        let angle = new Vec2(direction.x, direction.z).signAngle(v2(-1, 0));
+        // this.endPos = endPos;
+        // this.startPos = startPos;
+        // let direction = new Vec3(this.startPos).subtract(this.endPos).normalize();
+        // let angle = new Vec2(direction.x, direction.z).signAngle(v2(-1, 0));
+        // this.node.eulerAngles = new Vec3(0, angle * 180 / Math.PI, 0);
+        let angle = this.getLookAtAngle(this.node.position, endPos);
+
         this.node.eulerAngles = new Vec3(0, angle * 180 / Math.PI, 0);
 
     }
@@ -59,7 +67,9 @@ export class EnemyBase extends BaseObject {
             })
             tw.to(0.1, { scale: v3(1, 1, 1) })
             // bounceOut quartIn
-            tw.to(0.4, { position: v3(pos.x, 0, pos.z) }, { easing: "bounceOut" })
+            // tw.to(0.4, { position: v3(pos.x, 0, pos.z) }, { easing: "bounceOut" })
+            tw.to(0.4, { position: v3(pos.x, 0, pos.z) })
+
             tw.call(() => {
                 // node.getComponent(EnemyBase).startRun();
                 this.startRun(startPos, endPos);
@@ -98,31 +108,38 @@ export class EnemyBase extends BaseObject {
             let pos = pathList[i];
             pathPosList.push(this.groundMapCtl.getMapNodeList().getValue(pos[0], pos[1]).position);
         }
-        let tw = new Tween(this.node);
+        // let tw = new Tween(this.node);
 
-        for (let i = 0; i < pathPosList.length; i++) {
-            // let angle = this.node.eulerAngles;
-            // if (i !== 0) {
-            //     //如果当前的点不是0点 
-            //     let startPos = pathPosList[i - 1];
-            //     let targetPos = pathPosList[i];
-            //     let targetAngle = this.getLookAtAngle(startPos, targetPos);
-            //     angle = v3(0, targetAngle, 0);
-            // }
-            // // let targetAngle = this.getLookAtAngle(pathPosList[i]) * 180 / Math.PI;
-            // // console.log("target angle", targetAngle);
-            // tw.to(0.01, {
-            //     eulerAngles: angle
-            // })
-            tw.to(1, {
-                position: pathPosList[i]
+        let bezier = new BezierN(pathPosList); //通过获取到的 路径点，来制作一条贝塞尔曲线
+        this.bezierPathList = bezier.getPointList(30); //路径密度为20
+        // let allLength = BezierN.getPathLength(this.bezierPathList);
+        // let preTime = allLength / this.moveSpeed;
+        let tw = new Tween(this.node);
+        for (let i = 0; i < this.bezierPathList.length; i++) {
+            let time = 0;
+            // let targetPos =
+            let angle = 0;
+            if (i === 0) {
+                let dis = v3(this.node.position).subtract(this.bezierPathList[i]).length();
+                time = dis / this.moveSpeed;
+                angle = this.getLookAtAngle(this.node.position, this.bezierPathList[i]);
+            } else {
+                let dis = v3(this.bezierPathList[i - 1]).subtract(this.bezierPathList[i]).length();
+                angle = this.getLookAtAngle(this.bezierPathList[i - 1], this.bezierPathList[i]);
+
+                time = dis / this.moveSpeed
+            }
+            // this.node.eulerAngles
+            // let preTime = v3(this.)
+            // tw.set({ eulerAngles: v3(0, angle * 180 / Math.PI, 0) })
+            tw.to(time, {
+                position: this.bezierPathList[i],
+                eulerAngles: v3(0, angle * 180 / Math.PI, 0)
             })
         }
-        tw.call(() => {
-            this.state.setState("over");
-        })
-        // this.node.eulerAngles
+
         tw.start();
+        this.currentMoveTw = tw;
 
         this.state.setState("run");
         // let skeleteAnim = this.rootNode.getComponent(SkeletalAnimationComponent)
@@ -138,7 +155,7 @@ export class EnemyBase extends BaseObject {
     getLookAtAngle(startPos, targetPoint: Vec3) {
         //获取到朝向的角度
         let vector = v3(startPos).subtract(targetPoint);
-        let dir = v2(0, 1);
+        let dir = v2(-1, 0);
         let angle = v2(vector.x, vector.z).signAngle(dir);
         return angle;
     }
@@ -215,6 +232,25 @@ export class EnemyBase extends BaseObject {
 
         });
         this.state.addState("run", () => {
+            //开始移动 
+            let skeleteAnim = this.rootNode.getComponent(SkeletalAnimationComponent);
+            if (skeleteAnim){
+                skeleteAnim.play("骨架|MoveAnim");
+                // let clips = skeleteAnim.clips;
+                // let moveClip = null;
+                // for (let i = 0 ; i < clips.length ; i ++){
+                //     // moveClips = clips[i];
+                //     let clip = clips[i];
+                //     console.log("clip name", clip.name);
+                //     if (clip.name === '骨架|MoveAnim'){
+                //         moveClip = clip;
+                //     }
+                // }
+                // if (moveClip){
+                //     skeleteAnim.play(moveClip.)
+                // }
+            }
+            
             // console.log("start move");
             // let tw = new Tween(this.node);
             // let moveTime = new Vec3(this.startPos).subtract(this.endPos).length() / this.moveSpeed;
@@ -292,17 +328,41 @@ export class EnemyBase extends BaseObject {
     }
     update(deltaTime: number) {
         // Your update function goes here.
-        if (this.state.getState() === 'run') {
-            if (this.healthBar && this.cameraNode) {
-                let pos: Vec3 = v3(0, 0, 0);
-                this.cameraNode.convertToUINode(this.node.getWorldPosition(), this.healthBar.parent, pos);
-                pos.y += 50;
-                // console.log("pos", pos);
-                this.healthBar.setPosition(pos);
-                this.healthBar.active = true;
-                // this.healthBar.setScale(v3(pos.z, pos.z, pos.z));
-            }
-        }
+        //     if (this.state.getState() === 'run') {
+        //         if (!this.currentMovePos) {
+        //             if (this.currentMoveIndex < this.bezierPathList.length) {
+        //                 this.currentMovePos = this.bezierPathList[this.currentMoveIndex];
+
+        //             } else {
+        //                 //移动结束
+        //                 console.log("move over");
+        //             }
+        //         } else {
+        //             let dir = v3(this.currentMovePos).subtract(this.node.position).normalize();
+        //             let dis = dir.length();
+        //             console.log("dis", dis);
+        //             if (dis > 1) {
+        //                 this.node.position = v3(this.node.position).add(dir.normalize().multiplyScalar(deltaTime));
+
+        //             } else {
+        //                 this.currentMoveIndex++;
+        //                 this.currentMovePos = null;
+        //             }
+
+        //         }
+
+
+        //         // if (this.healthBar && this.cameraNode) {
+        //         //     let pos: Vec3 = v3(0, 0, 0);
+        //         //     this.cameraNode.convertToUINode(this.node.getWorldPosition(), this.healthBar.parent, pos);
+        //         //     pos.y += 50;
+        //         //     // console.log("pos", pos);
+        //         //     this.healthBar.setPosition(pos);
+        //         //     this.healthBar.active = true;
+        //         //     // this.healthBar.setScale(v3(pos.z, pos.z, pos.z));
+        //         // }
+
+        //     }
     }
 
 }

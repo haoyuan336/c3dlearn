@@ -206,7 +206,7 @@ export class TowerBase extends BaseObject {
             let defaultAnimName = skeleteAnim.defaultClip.name;
             let animState = skeleteAnim.getState(defaultAnimName);
             let length = animState.length * 1 / attackRate;
-            console.log("length", length);
+            // console.log("length", length);
             skeleteAnim.play(defaultAnimName);
             animState.repeatCount = 1;
             this.scheduleOnce(() => {

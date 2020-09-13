@@ -20,7 +20,7 @@ export class CrazyRotateSkill extends BaseObject {
     }
     start() {
         const shootBullet = () => {
-            console.log("发射一枚子弹");
+            // console.log("发射一枚子弹");
             // let currentRotation = this.node.eulerAngles.y;
             // let dir = v2(0, 1).rotate(currentRotation);
             let startPosNode = this.node.getComponent(TowerBase).bulletStartPos;

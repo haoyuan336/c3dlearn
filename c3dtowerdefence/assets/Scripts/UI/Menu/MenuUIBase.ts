@@ -14,10 +14,10 @@ export class MenuUIBase extends BaseObject {
         this.state.addState('open-ui', this.openUI.bind(this));
         this.state.addState('close-ui', this.closeUI.bind(this));
         let gameConfig = find('GameController').getComponent(GameController).getGameConfig().json;
-        this.scheduleOnce(()=>{
-            super.init(gameConfig);
+        // this.scheduleOnce(()=>{
+        //     super.init(gameConfig);
 
-        }, 0.2)
+        // }, 0.2)
     }
 
     open(target: Node) {

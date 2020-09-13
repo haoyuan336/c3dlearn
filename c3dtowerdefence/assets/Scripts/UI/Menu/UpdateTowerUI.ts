@@ -31,7 +31,9 @@ export class UpdateTowerUI extends MenuUIBase {
     }
     start() {
         // Your initialization goes here.
+        // this.scheduleOnce(()=>{
         super.start();
+        // }, 0.2)
     }
     onButtonClick(event, customData) {
         console.log("custom data", customData);

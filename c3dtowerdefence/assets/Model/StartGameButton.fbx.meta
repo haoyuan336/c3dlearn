@@ -5,12 +5,12 @@
   "uuid": "88024156-8443-40d0-9798-766c608ec81b",
   "files": [],
   "subMetas": {
-    "49b7c": {
+    "1f532": {
       "importer": "gltf-mesh",
-      "uuid": "88024156-8443-40d0-9798-766c608ec81b@49b7c",
+      "uuid": "88024156-8443-40d0-9798-766c608ec81b@1f532",
       "displayName": "",
-      "id": "49b7c",
-      "name": "柱体.mesh",
+      "id": "1f532",
+      "name": "柱体.001.mesh",
       "ver": "1.1.0",
       "imported": true,
       "files": [
@@ -104,12 +104,12 @@
         "imageUuidOrDatabaseUri": "88024156-8443-40d0-9798-766c608ec81b@9881e"
       }
     },
-    "22e2a": {
+    "dd992": {
       "importer": "gltf-material",
-      "uuid": "88024156-8443-40d0-9798-766c608ec81b@22e2a",
+      "uuid": "88024156-8443-40d0-9798-766c608ec81b@dd992",
       "displayName": "",
-      "id": "22e2a",
-      "name": "材质.material",
+      "id": "dd992",
+      "name": "材质.001.material",
       "ver": "1.0.14",
       "imported": true,
       "files": [
@@ -120,12 +120,12 @@
         "gltfIndex": 0
       }
     },
-    "dd992": {
+    "22e2a": {
       "importer": "gltf-material",
-      "uuid": "88024156-8443-40d0-9798-766c608ec81b@dd992",
+      "uuid": "88024156-8443-40d0-9798-766c608ec81b@22e2a",
       "displayName": "",
-      "id": "dd992",
-      "name": "材质.001.material",
+      "id": "22e2a",
+      "name": "材质.material",
       "ver": "1.0.14",
       "imported": true,
       "files": [
@@ -178,7 +178,7 @@
     "redirect": "88024156-8443-40d0-9798-766c608ec81b@b2e7d",
     "assetFinder": {
       "meshes": [
-        "88024156-8443-40d0-9798-766c608ec81b@49b7c"
+        "88024156-8443-40d0-9798-766c608ec81b@1f532"
       ],
       "skeletons": [
         "88024156-8443-40d0-9798-766c608ec81b@438fe"
@@ -187,8 +187,8 @@
         "88024156-8443-40d0-9798-766c608ec81b@7d6ab"
       ],
       "materials": [
-        "88024156-8443-40d0-9798-766c608ec81b@22e2a",
-        "88024156-8443-40d0-9798-766c608ec81b@dd992"
+        "88024156-8443-40d0-9798-766c608ec81b@dd992",
+        "88024156-8443-40d0-9798-766c608ec81b@22e2a"
       ],
       "scenes": [
         "88024156-8443-40d0-9798-766c608ec81b@b2e7d"
