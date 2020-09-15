@@ -63,7 +63,7 @@ export class TowerBase extends BaseObject {
         // this.shootDuraction = 1 / this.baseAttackRate;
 
         this.gameController.on("touch-screen-to-3d", this.touchScreenTo3d.bind(this), this);
-
+        this.gameController.on("destroy-all-tower", this.destroyAllTower.bind(this), this);
         this.state.addState("releas-skill", () => {
             if (this.currentTargetEnemy) {
                 this.currentTargetEnemy = null;
@@ -105,6 +105,9 @@ export class TowerBase extends BaseObject {
 
         })
     }
+    destroyAllTower(){
+        this.node.destroy();
+    }
     touchScreenTo3d(resultList: PhysicsRayResult[]) {
         console.log("射线检测到了 tower");
         // if (collider.node && collider.node.uuid === this.node.uuid) {
@@ -127,6 +130,7 @@ export class TowerBase extends BaseObject {
     onDestroy() {
         console.log("销毁");
         this.gameController.off('touch-screen-to-3d', this.touchScreenTo3d, this);
+        this.gameController.on("destroy-all-tower", this.destroyAllTower, this);
     }
     toDestroy() {
         //去销毁

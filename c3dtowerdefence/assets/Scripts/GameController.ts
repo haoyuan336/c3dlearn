@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, Prefab, instantiate, Tween, JsonAsset, Vec3, v3, PhysicsSystem, ColliderComponent, SkeletalAnimationComponent, find, PhysicsRayResult, Vec2 } from 'cc';
+import { _decorator, Component, Node, Prefab, instantiate, Tween, JsonAsset, Vec3, v3, PhysicsSystem, ColliderComponent, SkeletalAnimationComponent, find, PhysicsRayResult, Vec2, isValid } from 'cc';
 import { State } from './util/State'
 import { TowerBuildBase } from './TowerBuildBase/TowerBuildBase';
 import { DeadEnemyObj, EnemyController } from './EnemyController';
@@ -10,6 +10,7 @@ import { BaseObject } from './BaseObject';
 import { TowerBase } from './Towers/TowerBase';
 import { BezierN } from './util/BezierN';
 import { WinGoldAnimEffect } from './Effect/WinGoldAnimEffect';
+import { HomeIcon } from './Home/HomeIcon';
 const { ccclass, property } = _decorator;
 
 @ccclass('GameController')
@@ -55,6 +56,7 @@ export class GameController extends Component {
     @property({ type: Prefab })
     public goldAnim3dPrefab: Prefab = null;
 
+    private homeIconTw: Tween = null;
 
 
     // @property({ type: Node })
@@ -164,14 +166,19 @@ export class GameController extends Component {
 
     showHomeIconEnterAnim() {
         return new Promise((resolve, reject) => {
-            this.homeIconNode = instantiate(this.homeIconPrefab);
-            this.homeIconNode.parent = this.node;
+            if (!isValid(this.homeIconNode)) {
+                this.homeIconNode = instantiate(this.homeIconPrefab);
+                this.homeIconNode.parent = this.node;
+            }
+
             let groundMapCtl = this.node.getComponent(GroundMapCtl);
             if (groundMapCtl) {
                 let node = groundMapCtl.getMapNodeList().getValue(5, 5);
                 this.homeIconNode.position = v3(node.position.x, 20, node.position.z);
                 node.active = false;
                 let tw = new Tween(this.homeIconNode);
+                // this.homeIconTw = tw;
+                this.homeIconNode.active = true;
                 tw.call(() => {
                     node.active = true;
                 });
@@ -245,12 +252,43 @@ export class GameController extends Component {
         //进入展示boss 进场的状态
         this.node.emit("show-boss-enter-state");
     }
+    enemyAttacked(){
+        //敌人发动了攻击
+        this.state.setState("game-loss");
+        this.node.getComponent(EnemyController).frozenAllEnemy();
+        this.node.getComponent(TowerBuildBaseCtl).frozenAllTowerBuildBase(); //禁锢所有塔的基座
+        // this.homeIconTw.stop();
+        this.homeIconNode.getComponent(HomeIcon).frozenHomeIcon();
+        let deadEnemyData = this.node.getComponent(EnemyController).getDeadEnemyData();
+        this.scheduleOnce(()=>{
+            this.uiController.showGameLossUI(deadEnemyData)
+        },1);
+    }
     gameWin(deadEnemyData: DeadEnemyObj[]) {
         //游戏胜利，进入下一关
         //首先展示胜利失败页面
         // this
         //游戏胜利
         // this.uic
+        this.state.setState("show-game-result"); //进入显示游戏结果的界面
         this.uiController.showGameWinUI(deadEnemyData);
+    }
+    enterNextLevel() {
+        console.log("进入下一关")
+        if (isValid(this.homeIconNode)) {
+            this.homeIconNode.active = false;
+        }
+        this.node.emit("destroy-all-tower");
+        this.node.emit("destroy-all-tower-build-base");
+        this.playerData.enterNextLevel();
+        this.node.getComponent(TowerBuildBaseCtl).showTowerBuildBaseEnterAnim().then(() => {
+            return this.showHomeIconEnterAnim();
+        }).then(() => {
+            this.node.emit('update-gold-label', this.playerData.getCurrentGoldCount());
+            this.state.setState("run");
+            this.node.getComponent(EnemyController).startGame();
+        });
+        //把所有的tower都销毁掉，
+        //把左右的tower 的基座删掉
     }
 }

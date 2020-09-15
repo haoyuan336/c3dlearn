@@ -1,5 +1,6 @@
 import { _decorator, Component, Node, Prefab, SpriteFrame, SpriteComponent, instantiate, v3, Tween, LabelComponent } from 'cc';
 import { DeadEnemyObj } from '../../EnemyController';
+import { UIController } from '../UIController';
 import { GameResultGoldCell } from './GameResultGoldCell';
 const { ccclass, property } = _decorator;
 
@@ -42,10 +43,12 @@ export class GameWinPrefab extends Component {
     private gameConfig: {} = null;
 
     private gameResultState: boolean = null;
+    private uiController: UIController = null;
     start() {
 
     }
-    setGameResult(succ: boolean, data: DeadEnemyObj[], gameConfig: {}) {
+    setGameResult(succ: boolean, data: DeadEnemyObj[], gameConfig: {}, uiCtl: UIController) {
+        this.uiController = uiCtl;
         this.gameResultState = succ;
         this.gameConfig = gameConfig;
         console.log("游戏状态时", succ)
@@ -137,6 +140,8 @@ export class GameWinPrefab extends Component {
                 if (this.gameResultState){
                     //如果是胜利的话，那么玩家点击的就是下一关游戏的按钮
                     console.log("进入下一关")
+                    this.node.destroy();
+                    this.uiController.playerClickNextLevelButton();
                 }
                 break;
             default:

@@ -16,6 +16,7 @@ export class PlayData {
         // this.clearLocalData();
         this.setLocalData("gold-count", 9999 + '');
         this.setLocalData('active-tower-build-base-count', '2');
+        this.setLocalData("current-level-num", this.currentLevelNum + '');
         if (gameTime) {
             // 首次进入游戏. 初始化游戏数据
             //不是首次进入游戏，那么初始化一些游戏数据
@@ -23,6 +24,7 @@ export class PlayData {
             // console.log()
             this.currentActiveSkillCount = Number(this.getLocalData('current-active-skill-count'));
             this.currentGoldCount = Number(this.getLocalData("gold-count")); //获取当前金币个数
+            this.currentLevelNum = Number(this.getLocalData("current-level-num")); //获取当前的关卡数
             // this.currentActiveTowerBuildBaseCount = Number(this.getLocalData('active-tower-build-base-count')); //获取当前激活的塔的基座的数量
         } else {
             this.setLocalData("game-time", '1');
@@ -52,5 +54,9 @@ export class PlayData {
         this.currentGoldCount += goldCount;
         this.setLocalData('gold-count', this.currentGoldCount + '');
         this.gameController.node.emit("update-gold-label", this.currentGoldCount, goldCount);
+    }
+    enterNextLevel(){
+        this.currentLevelNum ++;
+        this.setLocalData('current-level-num', this.currentLevelNum + '');//保存当前的关卡数
     }
 }   

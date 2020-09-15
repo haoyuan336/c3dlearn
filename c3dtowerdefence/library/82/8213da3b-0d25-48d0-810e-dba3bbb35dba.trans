@@ -1,3 +1,5 @@
 {
-    "resolveMap": {}
+    "resolveMap": {
+        "../util/State": "../util/State.ts"
+    }
 }

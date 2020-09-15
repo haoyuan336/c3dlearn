@@ -1,10 +1,13 @@
 import { _decorator, Component, Node, Tween, v3 } from 'cc';
+import { State } from '../util/State';
 const { ccclass, property } = _decorator;
 
 @ccclass('HomeIcon')
 export class HomeIcon extends Component {
+    @property({type: Node})
+    public redHeartNode: Node = null;
 
-
+    private state: State = new State();
     start() {
         // this.node.eulerAngles
         // let tw = new Tween(this.node);
@@ -14,10 +17,16 @@ export class HomeIcon extends Component {
         // })
         // tw.repeatForever()
         // tw.start();
+        this.state.setState("run");
 
     }
+    frozenHomeIcon(){
+        this.state.setState("frozen");
+    }
     update(dt: number) {
-        this.node.eulerAngles = this.node.eulerAngles.add(v3(0, 1, 0));
+        if (this.state.getState() === "run"){
+            this.redHeartNode.eulerAngles = this.redHeartNode.eulerAngles.add(v3(0, 1, 0));
+        }
     }
 
 

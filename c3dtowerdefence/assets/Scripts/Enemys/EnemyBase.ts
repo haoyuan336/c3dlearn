@@ -78,6 +78,8 @@ export class EnemyBase extends BaseObject {
     showEnemyEnterAnim(index: number, enemtCtl: EnemyController, gameCtl: GameController, startPos: Vec2, endPos: Vec2) {
         let node = this.node;
         this.enemyCtl = enemtCtl;
+        this.enemyCtl.node.on("frozen-all-enemy", this.forzenSelf.bind(this), this);
+
         this.gameController = gameCtl;
         // this.enemyCtl.node.on('enter-show-boss-enter-state', this.enterShowBossEnter, this);
         // this.enemyCtl.node.on("enter-continue-play-move-anim", this.contiuePlayMoveAnim, this);
@@ -142,7 +144,7 @@ export class EnemyBase extends BaseObject {
         // let allLength = BezierN.getPathLength(this.bezierPathList);
         // let preTime = allLength / this.moveSpeed;
         let tw = new Tween(this.node);
-        for (let i = 0; i < this.bezierPathList.length; i++) {
+        for (let i = 0; i < this.bezierPathList.length - 5; i++) {
             let time = 0;
             // let targetPos =
             let angle = 0;
@@ -166,7 +168,7 @@ export class EnemyBase extends BaseObject {
         }
 
         tw.call(()=>{
-            this.state.setState("over");
+            this.state.setState("enter-attack-state");
         })
         tw.start();
         
@@ -183,6 +185,7 @@ export class EnemyBase extends BaseObject {
         //     }
         // }
     }
+    
     getLookAtAngle(startPos, targetPoint: Vec3) {
         //获取到朝向的角度
         let vector = v3(startPos).subtract(targetPoint);
@@ -190,8 +193,26 @@ export class EnemyBase extends BaseObject {
         let angle = v2(vector.x, vector.z).signAngle(dir);
         return angle;
     }
+    forzenSelf(){
+        //冰冻自己
+        if(this.currentMoveTw){
+            this.currentMoveTw.stop();
+            let skeleteAnim = this.rootNode.getComponent(SkeletalAnimationComponent);
+            let stateAnim = skeleteAnim.getState(this.currentBoneAnimName);
+            stateAnim.pause();
+        }
+    }
     onLoad() {
-
+        this.state.addState("enter-attack-state", ()=>{
+            console.log("移动结束");
+            //进入攻击状态
+            this.currentBoneAnimName = "骨架|AttackAnim";
+            let skeleteAnim = this.rootNode.getComponent(SkeletalAnimationComponent);
+            skeleteAnim.play(this.currentBoneAnimName);
+            this.scheduleOnce(()=>{
+                this.enemyCtl.enemyAttacked();//敌人发动了攻击
+            }, this.animSpeedMulOffset);
+        })
         this.state.addState("over", () => {
             this.enemyCtl.removeEnemyInList(this.node);
             this.node.destroy();
@@ -427,6 +448,7 @@ export class EnemyBase extends BaseObject {
     onDestroy(){
         // this.node.off('enter-show-boss-enter-state', this.enterShowBossEnter, this);
         // this.node.off('enter-continue-play-move-anim', this.contiuePlayMoveAnim, this);
+        this.node.off("frozen-all-enemy", this.forzenSelf, this);
     }
   
 }

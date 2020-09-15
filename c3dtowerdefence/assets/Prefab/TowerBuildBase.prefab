@@ -957,6 +957,9 @@
       "__id__": 1
     },
     "_enabled": true,
+    "arrowGuide": {
+      "__id__": 2
+    },
     "_id": ""
   },
   {

@@ -1,5 +1,5 @@
 import { _decorator, Component, Node, Prefab, v2, instantiate, v3, Tween } from 'cc';
-import { CellNode, GroundMapCtl } from './GroundMapCtl';
+import { GroundMapCtl } from './GroundMapCtl';
 import My2dArray from './util/My2Array';
 import { GameController } from './GameController';
 const { ccclass, property } = _decorator;
@@ -10,7 +10,7 @@ export class TowerBuildBaseCtl extends Component {
     public towerBuildBasePrefab: Prefab = null;
 
     private groundTiledNodeList: My2dArray<Node> = null;
-    public towerBuildBaseList: Node[] = [];
+    // private towerBuildBaseList: Node[] = [];
     private gameController: GameController = null;
     showTowerBuildBaseEnterAnim() {
         this.gameController = this.node.getComponent(GameController);
@@ -34,7 +34,7 @@ export class TowerBuildBaseCtl extends Component {
             towerBuildBase.parent = this.node;
             towerBuildBase.position = v3(node.position.x, 20, node.position.z);
             this.node.getComponent(GroundMapCtl).setTowerBuildBaseOnTiled(towerBuildBase, v.x, v.y);
-            this.towerBuildBaseList.push(towerBuildBase);
+            // this.towerBuildBaseList.push(towerBuildBase);
             // towerBuildBase.position.y = 10;
 
             promiseList.push(this.showEnterAnim(towerBuildBase, i));
@@ -72,6 +72,9 @@ export class TowerBuildBaseCtl extends Component {
         })
     }
 
+    frozenAllTowerBuildBase(){
+        this.node.emit("frozen-tower-build-base");
+    }
     // update (deltaTime: number) {
     //     // Your update function goes here.
     // }

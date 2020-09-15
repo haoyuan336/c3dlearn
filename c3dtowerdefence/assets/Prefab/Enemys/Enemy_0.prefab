@@ -749,6 +749,9 @@
     "_clips": [
       {
         "__uuid__": "33727c55-c0ac-40fb-84a8-1f1e4499e068@46940"
+      },
+      {
+        "__uuid__": "33727c55-c0ac-40fb-84a8-1f1e4499e068@fdad8"
       }
     ],
     "_defaultClip": {
@@ -785,7 +788,7 @@
     "rootNode": {
       "__id__": 10
     },
-    "animSpeedMulOffset": 1.5,
+    "animSpeedMulOffset": 0.33,
     "caidaiEffect": {
       "__id__": 2
     },

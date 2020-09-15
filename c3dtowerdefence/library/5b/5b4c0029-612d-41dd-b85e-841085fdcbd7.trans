@@ -8,6 +8,7 @@
         "./TowerBuildBaseCtl": "TowerBuildBaseCtl.ts",
         "./Data/PlayerData": "Data/PlayerData.ts",
         "./Towers/TowerBase": "Towers/TowerBase.ts",
-        "./Effect/WinGoldAnimEffect": "Effect/WinGoldAnimEffect.ts"
+        "./Effect/WinGoldAnimEffect": "Effect/WinGoldAnimEffect.ts",
+        "./Home/HomeIcon": "Home/HomeIcon.ts"
     }
 }
