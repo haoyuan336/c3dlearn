@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "立即复活按钮",
+    "atlas": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 199,
+      "height": 94
+    },
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "originalSize": {
+      "width": 199,
+      "height": 94
+    },
+    "rotated": false,
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "texture": "c7484ee8-0e45-4b3c-b66a-d81586e17b2e@6c48a"
+  }
+}

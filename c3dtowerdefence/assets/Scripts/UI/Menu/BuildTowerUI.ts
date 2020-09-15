@@ -37,7 +37,7 @@ export class BuildTowerUI extends MenuUIBase {
             node.setPosition(v3(pos.x, pos.y, 0));
         }
         console.log("build tower ui");
-        super.start();
+        // super.start();
         this.node.getChildByName("BuildTowerBgNode").on("click", this.onButtonClick.bind(this));
         // let children = this.node.children;
         // for (let i = 0; i < children.length; i++) {

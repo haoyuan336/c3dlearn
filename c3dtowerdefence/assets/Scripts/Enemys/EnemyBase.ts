@@ -3,7 +3,7 @@ import { State } from './../util/State'
 import { GameController } from './../GameController';
 // import { Enemy } from './Enemy';
 import { BaseObject } from './../BaseObject'
-import { EnemyController } from '../EnemyController';
+import { DeadEnemyObj, EnemyController } from '../EnemyController';
 import { BezierN } from '../util/BezierN';
 import { GroundMapCtl } from '../GroundMapCtl';
 import { FindPathWithAStart } from '../util/FindPathWithAStart';
@@ -31,6 +31,7 @@ export class EnemyBase extends BaseObject {
     private beAttackedCb = null;
 
     private bezierPathList: Vec3[] = [];
+    private currentBoneAnimName = "";
     // private currentMoveIndex: number = 0;
     // private currentMovePos: Vec3 = null;
     // private moveSpeed: number = 0;
@@ -53,15 +54,41 @@ export class EnemyBase extends BaseObject {
         this.node.eulerAngles = new Vec3(0, angle * 180 / Math.PI, 0);
 
     }
+    enterShowBossEnter() {
+        if (this.currentMoveTw) {
+            this.currentMoveTw.stop();
+        
+        }
+    }
+    contiuePlayMoveAnim() {
+        //继续行走
+        if (this.currentMoveTw) {
+            let skeleteAnim = this.rootNode.getComponent(SkeletalAnimationComponent);
+            let state = skeleteAnim.getState(this.currentBoneAnimName);
+            state.speed = 3;
+            this.scheduleOnce(()=>{
+                // this.currentMoveTw.start();
+                let skeleteAnim = this.rootNode.getComponent(SkeletalAnimationComponent);
+                let currentState = skeleteAnim.getState(this.currentBoneAnimName);
+                currentState.speed = 1;
+            }, 3);
+        }
+    }
+
     showEnemyEnterAnim(index: number, enemtCtl: EnemyController, gameCtl: GameController, startPos: Vec2, endPos: Vec2) {
         let node = this.node;
         this.enemyCtl = enemtCtl;
         this.gameController = gameCtl;
+        // this.enemyCtl.node.on('enter-show-boss-enter-state', this.enterShowBossEnter, this);
+        // this.enemyCtl.node.on("enter-continue-play-move-anim", this.contiuePlayMoveAnim, this);
+
+
         return new Promise((resolve, reject) => {
             let tw = new Tween(node);
             let pos = node.position;
             tw.delay(0.1 * index)
             tw.set({ scale: v3(0, 0, 0) })
+            tw .show();
             tw.call(() => {
                 node.active = true;
             })
@@ -138,7 +165,11 @@ export class EnemyBase extends BaseObject {
             })
         }
 
+        tw.call(()=>{
+            this.state.setState("over");
+        })
         tw.start();
+        
         this.currentMoveTw = tw;
 
         this.state.setState("run");
@@ -167,6 +198,7 @@ export class EnemyBase extends BaseObject {
 
         });
         this.state.addState("to-dead", () => {
+            this.enemyCtl.pushOneEnemyDeadData(new DeadEnemyObj(this.objectType,this.getCurrentGoldCount()));
             if (this.currentMoveTw) {
                 this.currentMoveTw.stop();
             }
@@ -234,8 +266,10 @@ export class EnemyBase extends BaseObject {
         this.state.addState("run", () => {
             //开始移动 
             let skeleteAnim = this.rootNode.getComponent(SkeletalAnimationComponent);
-            if (skeleteAnim){
-                skeleteAnim.play("骨架|MoveAnim");
+            if (skeleteAnim) {
+                this.currentBoneAnimName = "骨架|MoveAnim"
+
+                skeleteAnim.play(this.currentBoneAnimName);
                 // let clips = skeleteAnim.clips;
                 // let moveClip = null;
                 // for (let i = 0 ; i < clips.length ; i ++){
@@ -250,7 +284,7 @@ export class EnemyBase extends BaseObject {
                 //     skeleteAnim.play(moveClip.)
                 // }
             }
-            
+
             // console.log("start move");
             // let tw = new Tween(this.node);
             // let moveTime = new Vec3(this.startPos).subtract(this.endPos).length() / this.moveSpeed;
@@ -364,5 +398,35 @@ export class EnemyBase extends BaseObject {
 
         //     }
     }
+    playBossEnterAnim() {
+        //播放boss 的进场动画
+        return new Promise((resolve, reject) => {
+            let skeleteAnim = this.rootNode.getComponent(SkeletalAnimationComponent)
+            let clips = skeleteAnim.clips;
+            let showClip = undefined;
+            for (let i = 0; i < clips.length; i++) {
+                let clip = clips[i];
+                if (clip.name === 'boss-show') {
+                    showClip = clip;
+                }
+            }
+            if (showClip) {
+                skeleteAnim.play('boss-show');
+                this.scheduleOnce(() => {
+                    resolve();
+                }, showClip.length)
+            } else {
+                skeleteAnim.play("骨架|MoveAnim")
+                this.scheduleOnce(() => {
+                    resolve()
+                }, 1);
+            }
+        })
+    }
 
+    onDestroy(){
+        // this.node.off('enter-show-boss-enter-state', this.enterShowBossEnter, this);
+        // this.node.off('enter-continue-play-move-anim', this.contiuePlayMoveAnim, this);
+    }
+  
 }

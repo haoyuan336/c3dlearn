@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "HeadImageIcon",
+    "atlas": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 62,
+      "height": 62
+    },
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "originalSize": {
+      "width": 62,
+      "height": 62
+    },
+    "rotated": false,
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "texture": "efe5015c-9f13-4c62-ba40-949e9563bd33@6c48a"
+  }
+}

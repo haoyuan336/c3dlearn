@@ -2,7 +2,6 @@
     "resolveMap": {
         "../../util/State": "../../util/State.ts",
         "../../Towers/TowerBase": "../../Towers/TowerBase.ts",
-        "../../BaseObject": "../../BaseObject.ts",
-        "../../GameController": "../../GameController.ts"
+        "../../BaseObject": "../../BaseObject.ts"
     }
 }

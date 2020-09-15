@@ -1,14 +1,24 @@
-import { _decorator, Component, Node, JsonAsset, Prefab, instantiate, v3, Vec2, Tween, random, Vec3 } from 'cc';
+import { _decorator, Component, Node, JsonAsset, Prefab, instantiate, v3, Vec2, Tween, random, Vec3, CameraComponent, find, profiler } from 'cc';
 import { State } from './util/State';
 import { EnemyBase } from './Enemys/EnemyBase'
-import { CellNode, GroundMapCtl } from './GroundMapCtl';
+import { GroundMapCtl } from './GroundMapCtl';
 import { GroundTiled } from './GroundTiled/GroundTiled';
 import My2dArray from './util/My2Array';
 import { WinGoldAnimEffect } from './Effect/WinGoldAnimEffect';
 import { GameController } from './GameController';
+import { UIController } from './UI/UIController';
 
 const { ccclass, property } = _decorator;
-
+export class DeadEnemyObj{
+    //死去敌人的结构体
+    public enemyType = "";
+    public dropGoldCount = 0;
+    // public enemyIconSpriteFrame = 0; //敌人的icon
+    constructor(type, dropGoldCount: number){
+        this.enemyType = type; //敌人的种类
+        this.dropGoldCount = dropGoldCount; //敌人的掉落的金币数目 
+    }
+};
 @ccclass('EnemyController')
 export class EnemyController extends Component {
 
@@ -36,12 +46,23 @@ export class EnemyController extends Component {
     @property({ type: Node })
     public enemyHealthBarCtlNode: Node = null;
 
+    @property({ type: Node })
+    public cameraNode: Node = null;
+    @property({ type: Prefab })
+    public bosssPrefabList: Prefab[] = [];
+
+
 
 
     private currentWaveTime: number = 0;
     private currentWaveDuraction: number = 1;
 
     public gameController: GameController = null;
+    private allWaveAddOverCb = null; //所有的波次的敌人都增加完毕的回调
+    private allEnemyDeadCb = null; //所有的敌人都死了的回调 
+
+
+    private currentLevelDeadEnemyDataList: DeadEnemyObj[] = [];
     start() {
         // Your initialization goes here.
         this.gameConfig = this.gameConfigRes.json;
@@ -55,8 +76,8 @@ export class EnemyController extends Component {
         this.state.addState("enter-next-wave", () => {
             if (this.currentWaveIndex == this.waveData['EnemyType'].length) {
                 // this.state.setState("add-enemt-over");
-                this.state.setState("add-one-boss")
-                console.log("游戏结束");
+                // this.state.setState("add-one-boss")
+                // console.log("游戏结束");
                 return;
             }
 
@@ -66,6 +87,8 @@ export class EnemyController extends Component {
 
 
             if (this.currentWaveIndex === this.waveData['EnemyType'].length - 1) {
+                this.allWaveAddOverCb();
+                this.allWaveAddOverCb = null;
                 this.addOneBossEnemy();
             } else {
                 this.addOneWaveEnemy().then(() => {
@@ -77,33 +100,146 @@ export class EnemyController extends Component {
                 });
             }
         })
-        this.state.addState("add-one-boss", () => {
-            console.log("开始增加boss");
-        })
+
         // this.node.on("player-click-game", () => {
         //     this.state.setState("enter-next-wave");
         // });
     }
-    addOneBossEnemy() {
+
+    playBossEnterAnim(bossNode: Node) {
+        //播放boss 的进场动画
+        find('Canvas').getComponent(UIController).showBossIconAnim();
         return new Promise((resolve, reject) => {
-            let indexList: Vec2[] = this.node.getComponent(GroundMapCtl).getInEdageIndexList();
-            let randomIndex = Math.round(Math.random() * (indexList.length - 1));
-            let pos: Vec2 = indexList[randomIndex];
-            let nodeMapList: My2dArray<Node> = this.node.getComponent(GroundMapCtl).getMapNodeList();
-            let node = nodeMapList.getValue(pos.x, pos.y);
-            let type = this.currentRandomEnemyTypeList[0].type;
-            let enemyNode = instantiate(this.enemysPrefabList[type]);
-            console.log("enemy node", enemyNode)
-            enemyNode.parent = this.node;
-            enemyNode.position = v3(node.position.x, 0, node.position.z);
-            // enemyNode.active = false;
+            let enemyBase = bossNode.getComponent(EnemyBase);
+            if (enemyBase) {
+                enemyBase.playBossEnterAnim().then(() => {
+                    resolve();
+                })
+            } else {
+                this.scheduleOnce(() => {
+                    resolve();
+                }, 1)
+            }
+
         })
     }
     startGame() {
+        this.currentLevelDeadEnemyDataList = [];
+        //在这里需要初始化一些游戏数据 
+
         this.state.setState("enter-next-wave");
+        Promise.all([
+            new Promise((resolve, reject)=>{
+                this.allWaveAddOverCb = resolve;
+            }),
+            new Promise((resolve, reject)=>{
+                this.allEnemyDeadCb = resolve;
+            })
+        ]).then(()=>{
+            console.log("游戏胜利");
+            this.gameController.gameWin(this.currentLevelDeadEnemyDataList);
+        })
     }
+    pushOneEnemyDeadData(enemyDeadData: DeadEnemyObj){
+        this.currentLevelDeadEnemyDataList.push(enemyDeadData);
+    }
+    // showCameraFocusBoosAnim(bossNode: Node) {
+    //     return new Promise((resolve, reject) => {
+    //         //进入boss 展示的状态
+    //         // this.node.emit("enter-show-boss-enter-state");
+    //         // let tw = new Tween()
+    //         // this.cameraNode.lookAt(bossNode.position)
+    //         let endPos = v3(bossNode.position).add(v3(5, 2, 5));
+    //         let endEulerAngles = v3(this.cameraNode.eulerAngles).add(v3(35, 0, 0))
+    //         // this.cameraNode.position = v3(bossNode.position.x + 10, bossNode.position.y + 7,bossNode.position.z + 10)
+    //         // this.cameraNode.position = v3(this.cameraNode.position).add(addPos);
+    //         // this.cameraNode.lookAt(bossNode.position);
+    //         // let eulerAngles = this.cameraNode.eulerAngles;
+    //         // let addAngleValue = 25;
+    //         // this.cameraNode.eulerAngles = v3(eulerAngles.x + 25, eulerAngles.y, eulerAngles.z);
+    //         // this.cameraNode.eulerAngles
+    //         let tw = new Tween(this.cameraNode);
+    //         tw.to(0.5, {
+    //             position: endPos,
+    //             eulerAngles: endEulerAngles,
+    //             // orthoHeight: 60
+    //         },
+    //             {
+    //                 easing: "backOut"
+    //             })
+    //         // this.cameraNode.getComponent(CameraComponent).orthoHeight = 5;\
+    //         tw.call(() => {
+    //             if (resolve) {
+    //                 resolve();
+    //             }
+    //         })
+    //         tw.start();
+    //         new Tween(this.cameraNode.getComponent(CameraComponent)).to(0.5, { orthoHeight: 6 }).start();
+    //     })
 
+    // }
 
+    showCameraBackAnim() {
+        //播放镜头返回的动画
+        return new Promise((resolve, reject) => {
+            let tw = new Tween(this.cameraNode);
+            tw.to(0.5, {
+                position: v3(30, 42, 30),
+                eulerAngles: v3(-45, 45, 0)
+            })
+            tw.call(() => {
+                resolve();
+            })
+            tw.start();
+            new Tween(this.cameraNode.getComponent(CameraComponent)).to(0.5, { orthoHeight: 22 }).start();
+        })
+
+    }
+    addOneBossEnemy() {
+        console.log("增加一个boss")
+        let indexList: Vec2[] = this.node.getComponent(GroundMapCtl).getInEdageIndexList();
+        let randomIndex = Math.round(Math.random() * (indexList.length - 1));
+        let pos: Vec2 = indexList[randomIndex];
+        let nodeMapList: My2dArray<Node> = this.node.getComponent(GroundMapCtl).getMapNodeList();
+        let node = nodeMapList.getValue(pos.x, pos.y);
+        let type = this.currentRandomEnemyTypeList[0].type;
+        let enemyNode = instantiate(this.bosssPrefabList[type]);
+        console.log("enemy node", enemyNode)
+        enemyNode.parent = this.node;
+        enemyNode.position = v3(node.position.x, 0, node.position.z);
+        enemyNode.active=false;
+
+        enemyNode.getComponent(EnemyBase).init(this.gameConfig, node.position, this.endPos);
+
+        // this.showEnemyEnterAnim(enemyNode, addEnemyCount);
+        // promiseList.push(enemyNode.getComponent(EnemyBase).showEnemyEnterAnim(addEnemyCount, this, this.gameController, indexV2, new Vec2(5, 5)));
+        // addEnemyCount++;
+        this.enemyNodeList.push(enemyNode);
+        return new Promise((resolve, reject) => {
+            resolve();
+            // enemyNode.active = false;
+        }).then(() => {
+            //展示boss 出场界面 
+            // return this.showCameraFocusBoosAnim(enemyNode)
+            // return
+        }).then(() => {
+            return this.playBossEnterAnim(enemyNode);
+        }).then(() => {
+            // return this.showCameraBackAnim();
+        }).then(() => {
+            //敌人继续播放行走动画
+            // return new Promise((resolve) => {
+            //     this.scheduleOnce(() => {
+            this.node.emit("enter-continue-play-move-anim")
+            //         resolve();
+
+            //     }, 3)
+            // })
+        }).then(() => {
+            enemyNode.getComponent(EnemyBase).showEnemyEnterAnim(1, this, this.gameController, pos, new Vec2(5, 5));
+
+        })
+    }
     addOneWaveEnemy() {
         //增加一波敌人
         let promiseList = [];
@@ -173,10 +309,17 @@ export class EnemyController extends Component {
                 this.enemyNodeList.splice(i, 1);
             }
         }
+        if(this.enemyNodeList.length === 0){
+            if (this.allEnemyDeadCb){
+                this.allEnemyDeadCb();
+                this.allEnemyDeadCb = null;
+            }
+        }
     }
     getCurrentEnemyNodeList() {
         return this.enemyNodeList;
     }
+  
 
 
 }

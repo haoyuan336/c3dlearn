@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "GameLossIcon",
+    "atlas": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 213,
+      "height": 121
+    },
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "originalSize": {
+      "width": 213,
+      "height": 121
+    },
+    "rotated": false,
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "texture": "603cda52-f299-4823-b175-83ec9c24813b@6c48a"
+  }
+}

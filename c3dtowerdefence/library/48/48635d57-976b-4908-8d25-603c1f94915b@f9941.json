@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "GoldSmallIcon",
+    "atlas": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 41,
+      "height": 41
+    },
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "originalSize": {
+      "width": 41,
+      "height": 41
+    },
+    "rotated": false,
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "texture": "48635d57-976b-4908-8d25-603c1f94915b@6c48a"
+  }
+}

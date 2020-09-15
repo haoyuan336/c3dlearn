@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "BOSS_",
+    "atlas": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 669,
+      "height": 187
+    },
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "originalSize": {
+      "width": 669,
+      "height": 187
+    },
+    "rotated": false,
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "texture": "25bf8087-e9e8-43c1-a190-9c4962b04483@6c48a"
+  }
+}

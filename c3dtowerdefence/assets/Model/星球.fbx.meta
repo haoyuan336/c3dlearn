@@ -1,0 +1,123 @@
+{
+  "ver": "1.3.21",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "7be150a5-4fa1-4ab9-9089-49d2af494681",
+  "files": [],
+  "subMetas": {
+    "81688": {
+      "importer": "gltf-material",
+      "uuid": "7be150a5-4fa1-4ab9-9089-49d2af494681@81688",
+      "displayName": "",
+      "id": "81688",
+      "name": "材质.002.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "590c3": {
+      "importer": "gltf-mesh",
+      "uuid": "7be150a5-4fa1-4ab9-9089-49d2af494681@590c3",
+      "displayName": "",
+      "id": "590c3",
+      "name": "棱角球.001.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "9881e": {
+      "importer": "gltf-embeded-image",
+      "uuid": "7be150a5-4fa1-4ab9-9089-49d2af494681@9881e",
+      "displayName": "",
+      "id": "9881e",
+      "name": "colorTexture.png.image",
+      "ver": "1.0.2",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "7d6ab": {
+      "importer": "texture",
+      "uuid": "7be150a5-4fa1-4ab9-9089-49d2af494681@7d6ab",
+      "displayName": "",
+      "id": "7d6ab",
+      "name": "base_color_texture.texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "7be150a5-4fa1-4ab9-9089-49d2af494681@9881e"
+      }
+    },
+    "1ac61": {
+      "importer": "gltf-scene",
+      "uuid": "7be150a5-4fa1-4ab9-9089-49d2af494681@1ac61",
+      "displayName": "",
+      "id": "1ac61",
+      "name": "星球.prefab",
+      "ver": "1.0.11",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "colorTexture.png",
+        "uri": "7be150a5-4fa1-4ab9-9089-49d2af494681@9881e"
+      }
+    ],
+    "redirect": "7be150a5-4fa1-4ab9-9089-49d2af494681@1ac61",
+    "assetFinder": {
+      "meshes": [
+        "7be150a5-4fa1-4ab9-9089-49d2af494681@590c3"
+      ],
+      "skeletons": [],
+      "textures": [
+        "7be150a5-4fa1-4ab9-9089-49d2af494681@7d6ab"
+      ],
+      "materials": [
+        "7be150a5-4fa1-4ab9-9089-49d2af494681@81688"
+      ],
+      "scenes": [
+        "7be150a5-4fa1-4ab9-9089-49d2af494681@1ac61"
+      ]
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import { _decorator, Component, Node, Prefab, instantiate, Tween, JsonAsset, Vec3, v3, PhysicsSystem, ColliderComponent, SkeletalAnimationComponent, find, PhysicsRayResult, Vec2 } from 'cc';
 import { State } from './util/State'
 import { TowerBuildBase } from './TowerBuildBase/TowerBuildBase';
-import { EnemyController } from './EnemyController';
+import { DeadEnemyObj, EnemyController } from './EnemyController';
 import { GroundMapCtl } from './GroundMapCtl';
 import { UIController } from './UI/UIController';
 import { TowerBuildBaseCtl } from './TowerBuildBaseCtl';
@@ -37,6 +37,11 @@ export class GameController extends Component {
     // public currentLevelNum: number = 0;
 
 
+    @property({ type: UIController })
+    public uiController: UIController = null;
+
+    @property({ type: Node })
+    public plate: Node = null; //星球
     @property({ type: Node })
     public gameStartButtonBase: Node = null;
 
@@ -49,14 +54,18 @@ export class GameController extends Component {
 
     @property({ type: Prefab })
     public goldAnim3dPrefab: Prefab = null;
- 
+
+
 
     // @property({ type: Node })
     // public testNode: Node = null;
     onLoad() {
         this.playerData = new PlayData(this);
 
-
+        // this.node.eulerAngles
+        let tw = new Tween(this.plate);
+        tw.repeatForever(new Tween(this.plate).to(20, { eulerAngles: v3(0, 360, 0) }).set({ eulerAngles: v3(0, 0, 0) }))
+        tw.start();
         // let bezier = new BezierN([v3(0, 0, 0), v3(10, 30, 10), v3(20, 3, 0),v3(20, 100, 30)]);
         // let pointList: Vec3[] = bezier.getPointList(10);
         // console.log("point", pointList);
@@ -135,14 +144,15 @@ export class GameController extends Component {
     }
 
     showUIEnterAnim() {
-        return new Promise((resolve, reject) => {
-            let uiCtl = find("Canvas").getComponent(UIController);
-            if (uiCtl) {
-                uiCtl.showUIEnterAnim().then(() => {
-                    resolve();
-                })
-            }
-        })
+        // return new Promise((resolve, reject) => {
+        // let uiCtl = find("Canvas").getComponent(UIController);
+        // if (uiCtl) {
+        //     uiCtl.showUIEnterAnim().then(() => {
+        //         resolve();
+        //     })
+        // }
+        return this.uiController.showUIEnterAnim()
+        // })
     }
     // showGroundMapEnterAnim(){
 
@@ -227,7 +237,20 @@ export class GameController extends Component {
         node.getComponent(WinGoldAnimEffect).setGoldCount(goldCount, this);
         node.position = targetPos;
     }
-  
 
+    showBossEnterState() {
+        // for (){
 
+        // }
+        //进入展示boss 进场的状态
+        this.node.emit("show-boss-enter-state");
+    }
+    gameWin(deadEnemyData: DeadEnemyObj[]) {
+        //游戏胜利，进入下一关
+        //首先展示胜利失败页面
+        // this
+        //游戏胜利
+        // this.uic
+        this.uiController.showGameWinUI(deadEnemyData);
+    }
 }

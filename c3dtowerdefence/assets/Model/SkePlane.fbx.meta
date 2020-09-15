@@ -1,0 +1,123 @@
+{
+  "ver": "1.3.21",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "e7a7825d-09d6-4b68-ad03-a0bc7fee6ab8",
+  "files": [],
+  "subMetas": {
+    "9a84c": {
+      "importer": "gltf-mesh",
+      "uuid": "e7a7825d-09d6-4b68-ad03-a0bc7fee6ab8@9a84c",
+      "displayName": "",
+      "id": "9a84c",
+      "name": "平面.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "7ed44": {
+      "importer": "gltf-embeded-image",
+      "uuid": "e7a7825d-09d6-4b68-ad03-a0bc7fee6ab8@7ed44",
+      "displayName": "",
+      "id": "7ed44",
+      "name": "sky_Texture.png.image",
+      "ver": "1.0.2",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "7d6ab": {
+      "importer": "texture",
+      "uuid": "e7a7825d-09d6-4b68-ad03-a0bc7fee6ab8@7d6ab",
+      "displayName": "",
+      "id": "7d6ab",
+      "name": "base_color_texture.texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "e7a7825d-09d6-4b68-ad03-a0bc7fee6ab8@7ed44"
+      }
+    },
+    "22e2a": {
+      "importer": "gltf-material",
+      "uuid": "e7a7825d-09d6-4b68-ad03-a0bc7fee6ab8@22e2a",
+      "displayName": "",
+      "id": "22e2a",
+      "name": "材质.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "b8ceb": {
+      "importer": "gltf-scene",
+      "uuid": "e7a7825d-09d6-4b68-ad03-a0bc7fee6ab8@b8ceb",
+      "displayName": "",
+      "id": "b8ceb",
+      "name": "SkePlane.prefab",
+      "ver": "1.0.11",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "sky_Texture.png",
+        "uri": "e7a7825d-09d6-4b68-ad03-a0bc7fee6ab8@7ed44"
+      }
+    ],
+    "redirect": "e7a7825d-09d6-4b68-ad03-a0bc7fee6ab8@b8ceb",
+    "assetFinder": {
+      "meshes": [
+        "e7a7825d-09d6-4b68-ad03-a0bc7fee6ab8@9a84c"
+      ],
+      "skeletons": [],
+      "textures": [
+        "e7a7825d-09d6-4b68-ad03-a0bc7fee6ab8@7d6ab"
+      ],
+      "materials": [
+        "e7a7825d-09d6-4b68-ad03-a0bc7fee6ab8@22e2a"
+      ],
+      "scenes": [
+        "e7a7825d-09d6-4b68-ad03-a0bc7fee6ab8@b8ceb"
+      ]
+    }
+  }
+}

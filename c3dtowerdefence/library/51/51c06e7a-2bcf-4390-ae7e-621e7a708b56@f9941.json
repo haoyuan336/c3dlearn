@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "重新开始",
+    "atlas": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 199,
+      "height": 94
+    },
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "originalSize": {
+      "width": 199,
+      "height": 94
+    },
+    "rotated": false,
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "texture": "51c06e7a-2bcf-4390-ae7e-621e7a708b56@6c48a"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "HeadImageIconKuang",
+    "atlas": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 65,
+      "height": 66
+    },
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "originalSize": {
+      "width": 65,
+      "height": 66
+    },
+    "rotated": false,
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "texture": "7bacbf81-e099-4308-9e6f-cdcf7f4c1f24@6c48a"
+  }
+}

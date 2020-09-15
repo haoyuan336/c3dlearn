@@ -30,6 +30,7 @@
         "BuildCost": 15
     },
     "Enemy_0": {
+        "IconSpriteFrameName": "Enemy_0_Icon",
         "MoveSpeed": 1,
         "HealthCount": 1,
         "BeLockedCount": 3,
@@ -43,6 +44,15 @@
         "BaseGasNum": 5,
         "BaseGoldCount": 10
     },
+    "Boss_0": {
+        "IconSpriteFrameName": "Enemy_1_Icon",
+        "MoveSpeed": 0.4,
+        "HealthCount": 10,
+        "BeLockedCount": 10,
+        "BaseGasNum": 5,
+        "BaseGoldCount": 10
+    },
+    
     "Monster_1": {
         "MoveSpeed": 0.2,
         "HealthCount": 2,
@@ -104,7 +114,7 @@
             1
         ],
         "AddEnemyDuraction": [
-            10,
+            2,
             10,
             10,
             10
@@ -118,25 +128,10 @@
             ],
             [
                 {
-                    "type": 1,
-                    "count": 10
-                }
-            ],
-            [
-                {
                     "type": 0,
-                    "count": 15
-                }
-            ],
-            [
-                {
-                    "type": 1,
                     "count": 1
                 }
             ]
-        ],
-        "BossType": [
-            0
         ]
     },
     "Level_1": {

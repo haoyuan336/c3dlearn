@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "GameWinIcon",
+    "atlas": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 209,
+      "height": 120
+    },
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "originalSize": {
+      "width": 209,
+      "height": 120
+    },
+    "rotated": false,
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "texture": "3bb9b2c3-6a95-4a0a-97b3-54c8d8d12fad@6c48a"
+  }
+}

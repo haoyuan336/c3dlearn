@@ -9,17 +9,22 @@ const { ccclass, property } = _decorator;
 export class MenuUIBase extends BaseObject {
     public state: State = new State();
     protected targetNode: Node = null;
-    start() {
-        console.log('menu ui base');
+    // start() {
+    //     // console.log('menu ui base');
+    //     // this.state.addState('open-ui', this.openUI.bind(this));
+    //     // this.state.addState('close-ui', this.closeUI.bind(this));
+    //     // let gameConfig = find('GameController').getComponent(GameController).getGameConfig().json;
+    //     // this.scheduleOnce(()=>{
+    //     //     super.init(gameConfig);
+
+    //     // }, 0.2)
+    // }
+
+    init(gameConfig: Object){
+        super.init(gameConfig);
         this.state.addState('open-ui', this.openUI.bind(this));
         this.state.addState('close-ui', this.closeUI.bind(this));
-        let gameConfig = find('GameController').getComponent(GameController).getGameConfig().json;
-        // this.scheduleOnce(()=>{
-        //     super.init(gameConfig);
-
-        // }, 0.2)
     }
-
     open(target: Node) {
         console.log("打开");
         if (isValid(this.targetNode) && this.targetNode.getComponent(TowerBase) && this.targetNode.uuid !== target.uuid) {

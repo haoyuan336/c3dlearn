@@ -32,8 +32,11 @@ export class UpdateTowerUI extends MenuUIBase {
     start() {
         // Your initialization goes here.
         // this.scheduleOnce(()=>{
-        super.start();
+        // super.start();
         // }, 0.2)
+    }
+    init(gameConfig: Object){
+        super.init(gameConfig);
     }
     onButtonClick(event, customData) {
         console.log("custom data", customData);

@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "下一关Button",
+    "atlas": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 199,
+      "height": 94
+    },
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "originalSize": {
+      "width": 199,
+      "height": 94
+    },
+    "rotated": false,
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "texture": "bd28ba4c-ba32-472c-9e44-6b627038c06d@6c48a"
+  }
+}
