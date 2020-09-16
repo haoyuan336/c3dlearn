@@ -11,6 +11,9 @@
       "DragonMonster"
     ],
     "Tower_1": {
+      "TowerType": "Tower_1",
+      "Type": "Tower",
+      "IconSprteFrame": "Tower_0_Icon",
       "index": 0,
       "BulletType": "BulletOne",
       "ShootRate": 0.6,
@@ -26,6 +29,9 @@
       "RotateSpeed": 180
     },
     "Tower_2": {
+      "TowerType": "Tower_2",
+      "Type": "Tower",
+      "IconSprteFrame": "Tower_1_Icon",
       "index": 1,
       "BulletType": "BulletOne",
       "ShootRate": 1.2,

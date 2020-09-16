@@ -18,26 +18,30 @@ export class GoldCtl extends Component {
 
     private addGoldEffectNodeCount: number = 0;
     start() {
-        let currentLevel = 0;
-        let currentWave = 0;
-        this.updateLevelLabel(currentLevel, currentWave);
-        this.node.on("update-level", (level) => {
-            currentLevel = level;
-            this.updateLevelLabel(currentLevel, currentWave);
-        });
+        // let currentLevel = 0;
+        // let currentWave = 0;
+        // this.updateLevelLabel(currentLevel, currentWave);
+        // this.node.on("update-level-wave", (level, wave) => {
+        //     // currentLevel = level;
+        //     this.updateLevelLabel(level, wave);
+        // });
+        // this.node.on("init-update-level", ()=>{
+        //     this.updateLevelLabel(0,0);
+        // })
         // this.node.on("update-wave", (wave)=>{
         //     currentWave = wave;
         //     this.updateLabel(currentLevel, currentWave);
 
         // });
         let gameCtlNode = find('GameController');
-        gameCtlNode.on("refer-current-wave", (wave) => {
-            currentWave = wave;
-            this.updateLevelLabel(currentLevel, currentWave);
+        gameCtlNode.on("refer-current-wave-level", (level, wave) => {
+            // currentWave = wave;
+            this.updateLevelLabel(level, wave);
         });
         gameCtlNode.on("update-gold-label", (goldCount: number, addGoldCount: number) => {
             this.updateGoldCountLabel(goldCount, addGoldCount);
         });
+        // gameCtlNode.on("refer-current-wave")
         this.node.on("gold-not-enough", () => {
             //显示金币不足的动画
             // this.currentGoldLabel

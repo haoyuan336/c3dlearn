@@ -1,0 +1,255 @@
+{
+  "ver": "1.3.21",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "a7dee02b-bcb3-423f-9bd1-d7ea739246a8",
+  "files": [],
+  "subMetas": {
+    "46940": {
+      "importer": "gltf-animation",
+      "uuid": "a7dee02b-bcb3-423f-9bd1-d7ea739246a8@46940",
+      "displayName": "",
+      "id": "46940",
+      "name": "骨架|MoveAnim.animation",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 2,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.1666666269302368
+        },
+        "events": []
+      }
+    },
+    "ab47a": {
+      "importer": "gltf-mesh",
+      "uuid": "a7dee02b-bcb3-423f-9bd1-d7ea739246a8@ab47a",
+      "displayName": "",
+      "id": "ab47a",
+      "name": "圆环.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "fdad8": {
+      "importer": "gltf-animation",
+      "uuid": "a7dee02b-bcb3-423f-9bd1-d7ea739246a8@fdad8",
+      "displayName": "",
+      "id": "fdad8",
+      "name": "骨架|AttackAnim.animation",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.2083333730697632
+        },
+        "events": []
+      }
+    },
+    "13e6a": {
+      "importer": "gltf-animation",
+      "uuid": "a7dee02b-bcb3-423f-9bd1-d7ea739246a8@13e6a",
+      "displayName": "",
+      "id": "13e6a",
+      "name": "骨架|BeAttackAnim.animation",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 1,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.0416666679084301
+        },
+        "events": []
+      }
+    },
+    "438fe": {
+      "importer": "gltf-skeleton",
+      "uuid": "a7dee02b-bcb3-423f-9bd1-d7ea739246a8@438fe",
+      "displayName": "",
+      "id": "438fe",
+      "name": "UnnamedSkeleton.skeleton",
+      "ver": "1.0.1",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0,
+        "jointsLength": 11
+      }
+    },
+    "9881e": {
+      "importer": "gltf-embeded-image",
+      "uuid": "a7dee02b-bcb3-423f-9bd1-d7ea739246a8@9881e",
+      "displayName": "",
+      "id": "9881e",
+      "name": "colorTexture.png.image",
+      "ver": "1.0.2",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "7d6ab": {
+      "importer": "texture",
+      "uuid": "a7dee02b-bcb3-423f-9bd1-d7ea739246a8@7d6ab",
+      "displayName": "",
+      "id": "7d6ab",
+      "name": "base_color_texture.texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "a7dee02b-bcb3-423f-9bd1-d7ea739246a8@9881e"
+      }
+    },
+    "22e2a": {
+      "importer": "gltf-material",
+      "uuid": "a7dee02b-bcb3-423f-9bd1-d7ea739246a8@22e2a",
+      "displayName": "",
+      "id": "22e2a",
+      "name": "材质.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "d4e15": {
+      "importer": "gltf-scene",
+      "uuid": "a7dee02b-bcb3-423f-9bd1-d7ea739246a8@d4e15",
+      "displayName": "",
+      "id": "d4e15",
+      "name": "卡通鸡.prefab",
+      "ver": "1.0.11",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "colorTexture.png",
+        "uri": "a7dee02b-bcb3-423f-9bd1-d7ea739246a8@9881e"
+      }
+    ],
+    "animationImportSettings": [
+      {
+        "name": "骨架|AttackAnim",
+        "duration": 1.2083333730697632,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "骨架|AttackAnim",
+            "from": 0,
+            "to": 1.2083333730697632,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "骨架|BeAttackAnim",
+        "duration": 0.0416666679084301,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "骨架|BeAttackAnim",
+            "from": 0,
+            "to": 0.0416666679084301,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "骨架|MoveAnim",
+        "duration": 1.1666666269302368,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "骨架|MoveAnim",
+            "from": 0,
+            "to": 1.1666666269302368,
+            "wrapMode": 2
+          }
+        ]
+      }
+    ],
+    "redirect": "a7dee02b-bcb3-423f-9bd1-d7ea739246a8@d4e15",
+    "assetFinder": {
+      "meshes": [
+        "a7dee02b-bcb3-423f-9bd1-d7ea739246a8@ab47a"
+      ],
+      "skeletons": [
+        "a7dee02b-bcb3-423f-9bd1-d7ea739246a8@438fe"
+      ],
+      "textures": [
+        "a7dee02b-bcb3-423f-9bd1-d7ea739246a8@7d6ab"
+      ],
+      "materials": [
+        "a7dee02b-bcb3-423f-9bd1-d7ea739246a8@22e2a"
+      ],
+      "scenes": [
+        "a7dee02b-bcb3-423f-9bd1-d7ea739246a8@d4e15"
+      ]
+    }
+  }
+}

@@ -105,7 +105,7 @@ export class TowerBase extends BaseObject {
 
         })
     }
-    destroyAllTower(){
+    destroyAllTower() {
         this.node.destroy();
     }
     touchScreenTo3d(resultList: PhysicsRayResult[]) {
@@ -184,7 +184,7 @@ export class TowerBase extends BaseObject {
                     this.node.eulerAngles = new Vec3(0, angle * 180 / Math.PI, 0);
                 }
             }
-            if (this.currentTargetEnemy) {
+            if (isValid(this.currentTargetEnemy)) {
                 if (this.currentShootTime > this.shootDuraction) {
                     let dis = v2(this.currentTargetEnemy.position.x, this.currentTargetEnemy.position.z).subtract(v2(this.node.position.x, this.node.position.z)).length();
                     if (dis > this.getCurrentAttackRange()) {
@@ -197,6 +197,8 @@ export class TowerBase extends BaseObject {
                 } else {
                     this.currentShootTime += deltaTime;
                 }
+            }else{
+                this.currentTargetEnemy = null;
             }
         }
     }
@@ -235,12 +237,12 @@ export class TowerBase extends BaseObject {
 
         })
     }
-    enemyDeadByThis(isDead: boolean){
+    enemyDeadByThis(isDead: boolean) {
         //敌人被此塔打死
-        if (isDead){
+        if (isDead) {
             //如果敌人被打死了, 那么此塔增加能量 一个点
             this.skillCtl.showAddPowerAnimEffect(2, this.node.position);
-            
+
         }
     }
     releaseSkill() {

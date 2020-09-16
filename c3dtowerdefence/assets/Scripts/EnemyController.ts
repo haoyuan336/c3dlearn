@@ -63,6 +63,24 @@ export class EnemyController extends Component {
 
 
     private currentLevelDeadEnemyDataList: DeadEnemyObj[] = [];
+    onLoad(){
+        this.node.on("destroy-all-enemy", (cb)=>{
+            //删除当前的所有敌人
+            let totalGold = 0;
+            for (let i = 0 ; i < this.enemyNodeList.length ; i ++){
+                let node = this.enemyNodeList[i];
+                totalGold += node.getComponent(EnemyBase).getCurrentGoldCount();
+                node.destroy();
+            }
+            this.enemyNodeList = [];
+            if (cb){
+                cb(totalGold); //销毁的敌人的 持有的金币个数
+            }
+        });
+        this.node.on("init-level-label", ()=>{
+            this.node.emit("refer-current-wave-level", this.gameController.getCurrentLevelNum(),0);
+        })
+    }
     start() {
         // Your initialization goes here.
         this.gameConfig = this.gameConfigRes.json;
@@ -82,7 +100,7 @@ export class EnemyController extends Component {
 
             this.currentRandomEnemyTypeList = this.waveData["EnemyType"][this.currentWaveIndex];
             this.addEnemyDuraction = this.waveData['AddEnemyDuraction'][this.currentWaveIndex];
-            this.node.emit("refer-current-wave", this.currentWaveIndex);
+            this.node.emit("refer-current-wave-level",this.gameController.getCurrentLevelNum(), this.currentWaveIndex);
 
 
             if (this.currentWaveIndex === this.waveData['EnemyType'].length - 1) {
@@ -128,6 +146,22 @@ export class EnemyController extends Component {
         this.currentWaveIndex = 0;
         this.waveData = this.gameConfig['Level_' + this.gameController.getCurrentLevelNum()];
 
+        this.state.setState("enter-next-wave");
+        Promise.all([
+            new Promise((resolve, reject) => {
+                this.allWaveAddOverCb = resolve;
+            }),
+            new Promise((resolve, reject) => {
+                this.allEnemyDeadCb = resolve;
+            })
+        ]).then(() => {
+            console.log("游戏胜利");
+            this.gameController.gameWin(this.currentLevelDeadEnemyDataList);
+        })
+    }
+    continueGame(){
+        this.currentWaveIndex --;
+        this.waveData = this.gameConfig['Level_' + this.gameController.getCurrentLevelNum()];
         this.state.setState("enter-next-wave");
         Promise.all([
             new Promise((resolve, reject) => {

@@ -30,6 +30,9 @@ export class BaseObject extends Component {
     protected isCollisionGround: boolean = false;//是否与地面碰撞发生反弹
 
     public leftTime: number = 0; // 生命周期
+
+
+    private totalCostGold: number = 0; //当前消耗的总的金币数
     public init(gameConfig: Object, startPos?: Vec3, endPos?: Vec3) {
         // this.baseGasNum = gameConfig[]
         if (gameConfig[this.objectType].BaseGasNum) {
@@ -149,4 +152,5 @@ export class BaseObject extends Component {
         }
         return false;
     }
+    
 }

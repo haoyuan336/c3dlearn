@@ -82,6 +82,54 @@ export class GameController extends Component {
         // tw.start();
 
     }
+    playerClickSaveLifeButton() {
+        //玩家点击了 立即复活按钮
+        return new Promise((resolve, reject) => {
+            resolve();
+
+            if (isValid(this.homeIconNode)) {
+                this.homeIconNode.active = false;
+            }
+            // this.node.emit("destroy-all-tower");
+            // this.node.emit("destroy-all-tower-build-base");
+            this.node.emit("destroy-all-enemy", (goldCount) => {
+                this.playerData.addGoldCount(goldCount);
+                this.showHomeIconEnterAnim().then(() => {
+                    this.node.emit('update-gold-label', this.playerData.getCurrentGoldCount());
+                    this.state.setState("run");
+                    this.node.getComponent(EnemyController).continueGame(); //继续游戏
+                });
+            }); //销毁当前的所有敌人
+            // this.node.emit("init-level-label"); //初始化当前的关卡label
+            // this.uiController.node.emit('init-update-level');
+
+
+
+            // this.enterGame().then(() => {
+            //     this.node.emit('update-gold-label', this.playerData.getCurrentGoldCount());
+            //     this.state.setState("run");
+            //     this.node.getComponent(EnemyController).startGame();
+            // })
+            // this.node.emit("")
+        })
+    }
+    playerClickShareButton() {
+        //玩家点击了分享按钮
+        return new Promise((resolve, reject) => {
+            resolve();
+            this.playerData.addGoldCount(this.playerData.currentGoldCount);
+        })
+    }
+    playerClickRetryButton() {
+        //玩家点击了 重试一次的按钮
+        // this.playerData.currentLevelNum = 0
+        this.playerData.newGame();
+        this.enterGame().then(() => {
+            this.node.emit('update-gold-label', this.playerData.getCurrentGoldCount());
+            this.state.setState("run");
+            this.node.getComponent(EnemyController).startGame();
+        })
+    }
     start() {
         PhysicsSystem.instance.enable = true;
         // Your initialization goes here.
@@ -252,17 +300,21 @@ export class GameController extends Component {
         //进入展示boss 进场的状态
         this.node.emit("show-boss-enter-state");
     }
-    enemyAttacked(){
-        //敌人发动了攻击
-        this.state.setState("game-loss");
-        this.node.getComponent(EnemyController).frozenAllEnemy();
-        this.node.getComponent(TowerBuildBaseCtl).frozenAllTowerBuildBase(); //禁锢所有塔的基座
-        // this.homeIconTw.stop();
-        this.homeIconNode.getComponent(HomeIcon).frozenHomeIcon();
-        let deadEnemyData = this.node.getComponent(EnemyController).getDeadEnemyData();
-        this.scheduleOnce(()=>{
-            this.uiController.showGameLossUI(deadEnemyData)
-        },1);
+    enemyAttacked() {
+        //敌人发动了攻击'
+        if (this.state.getState() === 'run') {
+            this.state.setState("game-loss");
+            this.uiController.node.emit('close-weapon-info-layer')
+            this.node.getComponent(EnemyController).frozenAllEnemy();
+            this.node.getComponent(TowerBuildBaseCtl).frozenAllTowerBuildBase(); //禁锢所有塔的基座
+            // this.homeIconTw.stop();
+            this.homeIconNode.getComponent(HomeIcon).frozenHomeIcon();
+            let deadEnemyData = this.node.getComponent(EnemyController).getDeadEnemyData();
+            this.scheduleOnce(() => {
+                this.uiController.showGameLossUI(deadEnemyData)
+            }, 1);
+        }
+
     }
     gameWin(deadEnemyData: DeadEnemyObj[]) {
         //游戏胜利，进入下一关
@@ -270,25 +322,43 @@ export class GameController extends Component {
         // this
         //游戏胜利
         // this.uic
-        this.state.setState("show-game-result"); //进入显示游戏结果的界面
-        this.uiController.showGameWinUI(deadEnemyData);
+        this.uiController.node.emit('close-weapon-info-layer')
+        if (this.state.getState() === 'run') {
+            this.state.setState("show-game-result"); //进入显示游戏结果的界面
+            this.uiController.showGameWinUI(deadEnemyData);
+        }
+
     }
     enterNextLevel() {
-        console.log("进入下一关")
-        if (isValid(this.homeIconNode)) {
-            this.homeIconNode.active = false;
-        }
-        this.node.emit("destroy-all-tower");
-        this.node.emit("destroy-all-tower-build-base");
         this.playerData.enterNextLevel();
-        this.node.getComponent(TowerBuildBaseCtl).showTowerBuildBaseEnterAnim().then(() => {
-            return this.showHomeIconEnterAnim();
-        }).then(() => {
+
+        console.log("进入下一关")
+        this.enterGame().then(() => {
             this.node.emit('update-gold-label', this.playerData.getCurrentGoldCount());
             this.state.setState("run");
             this.node.getComponent(EnemyController).startGame();
-        });
+        })
+
         //把所有的tower都销毁掉，
         //把左右的tower 的基座删掉
+    }
+    enterGame() {
+        return new Promise((resolve, reject) => {
+            if (isValid(this.homeIconNode)) {
+                this.homeIconNode.active = false;
+            }
+            this.node.emit("destroy-all-tower");
+            this.node.emit("destroy-all-tower-build-base");
+            this.node.emit("destroy-all-enemy"); //销毁当前的所有敌人
+            this.node.emit("init-level-label"); //初始化当前的关卡label
+            // this.uiController.node.emit('init-update-level');
+
+            this.node.getComponent(TowerBuildBaseCtl).showTowerBuildBaseEnterAnim().then(() => {
+                return this.showHomeIconEnterAnim();
+            }).then(() => {
+                resolve();
+            });
+        })
+
     }
 }

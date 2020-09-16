@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "升级按钮",
+    "atlas": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 106,
+      "height": 46
+    },
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "originalSize": {
+      "width": 106,
+      "height": 46
+    },
+    "rotated": false,
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "texture": "039a60e9-05a9-4632-bb8c-a468ca2374f5@6c48a"
+  }
+}

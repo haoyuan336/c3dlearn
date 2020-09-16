@@ -1,0 +1,73 @@
+{
+  "ver": "1.0.18",
+  "importer": "image",
+  "imported": true,
+  "uuid": "64a3636c-bee7-41a6-9205-78a4b6a4d5ba",
+  "files": [
+    ".png",
+    ".json"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "64a3636c-bee7-41a6-9205-78a4b6a4d5ba@6c48a",
+      "displayName": "升级武器的Bg",
+      "id": "6c48a",
+      "name": "texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "64a3636c-bee7-41a6-9205-78a4b6a4d5ba"
+      }
+    },
+    "f9941": {
+      "importer": "sprite-frame",
+      "uuid": "64a3636c-bee7-41a6-9205-78a4b6a4d5ba@f9941",
+      "displayName": "升级武器的Bg",
+      "id": "f9941",
+      "name": "spriteFrame",
+      "ver": "1.0.8",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "trimType": "auto",
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": 0,
+        "offsetY": 0,
+        "trimX": 0,
+        "trimY": 0,
+        "width": 113,
+        "height": 183,
+        "rawWidth": 113,
+        "rawHeight": 183,
+        "borderTop": 82,
+        "borderBottom": 82,
+        "borderLeft": 40,
+        "borderRight": 43,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "64a3636c-bee7-41a6-9205-78a4b6a4d5ba@6c48a",
+        "atlasUuid": ""
+      }
+    }
+  },
+  "userData": {
+    "type": "sprite-frame",
+    "redirect": "64a3636c-bee7-41a6-9205-78a4b6a4d5ba@f9941"
+  }
+}

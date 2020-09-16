@@ -105,13 +105,13 @@ export class UIController extends Component {
         let node = instantiate(this.gameResultPrefab);
         node.parent = this.node;
         let gameConfig = this.gameController.getComponent(GameController).getGameConfig().json
-        node.getComponent(GameWinPrefab).setGameResult(true, deadEnemyData, gameConfig, this);
+        node.getComponent(GameWinPrefab).setGameResult(true, deadEnemyData, gameConfig, this, this.gameController.getComponent(GameController));
     }
     showGameLossUI(deadEnemyData: DeadEnemyObj[]){
         let node = instantiate(this.gameResultPrefab);
         node.parent = this.node;
         let gameConfig = this.gameController.getComponent(GameController).getGameConfig().json
-        node.getComponent(GameWinPrefab).setGameResult(false, deadEnemyData, gameConfig, this);
+        node.getComponent(GameWinPrefab).setGameResult(false, deadEnemyData, gameConfig, this, this.gameController.getComponent(GameController));
     }
     showUIEnterAnim() {
         return this.node.getComponent(SkillCtl).showEnterAnim().then(() => {
@@ -195,4 +195,7 @@ export class UIController extends Component {
         //玩家点击了下一关的按钮
         this.gameController.getComponent(GameController).enterNextLevel();
     }
+    // watchAds(){
+    //     return this.gameController.getComponent(GameController).watchAds();
+    // }
 }

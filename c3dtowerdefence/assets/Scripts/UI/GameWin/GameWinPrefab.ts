@@ -1,5 +1,6 @@
 import { _decorator, Component, Node, Prefab, SpriteFrame, SpriteComponent, instantiate, v3, Tween, LabelComponent } from 'cc';
 import { DeadEnemyObj } from '../../EnemyController';
+import { GameController } from '../../GameController';
 import { UIController } from '../UIController';
 import { GameResultGoldCell } from './GameResultGoldCell';
 const { ccclass, property } = _decorator;
@@ -44,11 +45,13 @@ export class GameWinPrefab extends Component {
 
     private gameResultState: boolean = null;
     private uiController: UIController = null;
+    private gameController: GameController = null;
     start() {
 
     }
-    setGameResult(succ: boolean, data: DeadEnemyObj[], gameConfig: {}, uiCtl: UIController) {
+    setGameResult(succ: boolean, data: DeadEnemyObj[], gameConfig: {}, uiCtl: UIController, gameCtl: GameController) {
         this.uiController = uiCtl;
+        this.gameController = gameCtl;
         this.gameResultState = succ;
         this.gameConfig = gameConfig;
         console.log("游戏状态时", succ)
@@ -135,13 +138,28 @@ export class GameWinPrefab extends Component {
         switch (customData) {
             case 'left-button':
                 console.log("分享游戏结果")
+                if (this.gameResultState) {
+                    //玩家点击了分享按钮
+                    this.gameController.playerClickShareButton().then(() => {
+                        this.gameController.enterNextLevel();
+                        this.node.destroy();
+                    });
+                } else {
+                    //玩家点击了，重新开始按钮
+                    this.gameController.playerClickRetryButton();
+                    this.node.destroy();
+                }
                 break;
             case 'right-button':
-                if (this.gameResultState){
+                if (this.gameResultState) {
                     //如果是胜利的话，那么玩家点击的就是下一关游戏的按钮
                     console.log("进入下一关")
                     this.node.destroy();
                     this.uiController.playerClickNextLevelButton();
+                } else {
+                    this.gameController.playerClickSaveLifeButton().then(()=>{
+                        this.node.destroy(); //玩家点了立即复活按钮
+                    });
                 }
                 break;
             default:

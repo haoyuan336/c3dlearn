@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "一倍灰",
+    "atlas": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 95,
+      "height": 95
+    },
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "originalSize": {
+      "width": 95,
+      "height": 95
+    },
+    "rotated": false,
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "texture": "3a3a4d15-2470-4687-8cb0-cdab6a971b4d@6c48a"
+  }
+}

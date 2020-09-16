@@ -448,7 +448,7 @@ export class EnemyBase extends BaseObject {
     onDestroy(){
         // this.node.off('enter-show-boss-enter-state', this.enterShowBossEnter, this);
         // this.node.off('enter-continue-play-move-anim', this.contiuePlayMoveAnim, this);
-        this.node.off("frozen-all-enemy", this.forzenSelf, this);
+        this.enemyCtl.node.off("frozen-all-enemy", this.forzenSelf, this);
     }
   
 }
