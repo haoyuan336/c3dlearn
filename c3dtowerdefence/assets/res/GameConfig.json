@@ -5,6 +5,12 @@
         "Monster_1",
         "DragonMonster"
     ],
+    "CrazyRotateSkill": {
+        "BaseAttackNum": 20,
+        "ShootRate": 15,
+        "BaseRotateAngle": 720,
+        "RotateSpeed": 180
+    },
     "Tower_1": {
         "TowerType": "Tower_1",
         "Type": "Tower",
@@ -15,13 +21,8 @@
         "AttackRange": 10,
         "SkillType": "CrazyRotate",
         "BaseAttackNum": 1,
-        "BuildCost": 10
-    },
-    "CrazyRotateSkill": {
-        "BaseAttackNum": 20,
-        "ShootRate": 15,
-        "BaseRotateAngle": 720,
-        "RotateSpeed": 180
+        "BuildCost": 10,
+        "ActiveCost": 10
     },
     "Tower_2": {
         "TowerType": "Tower_2",
@@ -33,7 +34,49 @@
         "AttackRange": 10,
         "SkillType": "CrazyRotate",
         "BaseAttackNum": 1,
-        "BuildCost": 15
+        "BuildCost": 15,
+        "ActiveCost": 100
+    },
+    "Tower_3": {
+        "TowerType": "Tower_3",
+        "Type": "Tower",
+        "IconSprteFrame": "Tower_1_Icon",
+        "Index": 2,
+        "BulletType": "BulletOne",
+        "ShootRate": 1.2,
+        "AttackRange": 10,
+        "SkillType": "CrazyRotate",
+        "BaseAttackNum": 1,
+        "BuildCost": 15,
+        "ActiveCost": 600
+    },
+    "Tower_4": {
+        "TowerType": "Tower_4",
+        "Type": "Tower",
+        "IconSprteFrame": "Tower_1_Icon",
+        "Index": 3,
+        "BulletType": "BulletOne",
+        "ShootRate": 1.2,
+        "AttackRange": 10,
+        "SkillType": "CrazyRotate",
+        "BaseAttackNum": 1,
+        "BuildCost": 15,
+        "ActiveCost": 1000
+
+    },
+    "Tower_5": {
+        "TowerType": "Tower_5",
+        "Type": "Tower",
+        "IconSprteFrame": "Tower_1_Icon",
+        "Index": 4,
+        "BulletType": "BulletOne",
+        "ShootRate": 1.2,
+        "AttackRange": 10,
+        "SkillType": "CrazyRotate",
+        "BaseAttackNum": 1,
+        "BuildCost": 15,
+        "ActiveCost": 1500
+
     },
     "Enemy_0": {
         "IconSpriteFrameName": "Enemy_0_Icon",
@@ -58,7 +101,6 @@
         "BaseGasNum": 5,
         "BaseGoldCount": 10
     },
-    
     "Monster_1": {
         "MoveSpeed": 0.2,
         "HealthCount": 2,

@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, CCString, Vec3, CCFloat, game, TERRAIN_HEIGHT_BASE } from 'cc';
+import { _decorator, Component, Node, CCString, Vec3, CCFloat, game, TERRAIN_HEIGHT_BASE, SpriteFrame } from 'cc';
 import { GameController } from './GameController';
 const { ccclass, property } = _decorator;
 
@@ -34,8 +34,9 @@ export class BaseObject extends Component {
 
     public gameController: GameController = null;
 
-    private totalCostGold: number = 0; //当前消耗的总的金币数
     public towerIndexType: number = 0; //当前塔的序号信息
+    public iconSpriteFrame: SpriteFrame = null; //icon的精灵帧
+    public activeCostGoldCount: number = 0; //激活需要的金币个数
     public init(gameConfig: Object, gameController: GameController, startPos?: Vec3, endPos?: Vec3) {
         // this.baseGasNum = gameConfig[]
         this.gameController = gameController;
@@ -85,6 +86,12 @@ export class BaseObject extends Component {
         if (gameConfig[this.objectType]['Index']) {
             this.towerIndexType = gameConfig[this.objectType]['Index'];
         }
+        if (gameConfig[this.objectType]['IconSprteFrame']) {
+            this.iconSpriteFrame = gameConfig[this.objectType]['IconSprteFrame']
+        }
+        if(gameConfig[this.objectType]['ActiveCost']){
+            this.activeCostGoldCount = gameConfig[this.objectType]['ActiveCost'];
+        }
     }
     getCurrentAttackNum() {
         // let offsetValue = 0;
@@ -93,21 +100,22 @@ export class BaseObject extends Component {
         // }
         // // Math.floor(this.buildCost * processLevel * (processLevel + 1) * 0.2)
         // let processLevel = this.currentLevel;
-        let localLevel = this.gameController.playerData.getCurrentTowerLocalLevel(this.towerIndexType);
-        console.log("local damage value", localLevel);
+        // let localLevel = this.gameController.playerData.getCurrentTowerLocalLevel(this.towerIndexType);
+        // console.log("local damage value", localLevel);
 
         let baseDamageNum = this.baseAttackNum;
         //1,2,3 = 6  (3+1)*3/2 = 6   1,2,3,4 = 10   5 * 4 / 2 = 10;
         let currentLevelDamage = 1 * (this.currentLevel + 1) * this.currentLevel * 0.5;
-        let localLevelDamage = 1 * (localLevel + 1) * localLevel * 0.5;
+        let localLevelDamage = this.getLocalDamageNum();
 
         return baseDamageNum + currentLevelDamage + localLevelDamage;
     }
     getLocalDamageNum() {
         // 获取当前永久攻击力 
-        let baseAttackNum = this.baseAttackNum;
+        // let baseAttackNum = this.baseAttackNum;
         let localLevel = this.gameController.playerData.getCurrentTowerLocalLevel(this.towerIndexType);
         let localDamage = (1 + localLevel) * localLevel * 0.5;
+        console.log(this.objectType + ":local damage", localDamage);
         return localDamage;
     }
     getCurrentSkillRotateAngle() {
@@ -189,7 +197,12 @@ export class BaseObject extends Component {
         }
         return false;
     }
-
+    getIconSprteFrame() {
+        return this.iconSpriteFrame;
+    }
+    getWeaponIsActive(): boolean {
+        return this.gameController.playerData.getWeaponIsActive(this.towerIndexType);
+    }
     updateLocalLevel(updateLevel) {
         //更新永久等级
         let localLevel = this.gameController.playerData.getCurrentTowerLocalLevel(this.towerIndexType);
@@ -197,5 +210,9 @@ export class BaseObject extends Component {
         console.log('升级的jishu', updateLevel);
         this.gameController.playerData.updateTowerLocalLevel(this.towerIndexType, localLevel);
         // this.gameController.playerData.update
+    }
+    getActiveCostGoldCount(){
+        //获取激活需要的金币个数
+        return this.activeCostGoldCount;
     }
 }

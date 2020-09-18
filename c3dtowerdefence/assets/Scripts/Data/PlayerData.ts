@@ -15,10 +15,10 @@ export class PlayData {
         let gameTime = this.getLocalData("game-time");
         console.log("game time", gameTime);
         // this.clearLocalData();
-        // this.setLocalData("gold-count", 30 + '');
+        this.setLocalData("gold-count", 99999 + '');
         // this.setLocalData('active-tower-build-base-count', '2');
         // this.setLocalData("current-level-num", this.currentLevelNum + '');
-        // this.initTowerLevelLocalData(this.gameController.getGameConfig().json);
+        this.initTowerLevelLocalData(this.gameController.getGameConfig().json);
 
         if (gameTime) {
             // 首次进入游戏. 初始化游戏数据
@@ -119,16 +119,33 @@ export class PlayData {
         this.currentTowerLevelData[index]['currentLevel'] = 1;
         this.setLocalData("tower-level-data", JSON.stringify(this.currentTowerLevelData));
     }
-    getCurrentTowerLocalLevel(towerInedx: number){
+    getWeaponIsActive(index) {
+        //获取塔是否激活了
+        return this.currentTowerLevelData[index]["isActive"];
+    }
+    getCurrentTowerLocalLevel(towerInedx: number) {
         return this.currentTowerLevelData[towerInedx]['currentLevel'];
     }
-    getCurrentTowersLocalLevelData(){
+    getCurrentTowersLocalLevelData() {
         return this.currentTowerLevelData;
     }
-    updateTowerLocalLevel(towerIndexType: number,localLevel: number){
+    updateTowerLocalLevel(towerIndexType: number, localLevel: number) {
         //升级塔的永久等级
         this.currentTowerLevelData[towerIndexType]['currentLevel'] = localLevel;
         this.setLocalData('tower-level-data', JSON.stringify(this.currentTowerLevelData));
 
+    }
+    getFirstNeedToActiveTowerIndex(){
+        //得到最后一个激活到的index
+        // let isActive = false;
+        let lastActiveIndex = 0;
+        for (let i = 0 ; i < this.currentTowerLevelData.length ; i ++){
+            let isActive = this.currentTowerLevelData[i]['isActive'];
+            if (!isActive){
+                lastActiveIndex = i;
+                break;
+            }
+        }
+        return lastActiveIndex;
     }
 }   

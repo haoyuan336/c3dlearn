@@ -384,4 +384,5 @@ export class GameController extends Component {
             })
         })
     }
+   
 }

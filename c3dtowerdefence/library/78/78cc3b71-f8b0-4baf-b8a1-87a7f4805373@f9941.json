@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "激活按钮light",
+    "atlas": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 108,
+      "height": 48
+    },
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "originalSize": {
+      "width": 108,
+      "height": 48
+    },
+    "rotated": false,
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "texture": "78cc3b71-f8b0-4baf-b8a1-87a7f4805373@6c48a"
+  }
+}

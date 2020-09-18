@@ -1,38 +1,57 @@
-2020-09-18 08:47:29-log: [Package] ui-kit@1.0.0 enable
-2020-09-18 08:47:29-log: [Package] ipc@1.0.0 enable
-2020-09-18 08:47:29-log: [Package] tester@1.0.0 enable
-2020-09-18 08:47:29-log: [Package] preferences@1.0.0 enable
-2020-09-18 08:47:31-log: [Package] engine@1.0.0 enable
-2020-09-18 08:47:31-log: [Package] asset-db@1.0.0 enable
-2020-09-18 08:47:31-log: [Package] console@1.0.0 enable
-2020-09-18 08:47:31-log: [Package] packager@1.0.0 enable
-2020-09-18 08:47:31-log: [Package] project-setting@1.0.0 enable
-2020-09-18 08:47:31-log: [Package] scene@1.0.0 enable
-2020-09-18 08:47:31-log: [Package] server@1.0.0 enable
-2020-09-18 08:47:31-log: [Package] utils@1.0.0 enable
-2020-09-18 08:47:31-log: [Package] inspector@1.0.0 enable
-2020-09-18 08:47:31-log: [Package] assets@1.0.0 enable
-2020-09-18 08:47:31-log: [Package] profile@1.0.0 enable
-2020-09-18 08:47:31-log: [Package] hierarchy@1.0.0 enable
-2020-09-18 08:47:31-log: [Package] preview@1.0.0 enable
-2020-09-18 08:47:31-log: [Package] animator@1.0.0 enable
-2020-09-18 08:47:32-log: [Package] builder@1.0.0 enable
-2020-09-18 08:47:32-log: [Package] lightmap@1.0.0 enable
-2020-09-18 08:47:32-log: [Package] alipay-mini-game@1.0.0 enable
-2020-09-18 08:47:32-log: [Package] baidu-mini-game@1.0.0 enable
-2020-09-18 08:47:31-log: [Package] about@1.0.0 enable
-2020-09-18 08:47:32-log: [Package] android@1.0.0 enable
-2020-09-18 08:47:32-log: [Package] cocos-play@1.0.0 enable
-2020-09-18 08:47:32-log: [Package] huawei-mini-game@1.0.0 enable
-2020-09-18 08:47:32-log: [Package] mac@1.0.0 enable
-2020-09-18 08:47:32-log: [Package] bytedance-mini-game@1.0.0 enable
-2020-09-18 08:47:32-log: [Package] native@1.0.0 enable
-2020-09-18 08:47:33-log: [Package] vivo-mini-game@1.0.0 enable
-2020-09-18 08:47:33-log: [Package] web-desktop@1.0.0 enable
-2020-09-18 08:47:32-log: [Package] oppo-mini-game@1.0.0 enable
-2020-09-18 08:47:32-log: [Package] ios@1.0.0 enable
-2020-09-18 08:47:33-log: [Package] web-mobile@1.0.0 enable
-2020-09-18 08:47:33-log: [Package] wechatgame@1.0.0 enable
-2020-09-18 08:47:33-log: [Package] windows@1.0.0 enable
-2020-09-18 08:47:33-log: [Package] xiaomi-quick-game@1.0.0 enable
-2020-09-18 08:48:05-warn: [Scene] Sender does not exist
+2020-09-18 23:10:15-log: [Package] ipc@1.0.0 enable
+2020-09-18 23:10:15-log: [Package] preferences@1.0.0 enable
+2020-09-18 23:10:17-log: [Package] engine@1.0.0 enable
+2020-09-18 23:10:15-log: [Package] ui-kit@1.0.0 enable
+2020-09-18 23:10:17-log: [Package] asset-db@1.0.0 enable
+2020-09-18 23:10:15-log: [Package] tester@1.0.0 enable
+2020-09-18 23:10:17-log: [Package] console@1.0.0 enable
+2020-09-18 23:10:17-log: [Package] packager@1.0.0 enable
+2020-09-18 23:10:17-log: [Package] project-setting@1.0.0 enable
+2020-09-18 23:10:17-log: [Package] about@1.0.0 enable
+2020-09-18 23:10:17-log: [Package] scene@1.0.0 enable
+2020-09-18 23:10:17-log: [Package] server@1.0.0 enable
+2020-09-18 23:10:17-log: [Package] utils@1.0.0 enable
+2020-09-18 23:10:17-log: [Package] profile@1.0.0 enable
+2020-09-18 23:10:17-log: [Package] assets@1.0.0 enable
+2020-09-18 23:10:17-log: [Package] inspector@1.0.0 enable
+2020-09-18 23:10:17-log: [Package] hierarchy@1.0.0 enable
+2020-09-18 23:10:17-log: [Package] preview@1.0.0 enable
+2020-09-18 23:10:17-log: [Package] animator@1.0.0 enable
+2020-09-18 23:10:17-log: [Package] builder@1.0.0 enable
+2020-09-18 23:10:17-log: [Package] lightmap@1.0.0 enable
+2020-09-18 23:10:17-log: [Package] alipay-mini-game@1.0.0 enable
+2020-09-18 23:10:17-log: [Package] android@1.0.0 enable
+2020-09-18 23:10:17-log: [Package] baidu-mini-game@1.0.0 enable
+2020-09-18 23:10:17-log: [Package] bytedance-mini-game@1.0.0 enable
+2020-09-18 23:10:17-log: [Package] cocos-play@1.0.0 enable
+2020-09-18 23:10:17-log: [Package] huawei-mini-game@1.0.0 enable
+2020-09-18 23:10:17-log: [Package] ios@1.0.0 enable
+2020-09-18 23:10:17-log: [Package] mac@1.0.0 enable
+2020-09-18 23:10:17-log: [Package] native@1.0.0 enable
+2020-09-18 23:10:17-log: [Package] vivo-mini-game@1.0.0 enable
+2020-09-18 23:10:17-log: [Package] oppo-mini-game@1.0.0 enable
+2020-09-18 23:10:17-log: [Package] web-desktop@1.0.0 enable
+2020-09-18 23:10:17-log: [Package] web-mobile@1.0.0 enable
+2020-09-18 23:10:18-log: [Package] windows@1.0.0 enable
+2020-09-18 23:10:18-log: [Package] xiaomi-quick-game@1.0.0 enable
+2020-09-18 23:10:18-log: [Package] wechatgame@1.0.0 enable
+2020-09-18 23:10:23-warn: [Scene] Sender does not exist
+2020-09-18 23:14:36-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-09-18 23:15:09-info: asset meta saved
+2020-09-18 23:15:15-info: asset meta saved
+2020-09-18 23:15:17-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\WeaponUpdateCellNode.prefab) saved
+2020-09-18 23:15:31-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\WeaponUpdateCellNode.prefab) saved
+2020-09-18 23:15:32-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\WeaponUpdateCellNode.prefab) saved
+2020-09-18 23:15:32-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\WeaponUpdateCellNode.prefab) saved
+2020-09-18 23:29:04-warn: [Asset DB] Browserslist: caniuse-lite is outdated. Please run the following command: `npx browserslist --update-db`
+2020-09-18 23:29:06-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\WeaponUpdateCellNode.prefab) saved
+2020-09-18 23:33:53-info: asset meta saved
+2020-09-18 23:33:58-info: asset meta saved
+2020-09-18 23:34:00-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\WeaponUpdateCellNode.prefab) saved
+2020-09-18 23:36:50-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\WeaponUpdateCellNode.prefab) saved
+2020-09-18 23:39:13-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\WeaponUpdateCellNode.prefab) saved
+2020-09-18 23:47:18-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\WeaponUpdateCellNode.prefab) saved
+2020-09-18 23:54:23-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\WeaponUpdateCellNode.prefab) saved
+2020-09-18 23:55:27-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\WeaponUpdateCellNode.prefab) saved
+2020-09-19 00:01:45-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\WeaponUpdateCellNode.prefab) saved
+2020-09-19 00:03:01-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\WeaponUpdateCellNode.prefab) saved

@@ -20,6 +20,12 @@ export class WeaponUpdateCellPrefab extends BaseObject {
     @property({ type: Node })
     public updateButtonNode: Node = null;
 
+    @property({ type: SpriteFrame })
+    public activeButtonSpriteFrameGray: SpriteFrame = null;
+
+    @property({ type: SpriteFrame })
+    public activeButtonSpriteFrameLight: SpriteFrame = null;
+
     private currentChooseRate: number = 0;
     start() {
     }
@@ -50,35 +56,50 @@ export class WeaponUpdateCellPrefab extends BaseObject {
             this.referUILabel();//更新uiLabel
 
         });
+        let towerType = data['TowerType'];
+        this.objectType = towerType;
+        super.init(gameConfig, gameController);
         let isActive = data['isActive'];
         if (isActive) {
-            let towerType = data['TowerType'];
-            this.objectType = towerType;
-            super.init(gameConfig, gameController);
-
-
-            let iconStr = data['IconSprteFrame'];
-            loader.loadRes(iconStr + '/spriteFrame', SpriteFrame, (err, result) => {
-                if (!err) {
-                    this.weaponIconNode.getComponent(SpriteComponent).spriteFrame = result;
-                }
-                console.log("err", err);
-            });
-            // let cost = this.getUpdateLocalLevelCost();
-
-            // let updateLocalLevelAddDamage = this.getNextLocallevelAddDamage();
-            this.referUILabel();
-
-        } else {
-
+            this.activeWeapon();
         }
+        this.referUILabel();
+
+    }
+    activeWeapon() {
+        let iconStr = this.getIconSprteFrame();
+        // let iconStr = data['IconSprteFrame'];
+        loader.loadRes(iconStr + '/spriteFrame', SpriteFrame, (err, result) => {
+            if (!err) {
+                this.weaponIconNode.getComponent(SpriteComponent).spriteFrame = result;
+            }
+            console.log("err", err);
+        });
     }
     referUILabel() {
+        let isActive = this.getWeaponIsActive();
+        let currentGoldCount = this.gameController.playerData.getCurrentGoldCount();
+
+        if (!isActive) {
+            //如果未激活
+            let firstNeedActiveTower = this.gameController.playerData.getFirstNeedToActiveTowerIndex();
+            //获取第一个需要激活的塔的index
+            console.log("first need active tower", firstNeedActiveTower);
+            let activeCostGoldCount = this.getActiveCostGoldCount();
+            // let currentGold
+            if (firstNeedActiveTower === this.towerIndexType && activeCostGoldCount <= currentGoldCount) {
+                //当前的金币个数要大于等于需要的金币个数
+                this.updateButtonNode.getComponent(SpriteComponent).spriteFrame = this.activeButtonSpriteFrameLight;
+            } else {
+                this.updateButtonNode.getComponent(SpriteComponent).spriteFrame = this.activeButtonSpriteFrameGray;
+                //如果不能激活，那么需要显示灰色的按钮
+            }
+            return;
+        }
         let updateCostCount = this.getUpdateLocalLevelCost();
         this.currentDamageLabel.getComponent(LabelComponent).string = this.getLocalDamageNum() + '';
         this.costGoldLabel.getComponent(LabelComponent).string = updateCostCount + '';
         this.addDamageLabel.getComponent(LabelComponent).string = "+" + this.getNextLocallevelAddDamage() + '';
-        let currentGoldCount = this.gameController.playerData.getCurrentGoldCount();
         if (currentGoldCount < updateCostCount) {
             // this.updateButtonSpriteFrameGray
             this.updateButtonNode.getComponent(SpriteComponent).spriteFrame = this.updateButtonSpriteFrameGray;

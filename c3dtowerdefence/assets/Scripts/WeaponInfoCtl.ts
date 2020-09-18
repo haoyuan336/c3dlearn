@@ -59,6 +59,7 @@ export class WeaponInfoCtl extends Component {
         });
         this.node.on("refer-choose-rate-cost", (chooseRate)=>{
             console.log("刷新当前选择的倍数", chooseRate);
+            console.log("weapon indo cell node list", this.weaponIndoCellNodeList);
             for (let i = 0 ; i < this.weaponIndoCellNodeList.length ; i ++){
                 let node = this.weaponIndoCellNodeList[i];
                 node.getComponent(WeaponUpdateCellPrefab).updateChooseRate(chooseRate);

@@ -38,7 +38,7 @@ export class BulletBase extends BaseObject {
 
 
     }
-    init(gameConfig: {},gameController: GameController, data) {
+    init(gameConfig: {}, gameController: GameController, data) {
         super.init(gameConfig, gameController);
         this.baseAttackNum += data.baseAttackNum;
         this.targetTowerBase = data.targetTower;
@@ -75,7 +75,7 @@ export class BulletBase extends BaseObject {
         // this.state.setState("sleep");
 
         let otherCollider: ColliderComponent = event.otherCollider;
-        if (otherCollider.node && otherCollider.node.name.indexOf("Wall") > 1) {
+        if (isValid(otherCollider.node) && otherCollider.node.name.indexOf("Wall") > 1) {
             console.log(" other collier node", otherCollider.node.name);
             this.node.destroy();
         }

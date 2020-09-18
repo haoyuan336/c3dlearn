@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "激活按钮Gray",
+    "atlas": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 108,
+      "height": 48
+    },
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "originalSize": {
+      "width": 108,
+      "height": 48
+    },
+    "rotated": false,
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "texture": "9605df21-e503-42d1-b462-4deeb28a2707@6c48a"
+  }
+}

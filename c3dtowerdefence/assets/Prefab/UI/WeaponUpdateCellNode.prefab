@@ -260,7 +260,7 @@
     "_priority": 0,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 55.62,
+      "width": 12.22,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -289,7 +289,7 @@
     },
     "_sharedMaterial": null,
     "_useOriginalSize": true,
-    "_string": "99999",
+    "_string": "?",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
     "_actualFontSize": 20,
@@ -380,7 +380,7 @@
     "_priority": 0,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 40.54,
+      "width": 21.51,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -409,7 +409,7 @@
     },
     "_sharedMaterial": null,
     "_useOriginalSize": true,
-    "_string": "+999",
+    "_string": "+?",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
     "_actualFontSize": 18,
@@ -581,7 +581,7 @@
     },
     "_sharedMaterial": null,
     "_spriteFrame": {
-      "__uuid__": "57520716-48c8-4a19-8acf-41c9f8777fb0@f9941"
+      "__uuid__": "0ebe98d8-99de-471e-b7dc-d45d8032e738@f9941"
     },
     "_type": 0,
     "_fillType": 0,
@@ -883,7 +883,7 @@
     },
     "_sharedMaterial": null,
     "_spriteFrame": {
-      "__uuid__": "039a60e9-05a9-4632-bb8c-a468ca2374f5@f9941"
+      "__uuid__": "aa7d7e26-aacd-4432-a29c-58631f381b77@f9941"
     },
     "_type": 0,
     "_fillType": 0,
@@ -1036,7 +1036,7 @@
     "_priority": 0,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 33.37,
+      "width": 12.22,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -1065,7 +1065,7 @@
     },
     "_sharedMaterial": null,
     "_useOriginalSize": true,
-    "_string": "999",
+    "_string": "?",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
     "_actualFontSize": 20,
@@ -1099,7 +1099,7 @@
   },
   {
     "__type__": "cc.UITransformComponent",
-    "_name": "",
+    "_name": "WeaponUpdateCellNode<UITransformComponent>",
     "_objFlags": 0,
     "node": {
       "__id__": 1
@@ -1120,7 +1120,7 @@
   },
   {
     "__type__": "cc.SpriteComponent",
-    "_name": "",
+    "_name": "WeaponUpdateCellNode<SpriteComponent>",
     "_objFlags": 0,
     "node": {
       "__id__": 1
@@ -1156,7 +1156,7 @@
   },
   {
     "__type__": "a6c70AbEx1NLpumxgHfrO6e",
-    "_name": "",
+    "_name": "WeaponUpdateCellNode<WeaponUpdateCellPrefab>",
     "_objFlags": 0,
     "node": {
       "__id__": 1
@@ -1185,6 +1185,12 @@
     },
     "updateButtonNode": {
       "__id__": 26
+    },
+    "activeButtonSpriteFrameGray": {
+      "__uuid__": "9605df21-e503-42d1-b462-4deeb28a2707@f9941"
+    },
+    "activeButtonSpriteFrameLight": {
+      "__uuid__": "78cc3b71-f8b0-4baf-b8a1-87a7f4805373@f9941"
     },
     "_id": ""
   },
