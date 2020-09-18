@@ -11,7 +11,7 @@ const { ccclass, property } = _decorator;
 
 @ccclass('TowerBase')
 export class TowerBase extends BaseObject {
-    public gameController: Node = null;
+    // public gameController: GameController = null;
     private state: State = new State();
     private currentTargetEnemy: Node = null;
     private currentShootTime: number = 0;
@@ -42,19 +42,19 @@ export class TowerBase extends BaseObject {
 
     private skillCtl: SkillCtl = null;
 
-    init(gameConfig: Object) {
-        super.init(gameConfig);
+    init(gameConfig: Object, gameController: GameController) {
+        super.init(gameConfig, gameController);
         this.skillCtl = find("Canvas").getComponent(SkillCtl);
         this.gameConfig = gameConfig;
         console.log('tower base init');
-        this.node.emit("init", gameConfig);
+        this.node.emit("init", gameConfig, gameController);
     }
     start() {
         console.log("tower base start");
         this.state.setState("run");
         let moveDistance = this.bulletStartPos.worldPosition.y - 0.5; //子弹的发射高度 - 敌人的 高度
         let accY = GameController.accY;
-        this.gameController = find("GameController");
+        this.gameController = find("GameController").getComponent(GameController);
 
         // this.gameConfig = this.gameController.getComponent(GameController).getGameConfig().json;
 
@@ -62,8 +62,8 @@ export class TowerBase extends BaseObject {
         // this.attackRate = attackRate;
         // this.shootDuraction = 1 / this.baseAttackRate;
 
-        this.gameController.on("touch-screen-to-3d", this.touchScreenTo3d.bind(this), this);
-        this.gameController.on("destroy-all-tower", this.destroyAllTower.bind(this), this);
+        this.gameController.node.on("touch-screen-to-3d", this.touchScreenTo3d.bind(this), this);
+        this.gameController.node.on("destroy-all-tower", this.destroyAllTower.bind(this), this);
         this.state.addState("releas-skill", () => {
             if (this.currentTargetEnemy) {
                 this.currentTargetEnemy = null;
@@ -120,7 +120,7 @@ export class TowerBase extends BaseObject {
             let result = resultList[i];
             if (result.collider.node.uuid === this.node.uuid) {
                 //点中了此塔
-                this.gameController.emit("touch-tower", this.node);
+                this.gameController.node.emit("touch-tower", this.node);
                 break;
             }
         }
@@ -129,8 +129,8 @@ export class TowerBase extends BaseObject {
     }
     onDestroy() {
         console.log("销毁");
-        this.gameController.off('touch-screen-to-3d', this.touchScreenTo3d, this);
-        this.gameController.on("destroy-all-tower", this.destroyAllTower, this);
+        this.gameController.node.off('touch-screen-to-3d', this.touchScreenTo3d, this);
+        this.gameController.node.on("destroy-all-tower", this.destroyAllTower, this);
     }
     toDestroy() {
         //去销毁
@@ -197,7 +197,7 @@ export class TowerBase extends BaseObject {
                 } else {
                     this.currentShootTime += deltaTime;
                 }
-            }else{
+            } else {
                 this.currentTargetEnemy = null;
             }
         }
@@ -217,7 +217,7 @@ export class TowerBase extends BaseObject {
             animState.repeatCount = 1;
             this.scheduleOnce(() => {
                 // if (isValid(this.currentTargetEnemy)) {
-                this.createOneBullet(currentShootDiraction, this.getCurrentAttackNum(attackNum));
+                this.createOneBullet(currentShootDiraction, this.getCurrentAttackNum());
                 // }
             }, length * this.attackAnimEventTimeOffset)
         }
@@ -228,8 +228,8 @@ export class TowerBase extends BaseObject {
         bulletNode.active = false;
         bulletNode.setPosition(this.bulletStartPos.worldPosition);
         bulletNode.active = true;
-        // console.log("createOneBullet base attack num", attackNum);
-        bulletNode.getComponent(BulletBase).init(this.gameConfig, {
+        console.log("createOneBullet base attack num", attackNum);
+        bulletNode.getComponent(BulletBase).init(this.gameConfig, this.gameController, {
             direction: direction,
             targetEnemy: this.currentTargetEnemy,
             baseAttackNum: attackNum,

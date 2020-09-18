@@ -84,12 +84,8 @@ export class EnemyController extends Component {
     start() {
         // Your initialization goes here.
         this.gameConfig = this.gameConfigRes.json;
-        // this.state.setState('run');
         this.gameController = this.node.getComponent(GameController);
-
         this.endPos = v3(0, 0, 0);
-
-
         this.state.addState("enter-next-wave", () => {
             if (this.currentWaveIndex == this.waveData['EnemyType'].length) {
                 // this.state.setState("add-enemt-over");
@@ -97,12 +93,9 @@ export class EnemyController extends Component {
                 // console.log("游戏结束");
                 return;
             }
-
             this.currentRandomEnemyTypeList = this.waveData["EnemyType"][this.currentWaveIndex];
             this.addEnemyDuraction = this.waveData['AddEnemyDuraction'][this.currentWaveIndex];
             this.node.emit("refer-current-wave-level",this.gameController.getCurrentLevelNum(), this.currentWaveIndex);
-
-
             if (this.currentWaveIndex === this.waveData['EnemyType'].length - 1) {
                 this.allWaveAddOverCb();
                 this.allWaveAddOverCb = null;
@@ -117,7 +110,6 @@ export class EnemyController extends Component {
                 });
             }
         })
-
         // this.node.on("player-click-game", () => {
         //     this.state.setState("enter-next-wave");
         // });
@@ -125,7 +117,7 @@ export class EnemyController extends Component {
 
     playBossEnterAnim(bossNode: Node) {
         //播放boss 的进场动画
-        find('Canvas').getComponent(UIController).showBossIconAnim();
+        // find('Canvas').getComponent(UIController).showBossIconAnim();
         return new Promise((resolve, reject) => {
             let enemyBase = bossNode.getComponent(EnemyBase);
             if (enemyBase) {
@@ -244,7 +236,7 @@ export class EnemyController extends Component {
         enemyNode.position = v3(node.position.x, 0, node.position.z);
         enemyNode.active = false;
 
-        enemyNode.getComponent(EnemyBase).init(this.gameConfig, node.position, this.endPos);
+        enemyNode.getComponent(EnemyBase).init(this.gameConfig, this.gameController,node.position, this.endPos);
 
         // this.showEnemyEnterAnim(enemyNode, addEnemyCount);
         // promiseList.push(enemyNode.getComponent(EnemyBase).showEnemyEnterAnim(addEnemyCount, this, this.gameController, indexV2, new Vec2(5, 5)));
@@ -320,7 +312,7 @@ export class EnemyController extends Component {
                     enemyNode.position = v3(node.position.x, 0, node.position.z);
                     enemyNode.active = false;
 
-                    enemyNode.getComponent(EnemyBase).init(this.gameConfig, node.position, this.endPos);
+                    enemyNode.getComponent(EnemyBase).init(this.gameConfig,this.gameController, node.position, this.endPos);
 
                     // this.showEnemyEnterAnim(enemyNode, addEnemyCount);
                     promiseList.push(enemyNode.getComponent(EnemyBase).showEnemyEnterAnim(addEnemyCount, this, this.gameController, indexV2, new Vec2(5, 5)));

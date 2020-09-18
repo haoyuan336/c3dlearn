@@ -1,5 +1,6 @@
 import { _decorator, Component, Node, Tween, v3, v2 } from 'cc';
 import { BaseObject } from '../BaseObject';
+import { GameController } from '../GameController';
 import { TowerBase } from '../Towers/TowerBase';
 const { ccclass, property } = _decorator;
 
@@ -9,13 +10,13 @@ export class CrazyRotateSkill extends BaseObject {
     // private baseAttack: number = 0;
     // private baseAttackRate: number = 0;
 
-    init(gameConfig) {
-        console.log("初始化技能组件");
-        super.init(gameConfig);
-    }
+    // init(gameConfig, gameController: GameController) {
+    //     console.log("初始化技能组件");
+    //     super.init(gameConfig, gameController);
+    // }
     onLoad() {
-        this.node.on("init", (gameConfig) => {
-            this.init(gameConfig);
+        this.node.on("init", (gameConfig, gameController: GameController) => {
+            this.init(gameConfig, gameController);
         })
     }
     start() {
@@ -26,7 +27,7 @@ export class CrazyRotateSkill extends BaseObject {
             let startPosNode = this.node.getComponent(TowerBase).bulletStartPos;
             let dir = v3(startPosNode.worldPosition).subtract(this.node.position);
             let baseAttackNum = this.getCurrentAttackNum()
-            
+
             this.node.getComponent(TowerBase).shootOneBullet(
                 this.baseAttackRate + this.node.getComponent(BaseObject).baseAttackRate,
                 v2(dir.x, dir.z),
@@ -63,5 +64,5 @@ export class CrazyRotateSkill extends BaseObject {
         });
 
     }
-   
+
 }

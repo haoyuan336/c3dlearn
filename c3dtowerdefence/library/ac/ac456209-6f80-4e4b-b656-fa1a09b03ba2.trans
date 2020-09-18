@@ -4,8 +4,8 @@
         "./SkillCtl": "SkillCtl.ts",
         "./GoldCtl": "GoldCtl.ts",
         "./Menu/UpdateTowerUI": "Menu/UpdateTowerUI.ts",
-        "../GameController": "../GameController.ts",
         "./Menu/BuildTowerUI": "Menu/BuildTowerUI.ts",
-        "./GameWin/GameWinPrefab": "GameWin/GameWinPrefab.ts"
+        "./GameWin/GameWinPrefab": "GameWin/GameWinPrefab.ts",
+        "../GameController": "../GameController.ts"
     }
 }

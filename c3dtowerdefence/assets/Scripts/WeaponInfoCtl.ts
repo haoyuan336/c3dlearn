@@ -24,6 +24,10 @@ export class WeaponInfoCtl extends Component {
 
     @property({ type: Node })
     public weaponCellParentNode: Node = null;
+
+
+    private weaponIndoCellNodeList: Node[] = [];
+
     start() {
         this.weaponInfoNode.position = v3(this.weaponInfoNode.width * 0.5, 0, 0);
         this.state.setState("close");
@@ -53,19 +57,29 @@ export class WeaponInfoCtl extends Component {
                 this.state.setState("play-close-anim");
             }
         });
+        this.node.on("refer-choose-rate-cost", (chooseRate)=>{
+            console.log("刷新当前选择的倍数", chooseRate);
+            for (let i = 0 ; i < this.weaponIndoCellNodeList.length ; i ++){
+                let node = this.weaponIndoCellNodeList[i];
+                node.getComponent(WeaponUpdateCellPrefab).updateChooseRate(chooseRate);
+            }
+        })
         this.initWeaponData();
         //
     }
     initWeaponData() {
         //初始化当前武器的相关信息
-        let towerLevelData = this.gameController.playerData.getCurrentTowerLevelData();
+        let gameController = this.gameController.getComponent(GameController);
+        let gameConfig = this.gameController.getComponent(GameController).getGameConfig().json;
+        let towerLevelData = this.gameController.playerData.getCurrentTowersLocalLevelData();
         for (let i = 0; i < towerLevelData.length; i++) {
             let data = towerLevelData[i];
             let node = instantiate(this.updateWeaponInfoCellPrefab);
             node.parent = this.weaponCellParentNode;
-            node.getComponent(WeaponUpdateCellPrefab).setData(data);
-            node.position = v3(0, -i * node.height - node.height * 0.5 - 30, 0);
+            node.getComponent(WeaponUpdateCellPrefab).setData(data, gameController, gameConfig);
+            node.position = v3(0, -i * (node.height + 10) - (node.height + 10) * 0.5 - 5, 0);
             this.weaponCellParentNode.height = node.position.y * -1 + node.height * 0.5;
+            this.weaponIndoCellNodeList.push(node);
         }
     }
     showWeaponInfoButtonn() {
@@ -104,6 +118,10 @@ export class WeaponInfoCtl extends Component {
     showWeaponInfoNode() {
         return new Promise((resolve, reject) => {
             //
+            // for (let i = 0 ; i < this.weaponIndoCellNodeList.length ; i ++){
+            //     let node = this.weaponIndoCellNodeList[i];
+            //     node.getComponent(WeaponUpdateCellPrefab).referCurrentDamage();
+            // }
             let tw = new Tween(this.weaponInfoNode);
             tw.to(0.2, {
                 position: v3(0, 0, 0)

@@ -20,8 +20,8 @@ export class MenuUIBase extends BaseObject {
     //     // }, 0.2)
     // }
 
-    init(gameConfig: Object){
-        super.init(gameConfig);
+    init(gameConfig: Object, gameController: GameController){
+        super.init(gameConfig, gameController);
         this.state.addState('open-ui', this.openUI.bind(this));
         this.state.addState('close-ui', this.closeUI.bind(this));
     }

@@ -3,7 +3,7 @@ import { State } from './util/State'
 import { TowerBuildBase } from './TowerBuildBase/TowerBuildBase';
 import { DeadEnemyObj, EnemyController } from './EnemyController';
 import { GroundMapCtl } from './GroundMapCtl';
-import { UIController } from './UI/UIController';
+// import { UIController } from './UI/UIController';
 import { TowerBuildBaseCtl } from './TowerBuildBaseCtl';
 import { PlayData } from './Data/PlayerData';
 import { BaseObject } from './BaseObject';
@@ -38,8 +38,8 @@ export class GameController extends Component {
     // public currentLevelNum: number = 0;
 
 
-    @property({ type: UIController })
-    public uiController: UIController = null;
+    @property({ type: Node })
+    public uiController: Node = null;
 
     @property({ type: Node })
     public plate: Node = null; //星球
@@ -143,7 +143,7 @@ export class GameController extends Component {
             if (index < this.towersPrefabList.length) {
                 let node = instantiate(this.towersPrefabList[index]);
                 node.parent = this.node;
-                node.getComponent(TowerBase).init(this.gameConfigJson.json);
+                node.getComponent(TowerBase).init(this.gameConfigJson.json, this);
                 let pos = v3(towerBaseNode.position.x, 0, towerBaseNode.position.z);
                 node.setPosition(pos);
                 towerBaseNode.getComponent(TowerBuildBase).setTargetTower(node);
@@ -175,19 +175,22 @@ export class GameController extends Component {
                 tw.start();
                 return this.node.getComponent(GroundMapCtl).showGroundEnterAnim();
             }).then(() => {
-                return this.node.getComponent(TowerBuildBaseCtl).showTowerBuildBaseEnterAnim();
+                // return this.node.getComponent(TowerBuildBaseCtl).showTowerBuildBaseEnterAnim();
                 //展示塔的基座出现的动画
-            }).then(() => {
-                return this.showHomeIconEnterAnim();
-            }).then(() => {
-                // return this.node.getCom
-                this.node.emit('update-gold-label', this.playerData.getCurrentGoldCount());
-                return this.showUIEnterAnim();
-            }).then(() => {
-                this.state.setState("run");
-                this.node.getComponent(EnemyController).startGame();
-                // this.node.getComponent(GroundMapCtl).startGame();
+                return this.enterGame();
             })
+                // .then(() => {
+                //     // return this.showHomeIconEnterAnim();
+                // })
+                .then(() => {
+                    // return this.node.getCom
+                    this.node.emit('update-gold-label', this.playerData.getCurrentGoldCount());
+                    return this.showUIEnterAnim();
+                }).then(() => {
+                    this.state.setState("run");
+                    this.node.getComponent(EnemyController).startGame();
+                    // this.node.getComponent(GroundMapCtl).startGame();
+                })
         });
 
         // this.node.on("")
@@ -201,8 +204,14 @@ export class GameController extends Component {
         //         resolve();
         //     })
         // }
-        return this.uiController.showUIEnterAnim()
         // })
+        return new Promise((resolve, reject) => {
+            // return this.uiController.showUIEnterAnim()
+            // 
+            this.uiController.emit("show-ui-enter-anim", () => {
+                resolve();
+            });
+        })
     }
     // showGroundMapEnterAnim(){
 
@@ -304,14 +313,15 @@ export class GameController extends Component {
         //敌人发动了攻击'
         if (this.state.getState() === 'run') {
             this.state.setState("game-loss");
-            this.uiController.node.emit('close-weapon-info-layer')
+            this.uiController.emit('close-weapon-info-layer')
             this.node.getComponent(EnemyController).frozenAllEnemy();
             this.node.getComponent(TowerBuildBaseCtl).frozenAllTowerBuildBase(); //禁锢所有塔的基座
             // this.homeIconTw.stop();
             this.homeIconNode.getComponent(HomeIcon).frozenHomeIcon();
             let deadEnemyData = this.node.getComponent(EnemyController).getDeadEnemyData();
             this.scheduleOnce(() => {
-                this.uiController.showGameLossUI(deadEnemyData)
+                // this.uiController.showGameLossUI(deadEnemyData)
+                this.uiController.emit("show-game-loss-ui", deadEnemyData);
             }, 1);
         }
 
@@ -322,10 +332,11 @@ export class GameController extends Component {
         // this
         //游戏胜利
         // this.uic
-        this.uiController.node.emit('close-weapon-info-layer')
+        this.uiController.emit('close-weapon-info-layer')
         if (this.state.getState() === 'run') {
             this.state.setState("show-game-result"); //进入显示游戏结果的界面
-            this.uiController.showGameWinUI(deadEnemyData);
+            // this.uiController.showGameWinUI(deadEnemyData);
+            this.uiController.emit("show-game-win-ui", deadEnemyData);
         }
 
     }
@@ -356,9 +367,21 @@ export class GameController extends Component {
             this.node.getComponent(TowerBuildBaseCtl).showTowerBuildBaseEnterAnim().then(() => {
                 return this.showHomeIconEnterAnim();
             }).then(() => {
+                return this.showCurrentLevelIconAnim();
+            }).then(() => {
                 resolve();
             });
         })
 
+    }
+    showCurrentLevelIconAnim() {
+        return new Promise((resolve, reject) => {
+            //显示当前是第一关的icon
+            this.uiController.emit("show-current-level-icon-anim", () => {
+                if (resolve) {
+                    resolve();
+                }
+            })
+        })
     }
 }

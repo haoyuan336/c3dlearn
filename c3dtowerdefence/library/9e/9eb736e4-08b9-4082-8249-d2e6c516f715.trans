@@ -4,7 +4,6 @@
         "./Enemys/EnemyBase": "Enemys/EnemyBase.ts",
         "./GroundMapCtl": "GroundMapCtl.ts",
         "./GroundTiled/GroundTiled": "GroundTiled/GroundTiled.ts",
-        "./GameController": "GameController.ts",
-        "./UI/UIController": "UI/UIController.ts"
+        "./GameController": "GameController.ts"
     }
 }

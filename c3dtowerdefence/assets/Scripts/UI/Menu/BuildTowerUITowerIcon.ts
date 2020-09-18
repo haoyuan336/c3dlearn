@@ -17,13 +17,14 @@ export class BuildTowerUITowerIcon extends BaseObject {
     public currentBuildCost: number = null; //当前的建造消耗
     public towerType: number = null; //塔的类型
     onLoad() {
-        this.gameConfig = find("GameController").getComponent(GameController).getGameConfig().json;
+        // this.gameConfig = find("GameController").getComponent(GameController).getGameConfig().json;
 
     }
     start() {
         // Your initialization goes here.
     }
-    init(type: number) {
+    init(type: number, gameController: GameController, gameConfig: Object) {
+        this.gameConfig = gameConfig;
         this.towerType = type;
         // console.log("初始化塔的类型", type, this.gameConfig);
         let node = instantiate(this.towerShowAnimList[type])
@@ -31,10 +32,11 @@ export class BuildTowerUITowerIcon extends BaseObject {
         node.parent = this.showTowerAnimLayer;
         //根据type 取处数据
         // let configList = [];
+        console.log("type", type);
         for (let i in this.gameConfig) {
             if (i.indexOf("Tower") > -1) {
                 // configList.push(this.gameConfig[i]);
-                if (this.gameConfig[i].index === type) {
+                if (this.gameConfig[i].Index === type) {
                     this.objectType = i;
                 }
             }
@@ -51,7 +53,7 @@ export class BuildTowerUITowerIcon extends BaseObject {
         //     }
         // }
         console.log('object type', this.objectType);
-        super.init(this.gameConfig);
+        super.init(this.gameConfig, gameController);
         this.costGoldLabel.getComponent(LabelComponent).string = this.buildCost + '';
 
     }

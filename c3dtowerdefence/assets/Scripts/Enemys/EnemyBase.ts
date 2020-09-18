@@ -26,7 +26,7 @@ export class EnemyBase extends BaseObject {
     // private startPos: Vec3 = null;
     private enemyCtl: EnemyController = null;
     private currentMoveTw: Tween = null;
-    private gameController: GameController = null;
+    // private gameController: GameController = null;
     private groundMapCtl: GroundMapCtl = null;
     private beAttackedCb = null;
 
@@ -37,8 +37,9 @@ export class EnemyBase extends BaseObject {
     // private moveSpeed: number = 0;
     @property({ type: Node })
     public caidaiEffect: Node = null;
-    public init(gameConfig: Object, startPos: Vec3, endPos: Vec3) {
-        super.init(gameConfig);
+    public init(gameConfig: Object,gameController: GameController, startPos: Vec3, endPos: Vec3) {
+        super.init(gameConfig, this.gameController);
+
         this.groundMapCtl = find("GameController").getComponent(GroundMapCtl);
         this.gameConfigJson = gameConfig;
         this.healthCount = this.gameConfigJson[this.objectType].HealthCount;

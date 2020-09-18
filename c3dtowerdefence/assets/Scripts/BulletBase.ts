@@ -38,8 +38,8 @@ export class BulletBase extends BaseObject {
 
 
     }
-    init(gameConfig: {}, data) {
-        super.init(gameConfig);
+    init(gameConfig: {},gameController: GameController, data) {
+        super.init(gameConfig, gameController);
         this.baseAttackNum += data.baseAttackNum;
         this.targetTowerBase = data.targetTower;
         // console.log("base attack num", this.baseAttackNum);

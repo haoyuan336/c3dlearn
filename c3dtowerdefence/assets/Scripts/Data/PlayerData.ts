@@ -18,7 +18,7 @@ export class PlayData {
         // this.setLocalData("gold-count", 30 + '');
         // this.setLocalData('active-tower-build-base-count', '2');
         // this.setLocalData("current-level-num", this.currentLevelNum + '');
-        this.initTowerLevelLocalData(this.gameController.getGameConfig().json);
+        // this.initTowerLevelLocalData(this.gameController.getGameConfig().json);
 
         if (gameTime) {
             // 首次进入游戏. 初始化游戏数据
@@ -57,7 +57,8 @@ export class PlayData {
             let obj = {
                 IconSprteFrame: data.IconSprteFrame,
                 isActive: false,
-                currentLevel: 0
+                currentLevel: 0,
+                TowerType: data.TowerType
             }
             if (i < 2) {
                 obj.isActive = true;
@@ -69,8 +70,8 @@ export class PlayData {
             dataList.push(obj)
         }
         console.log("json", dataList);
-        this.currentTowerLevelData = list;
-        this.setLocalData("tower-level-data", JSON.stringify(list));
+        this.currentTowerLevelData = dataList;
+        this.setLocalData("tower-level-data", JSON.stringify(dataList));
     }
     clearLocalData() {
         localStorage.clear();
@@ -118,7 +119,16 @@ export class PlayData {
         this.currentTowerLevelData[index]['currentLevel'] = 1;
         this.setLocalData("tower-level-data", JSON.stringify(this.currentTowerLevelData));
     }
-    getCurrentTowerLevelData(){
+    getCurrentTowerLocalLevel(towerInedx: number){
+        return this.currentTowerLevelData[towerInedx]['currentLevel'];
+    }
+    getCurrentTowersLocalLevelData(){
         return this.currentTowerLevelData;
+    }
+    updateTowerLocalLevel(towerIndexType: number,localLevel: number){
+        //升级塔的永久等级
+        this.currentTowerLevelData[towerIndexType]['currentLevel'] = localLevel;
+        this.setLocalData('tower-level-data', JSON.stringify(this.currentTowerLevelData));
+
     }
 }   

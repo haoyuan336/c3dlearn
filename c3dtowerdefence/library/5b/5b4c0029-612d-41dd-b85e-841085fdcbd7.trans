@@ -4,7 +4,6 @@
         "./TowerBuildBase/TowerBuildBase": "TowerBuildBase/TowerBuildBase.ts",
         "./EnemyController": "EnemyController.ts",
         "./GroundMapCtl": "GroundMapCtl.ts",
-        "./UI/UIController": "UI/UIController.ts",
         "./TowerBuildBaseCtl": "TowerBuildBaseCtl.ts",
         "./Data/PlayerData": "Data/PlayerData.ts",
         "./Towers/TowerBase": "Towers/TowerBase.ts",

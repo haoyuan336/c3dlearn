@@ -22,7 +22,12 @@ export class ChooseWeaponInfoRateCtl extends Component {
             let pos = dir.multiplyScalar(80)
             node.position = v3(pos.x, pos.y, 0);
         }
+        this.state.addState("wait", ()=>{
+            console.log("current rate index", this.currentRateIndex);
+            this.node.emit("refer-choose-rate-cost", this.getCurrentChooseRate());// 
+        });
         this.state.setState("wait");
+
     }
     onButtonClick(event, customData) {
         if (customData.indexOf("rate") > -1) {
@@ -59,5 +64,8 @@ export class ChooseWeaponInfoRateCtl extends Component {
             tw.start();
         })
         
+    }
+    getCurrentChooseRate(){
+        return [1, 10,100][this.currentRateIndex % 3];
     }
 }

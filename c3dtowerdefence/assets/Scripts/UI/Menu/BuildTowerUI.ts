@@ -1,8 +1,9 @@
 import { _decorator, Component, Node, ButtonComponent, Tween, Vec3, v3, find, Prefab, instantiate, v2 } from 'cc';
 const { ccclass, property } = _decorator;
 import { MenuUIBase } from './MenuUIBase'
-import { GameController } from '../../GameController';
+// import { GameController } from '../../GameController';
 import { BuildTowerUITowerIcon } from './BuildTowerUITowerIcon';
+import { GameController } from '../../GameController';
 @ccclass('BuildTowerUI')
 export class BuildTowerUI extends MenuUIBase {
 
@@ -12,10 +13,8 @@ export class BuildTowerUI extends MenuUIBase {
     @property({ type: Prefab })
     public buildTowerUITowerIcon: Prefab = null;
 
-    public gameController: GameController;
-    start() {
-
-        let gameCtl = find("GameController").getComponent(GameController);
+    // public gameController: GameController;
+    init(gameConfig, gameCtl : GameController){
         this.gameController = gameCtl;
         let currentLevelNum = gameCtl.getCurrentLevelNum();
         let currentLevelData = gameCtl.getGameConfig().json['Level_' + currentLevelNum];
@@ -28,7 +27,7 @@ export class BuildTowerUI extends MenuUIBase {
             node.addComponent(ButtonComponent);
             node.on("click", this.onButtonClick.bind(this));
             node.parent = this.node;
-            node.getComponent(BuildTowerUITowerIcon).init(activedTowerIndexList[i]);
+            node.getComponent(BuildTowerUITowerIcon).init(activedTowerIndexList[i], gameCtl, gameConfig);
             let scale = 76 / node.width;
             node.scale = v3(scale, scale, 1);
             let v = v2(0, 1);
@@ -39,6 +38,34 @@ export class BuildTowerUI extends MenuUIBase {
         console.log("build tower ui");
         // super.start();
         this.node.getChildByName("BuildTowerBgNode").on("click", this.onButtonClick.bind(this));
+        super.init(gameConfig, gameCtl);
+    }
+    start() {
+
+        // let gameCtl = find("GameController").getComponent(GameController);
+        // this.gameController = gameCtl;
+        // let currentLevelNum = gameCtl.getCurrentLevelNum();
+        // let currentLevelData = gameCtl.getGameConfig().json['Level_' + currentLevelNum];
+        // let activedTowerIndexList: number[] = currentLevelData.ActivedTower;
+        // let length = activedTowerIndexList.length;
+        // for (let i = 0; i < length; i++) {
+        //     // let node = instantiate(this.towerShowAnimPrefabList[activedTowerIndexList[i]]);
+        //     let node = instantiate(this.buildTowerUITowerIcon);
+        //     node.name = "tower_" + activedTowerIndexList[i];
+        //     node.addComponent(ButtonComponent);
+        //     node.on("click", this.onButtonClick.bind(this));
+        //     node.parent = this.node;
+        //     node.getComponent(BuildTowerUITowerIcon).init(activedTowerIndexList[i], gameCtl);
+        //     let scale = 76 / node.width;
+        //     node.scale = v3(scale, scale, 1);
+        //     let v = v2(0, 1);
+        //     v = v.rotate(Math.PI * 2 / length * i).normalize();
+        //     let pos = v.multiplyScalar(60);
+        //     node.setPosition(v3(pos.x, pos.y, 0));
+        // }
+        // console.log("build tower ui");
+        // // super.start();
+        // this.node.getChildByName("BuildTowerBgNode").on("click", this.onButtonClick.bind(this));
         // let children = this.node.children;
         // for (let i = 0; i < children.length; i++) {
         //     let node = children[i];
@@ -62,7 +89,7 @@ export class BuildTowerUI extends MenuUIBase {
                     this.gameController.playerData.addGoldCount(buildCost * -1);
                     this.state.setState("close-ui");
                     find("GameController").emit("build-one-tower", towerType, this.targetNode);
-                }else{
+                } else {
                     find("Canvas").emit('gold-not-enough');
                 }
             }
