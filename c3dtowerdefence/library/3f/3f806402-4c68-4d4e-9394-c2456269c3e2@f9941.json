@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Enemy_2_Icon",
+    "atlas": "",
+    "rect": {
+      "x": 0,
+      "y": 7,
+      "width": 195,
+      "height": 193
+    },
+    "offset": {
+      "x": -2.5,
+      "y": -3.5
+    },
+    "originalSize": {
+      "width": 200,
+      "height": 200
+    },
+    "rotated": false,
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "texture": "3f806402-4c68-4d4e-9394-c2456269c3e2@6c48a"
+  }
+}

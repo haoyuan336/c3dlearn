@@ -135,6 +135,7 @@ export class UIController extends Component {
         node.getComponent(GameWinPrefab).setGameResult(false, deadEnemyData, gameConfig, this, this.gameController);
     }
     showUIEnterAnim(cb) {
+        this.node.emit("enter-game");
         return this.node.getComponent(SkillCtl).showEnterAnim().then(() => {
             return this.node.getComponent(GoldCtl).showEnterAnim();
         }).then(() => {

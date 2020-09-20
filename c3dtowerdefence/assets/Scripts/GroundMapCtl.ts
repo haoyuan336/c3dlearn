@@ -358,4 +358,7 @@ export class GroundMapCtl extends Component {
         //获取障碍物列表
         return this.obsNodeList;
     }
+    getMapSize(){
+        return v2(this.mapWidth, this.mapHeight)
+    }
 }

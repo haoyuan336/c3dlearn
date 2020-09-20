@@ -11,6 +11,7 @@ import { TowerBase } from './Towers/TowerBase';
 import { BezierN } from './util/BezierN';
 import { WinGoldAnimEffect } from './Effect/WinGoldAnimEffect';
 import { HomeIcon } from './Home/HomeIcon';
+// import { WeaponInfoCtl } from './WeaponInfoCtl';
 const { ccclass, property } = _decorator;
 
 @ccclass('GameController')
@@ -51,7 +52,7 @@ export class GameController extends Component {
 
     public homeIconNode: Node = null;
 
-    public playerData: PlayData;
+    public playerData: PlayData = null;
 
     @property({ type: Prefab })
     public goldAnim3dPrefab: Prefab = null;
@@ -135,6 +136,7 @@ export class GameController extends Component {
         // Your initialization goes here.
         this.state.addState("ready", () => {
             console.log("enter state ", this.state.getState());
+            // this.uiController.getComponent(WeaponInfoCtl).initWeaponData();
         })
         this.state.setState("ready");
 
@@ -232,6 +234,7 @@ export class GameController extends Component {
             if (groundMapCtl) {
                 let node = groundMapCtl.getMapNodeList().getValue(5, 5);
                 this.homeIconNode.position = v3(node.position.x, 20, node.position.z);
+                this.homeIconNode.getComponent(HomeIcon).freeHomeIconn();
                 node.active = false;
                 let tw = new Tween(this.homeIconNode);
                 // this.homeIconTw = tw;

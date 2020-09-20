@@ -61,12 +61,12 @@ export class WeaponUpdateCellPrefab extends BaseObject {
         super.init(gameConfig, gameController);
         let isActive = data['isActive'];
         if (isActive) {
-            this.activeWeapon();
+            this.showWeaponIcon();
         }
         this.referUILabel();
 
     }
-    activeWeapon() {
+    showWeaponIcon() {
         let iconStr = this.getIconSprteFrame();
         // let iconStr = data['IconSprteFrame'];
         loader.loadRes(iconStr + '/spriteFrame', SpriteFrame, (err, result) => {
@@ -86,6 +86,8 @@ export class WeaponUpdateCellPrefab extends BaseObject {
             //获取第一个需要激活的塔的index
             console.log("first need active tower", firstNeedActiveTower);
             let activeCostGoldCount = this.getActiveCostGoldCount();
+            this.costGoldLabel.getComponent(LabelComponent).string = activeCostGoldCount + '';
+
             // let currentGold
             if (firstNeedActiveTower === this.towerIndexType && activeCostGoldCount <= currentGoldCount) {
                 //当前的金币个数要大于等于需要的金币个数
@@ -111,15 +113,28 @@ export class WeaponUpdateCellPrefab extends BaseObject {
         switch (customData) {
             case 'update-button':
                 console.log("升级按钮");
-                let updateCost = this.getUpdateLocalLevelCost(); //获取升级下一级需要的金币数
+                let isActive = this.getWeaponIsActive();
                 let currentGoldCount = this.gameController.playerData.getCurrentGoldCount(); //当前的金币个数
-                if (updateCost <= currentGoldCount) {
-                    this.updateLocalLevel(this.currentChooseRate);
-                    this.gameController.playerData.addGoldCount(-updateCost);
-                    this.referUILabel();
-                } else {
 
+                if (isActive) {
+                    let updateCost = this.getUpdateLocalLevelCost(); //获取升级下一级需要的金币数
+                    if (updateCost <= currentGoldCount) {
+                        this.updateLocalLevel(this.currentChooseRate);
+                        this.gameController.playerData.addGoldCount(-updateCost);
+                        this.referUILabel();
+                    } else {
+
+                    }
+                } else {
+                    let activeCost = this.getActiveCostGoldCount();
+                    if (activeCost <= currentGoldCount) {
+                        this.activeWeapon();
+                        this.gameController.playerData.addGoldCount(-activeCost);
+                        this.referUILabel();
+                        this.showWeaponIcon();
+                    }
                 }
+
 
                 break;
             default:

@@ -1,0 +1,255 @@
+{
+  "ver": "1.3.21",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "9455155c-bb2d-48b1-826c-f34fb995234a",
+  "files": [],
+  "subMetas": {
+    "46940": {
+      "importer": "gltf-animation",
+      "uuid": "9455155c-bb2d-48b1-826c-f34fb995234a@46940",
+      "displayName": "",
+      "id": "46940",
+      "name": "骨架|MoveAnim.animation",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 2,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.2083333730697632
+        },
+        "events": []
+      }
+    },
+    "a0826": {
+      "importer": "gltf-mesh",
+      "uuid": "9455155c-bb2d-48b1-826c-f34fb995234a@a0826",
+      "displayName": "",
+      "id": "a0826",
+      "name": "平面.002.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "fdad8": {
+      "importer": "gltf-animation",
+      "uuid": "9455155c-bb2d-48b1-826c-f34fb995234a@fdad8",
+      "displayName": "",
+      "id": "fdad8",
+      "name": "骨架|AttackAnim.animation",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.2083333730697632
+        },
+        "events": []
+      }
+    },
+    "13e6a": {
+      "importer": "gltf-animation",
+      "uuid": "9455155c-bb2d-48b1-826c-f34fb995234a@13e6a",
+      "displayName": "",
+      "id": "13e6a",
+      "name": "骨架|BeAttackAnim.animation",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 1,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.2083333730697632
+        },
+        "events": []
+      }
+    },
+    "438fe": {
+      "importer": "gltf-skeleton",
+      "uuid": "9455155c-bb2d-48b1-826c-f34fb995234a@438fe",
+      "displayName": "",
+      "id": "438fe",
+      "name": "UnnamedSkeleton.skeleton",
+      "ver": "1.0.1",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0,
+        "jointsLength": 6
+      }
+    },
+    "9881e": {
+      "importer": "gltf-embeded-image",
+      "uuid": "9455155c-bb2d-48b1-826c-f34fb995234a@9881e",
+      "displayName": "",
+      "id": "9881e",
+      "name": "colorTexture.png.image",
+      "ver": "1.0.2",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "7d6ab": {
+      "importer": "texture",
+      "uuid": "9455155c-bb2d-48b1-826c-f34fb995234a@7d6ab",
+      "displayName": "",
+      "id": "7d6ab",
+      "name": "base_color_texture.texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "9455155c-bb2d-48b1-826c-f34fb995234a@9881e"
+      }
+    },
+    "22e2a": {
+      "importer": "gltf-material",
+      "uuid": "9455155c-bb2d-48b1-826c-f34fb995234a@22e2a",
+      "displayName": "",
+      "id": "22e2a",
+      "name": "材质.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "715c1": {
+      "importer": "gltf-scene",
+      "uuid": "9455155c-bb2d-48b1-826c-f34fb995234a@715c1",
+      "displayName": "",
+      "id": "715c1",
+      "name": "Boss_2.prefab",
+      "ver": "1.0.11",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "colorTexture.png",
+        "uri": "9455155c-bb2d-48b1-826c-f34fb995234a@9881e"
+      }
+    ],
+    "animationImportSettings": [
+      {
+        "name": "骨架|AttackAnim",
+        "duration": 1.2083333730697632,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "骨架|AttackAnim",
+            "from": 0,
+            "to": 1.2083333730697632,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "骨架|BeAttackAnim",
+        "duration": 1.2083333730697632,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "骨架|BeAttackAnim",
+            "from": 0,
+            "to": 1.2083333730697632,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "骨架|MoveAnim",
+        "duration": 1.2083333730697632,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "骨架|MoveAnim",
+            "from": 0,
+            "to": 1.2083333730697632,
+            "wrapMode": 2
+          }
+        ]
+      }
+    ],
+    "redirect": "9455155c-bb2d-48b1-826c-f34fb995234a@715c1",
+    "assetFinder": {
+      "meshes": [
+        "9455155c-bb2d-48b1-826c-f34fb995234a@a0826"
+      ],
+      "skeletons": [
+        "9455155c-bb2d-48b1-826c-f34fb995234a@438fe"
+      ],
+      "textures": [
+        "9455155c-bb2d-48b1-826c-f34fb995234a@7d6ab"
+      ],
+      "materials": [
+        "9455155c-bb2d-48b1-826c-f34fb995234a@22e2a"
+      ],
+      "scenes": [
+        "9455155c-bb2d-48b1-826c-f34fb995234a@715c1"
+      ]
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, Prefab, SpriteFrame, SpriteComponent, instantiate, v3, Tween, LabelComponent } from 'cc';
+import { _decorator, Component, Node, Prefab, SpriteFrame, SpriteComponent, instantiate, v3, Tween, LabelComponent, ScrollViewComponent } from 'cc';
 import { DeadEnemyObj } from '../../EnemyController';
 import { GameController } from '../../GameController';
 import { UIController } from '../UIController';
@@ -42,10 +42,13 @@ export class GameWinPrefab extends Component {
     @property({ type: Node })
     public totalGoldCountLabel: Node = null;
     private gameConfig: {} = null;
+    @property({type: Node})
+    public scrollViewNode: Node = null;
 
     private gameResultState: boolean = null;
     private uiController: UIController = null;
     private gameController: GameController = null;
+    private nodeList: Node[] = [];
     start() {
 
     }
@@ -57,6 +60,7 @@ export class GameWinPrefab extends Component {
         console.log("游戏状态时", succ)
         let allEnemyCount = data.length;
         let allGoldCount = 0;
+        console.log("游戏结果数据是", data);
         console.log("当前关卡打死的敌人数目种类，获得的金币数目 ")
         if (succ) {
             this.gameResultIconNode.getComponent(SpriteComponent).spriteFrame = this.gameWinIconSpriteFrame;
@@ -123,16 +127,24 @@ export class GameWinPrefab extends Component {
         let tw = new Tween(node);
         let iconStr = this.gameConfig[objKey].IconSpriteFrameName;
         node.getComponent(GameResultGoldCell).setData(obj['count'], obj['winGoldCount'], iconStr);
-        for (let i = 0; i < list.length - 1; i++) {
-            tw.delay(0.5)
-            tw.by(0.2, {
-                position: v3(0, 80, 0)
-            })
-        }
-        tw.call(() => {
+        node.position = v3(0, this.nodeList.length * -100 - 50,0);
+        this.nodeList.push(node);
+        tw.delay(0.2)
+        tw.call(()=>{
+            
             this.showCellEnterAnim(data, cb);
         })
         tw.start();
+        // for (let i = 0; i < list.length - 1; i++) {
+        //     tw.delay(0.5)
+        //     tw.by(0.2, {
+        //         position: v3(0, 80, 0)
+        //     })
+        // }
+        // tw.call(() => {
+        //     this.showCellEnterAnim(data, cb);
+        // })
+        // tw.start();
     }
     onButtonClick(event, customData) {
         switch (customData) {

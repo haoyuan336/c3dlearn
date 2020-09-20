@@ -7100,6 +7100,9 @@
       },
       {
         "__uuid__": "e58b76b7-f7e4-4862-b1a3-4a50e901c431"
+      },
+      {
+        "__uuid__": "f788a0c6-c42e-473f-8209-ca8a87c00332"
       }
     ],
     "startPosNodeList": [
@@ -7125,6 +7128,17 @@
     "bosssPrefabList": [
       {
         "__uuid__": "382ba756-51c5-493f-b8a7-55db156d4852"
+      },
+      {
+        "__uuid__": "27d0e1a5-983e-483b-b1a7-aec3853877df"
+      },
+      {
+        "__uuid__": "eb765e38-f83f-4446-aabc-4206fecfe1cc"
+      }
+    ],
+    "enemyBulletPrefabList": [
+      {
+        "__uuid__": "e51e3032-d99a-4d0e-bfb2-628f630eeab4"
       }
     ],
     "_id": "abjvBP7xtInIMfZkS3edwM"
@@ -7502,9 +7516,9 @@
     "_prefab": null,
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -1.61,
-      "y": 9.889,
-      "z": 7.49
+      "x": 0,
+      "y": 10,
+      "z": 0
     },
     "_lrot": {
       "__type__": "cc.Quat",

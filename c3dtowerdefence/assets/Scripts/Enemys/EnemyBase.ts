@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, CCInteger, v3, Vec3, tween, path, Tween, CameraComponent, Vec2, v2, JsonAsset, game, isValid, ProgressBarComponent, RigidBodyComponent, SkeletalAnimationComponent, ParticleSystemComponent, bezier, find } from 'cc';
+import { _decorator, Component, Node, CCInteger, v3, Vec3, tween, path, Tween, CameraComponent, Vec2, v2, JsonAsset, game, isValid, ProgressBarComponent, RigidBodyComponent, SkeletalAnimationComponent, ParticleSystemComponent, bezier, find, Quat } from 'cc';
 import { State } from './../util/State'
 import { GameController } from './../GameController';
 // import { Enemy } from './Enemy';
@@ -37,28 +37,22 @@ export class EnemyBase extends BaseObject {
     // private moveSpeed: number = 0;
     @property({ type: Node })
     public caidaiEffect: Node = null;
-    public init(gameConfig: Object,gameController: GameController, startPos: Vec3, endPos: Vec3) {
-        super.init(gameConfig, this.gameController);
+    public init(gameConfig: Object, gameController: GameController, startPos: Vec3, endPos: Vec3) {
+        super.init(gameConfig, gameController);
 
         this.groundMapCtl = find("GameController").getComponent(GroundMapCtl);
         this.gameConfigJson = gameConfig;
         this.healthCount = this.gameConfigJson[this.objectType].HealthCount;
         this.beLockedMaxNum = this.gameConfigJson[this.objectType].BeLockedCount;
         this.currentHealthCount = this.healthCount;
-        // this.endPos = endPos;
-        // this.startPos = startPos;
-        // let direction = new Vec3(this.startPos).subtract(this.endPos).normalize();
-        // let angle = new Vec2(direction.x, direction.z).signAngle(v2(-1, 0));
-        // this.node.eulerAngles = new Vec3(0, angle * 180 / Math.PI, 0);
         let angle = this.getLookAtAngle(this.node.position, endPos);
-
-        this.node.eulerAngles = new Vec3(0, angle * 180 / Math.PI, 0);
+        this.node.worldRotation = angle;
 
     }
     enterShowBossEnter() {
         if (this.currentMoveTw) {
             this.currentMoveTw.stop();
-        
+
         }
     }
     contiuePlayMoveAnim() {
@@ -67,7 +61,7 @@ export class EnemyBase extends BaseObject {
             let skeleteAnim = this.rootNode.getComponent(SkeletalAnimationComponent);
             let state = skeleteAnim.getState(this.currentBoneAnimName);
             state.speed = 3;
-            this.scheduleOnce(()=>{
+            this.scheduleOnce(() => {
                 // this.currentMoveTw.start();
                 let skeleteAnim = this.rootNode.getComponent(SkeletalAnimationComponent);
                 let currentState = skeleteAnim.getState(this.currentBoneAnimName);
@@ -76,12 +70,12 @@ export class EnemyBase extends BaseObject {
         }
     }
 
-    showEnemyEnterAnim(index: number, enemtCtl: EnemyController, gameCtl: GameController, startPos: Vec2, endPos: Vec2) {
+    showEnemyEnterAnim(index: number, enemtCtl: EnemyController, startPos: Vec2, endPos: Vec2) {
         let node = this.node;
         this.enemyCtl = enemtCtl;
         this.enemyCtl.node.on("frozen-all-enemy", this.forzenSelf.bind(this), this);
 
-        this.gameController = gameCtl;
+        // this.gameController = gameCtl;
         // this.enemyCtl.node.on('enter-show-boss-enter-state', this.enterShowBossEnter, this);
         // this.enemyCtl.node.on("enter-continue-play-move-anim", this.contiuePlayMoveAnim, this);
 
@@ -91,7 +85,7 @@ export class EnemyBase extends BaseObject {
             let pos = node.position;
             tw.delay(0.1 * index)
             tw.set({ scale: v3(0, 0, 0) })
-            tw .show();
+            tw.show();
             tw.call(() => {
                 node.active = true;
             })
@@ -109,20 +103,132 @@ export class EnemyBase extends BaseObject {
         })
     }
     startRun(startPos: Vec2, endPos: Vec2) {
+        console.log("start pos ", startPos);
+        let moveType = this.getMoveType();
+        if (moveType === "Walk") {
+            this.proceeWalkLogic(startPos, endPos);
+        } else if (moveType === 'Fly') {
+            this.processFlyLogic(startPos, endPos)
+        }
+    }
 
-        //
-        // let pathList = this.groundMapCtl.getPathList(startPos, endPos);
-        // console.log("path list", pathList);
-        // let tw = new Tween(this.node);
-        // for (let i = 0; i < pathList.length; i++) {
-        //     tw.to(1, {
-        //         position: pathList[i]
-        //     })
+    processFlyLogic(startPos: Vec2, endPos: Vec2) {
+        //处理敌人飞行的逻辑
+        //1首先设置一条敌人需要飞过的控制点\
+        // let endPoint = this.groundMapCtl.getMapNodeList().getValue(endPos.x, endPos.y).position;
+        // this.node.position = endPoint;
+        let flyHeight = 10;
+        // console.log("处理飞行的逻辑");
+        let mapSize = this.groundMapCtl.getMapSize();
+        let posIndexList: Vec2[] = [v2(startPos.x, startPos.y)];
+        for (let i = 0; i < 5; i++) {
+            posIndexList.push(v2(
+                Math.round(Math.random() * (mapSize.x - 1)),
+                Math.round(Math.random() * (mapSize.y - 1))
+            ))
+        }
+        // posIndexList.push(v2(Math.round,9));
+        // posIndexList.push(v2(2,2));
+        // posIndexList.push(v2(7,7));
+
+        // let index = 3;
+        // posIndexList.push(v2())
+        // console.log("start pos", startPos);
+        // let v = v2(0, 0);
+        // if (startPos.x === 0 || startPos.x === 10) {
+        //     console.log("在边缘");
+        //     v.x = startPos.x === 10 ? 0 : 10
         // }
-        // tw.call(() => {
-        //     this.state.setState("over");
+        // if (startPos.y === 0 || startPos.y === 10) {
+        //     console.log("在边缘");
+        //     v.y = startPos.y === 10 ? 0 : 10;
+        // }
+        // posIndexList.push(v);
+        posIndexList.push(endPos);
+        let posList: Vec3[] = [];
+        for (let i = 0; i < posIndexList.length; i++) {
+            let posv2 = posIndexList[i];
+            console.log("posv2", posv2);
+            let node = this.groundMapCtl.getMapNodeList().getValue(posv2.x, posv2.y);
+            if (node) {
+                let nodePos = node.position;
+                posList.push(v3(nodePos.x, flyHeight, nodePos.z));
+            }
+            // let pos = v3(posv2.x, 0, posv2.y);
+        }
+        let bezier = new BezierN(posList);
+        let endPosList = bezier.getPointList(100);
+        this.currentMoveTw = this.processMoveAction(endPosList);
+        this.currentMoveTw.call(() => {
+            //播放攻击敌人的动画
+            // this.state.setState("enter-attack-state");
+            this.currentBoneAnimName = "骨架|AttackAnim";
+            let skeleteAnim = this.rootNode.getComponent(SkeletalAnimationComponent);
+            // skeleteAnim.play(this.currentBoneAnimName);
+            let animLength = skeleteAnim.getState("骨架|AttackAnim").length;
+            this.schedule(this.shootOneBossBullet, animLength)
+        })
+        this.currentMoveTw.start();
+        // // console.log("start pos", startPos);
+        // posIndexList.push(endPos);
+        // let posList: Vec3[] = [];
+        // for (let i = 0; i < posIndexList.length; i++) {
+        //     let indexPos = posIndexList[i];
+        //     let pos = this.groundMapCtl.getMapNodeList().getValue(indexPos.x, indexPos.y).position;
+        //     posList.push(v3(pos.x, flyHeight, pos.z));
+        // }
+        // posList.push(v3(endPos.x, flyHeight, endPos.y));
+        // // posList.push(v3(endPos.x, flyHeight, endPos.y));
+        // // let bezier = new BezierN(posList);
+        // // let pathList = bezier.getPointList(30);
+        // this.currentMoveTw = this.processMoveAction(posList);
+        // this.currentMoveTw.call(() => {
+        //     console.log("移动结束");
         // })
-        // tw.start();
+        // this.currentMoveTw.start();
+        // 随机几个控制点
+
+    }
+    getOneRandomMapPos(): Vec2 {
+        //从地图里面随机一个点
+        let mapSize = this.groundMapCtl.getMapSize();
+        return v2(Math.round(Math.random() * (mapSize.x - 1)), Math.round(Math.random() * (mapSize.y - 1)))
+    }
+    processMoveAction(pathList: Vec3[]): Tween {
+        //处理移动的动作
+
+        const setTwData = (tw, index) => {
+            let time = 0;
+            let angle = new Quat();
+            if (index === 0) {
+                let dis = v3(this.node.position).subtract(pathList[index]).length();
+                time = dis / this.moveSpeed;
+                angle = this.getLookAtAngle(this.node.position, pathList[index]);
+
+
+            } else {
+                let dis = v3(pathList[index - 1]).subtract(pathList[index]).length();
+                angle = this.getLookAtAngle(pathList[index - 1], pathList[index]);
+
+                time = dis / this.moveSpeed
+            }
+            tw.call(() => {
+                this.node.lookAt(pathList[index])
+            })
+            tw.to(time, {
+                position: pathList[index],
+                // worldRotation: angle
+            })
+        }
+        let tw = new Tween(this.node);
+        for (let i = 0; i < pathList.length; i++) {
+            setTwData(tw, i);
+        }
+
+        return tw;
+    }
+    proceeWalkLogic(startPos: Vec2, endPos: Vec2) {
+        //处理走路的逻辑
         let mapNodeList = this.groundMapCtl.getMapNodeList();
         let obsPosList = this.groundMapCtl.getObsPosList();
         let pathTool = new FindPathWithAStart(mapNodeList, [startPos.x, startPos.y], [endPos.x, endPos.y]);
@@ -138,81 +244,74 @@ export class EnemyBase extends BaseObject {
             let pos = pathList[i];
             pathPosList.push(this.groundMapCtl.getMapNodeList().getValue(pos[0], pos[1]).position);
         }
-        // let tw = new Tween(this.node);
-
         let bezier = new BezierN(pathPosList); //通过获取到的 路径点，来制作一条贝塞尔曲线
         this.bezierPathList = bezier.getPointList(30); //路径密度为20
-        // let allLength = BezierN.getPathLength(this.bezierPathList);
-        // let preTime = allLength / this.moveSpeed;
-        let tw = new Tween(this.node);
-        for (let i = 0; i < this.bezierPathList.length - 5; i++) {
-            let time = 0;
-            // let targetPos =
-            let angle = 0;
-            if (i === 0) {
-                let dis = v3(this.node.position).subtract(this.bezierPathList[i]).length();
-                time = dis / this.moveSpeed;
-                angle = this.getLookAtAngle(this.node.position, this.bezierPathList[i]);
-            } else {
-                let dis = v3(this.bezierPathList[i - 1]).subtract(this.bezierPathList[i]).length();
-                angle = this.getLookAtAngle(this.bezierPathList[i - 1], this.bezierPathList[i]);
+        this.bezierPathList = this.bezierPathList.slice(0, this.bezierPathList.length - 5);
+        this.currentMoveTw = this.processMoveAction(this.bezierPathList);
 
-                time = dis / this.moveSpeed
-            }
-            // this.node.eulerAngles
-            // let preTime = v3(this.)
-            // tw.set({ eulerAngles: v3(0, angle * 180 / Math.PI, 0) })
-            tw.to(time, {
-                position: this.bezierPathList[i],
-                eulerAngles: v3(0, angle * 180 / Math.PI, 0)
-            })
-        }
-
-        tw.call(()=>{
+        this.currentMoveTw.call(() => {
             this.state.setState("enter-attack-state");
         })
-        tw.start();
-        
-        this.currentMoveTw = tw;
+        this.currentMoveTw.start();
 
         this.state.setState("run");
-        // let skeleteAnim = this.rootNode.getComponent(SkeletalAnimationComponent)
-        // if (skeleteAnim) {
-        //     if (skeleteAnim.defaultClip) {
-        //         let defaultClip = skeleteAnim.defaultClip.name;
-        //         let animState = skeleteAnim.getState(defaultClip);
-        //         let length = animState.length;
-        //         animState.speed = this.moveSpeed * this.animSpeedMulOffset;
-        //     }
-        // }
     }
-    
-    getLookAtAngle(startPos, targetPoint: Vec3) {
-        //获取到朝向的角度
-        let vector = v3(startPos).subtract(targetPoint);
-        let dir = v2(-1, 0);
-        let angle = v2(vector.x, vector.z).signAngle(dir);
-        return angle;
+    getLookAtAngle(startPos, targetPoint: Vec3): Quat {
+        // //获取到朝向的角度
+
+        let dir = v3(startPos).subtract(targetPoint).normalize();
+        let quat = new Quat();
+        quat.lerp
+        Quat.fromViewUp(quat, dir, Vec3.UP);
+
+        // console.log("quat", quat);
+        // rotateAround
+        // startPos.
+        // this.node.rotate/
+
+        return quat
     }
-    forzenSelf(){
+    forzenSelf() {
         //冰冻自己
-        if(this.currentMoveTw){
+        if (this.currentMoveTw) {
             this.currentMoveTw.stop();
             let skeleteAnim = this.rootNode.getComponent(SkeletalAnimationComponent);
             let stateAnim = skeleteAnim.getState(this.currentBoneAnimName);
-            stateAnim.pause();
+            if (stateAnim) {
+                stateAnim.pause();
+            }
         }
     }
+
+    shootOneBossBullet() {
+        this.currentBoneAnimName = "骨架|AttackAnim";
+        let skeleteAnim = this.rootNode.getComponent(SkeletalAnimationComponent);
+        skeleteAnim.play(this.currentBoneAnimName);
+        let animLength = skeleteAnim.getState(this.currentBoneAnimName).length;
+
+        this.scheduleOnce(() => {
+            // this.enemyCtl.enemyAttacked();//敌人发动了攻击
+
+            this.enemyCtl.bossShootOneEgg(this.node);
+
+        }, this.animSpeedMulOffset * animLength);
+    }
+
     onLoad() {
-        this.state.addState("enter-attack-state", ()=>{
+        this.state.addState("enter-attack-state", () => {
             console.log("移动结束");
             //进入攻击状态
             this.currentBoneAnimName = "骨架|AttackAnim";
             let skeleteAnim = this.rootNode.getComponent(SkeletalAnimationComponent);
             skeleteAnim.play(this.currentBoneAnimName);
-            this.scheduleOnce(()=>{
+            let animLength = skeleteAnim.getState(this.currentBoneAnimName).length;
+
+            this.scheduleOnce(() => {
+                // this.enemyCtl.enemyAttacked();//敌人发动了攻击
+                //普通敌人的攻击
                 this.enemyCtl.enemyAttacked();//敌人发动了攻击
-            }, this.animSpeedMulOffset);
+
+            }, this.animSpeedMulOffset * animLength);
         })
         this.state.addState("over", () => {
             this.enemyCtl.removeEnemyInList(this.node);
@@ -220,7 +319,7 @@ export class EnemyBase extends BaseObject {
 
         });
         this.state.addState("to-dead", () => {
-            this.enemyCtl.pushOneEnemyDeadData(new DeadEnemyObj(this.objectType,this.getCurrentGoldCount()));
+            this.enemyCtl.pushOneEnemyDeadData(new DeadEnemyObj(this.objectType, this.getCurrentGoldCount()));
             if (this.currentMoveTw) {
                 this.currentMoveTw.stop();
             }
@@ -446,10 +545,11 @@ export class EnemyBase extends BaseObject {
         })
     }
 
-    onDestroy(){
+    onDestroy() {
         // this.node.off('enter-show-boss-enter-state', this.enterShowBossEnter, this);
         // this.node.off('enter-continue-play-move-anim', this.contiuePlayMoveAnim, this);
         this.enemyCtl.node.off("frozen-all-enemy", this.forzenSelf, this);
+        this.unschedule(this.shootOneBossBullet);
     }
-  
+
 }

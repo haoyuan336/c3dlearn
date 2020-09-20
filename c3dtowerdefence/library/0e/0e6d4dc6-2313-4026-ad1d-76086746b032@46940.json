@@ -1,0 +1,797 @@
+[
+  {
+    "__type__": "cc.AnimationClip",
+    "_name": "骨架|MoveAnim",
+    "_objFlags": 0,
+    "_native": ".bin",
+    "sample": 30,
+    "speed": 1,
+    "wrapMode": 2,
+    "events": [],
+    "_duration": 1.2083333730697632,
+    "_keys": [
+      {
+        "__id__": 1
+      }
+    ],
+    "_stepness": 0,
+    "_curves": [
+      {
+        "modifiers": [
+          {
+            "__id__": 2
+          },
+          "rotation"
+        ],
+        "data": {
+          "keys": 0,
+          "values": {
+            "__id__": 3
+          }
+        }
+      },
+      {
+        "modifiers": [
+          {
+            "__id__": 2
+          },
+          "position"
+        ],
+        "data": {
+          "keys": -1,
+          "values": {
+            "__id__": 4
+          },
+          "interpolate": false
+        }
+      },
+      {
+        "modifiers": [
+          {
+            "__id__": 2
+          },
+          "scale"
+        ],
+        "data": {
+          "keys": -1,
+          "values": {
+            "__id__": 5
+          },
+          "interpolate": false
+        }
+      },
+      {
+        "modifiers": [
+          {
+            "__id__": 6
+          },
+          "rotation"
+        ],
+        "data": {
+          "keys": 0,
+          "values": {
+            "__id__": 7
+          }
+        }
+      },
+      {
+        "modifiers": [
+          {
+            "__id__": 6
+          },
+          "position"
+        ],
+        "data": {
+          "keys": -1,
+          "values": {
+            "__id__": 8
+          },
+          "interpolate": false
+        }
+      },
+      {
+        "modifiers": [
+          {
+            "__id__": 6
+          },
+          "scale"
+        ],
+        "data": {
+          "keys": -1,
+          "values": {
+            "__id__": 9
+          },
+          "interpolate": false
+        }
+      },
+      {
+        "modifiers": [
+          {
+            "__id__": 10
+          },
+          "rotation"
+        ],
+        "data": {
+          "keys": 0,
+          "values": {
+            "__id__": 11
+          }
+        }
+      },
+      {
+        "modifiers": [
+          {
+            "__id__": 10
+          },
+          "position"
+        ],
+        "data": {
+          "keys": -1,
+          "values": {
+            "__id__": 12
+          },
+          "interpolate": false
+        }
+      },
+      {
+        "modifiers": [
+          {
+            "__id__": 10
+          },
+          "scale"
+        ],
+        "data": {
+          "keys": -1,
+          "values": {
+            "__id__": 13
+          },
+          "interpolate": false
+        }
+      },
+      {
+        "modifiers": [
+          {
+            "__id__": 14
+          },
+          "position"
+        ],
+        "data": {
+          "keys": -1,
+          "values": {
+            "__id__": 15
+          },
+          "interpolate": false
+        }
+      },
+      {
+        "modifiers": [
+          {
+            "__id__": 14
+          },
+          "scale"
+        ],
+        "data": {
+          "keys": -1,
+          "values": {
+            "__id__": 16
+          },
+          "interpolate": false
+        }
+      },
+      {
+        "modifiers": [
+          {
+            "__id__": 14
+          },
+          "rotation"
+        ],
+        "data": {
+          "keys": -1,
+          "values": {
+            "__id__": 17
+          },
+          "interpolate": false
+        }
+      },
+      {
+        "modifiers": [
+          {
+            "__id__": 18
+          },
+          "position"
+        ],
+        "data": {
+          "keys": -1,
+          "values": {
+            "__id__": 19
+          },
+          "interpolate": false
+        }
+      },
+      {
+        "modifiers": [
+          {
+            "__id__": 18
+          },
+          "scale"
+        ],
+        "data": {
+          "keys": -1,
+          "values": {
+            "__id__": 20
+          },
+          "interpolate": false
+        }
+      },
+      {
+        "modifiers": [
+          {
+            "__id__": 18
+          },
+          "rotation"
+        ],
+        "data": {
+          "keys": -1,
+          "values": {
+            "__id__": 21
+          },
+          "interpolate": false
+        }
+      },
+      {
+        "modifiers": [
+          {
+            "__id__": 22
+          },
+          "position"
+        ],
+        "data": {
+          "keys": -1,
+          "values": {
+            "__id__": 23
+          },
+          "interpolate": false
+        }
+      },
+      {
+        "modifiers": [
+          {
+            "__id__": 22
+          },
+          "scale"
+        ],
+        "data": {
+          "keys": -1,
+          "values": {
+            "__id__": 24
+          },
+          "interpolate": false
+        }
+      },
+      {
+        "modifiers": [
+          {
+            "__id__": 22
+          },
+          "rotation"
+        ],
+        "data": {
+          "keys": -1,
+          "values": {
+            "__id__": 25
+          },
+          "interpolate": false
+        }
+      },
+      {
+        "modifiers": [
+          {
+            "__id__": 26
+          },
+          "position"
+        ],
+        "data": {
+          "keys": -1,
+          "values": {
+            "__id__": 27
+          },
+          "interpolate": false
+        }
+      },
+      {
+        "modifiers": [
+          {
+            "__id__": 26
+          },
+          "scale"
+        ],
+        "data": {
+          "keys": -1,
+          "values": {
+            "__id__": 28
+          },
+          "interpolate": false
+        }
+      },
+      {
+        "modifiers": [
+          {
+            "__id__": 26
+          },
+          "rotation"
+        ],
+        "data": {
+          "keys": -1,
+          "values": {
+            "__id__": 29
+          },
+          "interpolate": false
+        }
+      },
+      {
+        "modifiers": [
+          {
+            "__id__": 30
+          },
+          "position"
+        ],
+        "data": {
+          "keys": -1,
+          "values": {
+            "__id__": 31
+          },
+          "interpolate": false
+        }
+      },
+      {
+        "modifiers": [
+          {
+            "__id__": 30
+          },
+          "scale"
+        ],
+        "data": {
+          "keys": -1,
+          "values": {
+            "__id__": 32
+          },
+          "interpolate": false
+        }
+      },
+      {
+        "modifiers": [
+          {
+            "__id__": 30
+          },
+          "rotation"
+        ],
+        "data": {
+          "keys": -1,
+          "values": {
+            "__id__": 33
+          },
+          "interpolate": false
+        }
+      },
+      {
+        "modifiers": [
+          {
+            "__id__": 34
+          },
+          "position"
+        ],
+        "data": {
+          "keys": -1,
+          "values": {
+            "__id__": 35
+          },
+          "interpolate": false
+        }
+      },
+      {
+        "modifiers": [
+          {
+            "__id__": 34
+          },
+          "scale"
+        ],
+        "data": {
+          "keys": -1,
+          "values": {
+            "__id__": 36
+          },
+          "interpolate": false
+        }
+      },
+      {
+        "modifiers": [
+          {
+            "__id__": 34
+          },
+          "rotation"
+        ],
+        "data": {
+          "keys": -1,
+          "values": {
+            "__id__": 37
+          },
+          "interpolate": false
+        }
+      },
+      {
+        "modifiers": [
+          {
+            "__id__": 38
+          },
+          "position"
+        ],
+        "data": {
+          "keys": -1,
+          "values": {
+            "__id__": 39
+          },
+          "interpolate": false
+        }
+      },
+      {
+        "modifiers": [
+          {
+            "__id__": 38
+          },
+          "scale"
+        ],
+        "data": {
+          "keys": -1,
+          "values": {
+            "__id__": 40
+          },
+          "interpolate": false
+        }
+      },
+      {
+        "modifiers": [
+          {
+            "__id__": 38
+          },
+          "rotation"
+        ],
+        "data": {
+          "keys": -1,
+          "values": {
+            "__id__": 41
+          },
+          "interpolate": false
+        }
+      },
+      {
+        "modifiers": [
+          {
+            "__id__": 42
+          },
+          "position"
+        ],
+        "data": {
+          "keys": -1,
+          "values": {
+            "__id__": 43
+          },
+          "interpolate": false
+        }
+      },
+      {
+        "modifiers": [
+          {
+            "__id__": 42
+          },
+          "scale"
+        ],
+        "data": {
+          "keys": -1,
+          "values": {
+            "__id__": 44
+          },
+          "interpolate": false
+        }
+      },
+      {
+        "modifiers": [
+          {
+            "__id__": 42
+          },
+          "rotation"
+        ],
+        "data": {
+          "keys": -1,
+          "values": {
+            "__id__": 45
+          },
+          "interpolate": false
+        }
+      }
+    ],
+    "_commonTargets": [],
+    "_hash": 188727486
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1832,
+    "_unitCount": 30,
+    "_unitElement": 6,
+    "_length": 30
+  },
+  {
+    "__type__": "cc.animation.HierarchyPath",
+    "path": "RootNode/骨架/Bone/Body"
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 0,
+    "_unitCount": 120,
+    "_unitElement": 38,
+    "_length": 30
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 480,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 492,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.animation.HierarchyPath",
+    "path": "RootNode/骨架/Bone/Body/B_Tail"
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 504,
+    "_unitCount": 120,
+    "_unitElement": 38,
+    "_length": 30
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 984,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 996,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.animation.HierarchyPath",
+    "path": "RootNode/骨架/Bone/Body/Bone.003/Bone.004/Up_Tail"
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1008,
+    "_unitCount": 120,
+    "_unitElement": 38,
+    "_length": 30
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1488,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1500,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.animation.HierarchyPath",
+    "path": "RootNode"
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1512,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1524,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1536,
+    "_unitCount": 4,
+    "_unitElement": 38,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.animation.HierarchyPath",
+    "path": "RootNode/平面.002"
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1552,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1564,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1576,
+    "_unitCount": 4,
+    "_unitElement": 38,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.animation.HierarchyPath",
+    "path": "RootNode/骨架"
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1592,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1604,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1616,
+    "_unitCount": 4,
+    "_unitElement": 38,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.animation.HierarchyPath",
+    "path": "RootNode/骨架/Bone"
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1632,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1644,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1656,
+    "_unitCount": 4,
+    "_unitElement": 38,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.animation.HierarchyPath",
+    "path": "RootNode/骨架/Bone/Body/B_Tail/B_Tail_end"
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1672,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1684,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1696,
+    "_unitCount": 4,
+    "_unitElement": 38,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.animation.HierarchyPath",
+    "path": "RootNode/骨架/Bone/Body/Bone.003"
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1712,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1724,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1736,
+    "_unitCount": 4,
+    "_unitElement": 38,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.animation.HierarchyPath",
+    "path": "RootNode/骨架/Bone/Body/Bone.003/Bone.004"
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1752,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1764,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1776,
+    "_unitCount": 4,
+    "_unitElement": 38,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.animation.HierarchyPath",
+    "path": "RootNode/骨架/Bone/Body/Bone.003/Bone.004/Up_Tail/Up_Tail_end"
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1792,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1804,
+    "_unitCount": 3,
+    "_unitElement": 22,
+    "_length": 1
+  },
+  {
+    "__type__": "cc.CompactValueTypeArray",
+    "_byteOffset": 1816,
+    "_unitCount": 4,
+    "_unitElement": 38,
+    "_length": 1
+  }
+]

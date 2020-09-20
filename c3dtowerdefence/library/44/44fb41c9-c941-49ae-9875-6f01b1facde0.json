@@ -17,6 +17,9 @@
       "RotateSpeed": 180
     },
     "Tower_1": {
+      "CanAttackType": [
+        "Walk"
+      ],
       "TowerType": "Tower_1",
       "Type": "Tower",
       "IconSprteFrame": "Tower_0_Icon",
@@ -30,6 +33,9 @@
       "ActiveCost": 10
     },
     "Tower_2": {
+      "CanAttackType": [
+        "Walk"
+      ],
       "TowerType": "Tower_2",
       "Type": "Tower",
       "IconSprteFrame": "Tower_1_Icon",
@@ -43,6 +49,10 @@
       "ActiveCost": 100
     },
     "Tower_3": {
+      "CanAttackType": [
+        "Walk",
+        "Fly"
+      ],
       "TowerType": "Tower_3",
       "Type": "Tower",
       "IconSprteFrame": "Tower_1_Icon",
@@ -87,22 +97,57 @@
       "HealthCount": 1,
       "BeLockedCount": 3,
       "BaseGasNum": 5,
-      "BaseGoldCount": 1
+      "BaseGoldCount": 1,
+      "MoveType": "Walk"
     },
     "Enemy_1": {
+      "IconSpriteFrameName": "Enemy_1_Icon",
       "MoveSpeed": 0.8,
       "HealthCount": 10,
       "BeLockedCount": 10,
       "BaseGasNum": 5,
-      "BaseGoldCount": 10
+      "BaseGoldCount": 10,
+      "MoveType": "Walk"
+    },
+    "Enemy_2": {
+      "IconSpriteFrameName": "Enemy_2_Icon",
+      "MoveSpeed": 2,
+      "HealthCount": 10,
+      "BeLockedCount": 10,
+      "BaseGasNum": 5,
+      "BaseGoldCount": 10,
+      "MoveType": "Walk"
+    },
+    "EnemyBullet_0": {
+      "Mass": 10
     },
     "Boss_0": {
       "IconSpriteFrameName": "Enemy_1_Icon",
       "MoveSpeed": 0.4,
-      "HealthCount": 1,
+      "HealthCount": 50,
       "BeLockedCount": 10,
       "BaseGasNum": 5,
-      "BaseGoldCount": 10
+      "BaseGoldCount": 10,
+      "MoveType": "Walk"
+    },
+    "Boss_1": {
+      "IconSpriteFrameName": "Enemy_2_Icon",
+      "MoveSpeed": 1.8,
+      "HealthCount": 100,
+      "BeLockedCount": 10,
+      "BaseGasNum": 5,
+      "BaseGoldCount": 10,
+      "MoveType": "Walk"
+    },
+    "Boss_2": {
+      "IconSpriteFrameName": "Enemy_2_Icon",
+      "MoveSpeed": 8,
+      "HealthCount": 100,
+      "BeLockedCount": 10,
+      "BaseGasNum": 5,
+      "BaseGoldCount": 10,
+      "MoveType": "Fly",
+      "EnemyBulletType": 0
     },
     "Monster_1": {
       "MoveSpeed": 0.2,
@@ -126,6 +171,7 @@
       "LeftTime": 3
     },
     "Level_0": {
+      "InitGoldCount": 100,
       "TowerBuildPos": [
         [
           3,
@@ -167,25 +213,25 @@
       "AddEnemyDuraction": [
         2,
         10,
-        10,
         10
       ],
       "EnemyType": [
         [
           {
-            "type": 0,
+            "type": 2,
             "count": 5
           }
         ],
         [
           {
-            "type": 0,
+            "type": 2,
             "count": 1
           }
         ]
       ]
     },
     "Level_1": {
+      "InitGoldCount": 100,
       "TowerBuildPos": [
         [
           4,
@@ -219,7 +265,9 @@
           {
             "type": 0,
             "count": 10
-          },
+          }
+        ],
+        [
           {
             "type": 1,
             "count": 5
@@ -227,7 +275,64 @@
         ],
         [
           {
+            "type": 1,
+            "count": 1
+          }
+        ]
+      ]
+    },
+    "Level_2": {
+      "InitGoldCount": 100,
+      "TowerBuildPos": [
+        [
+          4,
+          4
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          4
+        ]
+      ],
+      "ActivedTower": [
+        0,
+        1
+      ],
+      "AddEnemyDuraction": [
+        5,
+        10,
+        10,
+        10
+      ],
+      "EnemyType": [
+        [
+          {
             "type": 0,
+            "count": 10
+          }
+        ],
+        [
+          {
+            "type": 1,
+            "count": 5
+          }
+        ],
+        [
+          {
+            "type": 2,
+            "count": 5
+          }
+        ],
+        [
+          {
+            "type": 1,
             "count": 1
           }
         ]

@@ -23,6 +23,9 @@ export class HomeIcon extends Component {
     frozenHomeIcon(){
         this.state.setState("frozen");
     }
+    freeHomeIconn(){
+        this.state.setState("run");
+    }
     update(dt: number) {
         if (this.state.getState() === "run"){
             this.redHeartNode.eulerAngles = this.redHeartNode.eulerAngles.add(v3(0, 1, 0));

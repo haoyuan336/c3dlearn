@@ -57,18 +57,20 @@ export class WeaponInfoCtl extends Component {
                 this.state.setState("play-close-anim");
             }
         });
-        this.node.on("refer-choose-rate-cost", (chooseRate)=>{
+        this.node.on("refer-choose-rate-cost", (chooseRate) => {
             console.log("刷新当前选择的倍数", chooseRate);
             console.log("weapon indo cell node list", this.weaponIndoCellNodeList);
-            for (let i = 0 ; i < this.weaponIndoCellNodeList.length ; i ++){
+            for (let i = 0; i < this.weaponIndoCellNodeList.length; i++) {
                 let node = this.weaponIndoCellNodeList[i];
                 node.getComponent(WeaponUpdateCellPrefab).updateChooseRate(chooseRate);
             }
         })
+        // this.node.on("enter-game", ()=>{
         this.initWeaponData();
+        // })
         //
     }
-    initWeaponData() {
+    public initWeaponData() {
         //初始化当前武器的相关信息
         let gameController = this.gameController.getComponent(GameController);
         let gameConfig = this.gameController.getComponent(GameController).getGameConfig().json;

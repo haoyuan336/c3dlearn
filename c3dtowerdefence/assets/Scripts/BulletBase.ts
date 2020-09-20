@@ -75,7 +75,7 @@ export class BulletBase extends BaseObject {
         // this.state.setState("sleep");
 
         let otherCollider: ColliderComponent = event.otherCollider;
-        if (isValid(otherCollider.node) && otherCollider.node.name.indexOf("Wall") > 1) {
+        if (isValid(otherCollider) && isValid(otherCollider.node) && otherCollider.node.name.indexOf("Wall") > 1) {
             console.log(" other collier node", otherCollider.node.name);
             this.node.destroy();
         }

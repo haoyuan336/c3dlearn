@@ -37,8 +37,12 @@ export class BaseObject extends Component {
     public towerIndexType: number = 0; //当前塔的序号信息
     public iconSpriteFrame: SpriteFrame = null; //icon的精灵帧
     public activeCostGoldCount: number = 0; //激活需要的金币个数
+    private enemyMoveType = "walk";
+    private canAttackMoveTypeList: string[] = []; //可以攻击的移动类型列表 
+    private enemyBulletType: number = 0; //敌人的子弹类型
     public init(gameConfig: Object, gameController: GameController, startPos?: Vec3, endPos?: Vec3) {
         // this.baseGasNum = gameConfig[]
+        console.log("base object type", this.objectType);
         this.gameController = gameController;
         if (gameConfig[this.objectType].BaseGasNum) {
             this.baseGasNum = gameConfig[this.objectType].BaseGasNum;
@@ -89,8 +93,17 @@ export class BaseObject extends Component {
         if (gameConfig[this.objectType]['IconSprteFrame']) {
             this.iconSpriteFrame = gameConfig[this.objectType]['IconSprteFrame']
         }
-        if(gameConfig[this.objectType]['ActiveCost']){
+        if (gameConfig[this.objectType]['ActiveCost']) {
             this.activeCostGoldCount = gameConfig[this.objectType]['ActiveCost'];
+        }
+        if (gameConfig[this.objectType]['MoveType']) {
+            this.enemyMoveType = gameConfig[this.objectType]['MoveType'];
+        }
+        if (gameConfig[this.objectType]["CanAttackType"]) {
+            this.canAttackMoveTypeList = gameConfig[this.objectType]['CanAttackType'];
+        }
+        if (gameConfig[this.objectType]['EnemyBulletType']){
+            this.enemyBulletType = gameConfig[this.objectType]['EnemyBulletType'];//取出敌人的子弹类型
         }
     }
     getCurrentAttackNum() {
@@ -211,8 +224,40 @@ export class BaseObject extends Component {
         this.gameController.playerData.updateTowerLocalLevel(this.towerIndexType, localLevel);
         // this.gameController.playerData.update
     }
-    getActiveCostGoldCount(){
+    getActiveCostGoldCount() {
         //获取激活需要的金币个数
         return this.activeCostGoldCount;
+    }
+    activeWeapon() {
+        //激活武器
+        this.gameController.playerData.activeTower(this.towerIndexType);
+
+    }
+    getMoveType() {
+        return this.enemyMoveType;
+    }
+    getCanAttackEnemy(obj: Node): Boolean {
+        let baseObj = obj.getComponent(BaseObject);
+        if (baseObj){
+            let objType = baseObj.getMoveType();
+            let list = this.canAttackMoveTypeList;
+            for (let i = 0; i < list.length; i++) {
+                let str = list[i];
+                if (str === objType) {
+                    return true;
+                }
+            }
+        }
+       
+        return false;
+    }
+    getIsBoss(){
+        if (this.objectType.indexOf("Boss") > -1){
+            return true;
+        }
+        return false;
+    }
+    getEnemyBulletType(){
+        return this.enemyBulletType;
     }
 }

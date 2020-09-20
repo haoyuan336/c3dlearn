@@ -15,10 +15,10 @@ export class PlayData {
         let gameTime = this.getLocalData("game-time");
         console.log("game time", gameTime);
         // this.clearLocalData();
-        this.setLocalData("gold-count", 99999 + '');
+        // this.setLocalData("gold-count", 99999 + '');
         // this.setLocalData('active-tower-build-base-count', '2');
         // this.setLocalData("current-level-num", this.currentLevelNum + '');
-        this.initTowerLevelLocalData(this.gameController.getGameConfig().json);
+        // this.initTowerLevelLocalData(this.gameController.getGameConfig().json);
 
         if (gameTime) {
             // 首次进入游戏. 初始化游戏数据
@@ -102,12 +102,15 @@ export class PlayData {
     newGame() {
         this.currentLevelNum = 0;
         this.setLocalData('current-level-num', this.currentLevelNum + '');//保存当前的关卡数
-        this.currentGoldCount = 30;
+        this.currentGoldCount = this.gameController.getGameConfig().json['Level_' + this.currentLevelNum].InitGoldCount;
         this.setLocalData("gold-count", this.currentGoldCount + '');
 
     }
     enterNextLevel() {
         this.currentLevelNum++;
+        //获取当前关卡的金币个数
+        let goldCount = this.gameController.getGameConfig().json['Level_' + this.currentLevelNum].InitGoldCount;
+        this.addGoldCount(goldCount);
         this.setLocalData('current-level-num', this.currentLevelNum + '');//保存当前的关卡数
     }
     // getCurrentTowerLevelData(towerIndex: number): Object {
@@ -115,12 +118,17 @@ export class PlayData {
     // }
     // updateCurrentTowerLevelData()
     activeTower(index: number) {
+        console.log("active tower index", index);
+        console.log("current tower level data", this.currentTowerLevelData);
+
         this.currentTowerLevelData[index]["isActive"] = true;
         this.currentTowerLevelData[index]['currentLevel'] = 1;
         this.setLocalData("tower-level-data", JSON.stringify(this.currentTowerLevelData));
     }
     getWeaponIsActive(index) {
         //获取塔是否激活了
+        // console.log("index", index);
+        // console.log("data", this.currentTowerLevelData[index]);
         return this.currentTowerLevelData[index]["isActive"];
     }
     getCurrentTowerLocalLevel(towerInedx: number) {
