@@ -1,4 +1,4 @@
-import { _decorator, PhysicsRayResult, Component, Node, Vec2, Vec3, Quat, v3, v2, Prefab, instantiate, JsonAsset, CameraComponent, find, ColliderComponent, SkeletalAnimationComponent, isValid, CCFloat, Tween } from 'cc';
+import { _decorator, PhysicsRayResult, Component, Node, Vec2, Vec3, Quat, v3, v2, Prefab, instantiate, JsonAsset, CameraComponent, find, ColliderComponent, SkeletalAnimationComponent, isValid, CCFloat, Tween, NodePool } from 'cc';
 import { State } from './../util/State';
 import { GameController } from './../GameController'
 import { EnemyBase } from './../Enemys/EnemyBase'
@@ -21,10 +21,17 @@ export class TowerBase extends BaseObject {
     @property({ type: Prefab })
     public bulletPrefab: Prefab = null;
     @property({ type: Node })
-    public bulletStartPos: Node = null;
+    public bulletStartPosList: Node[] = [];
+
+    @property({ type: Node })
+    public weaponBaseNode: Node = null; //武器底座节点
+    // @property({ type: Node })
+    // public bulletStartPos: Node = null;
+    // @property({type: Node})
+    // public armNode: Node = null;
 
     // private bulletMoveTime: number = null;
-    private currentShootDiraction: Vec2 = v2(0, 0);
+    private currentShootDiraction: Vec3 = v3(0, 0, 0);
     // @property({ type: Node })
     // public rootNode: Node = null;
 
@@ -42,18 +49,23 @@ export class TowerBase extends BaseObject {
 
     private skillCtl: SkillCtl = null;
 
+    // private isCanAttack: 
+
     init(gameConfig: Object, gameController: GameController) {
         super.init(gameConfig, gameController);
         this.skillCtl = find("Canvas").getComponent(SkillCtl);
         this.gameConfig = gameConfig;
         console.log('tower base init');
         this.node.emit("init", gameConfig, gameController);
+        // this.node.on("weapon-euler-angles-init", ()=>{
+        //     //武器角度归为
+        // })
     }
     start() {
         console.log("tower base start");
         this.state.setState("run");
-        let moveDistance = this.bulletStartPos.worldPosition.y - 0.5; //子弹的发射高度 - 敌人的 高度
-        let accY = GameController.accY;
+        // let moveDistance = this.bulletStartPos.worldPosition.y - 0.5; //子弹的发射高度 - 敌人的 高度
+        // let accY = GameController.accY;
         this.gameController = find("GameController").getComponent(GameController);
 
         // this.gameConfig = this.gameController.getComponent(GameController).getGameConfig().json;
@@ -80,27 +92,36 @@ export class TowerBase extends BaseObject {
             // }
             // this.node.destroy();
             let skeleteAnim = this.rootNode.getComponent(SkeletalAnimationComponent);
-            if (skeleteAnim.clips.length < 3) {
+            // if (skeleteAnim.clips.length < 3) {
+            //     this.node.destroy();
+            //     if (this.towerBuildBase) {
+            //         this.towerBuildBase.getComponent(TowerBuildBase).unSetTargetTower(this.node);
+            //     }
+            //     return;
+            // }
+            let destroyAnimName = "骨架|todestroy"
+            // let destroyClip = skeleteAnim.clips[2];
+            let stateAnim = skeleteAnim.getState(destroyAnimName);
+            if (stateAnim) {
+                stateAnim.repeatCount = 1;
+                skeleteAnim.play(destroyAnimName);
+                this.scheduleOnce(() => {
+                    if (this.towerBuildBase) {
+                        this.towerBuildBase.getComponent(TowerBuildBase).unSetTargetTower(this.node);
+                    }
+                    let randomPos = v3(Math.random() * 2, 0, Math.random() * 2);
+                    this.gameController.getComponent(GameController).showAddGoldAnimEffect(this.getDestroyCount(), v3(this.node.position.x, 0, this.node.position.z).add(randomPos));
+
+                    this.node.destroy();
+
+                }, stateAnim.length)
+            } else {
                 this.node.destroy();
                 if (this.towerBuildBase) {
                     this.towerBuildBase.getComponent(TowerBuildBase).unSetTargetTower(this.node);
                 }
-                return;
             }
-            let destroyClip = skeleteAnim.clips[2];
-            let stateAnim = skeleteAnim.getState(destroyClip.name);
-            stateAnim.repeatCount = 1;
-            skeleteAnim.play(destroyClip.name);
-            this.scheduleOnce(() => {
-                if (this.towerBuildBase) {
-                    this.towerBuildBase.getComponent(TowerBuildBase).unSetTargetTower(this.node);
-                }
-                let randomPos = v3(Math.random() * 2, 0, Math.random() * 2);
-                this.gameController.getComponent(GameController).showAddGoldAnimEffect(this.getDestroyCount(), v3(this.node.position.x, 0, this.node.position.z).add(randomPos));
 
-                this.node.destroy();
-
-            }, stateAnim.length)
 
 
         })
@@ -166,23 +187,34 @@ export class TowerBase extends BaseObject {
                 if (targetEnemyNode) {
                     let dis = v2(targetEnemyNode.position.x, targetEnemyNode.position.z).subtract(v2(this.node.position.x, this.node.position.z)).length();
                     // console.log("dis", dis);
+                    // this.rootNode.lookAt(targetEnemyNode.position);
+
                     if (dis < this.getCurrentAttackRange()) {
+                        // this.rootNode.lookAt(targetEnemyNode.position);
                         this.currentTargetEnemy = targetEnemyNode;
                     }
                 }
             }
             if (isValid(this.currentTargetEnemy)) {
                 // console.log("找到了目标敌人");
-
+                this.rootNode.lookAt(this.currentTargetEnemy.position);
                 if (this.currentTargetEnemy.getComponent(EnemyBase) &&
                     this.currentTargetEnemy.getComponent(EnemyBase).getIsDead()) {
                     this.currentTargetEnemy = null;
                 } else {
-                    this.currentShootDiraction = v2(this.currentTargetEnemy.position.x, this.currentTargetEnemy.position.z)
-                        .subtract(v2(this.node.position.x, this.node.position.z))
-                    let angle = this.currentShootDiraction.signAngle(v2(0, -1));
+                    this.currentShootDiraction = v3(this.currentTargetEnemy.position)
+                        .subtract(v3(this.node.position))
+                    // let angle = v2(this.currentShootDiraction.x, this.currentShootDiraction.z).signAngle(v2(0, -1));
                     // console.log("angle", angle);
-                    this.node.eulerAngles = new Vec3(0, angle * 180 / Math.PI, 0);
+                    // this.node.eulerAngles = new Vec3(0, angle * 180 / Math.PI, 0);
+
+
+                    let quat = new Quat();
+                    let v = v3(this.currentShootDiraction.x, 0, this.currentShootDiraction.z).normalize();
+                    Quat.fromViewUp(quat, v, Vec3.UP);
+                    let lerpQ = new Quat();
+                    Quat.lerp(lerpQ, this.node.rotation, quat, 0.2);
+                    this.node.rotation = quat;
                 }
             }
             if (isValid(this.currentTargetEnemy)) {
@@ -206,44 +238,70 @@ export class TowerBase extends BaseObject {
     getCurrentAttackRate() {
         return this.baseAttackRate
     }
-    shootOneBullet(attackRate: number, currentShootDiraction: Vec2, attackNum: number) {
+    shootOneBullet(attackRate: number, currentShootDiraction: Vec3, attackNum: number) {
+        // if(this.weaponBaseNode){
+        //     let weaponSkeleteAnim = this.weaponBaseNode.getComponent(SkeletalAnimationComponent);
+        //     if (weaponSkeleteAnim){
+        //         let animName = "骨架|AttackAnim";
+        //         let animState = skeleteAnim.getState(animName)';'
+        //     }
+        // }
 
-        let skeleteAnim = this.rootNode.getComponent(SkeletalAnimationComponent);
-        if (skeleteAnim) {
-            let defaultAnimName = skeleteAnim.defaultClip.name;
-            let animState = skeleteAnim.getState(defaultAnimName);
-            let length = animState.length * 1 / attackRate;
-            // console.log("length", length);
-            skeleteAnim.play(defaultAnimName);
-            animState.repeatCount = 1;
-            this.scheduleOnce(() => {
-                // if (isValid(this.currentTargetEnemy)) {
-                this.createOneBullet(currentShootDiraction, this.getCurrentAttackNum());
-                // }
-            }, length * this.attackAnimEventTimeOffset)
+        let baseNodeList: Node[] = [this.rootNode];
+        if (this.weaponBaseNode) {
+            baseNodeList.push(this.weaponBaseNode);
         }
-    }
-    createOneBullet(direction: Vec2, attackNum: number) {
-        let bulletNode = instantiate(this.bulletPrefab);
-        bulletNode.parent = this.node.parent;
-        bulletNode.active = false;
-        bulletNode.setPosition(this.bulletStartPos.worldPosition);
-        bulletNode.active = true;
-        console.log("createOneBullet base attack num", attackNum);
-        bulletNode.getComponent(BulletBase).init(this.gameConfig, this.gameController, {
-            direction: direction,
-            targetEnemy: this.currentTargetEnemy,
-            baseAttackNum: attackNum,
-            targetTower: this
+        let length: number = 0;
+        for (let i = 0; i < baseNodeList.length; i++) {
+            let skeleteAnim = baseNodeList[i].getComponent(SkeletalAnimationComponent);
+            if (skeleteAnim) {
+                // let defaultAnimName = skeleteAnim.defaultClip.name;
+                let animName = "骨架|AttackAnim";
+                let animState = skeleteAnim.getState(animName);
+                let lengthTime = animState.length * 1 / attackRate;
+                // console.log("length", length);
+                skeleteAnim.play(animName);
+                animState.repeatCount = 1;
+                length = lengthTime;
+                // let stateAnim = skeleteAnim.getState(animName);
+            }
 
-        })
+        }
+
+
+        // stateAnim.setTime(0.5);
+        this.scheduleOnce(() => {
+            // if (isValid(this.currentTargetEnemy)) {
+            this.createOneTimeBullet(currentShootDiraction, this.getCurrentAttackNum());
+            // }
+        }, length * this.attackAnimEventTimeOffset)
+    }
+    createOneTimeBullet(direction: Vec3, attackNum: number) {
+        for (let i = 0; i < this.bulletStartPosList.length; i++) {
+            let bulletPosNode = this.bulletStartPosList[i];
+            let bulletNode = instantiate(this.bulletPrefab);
+            bulletNode.parent = this.node.parent;
+            bulletNode.active = false;
+            bulletNode.setPosition(bulletPosNode.worldPosition);
+            bulletNode.active = true;
+            console.log("createOneBullet base attack num", attackNum);
+            // direction.
+            let randomVec = v3(Math.random() * 2, Math.random() * 2, Math.random() * 2);
+            direction.add(randomVec);
+            bulletNode.getComponent(BulletBase).init(this.gameConfig, this.gameController, {
+                direction: direction,
+                targetEnemy: this.currentTargetEnemy,
+                baseAttackNum: attackNum,
+                targetTower: this
+
+            })
+        }
     }
     enemyDeadByThis(isDead: boolean) {
         //敌人被此塔打死
         if (isDead) {
             //如果敌人被打死了, 那么此塔增加能量 一个点
             this.skillCtl.showAddPowerAnimEffect(2, this.node.position);
-
         }
     }
     releaseSkill() {
@@ -282,7 +340,6 @@ export class TowerBase extends BaseObject {
         })
         tw.start();
     }
-
 }
 
 

@@ -126,6 +126,7 @@ export class GameController extends Component {
         // this.playerData.currentLevelNum = 0
         this.playerData.newGame();
         this.enterGame().then(() => {
+            this.uiController.emit("refer-red-heart-label");
             this.node.emit('update-gold-label', this.playerData.getCurrentGoldCount());
             this.state.setState("run");
             this.node.getComponent(EnemyController).startGame();
@@ -195,6 +196,19 @@ export class GameController extends Component {
                 })
         });
 
+        this.state.addState("game-loss", () => {
+            console.log("进入游戏失败的状态");
+            this.uiController.emit('close-weapon-info-layer')
+            this.node.getComponent(EnemyController).frozenAllEnemy();
+            this.node.getComponent(TowerBuildBaseCtl).frozenAllTowerBuildBase(); //禁锢所有塔的基座
+            // this.homeIconTw.stop();
+            this.homeIconNode.getComponent(HomeIcon).frozenHomeIcon();
+            let deadEnemyData = this.node.getComponent(EnemyController).getDeadEnemyData();
+            this.scheduleOnce(() => {
+                // this.uiController.showGameLossUI(deadEnemyData)
+                this.uiController.emit("show-game-loss-ui", deadEnemyData);
+            }, 0.6);
+        })
         // this.node.on("")
     }
 
@@ -312,23 +326,7 @@ export class GameController extends Component {
         //进入展示boss 进场的状态
         this.node.emit("show-boss-enter-state");
     }
-    enemyAttacked() {
-        //敌人发动了攻击'
-        if (this.state.getState() === 'run') {
-            this.state.setState("game-loss");
-            this.uiController.emit('close-weapon-info-layer')
-            this.node.getComponent(EnemyController).frozenAllEnemy();
-            this.node.getComponent(TowerBuildBaseCtl).frozenAllTowerBuildBase(); //禁锢所有塔的基座
-            // this.homeIconTw.stop();
-            this.homeIconNode.getComponent(HomeIcon).frozenHomeIcon();
-            let deadEnemyData = this.node.getComponent(EnemyController).getDeadEnemyData();
-            this.scheduleOnce(() => {
-                // this.uiController.showGameLossUI(deadEnemyData)
-                this.uiController.emit("show-game-loss-ui", deadEnemyData);
-            }, 1);
-        }
-
-    }
+ 
     gameWin(deadEnemyData: DeadEnemyObj[]) {
         //游戏胜利，进入下一关
         //首先展示胜利失败页面
@@ -387,5 +385,28 @@ export class GameController extends Component {
             })
         })
     }
-   
+    enemyAttacked(num: Number) {
+        console.log("敌人发动了攻击", num)
+        // this.playerData.add
+        if (this.state.getState() === 'run') {
+            let currentRedHeartCount = this.playerData.getCurrentRedHeartCount();
+            if (currentRedHeartCount > 0) {
+                this.playerData.addRedHeartCount(-1);
+                if (this.playerData.getCurrentRedHeartCount() === 0) {
+                    console.log("游戏结束");
+                    this.state.setState("game-loss");
+                }
+            }
+        }
+
+    }
+    referRedHeardUI() {
+        this.uiController.emit("refer-red-heart-label");
+    }
+    activeEnemySuccess(enemyType: string){
+        console.log("active enemy succcess", enemyType);
+        //
+        // this.node.emit("")
+        this.uiController.emit("refer-enemy-info-cell", enemyType);
+    }
 }

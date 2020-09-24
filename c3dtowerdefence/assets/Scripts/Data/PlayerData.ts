@@ -1,4 +1,4 @@
-import { sys } from "cc";
+import { getTypedArrayConstructor, sys } from "cc";
 import { GameController } from "../GameController";
 
 export class PlayData {
@@ -8,6 +8,10 @@ export class PlayData {
     public gameController: GameController = null;
     public currentLevelNum: number = 0;
     public currentTowerLevelData: Object[] = [];
+    public currentInitRedHeartCounnt: number = 3;
+    public currentRedHeardCount: number = 0;//当前的红心个数
+    public currentActiveEnemyMap: string[] = [];
+    // public currentActiveEnemyMap:
     // public currentActiveTowerBuildBaseCount = 2; //当前激活的建造塔的位置的个数
     constructor(gameCtl) {
         this.gameController = gameCtl;
@@ -15,11 +19,13 @@ export class PlayData {
         let gameTime = this.getLocalData("game-time");
         console.log("game time", gameTime);
         // this.clearLocalData();
-        // this.setLocalData("gold-count", 99999 + '');
+        this.setLocalData("gold-count", 99999 + '');
         // this.setLocalData('active-tower-build-base-count', '2');
         // this.setLocalData("current-level-num", this.currentLevelNum + '');
         // this.initTowerLevelLocalData(this.gameController.getGameConfig().json);
-
+        this.setLocalData("current-init-red-heart-count", this.currentInitRedHeartCounnt + "");
+        // this.setLocalData("current-init-red-heart-count", this.currentInitRedHeartCounnt + "");
+        this.setLocalData("active-enemy-list", JSON.stringify(this.currentActiveEnemyMap));
         if (gameTime) {
             // 首次进入游戏. 初始化游戏数据
             //不是首次进入游戏，那么初始化一些游戏数据
@@ -30,15 +36,21 @@ export class PlayData {
             this.currentLevelNum = Number(this.getLocalData("current-level-num")); //获取当前的关卡数
             // this.currentActiveTowerBuildBaseCount = Number(this.getLocalData('active-tower-build-base-count')); //获取当前激活的塔的基座的数量
             this.currentTowerLevelData = JSON.parse(this.getLocalData("tower-level-data"));
+            this.currentInitRedHeartCounnt = Number(this.getLocalData("current-init-red-heart-count")); //获取当前初始化的红心的个数
+            this.currentActiveEnemyMap = JSON.parse(this.getLocalData("active-enemy-list")); //获取当前激活的敌人的列表
         } else {
             this.setLocalData("game-time", '1');
             this.setLocalData("current-active-skill-count", this.currentActiveSkillCount + '');
             this.setLocalData("current-skill-count", this.currentSkillCount + '');
             this.setLocalData("gold-count", this.currentGoldCount + '');
+            this.setLocalData("current-init-red-heart-count", this.currentInitRedHeartCounnt + "");
             this.initTowerLevelLocalData(this.gameController.getGameConfig().json);
+            this.setLocalData("active-enemy-list", JSON.stringify(this.currentActiveEnemyMap));
 
             // this.setLocalData("active-tower-build-base-count", this.currentActiveTowerBuildBaseCount + ''); //保存当前激活塔的基座的数量
         }
+        this.currentRedHeardCount = this.currentInitRedHeartCounnt;
+
     }
     initTowerLevelLocalData(gameConfig: Object) {
         //初始化本地
@@ -101,6 +113,7 @@ export class PlayData {
     }
     newGame() {
         this.currentLevelNum = 0;
+        this.currentRedHeardCount = this.currentInitRedHeartCounnt;
         this.setLocalData('current-level-num', this.currentLevelNum + '');//保存当前的关卡数
         this.currentGoldCount = this.gameController.getGameConfig().json['Level_' + this.currentLevelNum].InitGoldCount;
         this.setLocalData("gold-count", this.currentGoldCount + '');
@@ -143,17 +156,75 @@ export class PlayData {
         this.setLocalData('tower-level-data', JSON.stringify(this.currentTowerLevelData));
 
     }
-    getFirstNeedToActiveTowerIndex(){
+    getFirstNeedToActiveTowerIndex() {
         //得到最后一个激活到的index
         // let isActive = false;
         let lastActiveIndex = 0;
-        for (let i = 0 ; i < this.currentTowerLevelData.length ; i ++){
+        for (let i = 0; i < this.currentTowerLevelData.length; i++) {
             let isActive = this.currentTowerLevelData[i]['isActive'];
-            if (!isActive){
+            if (!isActive) {
                 lastActiveIndex = i;
                 break;
             }
         }
         return lastActiveIndex;
+    }
+    getCurrentInitRedHeartCount(): number {
+        return this.currentInitRedHeartCounnt;
+    }
+
+    getAddOneRedHeartCostGoldCount(): number {
+        //获取增加一个红心 需要消耗的金币个数
+        let currentRedHeardCount = this.getCurrentInitRedHeartCount();
+        return (1 + currentRedHeardCount) * currentRedHeardCount * 0.5 * 100;
+    }
+    addLocalInitRedHeartCount(count) {
+        //增加本地初始化红心的个数
+        this.currentInitRedHeartCounnt += count;
+        // this.currentRedHeardCount = this.currentInitRedHeartCounnt;
+
+        this.setLocalData("current-init-red-heart-count", this.currentInitRedHeartCounnt.toString());
+    }
+    getCurrentRedHeartCount() {
+        //获取当前的红心个数
+        return this.currentRedHeardCount;
+    }
+    addRedHeartCount(count: number) {
+        this.currentRedHeardCount += count;
+        this.gameController.referRedHeardUI();
+    }
+    getCurrentActiveTowerList() {
+        //获取当前激活的塔的列表
+        let list = [];
+        for (let i = 0; i < this.currentTowerLevelData.length; i++) {
+            let data = this.currentTowerLevelData[i];
+            if (data["isActive"]) {
+                list.push(i);
+            }
+        }
+        console.log("current active tower list", list);
+        return list;
+    }
+    getCurrentActiveEnemyMap() {
+        //得到当前激活的敌人的列表
+        return this.currentActiveEnemyMap;
+    }
+    getEnemyIsActive(enemyType: string) {
+        // console.log("current active enemy list", this.currentActiveEnemyList);
+
+        if (this.currentActiveEnemyMap[enemyType]) {
+            return true;
+        }
+        return false;
+    }
+    activeEnemy(enemyType: string) {
+        //激活一个敌人
+        if (!this.currentActiveEnemyMap[enemyType]) {
+            this.currentActiveEnemyMap[enemyType] = true;
+            console.log("激活一个敌人", enemyType)
+            this.setLocalData("active-enemy-list", JSON.stringify(this.currentActiveEnemyMap));
+            this.gameController.activeEnemySuccess(enemyType);
+            // this.gameController
+        }
     }
 }   

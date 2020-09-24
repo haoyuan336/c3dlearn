@@ -1,5 +1,6 @@
 {
     "resolveMap": {
+        "../GameController": "../GameController.ts",
         "../util/Tool": "../util/Tool.ts"
     }
 }

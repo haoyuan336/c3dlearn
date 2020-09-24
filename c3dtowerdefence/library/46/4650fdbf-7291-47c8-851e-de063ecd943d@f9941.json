@@ -6,16 +6,16 @@
     "rect": {
       "x": 0,
       "y": 0,
-      "width": 71,
-      "height": 71
+      "width": 85,
+      "height": 86
     },
     "offset": {
       "x": 0,
       "y": 0
     },
     "originalSize": {
-      "width": 71,
-      "height": 71
+      "width": 85,
+      "height": 86
     },
     "rotated": false,
     "capInsets": [

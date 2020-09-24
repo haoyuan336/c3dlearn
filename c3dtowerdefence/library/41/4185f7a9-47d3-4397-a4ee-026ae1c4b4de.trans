@@ -1,7 +1,7 @@
 {
     "resolveMap": {
-        "./GameController": "GameController.ts",
-        "./UI/WeaponUpdateCellPrefab": "UI/WeaponUpdateCellPrefab.ts",
-        "./util/State": "util/State.ts"
+        "./../GameController": "../GameController.ts",
+        "./../UI/WeaponUpdateCellPrefab": "WeaponUpdateCellPrefab.ts",
+        "./InfoLayerCtlBase": "InfoLayerCtlBase.ts"
     }
 }

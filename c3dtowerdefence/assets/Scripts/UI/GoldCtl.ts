@@ -1,4 +1,5 @@
-import { _decorator, Component, Node, Tween, v3, view, LabelComponent, find, instantiate, tween } from 'cc';
+import { _decorator, Component, Node, Tween, v3, view, LabelComponent, find, instantiate, tween, ProgressBarComponent } from 'cc';
+import { GameController } from '../GameController';
 import { Tool } from '../util/Tool';
 const { ccclass, property } = _decorator;
 
@@ -15,8 +16,13 @@ export class GoldCtl extends Component {
 
     @property({ type: Node })
     public addGoldEffectLabel: Node = null;
+    @property({ type: Node })
+    public redHeartProgressBar: Node = null;
+    @property({ type: Node })
+    public redHeartCountLabel: Node = null;
 
     private addGoldEffectNodeCount: number = 0;
+
     start() {
         // let currentLevel = 0;
         // let currentWave = 0;
@@ -49,7 +55,15 @@ export class GoldCtl extends Component {
             tw.to(0.1, { scale: v3(1.5, 1.5, 1.5) })
             tw.to(0.1, { scale: v3(1, 1, 1) })
             tw.start();
-        })
+        });
+        this.node.on("refer-red-heart-label", () => {
+            let gameController = gameCtlNode.getComponent(GameController);
+            let currentRedHeartCount = gameController.playerData.getCurrentRedHeartCount();
+            let currentInitRedHeartCount = gameController.playerData.getCurrentInitRedHeartCount();
+            this.redHeartCountLabel.getComponent(LabelComponent).string = currentInitRedHeartCount + "/" + currentRedHeartCount;
+            let progress = currentRedHeartCount / currentInitRedHeartCount;
+            this.redHeartProgressBar.getComponent(ProgressBarComponent).progress = progress;
+        });
     }
     updateLevelLabel(level, wave) {
         this.currentLevelLabel.getComponent(LabelComponent).string = (level + 1) + '-' + (wave + 1);
@@ -88,6 +102,7 @@ export class GoldCtl extends Component {
     showEnterAnim() {
         let height = view.getVisibleSize().height;
         console.log("播放金币ui的进场动画");
+        this.node.emit("refer-red-heart-label");
         return new Promise((resolve, reject) => {
             let tw = new Tween(this.goldsNode);
             tw.to(0.2, {

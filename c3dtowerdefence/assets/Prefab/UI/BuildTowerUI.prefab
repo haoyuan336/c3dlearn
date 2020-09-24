@@ -27,10 +27,13 @@
       },
       {
         "__id__": 8
+      },
+      {
+        "__id__": 9
       }
     ],
     "_prefab": {
-      "__id__": 9
+      "__id__": 11
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -260,18 +263,75 @@
       "__id__": 1
     },
     "_enabled": true,
-    "towerShowAnimPrefabList": [
-      {
-        "__uuid__": "11ab8b97-6424-47e5-ab44-7945d06bfc97"
-      },
-      {
-        "__uuid__": "eaefc1f5-4580-46d2-98a8-55b897524518"
-      }
-    ],
+    "objectType": "default",
+    "rootNode": null,
+    "animSpeedMulOffset": 1,
     "buildTowerUITowerIcon": {
       "__uuid__": "79fa62be-c847-47c8-97eb-ff46b22f3add"
     },
     "_id": ""
+  },
+  {
+    "__type__": "cc.ButtonComponent",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "clickEvents": [
+      {
+        "__id__": 10
+      }
+    ],
+    "_interactable": true,
+    "_transition": 0,
+    "_normalColor": {
+      "__type__": "cc.Color",
+      "r": 214,
+      "g": 214,
+      "b": 214,
+      "a": 255
+    },
+    "_hoverColor": {
+      "__type__": "cc.Color",
+      "r": 211,
+      "g": 211,
+      "b": 211,
+      "a": 255
+    },
+    "_pressColor": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_disabledColor": {
+      "__type__": "cc.Color",
+      "r": 124,
+      "g": 124,
+      "b": 124,
+      "a": 255
+    },
+    "_normalSprite": null,
+    "_hoverSprite": null,
+    "_pressedSprite": null,
+    "_disabledSprite": null,
+    "_duration": 0.1,
+    "_zoomScale": 1.2,
+    "_target": null,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.ClickEvent",
+    "target": {
+      "__id__": 1
+    },
+    "component": "",
+    "_componentId": "e6405P/+GFGaa0/qmo/iQAc",
+    "handler": "onButtonClick",
+    "customEventData": "close"
   },
   {
     "__type__": "cc.PrefabInfo",

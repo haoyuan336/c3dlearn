@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "增加一颗心按钮灰",
+    "atlas": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 111,
+      "height": 51
+    },
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "originalSize": {
+      "width": 111,
+      "height": 51
+    },
+    "rotated": false,
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "texture": "37195f6e-f2a8-4d95-ab09-2ef28cf06cc9@6c48a"
+  }
+}

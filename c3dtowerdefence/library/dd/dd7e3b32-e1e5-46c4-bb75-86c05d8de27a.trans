@@ -1,0 +1,7 @@
+{
+    "resolveMap": {
+        "../GameController": "../GameController.ts",
+        "./EnemyInfoCellPrefab": "EnemyInfoCellPrefab.ts",
+        "./InfoLayerCtlBase": "InfoLayerCtlBase.ts"
+    }
+}

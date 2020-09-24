@@ -441,6 +441,9 @@
       "__id__": 1
     },
     "_enabled": true,
+    "objectType": "default",
+    "rootNode": null,
+    "animSpeedMulOffset": 1,
     "costGoldLabel": {
       "__id__": 6
     },
@@ -450,6 +453,12 @@
       },
       {
         "__uuid__": "eaefc1f5-4580-46d2-98a8-55b897524518"
+      },
+      {
+        "__uuid__": "a9194eee-74b5-4059-b310-261ba8ccbf38"
+      },
+      {
+        "__uuid__": "a0db4e85-9bab-412a-9256-1a85889944f8"
       }
     ],
     "showTowerAnimLayer": {

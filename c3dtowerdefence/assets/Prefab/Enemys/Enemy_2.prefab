@@ -1567,7 +1567,7 @@
     "rootNode": {
       "__id__": 10
     },
-    "animSpeedMulOffset": 1.5,
+    "animSpeedMulOffset": 0.4,
     "caidaiEffect": {
       "__id__": 2
     },

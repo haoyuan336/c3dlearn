@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "心的血条Bar",
+    "atlas": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 37,
+      "height": 40
+    },
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "originalSize": {
+      "width": 37,
+      "height": 40
+    },
+    "rotated": false,
+    "capInsets": [
+      19,
+      20,
+      18,
+      20
+    ],
+    "texture": "413ece88-ce7b-4e0f-a9e8-2e4abc0a4ea4@6c48a"
+  }
+}

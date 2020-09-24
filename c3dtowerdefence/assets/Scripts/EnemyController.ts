@@ -111,6 +111,9 @@ export class EnemyController extends Component {
                     this.currentWaveIndex++;
 
                     this.scheduleOnce(() => {
+                        if (this.state.getState() === 'game-over') {
+                            return;
+                        }
                         this.state.setState("enter-next-wave");
                     }, this.addEnemyDuraction)
                 });
@@ -176,6 +179,7 @@ export class EnemyController extends Component {
     pushOneEnemyDeadData(enemyDeadData: DeadEnemyObj) {
         console.log("push one enemy dead data", enemyDeadData);
         this.currentLevelDeadEnemyDataList.push(enemyDeadData);
+        this.gameController.playerData.activeEnemy(enemyDeadData.enemyType);
     }
     // showCameraFocusBoosAnim(bossNode: Node) {
     //     return new Promise((resolve, reject) => {
@@ -343,7 +347,7 @@ export class EnemyController extends Component {
                 this.enemyNodeList.splice(i, 1);
             }
         }
-        if (this.enemyNodeList.length === 0) {
+        if (this.enemyNodeList.length === 0 && this.currentWaveIndex == this.waveData['EnemyType'].length - 1) {
             if (this.allEnemyDeadCb) {
                 this.allEnemyDeadCb();
                 this.allEnemyDeadCb = null;
@@ -353,12 +357,13 @@ export class EnemyController extends Component {
     getCurrentEnemyNodeList() {
         return this.enemyNodeList;
     }
-    enemyAttacked() {
-        this.gameController.getComponent(GameController).enemyAttacked();
+    enemyAttacked(num: number) {
+        this.gameController.getComponent(GameController).enemyAttacked(num);
     }
     frozenAllEnemy() {
         //冰冻所有敌人
         // for (let i = 0 ; i < this.enem){
+        this.state.setState("game-over");
         this.node.emit("frozen-all-enemy");
         // }
     }
@@ -374,7 +379,6 @@ export class EnemyController extends Component {
             node.parent = this.node;
             node.position = enemyNode.position;
             node.getComponent(EnemyBullet).init(this.gameController.getGameConfig().json, this.gameController, this.endPos);
-
         }
     }
     getDeadEnemyData() {

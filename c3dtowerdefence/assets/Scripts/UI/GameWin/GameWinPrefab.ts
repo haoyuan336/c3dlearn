@@ -42,7 +42,7 @@ export class GameWinPrefab extends Component {
     @property({ type: Node })
     public totalGoldCountLabel: Node = null;
     private gameConfig: {} = null;
-    @property({type: Node})
+    @property({ type: Node })
     public scrollViewNode: Node = null;
 
     private gameResultState: boolean = null;
@@ -74,12 +74,12 @@ export class GameWinPrefab extends Component {
         let enemyTypeMap = {};
         for (let i = 0; i < data.length; i++) {
             if (enemyTypeMap[data[i].enemyType]) {
-                enemyTypeMap[data[i].enemyType].count += 1; //此类敌人的总数
+                enemyTypeMap[data[i].enemyType].enemyCount += 1; //此类敌人的总数
                 enemyTypeMap[data[i].enemyType].winGoldCount += data[i].dropGoldCount;
             } else {
 
                 enemyTypeMap[data[i].enemyType] = {
-                    count: 1,
+                    enemyCount: 1,
                     winGoldCount: data[i].dropGoldCount
                 }
             }
@@ -97,7 +97,17 @@ export class GameWinPrefab extends Component {
         //     index++;
 
         // }
-        this.showCellEnterAnim(enemyTypeMap, () => {
+        let list = [];
+        for (let i in enemyTypeMap) {
+            let data = enemyTypeMap[i];
+            data.key = i;
+            list.push(data);
+        }
+        console.log("list", list);
+        list = list.sort((a, b) => {
+            return b.winGoldCount - a.winGoldCount;
+        })
+        this.showCellEnterAnim(list, () => {
             console.log("展示结束");
             return this.showSumResult(allEnemyCount, allGoldCount);
         });
@@ -112,26 +122,35 @@ export class GameWinPrefab extends Component {
         })
     }
     showCellEnterAnim(data, cb) {
-        if (Object.keys(data).length === 0) {
+        // if (Object.keys(data).length === 0) {
+        //     if (cb) {
+        //         cb();
+        //     }
+        //     return
+        // }
+        if (data.length === 0) {
             if (cb) {
                 cb();
             }
-            return
+            return;
         }
-        let list = Object.keys(data);
-        let objKey = list[Math.round(Math.random() * (list.length - 1))];
-        let obj = data[objKey];
-        delete data[objKey];
+        // let list = Object.keys(data);
+        // let objKey = list[Math.round(Math.random() * (list.length - 1))];
+        // let obj = data[objKey];
+        // delete data[objKey];
+        let cellData = data.pop();
         let node = instantiate(this.winGoldCellPrefab);
         node.parent = this.gameResultNode;
         let tw = new Tween(node);
-        let iconStr = this.gameConfig[objKey].IconSpriteFrameName;
-        node.getComponent(GameResultGoldCell).setData(obj['count'], obj['winGoldCount'], iconStr);
-        node.position = v3(0, this.nodeList.length * -100 - 50,0);
+        // let iconStr = this.gameConfig[objKey].IconSpriteFrame;
+        // node.getComponent(GameResultGoldCell).setData(obj['count'], obj['winGoldCount'], iconStr);
+        node.getComponent(GameResultGoldCell).init(this.gameController, cellData);
+        node.position = v3(0, this.nodeList.length * -100 - 50, 0);
+        this.gameResultNode.height = node.position.y * -1 + 60;
         this.nodeList.push(node);
-        tw.delay(0.2)
-        tw.call(()=>{
-            
+        tw.delay(0.4)
+        tw.call(() => {
+
             this.showCellEnterAnim(data, cb);
         })
         tw.start();
@@ -169,7 +188,7 @@ export class GameWinPrefab extends Component {
                     this.node.destroy();
                     this.uiController.playerClickNextLevelButton();
                 } else {
-                    this.gameController.playerClickSaveLifeButton().then(()=>{
+                    this.gameController.playerClickSaveLifeButton().then(() => {
                         this.node.destroy(); //玩家点了立即复活按钮
                     });
                 }

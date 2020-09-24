@@ -6,10 +6,6 @@
   "json": {
     "TowerMaxLevel": 20,
     "default": {},
-    "EnemyName": [
-      "Monster_1",
-      "DragonMonster"
-    ],
     "CrazyRotateSkill": {
       "BaseAttackNum": 20,
       "ShootRate": 15,
@@ -55,7 +51,7 @@
       ],
       "TowerType": "Tower_3",
       "Type": "Tower",
-      "IconSprteFrame": "Tower_1_Icon",
+      "IconSprteFrame": "Tower_2_Icon",
       "Index": 2,
       "BulletType": "BulletOne",
       "ShootRate": 1.2,
@@ -66,13 +62,17 @@
       "ActiveCost": 600
     },
     "Tower_4": {
+      "CanAttackType": [
+        "Fly",
+        "Walk"
+      ],
       "TowerType": "Tower_4",
       "Type": "Tower",
-      "IconSprteFrame": "Tower_1_Icon",
+      "IconSprteFrame": "Tower_3_Icon",
       "Index": 3,
       "BulletType": "BulletOne",
-      "ShootRate": 1.2,
-      "AttackRange": 10,
+      "ShootRate": 10,
+      "AttackRange": 15,
       "SkillType": "CrazyRotate",
       "BaseAttackNum": 1,
       "BuildCost": 15,
@@ -92,62 +92,105 @@
       "ActiveCost": 1500
     },
     "Enemy_0": {
-      "IconSpriteFrameName": "Enemy_0_Icon",
+      "EnemyType": "Enemy_0",
+      "IconSprteFrame": "Enemy_0_Icon",
       "MoveSpeed": 1,
       "HealthCount": 1,
       "BeLockedCount": 3,
       "BaseGasNum": 5,
       "BaseGoldCount": 1,
-      "MoveType": "Walk"
+      "MoveType": "Walk",
+      "EnemyIndex": 0
     },
     "Enemy_1": {
-      "IconSpriteFrameName": "Enemy_1_Icon",
+      "EnemyType": "Enemy_1",
+      "BaseAttackNum": 1,
+      "IconSprteFrame": "Enemy_1_Icon",
       "MoveSpeed": 0.8,
       "HealthCount": 10,
       "BeLockedCount": 10,
       "BaseGasNum": 5,
       "BaseGoldCount": 10,
-      "MoveType": "Walk"
+      "MoveType": "Walk",
+      "EnemyIndex": 2
     },
     "Enemy_2": {
-      "IconSpriteFrameName": "Enemy_2_Icon",
+      "EnemyType": "Enemy_2",
+      "BaseAttackNum": 1,
+      "IconSprteFrame": "Enemy_2_Icon",
       "MoveSpeed": 2,
       "HealthCount": 10,
       "BeLockedCount": 10,
       "BaseGasNum": 5,
       "BaseGoldCount": 10,
-      "MoveType": "Walk"
+      "MoveType": "Walk",
+      "EnemyIndex": 4
+    },
+    "Enemy_3": {
+      "EnemyType": "Enemy_3",
+      "BaseAttackNum": 1,
+      "IconSprteFrame": "Fish小丑鱼",
+      "MoveSpeed": 6,
+      "HealthCount": 10,
+      "BeLockedCount": 10,
+      "BaseGasNum": 5,
+      "BaseGoldCount": 10,
+      "MoveType": "Fly",
+      "EnemyIndex": 6
     },
     "EnemyBullet_0": {
-      "Mass": 10
+      "Mass": 10,
+      "BaseAttackNum": 1
     },
     "Boss_0": {
-      "IconSpriteFrameName": "Enemy_1_Icon",
+      "EnemyType": "Boss_0",
+      "BaseAttackNum": 1,
+      "IconSprteFrame": "Enemy_1_Icon",
       "MoveSpeed": 0.4,
       "HealthCount": 50,
       "BeLockedCount": 10,
       "BaseGasNum": 5,
       "BaseGoldCount": 10,
+      "EnemyIndex": 1,
       "MoveType": "Walk"
     },
     "Boss_1": {
-      "IconSpriteFrameName": "Enemy_2_Icon",
+      "EnemyType": "Boss_1",
+      "BaseAttackNum": 1,
+      "IconSprteFrame": "Enemy_2_Icon",
       "MoveSpeed": 1.8,
-      "HealthCount": 100,
+      "HealthCount": 1000,
       "BeLockedCount": 10,
       "BaseGasNum": 5,
       "BaseGoldCount": 10,
-      "MoveType": "Walk"
+      "MoveType": "Walk",
+      "EnemyIndex": 3
     },
     "Boss_2": {
-      "IconSpriteFrameName": "Enemy_2_Icon",
+      "EnemyType": "Boss_2",
+      "BaseAttackNum": 1,
+      "IconSprteFrame": "Enemy_2_Icon",
       "MoveSpeed": 8,
-      "HealthCount": 100,
+      "HealthCount": 10,
       "BeLockedCount": 10,
       "BaseGasNum": 5,
       "BaseGoldCount": 10,
       "MoveType": "Fly",
-      "EnemyBulletType": 0
+      "EnemyBulletType": 0,
+      "EnemyIndex": 5
+    },
+    "Boss_3": {
+      "EnemyType": "Boss_3",
+      "BaseAttackNum": 1,
+      "IconSprteFrame": "海归_Icon",
+      "MoveSpeed": 2,
+      "HealthCount": 1000,
+      "BeLockedCount": 10,
+      "BaseGasNum": 5,
+      "BaseGoldCount": 10,
+      "MoveType": "Fly",
+      "EnemyBulletType": 0,
+      "EnemyIndex": 7
     },
     "Monster_1": {
       "MoveSpeed": 0.2,
@@ -160,6 +203,7 @@
       "MoveSpeed": 30,
       "BaseAttackNum": 1,
       "BaseGasNum": 0.2,
+      "isCollisionDestroy": false,
       "isCollisionGround": false,
       "LeftTime": 3
     },
@@ -167,7 +211,24 @@
       "MoveSpeed": 30,
       "BaseAttackNum": 2,
       "BaseGasNum": 0,
+      "isCollisionDestroy": false,
       "isCollisionGround": false,
+      "LeftTime": 3
+    },
+    "Bullet_3": {
+      "MoveSpeed": 30,
+      "BaseAttackNum": 2,
+      "BaseGasNum": 0,
+      "isCollisionDestroy": true,
+      "isCollisionGround": true,
+      "LeftTime": 3
+    },
+    "Bullet_4": {
+      "MoveSpeed": 40,
+      "BaseAttackNum": 2,
+      "BaseGasNum": 0,
+      "isCollisionDestroy": true,
+      "isCollisionGround": true,
       "LeftTime": 3
     },
     "Level_0": {
@@ -212,19 +273,39 @@
       ],
       "AddEnemyDuraction": [
         2,
-        10,
-        10
+        2,
+        2,
+        2,
+        2
       ],
       "EnemyType": [
         [
           {
-            "type": 2,
+            "type": 0,
             "count": 5
           }
         ],
         [
           {
+            "type": 1,
+            "count": 10
+          }
+        ],
+        [
+          {
             "type": 2,
+            "count": 15
+          }
+        ],
+        [
+          {
+            "type": 3,
+            "count": 10
+          }
+        ],
+        [
+          {
+            "type": 3,
             "count": 1
           }
         ]

@@ -5,53 +5,12 @@
   "uuid": "97d4d2d0-75fa-4bd5-bb60-aa2a38bfa0c1",
   "files": [],
   "subMetas": {
-    "49b7c": {
-      "importer": "gltf-mesh",
-      "uuid": "97d4d2d0-75fa-4bd5-bb60-aa2a38bfa0c1@49b7c",
-      "displayName": "",
-      "id": "49b7c",
-      "name": "柱体.mesh",
-      "ver": "1.1.0",
-      "imported": true,
-      "files": [
-        ".json",
-        ".bin"
-      ],
-      "subMetas": {},
-      "userData": {
-        "gltfIndex": 0
-      }
-    },
-    "353d8": {
+    "28587": {
       "importer": "gltf-animation",
-      "uuid": "97d4d2d0-75fa-4bd5-bb60-aa2a38bfa0c1@353d8",
+      "uuid": "97d4d2d0-75fa-4bd5-bb60-aa2a38bfa0c1@28587",
       "displayName": "",
-      "id": "353d8",
-      "name": "骨架.001|AttackAnim.animation",
-      "ver": "1.0.14",
-      "imported": true,
-      "files": [
-        ".bin",
-        ".json"
-      ],
-      "subMetas": {},
-      "userData": {
-        "gltfIndex": 0,
-        "wrapMode": 2,
-        "sample": 30,
-        "span": {
-          "from": 0,
-          "to": 0.375
-        },
-        "events": []
-      }
-    },
-    "a07ca": {
-      "importer": "gltf-animation",
-      "uuid": "97d4d2d0-75fa-4bd5-bb60-aa2a38bfa0c1@a07ca",
-      "displayName": "",
-      "id": "a07ca",
-      "name": "骨架.001|ShowAnim.animation",
+      "id": "28587",
+      "name": "骨架|ShowAnim.animation",
       "ver": "1.0.14",
       "imported": true,
       "files": [
@@ -70,12 +29,53 @@
         "events": []
       }
     },
-    "a7771": {
-      "importer": "gltf-animation",
-      "uuid": "97d4d2d0-75fa-4bd5-bb60-aa2a38bfa0c1@a7771",
+    "49b7c": {
+      "importer": "gltf-mesh",
+      "uuid": "97d4d2d0-75fa-4bd5-bb60-aa2a38bfa0c1@49b7c",
       "displayName": "",
-      "id": "a7771",
-      "name": "骨架.001|todestroy.animation",
+      "id": "49b7c",
+      "name": "柱体.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "fdad8": {
+      "importer": "gltf-animation",
+      "uuid": "97d4d2d0-75fa-4bd5-bb60-aa2a38bfa0c1@fdad8",
+      "displayName": "",
+      "id": "fdad8",
+      "name": "骨架|AttackAnim.animation",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.375
+        },
+        "events": []
+      }
+    },
+    "d5717": {
+      "importer": "gltf-animation",
+      "uuid": "97d4d2d0-75fa-4bd5-bb60-aa2a38bfa0c1@d5717",
+      "displayName": "",
+      "id": "d5717",
+      "name": "骨架|todestroy.animation",
       "ver": "1.0.14",
       "imported": true,
       "files": [
@@ -194,12 +194,12 @@
     ],
     "animationImportSettings": [
       {
-        "name": "骨架.001|AttackAnim",
+        "name": "骨架|AttackAnim",
         "duration": 0.375,
         "fps": 30,
         "splits": [
           {
-            "name": "骨架.001|AttackAnim",
+            "name": "骨架|AttackAnim",
             "from": 0,
             "to": 0.375,
             "wrapMode": 2
@@ -207,12 +207,12 @@
         ]
       },
       {
-        "name": "骨架.001|ShowAnim",
+        "name": "骨架|ShowAnim",
         "duration": 1.2083333730697632,
         "fps": 30,
         "splits": [
           {
-            "name": "骨架.001|ShowAnim",
+            "name": "骨架|ShowAnim",
             "from": 0,
             "to": 1.2083333730697632,
             "wrapMode": 2
@@ -220,12 +220,12 @@
         ]
       },
       {
-        "name": "骨架.001|todestroy",
+        "name": "骨架|todestroy",
         "duration": 1.2083333730697632,
         "fps": 30,
         "splits": [
           {
-            "name": "骨架.001|todestroy",
+            "name": "骨架|todestroy",
             "from": 0,
             "to": 1.2083333730697632,
             "wrapMode": 2

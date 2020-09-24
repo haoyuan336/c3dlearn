@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "心的血条背景",
+    "atlas": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 177,
+      "height": 84
+    },
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "originalSize": {
+      "width": 177,
+      "height": 84
+    },
+    "rotated": false,
+    "capInsets": [
+      88,
+      42,
+      88,
+      42
+    ],
+    "texture": "8e01583f-48c9-4fb5-8aab-ef12e382713d@6c48a"
+  }
+}

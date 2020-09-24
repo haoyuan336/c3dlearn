@@ -1,0 +1,6 @@
+{
+    "resolveMap": {
+        "../util/BezierN": "../util/BezierN.ts",
+        "./EnemyBase": "EnemyBase.ts"
+    }
+}

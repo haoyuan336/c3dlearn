@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "RedHeartIcon",
+    "atlas": "",
+    "rect": {
+      "x": 15,
+      "y": 21,
+      "width": 97,
+      "height": 89
+    },
+    "offset": {
+      "x": 3.5,
+      "y": -5.5
+    },
+    "originalSize": {
+      "width": 120,
+      "height": 120
+    },
+    "rotated": false,
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "texture": "052f9dba-6b0f-4722-a9d6-c572abac0911@6c48a"
+  }
+}

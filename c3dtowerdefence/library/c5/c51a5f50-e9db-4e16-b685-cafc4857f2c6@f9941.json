@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "升级武器的Bg_1",
+    "atlas": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 76,
+      "height": 145
+    },
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "originalSize": {
+      "width": 76,
+      "height": 145
+    },
+    "rotated": false,
+    "capInsets": [
+      23,
+      34,
+      22,
+      44
+    ],
+    "texture": "c51a5f50-e9db-4e16-b685-cafc4857f2c6@6c48a"
+  }
+}

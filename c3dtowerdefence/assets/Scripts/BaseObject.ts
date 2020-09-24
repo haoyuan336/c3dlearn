@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, CCString, Vec3, CCFloat, game, TERRAIN_HEIGHT_BASE, SpriteFrame } from 'cc';
+import { _decorator, Component, Node, CCString, Vec3, v3, CCFloat, game, TERRAIN_HEIGHT_BASE, SpriteFrame, Quat } from 'cc';
 import { GameController } from './GameController';
 const { ccclass, property } = _decorator;
 
@@ -35,14 +35,23 @@ export class BaseObject extends Component {
     public gameController: GameController = null;
 
     public towerIndexType: number = 0; //当前塔的序号信息
-    public iconSpriteFrame: SpriteFrame = null; //icon的精灵帧
+    public iconSpriteFrame: string = null; //icon的精灵帧
     public activeCostGoldCount: number = 0; //激活需要的金币个数
     private enemyMoveType = "walk";
     private canAttackMoveTypeList: string[] = []; //可以攻击的移动类型列表 
     private enemyBulletType: number = 0; //敌人的子弹类型
-    public init(gameConfig: Object, gameController: GameController, startPos?: Vec3, endPos?: Vec3) {
+    private isCollisionDestroy: boolean = false; //碰撞之后 是否销毁
+    private enemyIndexType: number = 0; //敌人的
+
+    private isConlony: boolean = false; //是否集群运动
+
+    public init(gameConfig: Object, gameController: GameController, startPos?: Vec3, endPos?: Vec3, objectType?: string) {
         // this.baseGasNum = gameConfig[]
+        if (objectType) {
+            this.objectType = objectType;
+        }
         console.log("base object type", this.objectType);
+
         this.gameController = gameController;
         if (gameConfig[this.objectType].BaseGasNum) {
             this.baseGasNum = gameConfig[this.objectType].BaseGasNum;
@@ -102,9 +111,22 @@ export class BaseObject extends Component {
         if (gameConfig[this.objectType]["CanAttackType"]) {
             this.canAttackMoveTypeList = gameConfig[this.objectType]['CanAttackType'];
         }
-        if (gameConfig[this.objectType]['EnemyBulletType']){
+        if (gameConfig[this.objectType]['EnemyBulletType']) {
             this.enemyBulletType = gameConfig[this.objectType]['EnemyBulletType'];//取出敌人的子弹类型
         }
+        if (gameConfig[this.objectType]['isCollisionDestroy']) {
+            this.isCollisionDestroy = gameConfig[this.objectType]['isCollisionDestroy'];
+        }
+        if (gameConfig[this.objectType]['EnemyIndex']) {
+            this.enemyIndexType = gameConfig[this.objectType]['EnemyIndex'];
+        }
+
+        if (gameConfig[this.objectType]['Colony']) {
+            this.isConlony = gameConfig[this.objectType]['Colony'];
+        }
+    }
+    getBaseAttackDamage() {
+        return this.baseAttackNum;
     }
     getCurrentAttackNum() {
         // let offsetValue = 0;
@@ -117,8 +139,10 @@ export class BaseObject extends Component {
         // console.log("local damage value", localLevel);
 
         let baseDamageNum = this.baseAttackNum;
+        console.log("base damage num", baseDamageNum);
         //1,2,3 = 6  (3+1)*3/2 = 6   1,2,3,4 = 10   5 * 4 / 2 = 10;
         let currentLevelDamage = 1 * (this.currentLevel + 1) * this.currentLevel * 0.5;
+        console.log("current level damage", currentLevelDamage);
         let localLevelDamage = this.getLocalDamageNum();
 
         return baseDamageNum + currentLevelDamage + localLevelDamage;
@@ -127,6 +151,7 @@ export class BaseObject extends Component {
         // 获取当前永久攻击力 
         // let baseAttackNum = this.baseAttackNum;
         let localLevel = this.gameController.playerData.getCurrentTowerLocalLevel(this.towerIndexType);
+        console.log("local level", localLevel);
         let localDamage = (1 + localLevel) * localLevel * 0.5;
         console.log(this.objectType + ":local damage", localDamage);
         return localDamage;
@@ -238,7 +263,7 @@ export class BaseObject extends Component {
     }
     getCanAttackEnemy(obj: Node): Boolean {
         let baseObj = obj.getComponent(BaseObject);
-        if (baseObj){
+        if (baseObj) {
             let objType = baseObj.getMoveType();
             let list = this.canAttackMoveTypeList;
             for (let i = 0; i < list.length; i++) {
@@ -248,16 +273,41 @@ export class BaseObject extends Component {
                 }
             }
         }
-       
+
         return false;
     }
-    getIsBoss(){
-        if (this.objectType.indexOf("Boss") > -1){
+    getIsBoss() {
+        if (this.objectType.indexOf("Boss") > -1) {
             return true;
         }
         return false;
     }
-    getEnemyBulletType(){
+    getEnemyBulletType() {
         return this.enemyBulletType;
+    }
+    getIsCollisionDestroy() {
+        return this.isCollisionDestroy;
+    }
+    getLookAtAngle(startPos, targetPoint: Vec3): Quat {
+        // //获取到朝向的角度
+
+        let dir = v3(startPos).subtract(targetPoint).normalize();
+        let quat = new Quat();
+        // quat.lerp
+        Quat.fromViewUp(quat, dir, Vec3.UP);
+
+        // console.log("quat", quat);
+        // rotateAround
+        // startPos.
+        // this.node.rotate/
+
+        return quat
+    }
+    getEnemyIsActive() {
+        //获得当前敌人是否激活了
+        return this.gameController.playerData.getEnemyIsActive(this.objectType);
+    }
+    getIsColony(): boolean {
+        return this.isConlony;
     }
 }

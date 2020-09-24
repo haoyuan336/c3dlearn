@@ -54,8 +54,8 @@
             }
           ],
           "designResolution": {
-            "width": 960,
-            "height": 640,
+            "width": 1280,
+            "height": 720,
             "fitWidth": true,
             "fitHeight": false
           },
@@ -90,7 +90,7 @@
             "gfx-webgl2",
             "ui",
             "particle",
-            "physics-cannon",
+            "physics-builtin",
             "physics-framework",
             "tween"
           ],
@@ -109,12 +109,12 @@
             "displayWatermark": true
           }
         },
-        "message": "build success in 7095 ms!",
+        "message": "build success in 45485 ms!",
         "logMap": {
           "log": 19,
-          "warn": 2,
-          "error": 1,
-          "debug": 120
+          "warn": 19,
+          "error": 0,
+          "debug": 206
         }
       }
     ]

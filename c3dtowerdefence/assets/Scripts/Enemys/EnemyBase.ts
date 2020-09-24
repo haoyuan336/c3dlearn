@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, CCInteger, v3, Vec3, tween, path, Tween, CameraComponent, Vec2, v2, JsonAsset, game, isValid, ProgressBarComponent, RigidBodyComponent, SkeletalAnimationComponent, ParticleSystemComponent, bezier, find, Quat } from 'cc';
+import { _decorator, Component, Node, CCInteger, v3, Vec3, tween, path, Tween, CameraComponent, Vec2, v2, JsonAsset, game, isValid, ProgressBarComponent, RigidBodyComponent, SkeletalAnimationComponent, ParticleSystemComponent, bezier, find, Quat, SphereColliderComponent, ModelComponent } from 'cc';
 import { State } from './../util/State'
 import { GameController } from './../GameController';
 // import { Enemy } from './Enemy';
@@ -7,6 +7,7 @@ import { DeadEnemyObj, EnemyController } from '../EnemyController';
 import { BezierN } from '../util/BezierN';
 import { GroundMapCtl } from '../GroundMapCtl';
 import { FindPathWithAStart } from '../util/FindPathWithAStart';
+import { EnemyColonyCom } from './EnemyColonyCom';
 // import { Besize } from '../util/Besize';
 const { ccclass, property } = _decorator;
 @ccclass('EnemyBase')
@@ -32,6 +33,7 @@ export class EnemyBase extends BaseObject {
 
     private bezierPathList: Vec3[] = [];
     private currentBoneAnimName = "";
+    private enemyColonyCtl: EnemyColonyCom = null;
     // private currentMoveIndex: number = 0;
     // private currentMovePos: Vec3 = null;
     // private moveSpeed: number = 0;
@@ -39,7 +41,9 @@ export class EnemyBase extends BaseObject {
     public caidaiEffect: Node = null;
     public init(gameConfig: Object, gameController: GameController, startPos: Vec3, endPos: Vec3) {
         super.init(gameConfig, gameController);
-
+        if (this.getMoveType().indexOf("Fly") > -1) {
+            this.node.position = v3(this.node.position.x, 10, this.node.position.z);
+        }
         this.groundMapCtl = find("GameController").getComponent(GroundMapCtl);
         this.gameConfigJson = gameConfig;
         this.healthCount = this.gameConfigJson[this.objectType].HealthCount;
@@ -78,13 +82,12 @@ export class EnemyBase extends BaseObject {
         // this.gameController = gameCtl;
         // this.enemyCtl.node.on('enter-show-boss-enter-state', this.enterShowBossEnter, this);
         // this.enemyCtl.node.on("enter-continue-play-move-anim", this.contiuePlayMoveAnim, this);
-
-
         return new Promise((resolve, reject) => {
             let tw = new Tween(node);
             let pos = node.position;
             tw.delay(0.1 * index)
-            tw.set({ scale: v3(0, 0, 0) })
+            // let moveType = this.getMoveType();
+            // tw.set({ scale: v3(0, moveType.indexOf("Fly") > -1 ? 10 : 0, 0) })
             tw.show();
             tw.call(() => {
                 node.active = true;
@@ -92,7 +95,7 @@ export class EnemyBase extends BaseObject {
             tw.to(0.1, { scale: v3(1, 1, 1) })
             // bounceOut quartIn
             // tw.to(0.4, { position: v3(pos.x, 0, pos.z) }, { easing: "bounceOut" })
-            tw.to(0.4, { position: v3(pos.x, 0, pos.z) })
+            // tw.to(0.4, { position: v3(pos.x, 0, pos.z) })
 
             tw.call(() => {
                 // node.getComponent(EnemyBase).startRun();
@@ -104,11 +107,41 @@ export class EnemyBase extends BaseObject {
     }
     startRun(startPos: Vec2, endPos: Vec2) {
         console.log("start pos ", startPos);
+        this.state.setState("run");
         let moveType = this.getMoveType();
         if (moveType === "Walk") {
             this.proceeWalkLogic(startPos, endPos);
         } else if (moveType === 'Fly') {
-            this.processFlyLogic(startPos, endPos)
+            if (this.getIsColony()) {
+                //运行集群系统
+                // let list = this.enemyCtl.getCurrentEnemyNodeList();
+                // // this.node.position = v3(this.node.position.x, 10, this.node.position.z);
+                // let pathVec = [
+                //     v2(0, 0), 
+                //     v2(10, 0), 
+                //     v2(10, 10), 
+                //     v2(0, 10), 
+                //     v2(2, 1),
+                //     v2(9,1),
+                //     v2(9,8),
+                //     // v2(2,8),
+                //     // v2(3,2),
+                //     v2(7,3),
+                //     v2(7,7),
+                //     v2(3,7),
+                //     // v2(4,4),
+                //     v2(0,0)
+                // ];
+                // let ctlPos = [];
+                // // this.groundMapCtl.getMapNodeList().getValue()
+                // for (let i = 0; i < pathVec.length; i++) {
+                //     ctlPos.push(this.groundMapCtl.getMapNodeList().getValue(pathVec[i].x, pathVec[i].y).position)
+                // }
+                // //取出列表里面 的 群集敌人
+                // this.enemyColonyCtl = new EnemyColonyCom(list, this.node, ctlPos);
+            } else {
+                this.processFlyLogic(startPos, endPos)
+            }
         }
     }
 
@@ -117,38 +150,26 @@ export class EnemyBase extends BaseObject {
         //1首先设置一条敌人需要飞过的控制点\
         // let endPoint = this.groundMapCtl.getMapNodeList().getValue(endPos.x, endPos.y).position;
         // this.node.position = endPoint;
+        if (this.state.getState() !== 'run') {
+            //当前的游戏状态是run , 如果当前的状态不是运行状态，那么需要打断飞行移动
+            return;
+        }
         let flyHeight = 10;
         // console.log("处理飞行的逻辑");
         let mapSize = this.groundMapCtl.getMapSize();
         let posIndexList: Vec2[] = [v2(startPos.x, startPos.y)];
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 8; i++) {
             posIndexList.push(v2(
                 Math.round(Math.random() * (mapSize.x - 1)),
                 Math.round(Math.random() * (mapSize.y - 1))
             ))
         }
-        // posIndexList.push(v2(Math.round,9));
-        // posIndexList.push(v2(2,2));
-        // posIndexList.push(v2(7,7));
 
-        // let index = 3;
-        // posIndexList.push(v2())
-        // console.log("start pos", startPos);
-        // let v = v2(0, 0);
-        // if (startPos.x === 0 || startPos.x === 10) {
-        //     console.log("在边缘");
-        //     v.x = startPos.x === 10 ? 0 : 10
-        // }
-        // if (startPos.y === 0 || startPos.y === 10) {
-        //     console.log("在边缘");
-        //     v.y = startPos.y === 10 ? 0 : 10;
-        // }
-        // posIndexList.push(v);
         posIndexList.push(endPos);
         let posList: Vec3[] = [];
         for (let i = 0; i < posIndexList.length; i++) {
             let posv2 = posIndexList[i];
-            console.log("posv2", posv2);
+            // console.log("posv2", posv2);
             let node = this.groundMapCtl.getMapNodeList().getValue(posv2.x, posv2.y);
             if (node) {
                 let nodePos = node.position;
@@ -157,7 +178,9 @@ export class EnemyBase extends BaseObject {
             // let pos = v3(posv2.x, 0, posv2.y);
         }
         let bezier = new BezierN(posList);
-        let endPosList = bezier.getPointList(100);
+        let endPosList = bezier.getPointList(200);
+
+        // this.node.position = endPosList[0];
         this.currentMoveTw = this.processMoveAction(endPosList);
         this.currentMoveTw.call(() => {
             //播放攻击敌人的动画
@@ -166,7 +189,13 @@ export class EnemyBase extends BaseObject {
             let skeleteAnim = this.rootNode.getComponent(SkeletalAnimationComponent);
             // skeleteAnim.play(this.currentBoneAnimName);
             let animLength = skeleteAnim.getState("骨架|AttackAnim").length;
-            this.schedule(this.shootOneBossBullet, animLength)
+            // this.schedule(this.shootOneBossBullet, animLength)
+            this.shootOneBossBullet().then(() => {
+                //在飞一遍
+                let startPosRandomList = [v2(0, 0), v2(0, 10), v2(10, 0), v2(10, 10)]
+                let randomIndex = Math.round(Math.random() * (startPosRandomList.length - 1));
+                this.processFlyLogic(startPosRandomList[randomIndex], endPos);
+            });
         })
         this.currentMoveTw.start();
         // // console.log("start pos", startPos);
@@ -196,7 +225,7 @@ export class EnemyBase extends BaseObject {
     }
     processMoveAction(pathList: Vec3[]): Tween {
         //处理移动的动作
-
+        let tw = new Tween(this.node);
         const setTwData = (tw, index) => {
             let time = 0;
             let angle = new Quat();
@@ -205,22 +234,38 @@ export class EnemyBase extends BaseObject {
                 time = dis / this.moveSpeed;
                 angle = this.getLookAtAngle(this.node.position, pathList[index]);
 
-
             } else {
                 let dis = v3(pathList[index - 1]).subtract(pathList[index]).length();
                 angle = this.getLookAtAngle(pathList[index - 1], pathList[index]);
 
                 time = dis / this.moveSpeed
             }
+            // tw.call(() => {
+            //     this.node.lookAt(pathList[index])
+            // })
+
+
+            let rotationAnim = () => {
+                let targetPos = pathList[index];
+                let dir = v3(this.node.position).subtract(targetPos).normalize();
+                let targetQuat = new Quat();
+                Quat.fromViewUp(targetQuat, dir, Vec3.UP);
+                let preQuat = new Quat();
+                Quat.lerp(preQuat, new Quat(this.node.worldRotation), targetQuat, 0.15);
+                this.node.worldRotation = preQuat;
+            }
             tw.call(() => {
-                this.node.lookAt(pathList[index])
+
+                this.schedule(rotationAnim, 1 / 60);
             })
             tw.to(time, {
                 position: pathList[index],
                 // worldRotation: angle
             })
+            tw.call(() => {
+                this.unschedule(rotationAnim);
+            })
         }
-        let tw = new Tween(this.node);
         for (let i = 0; i < pathList.length; i++) {
             setTwData(tw, i);
         }
@@ -229,6 +274,9 @@ export class EnemyBase extends BaseObject {
     }
     proceeWalkLogic(startPos: Vec2, endPos: Vec2) {
         //处理走路的逻辑
+        if (this.state.getState() !== 'run') {
+            return;
+        }
         let mapNodeList = this.groundMapCtl.getMapNodeList();
         let obsPosList = this.groundMapCtl.getObsPosList();
         let pathTool = new FindPathWithAStart(mapNodeList, [startPos.x, startPos.y], [endPos.x, endPos.y]);
@@ -247,14 +295,54 @@ export class EnemyBase extends BaseObject {
         let bezier = new BezierN(pathPosList); //通过获取到的 路径点，来制作一条贝塞尔曲线
         this.bezierPathList = bezier.getPointList(30); //路径密度为20
         this.bezierPathList = this.bezierPathList.slice(0, this.bezierPathList.length - 5);
-        this.currentMoveTw = this.processMoveAction(this.bezierPathList);
+        if (this.node.position.equals(this.bezierPathList[this.bezierPathList.length - 1])) {
+            console.log("不用再走一遍逻辑了")
+            this.toBeAttack().then(() => {
+                this.proceeWalkLogic(startPos, endPos);
+            })
+        } else {
+            this.currentMoveTw = this.processMoveAction(this.bezierPathList);
 
-        this.currentMoveTw.call(() => {
-            this.state.setState("enter-attack-state");
+            this.currentMoveTw.call(() => {
+                // this.state.setState("enter-attack-state");
+                this.toBeAttack().then(() => {
+                    this.proceeWalkLogic(startPos, endPos);
+                });
+            })
+            this.currentMoveTw.start();
+        }
+
+
+        // this.state.setState("run");
+    }
+    toBeAttack() {
+        return new Promise((resolve, reject) => {
+            this.currentBoneAnimName = "骨架|AttackAnim";
+            let skeleteAnim = this.rootNode.getComponent(SkeletalAnimationComponent);
+            skeleteAnim.play(this.currentBoneAnimName);
+            let stateAnim = skeleteAnim.getState(this.currentBoneAnimName);
+            let animLength = stateAnim.length;
+            stateAnim.repeatCount = 1;
+            let tw = new Tween(this.node);
+            tw.delay(this.animSpeedMulOffset * animLength)
+            tw.call(() => {
+                console.log("普通敌人发动攻击", this.getBaseAttackDamage());
+                // this.enemyCtl.
+                // this.gameController.getComponent(GameController).beatt
+                this.gameController.enemyAttacked(this.getBaseAttackDamage());
+            })
+            tw.delay((1 - this.animSpeedMulOffset) * animLength)
+            tw.call(() => {
+                resolve();
+            })
+            tw.start();
+            // this.scheduleOnce(() => {
+            //     // this.enemyCtl.enemyAttacked();//敌人发动了攻击
+            //     //普通敌人的攻击
+            //     this.enemyCtl.enemyAttacked();//敌人发动了攻击
+
+            // }, this.animSpeedMulOffset * animLength);
         })
-        this.currentMoveTw.start();
-
-        this.state.setState("run");
     }
     getLookAtAngle(startPos, targetPoint: Vec3): Quat {
         // //获取到朝向的角度
@@ -275,6 +363,7 @@ export class EnemyBase extends BaseObject {
         //冰冻自己
         if (this.currentMoveTw) {
             this.currentMoveTw.stop();
+            this.state.setState("forzen");
             let skeleteAnim = this.rootNode.getComponent(SkeletalAnimationComponent);
             let stateAnim = skeleteAnim.getState(this.currentBoneAnimName);
             if (stateAnim) {
@@ -284,35 +373,52 @@ export class EnemyBase extends BaseObject {
     }
 
     shootOneBossBullet() {
-        this.currentBoneAnimName = "骨架|AttackAnim";
-        let skeleteAnim = this.rootNode.getComponent(SkeletalAnimationComponent);
-        skeleteAnim.play(this.currentBoneAnimName);
-        let animLength = skeleteAnim.getState(this.currentBoneAnimName).length;
-
-        this.scheduleOnce(() => {
-            // this.enemyCtl.enemyAttacked();//敌人发动了攻击
-
-            this.enemyCtl.bossShootOneEgg(this.node);
-
-        }, this.animSpeedMulOffset * animLength);
-    }
-
-    onLoad() {
-        this.state.addState("enter-attack-state", () => {
-            console.log("移动结束");
-            //进入攻击状态
+        return new Promise((resolve, reject) => {
             this.currentBoneAnimName = "骨架|AttackAnim";
             let skeleteAnim = this.rootNode.getComponent(SkeletalAnimationComponent);
             skeleteAnim.play(this.currentBoneAnimName);
             let animLength = skeleteAnim.getState(this.currentBoneAnimName).length;
+            let tw = new Tween(this.node);
+            tw.delay(this.animSpeedMulOffset * animLength)
+            tw.call(() => {
+                this.enemyCtl.bossShootOneEgg(this.node);
 
-            this.scheduleOnce(() => {
-                // this.enemyCtl.enemyAttacked();//敌人发动了攻击
-                //普通敌人的攻击
-                this.enemyCtl.enemyAttacked();//敌人发动了攻击
-
-            }, this.animSpeedMulOffset * animLength);
+            })
+            tw.delay((1 - this.animSpeedMulOffset) * animLength)
+            tw.call(() => {
+                this.currentBoneAnimName = "骨架|MoveAnim"
+                skeleteAnim.play(this.currentBoneAnimName);
+                if (resolve) {
+                    resolve();
+                }
+            })
+            tw.start();
         })
+
+        // this.scheduleOnce(() => {
+        //     // this.enemyCtl.enemyAttacked();//敌人发动了攻击
+
+        //     this.enemyCtl.bossShootOneEgg(this.node);
+
+        // }, this.animSpeedMulOffset * animLength);
+    }
+
+    onLoad() {
+        // this.state.addState("enter-attack-state", () => {
+        //     console.log("移动结束");
+        //     //进入攻击状态
+        //     this.currentBoneAnimName = "骨架|AttackAnim";
+        //     let skeleteAnim = this.rootNode.getComponent(SkeletalAnimationComponent);
+        //     skeleteAnim.play(this.currentBoneAnimName);
+        //     let animLength = skeleteAnim.getState(this.currentBoneAnimName).length;
+
+        //     this.scheduleOnce(() => {
+        //         // this.enemyCtl.enemyAttacked();//敌人发动了攻击
+        //         //普通敌人的攻击
+        //         // this.enemyCtl.enemyAttacked();//敌人发动了攻击
+
+        //     }, this.animSpeedMulOffset * animLength);
+        // })
         this.state.addState("over", () => {
             this.enemyCtl.removeEnemyInList(this.node);
             this.node.destroy();
@@ -324,8 +430,11 @@ export class EnemyBase extends BaseObject {
                 this.currentMoveTw.stop();
             }
             let tw = new Tween(this.rootNode);
+            this.node.eulerAngles = v3(0, 0, 0);
+            this.unscheduleAllCallbacks();
             tw.by(0.1, { scale: v3(1, 1, 1) })
             tw.call(() => {
+                this.node.position = v3(this.node.position.x, 0, this.node.position.z)
                 this.rootNode.active = false;
                 this.caidaiEffect.eulerAngles = v3(0, 360 * Math.random(), 0)
                 let dis = v3(this.node.position).subtract(v3(0, 0, 0)).length();
@@ -341,48 +450,6 @@ export class EnemyBase extends BaseObject {
                 this.state.setState("over");
             })
             tw.start();
-            // let currentPos = this.node.position;
-            // let bezier = new BezierN(
-            //     [
-            //         currentPos,
-            //         v3(currentPos.x + Math.random() * 100 - 50, 10 + 10 * Math.random(), currentPos.z + Math.random() * 100 - 50),
-            //         v3(currentPos.x + Math.random() * 100 - 50, 20 + 10 * Math.random(), currentPos.z + Math.random() * 100 - 50),
-            //         v3(currentPos.x + Math.random() * 100 - 50, 20 + 10 * Math.random(), currentPos.z + Math.random() * 100 - 50),
-            //         v3(currentPos.x + Math.random() * 100 - 50, 20 + 10 * Math.random(), currentPos.z + Math.random() * 100 - 50)
-
-            //     ]
-            // );
-            // let pointList = bezier.getPointList(100);
-            // let tw = new Tween(this.node);
-            // // this.node.eulerAngles
-            // for (let i = 0; i < pointList.length; i++) {
-            //     let point = pointList[i];
-            //     let subV3 = v3(point).subtract(this.node.position)
-            //     let eulerAngles = this.node.eulerAngles.y;
-            //     if (subV3.x !== 0 && subV3.z !== 0) {
-            //         eulerAngles = v2(1, 0).signAngle(v2(subV3.x, subV3.z)) * 180 / Math.PI;
-            //     }
-            //     tw.to(0.008, {
-            //         position: pointList[i],
-            //         eulerAngles: v3(0, eulerAngles, 0),
-            //         scale: v3((1 - i / pointList.length),(1 - i / pointList.length),(1 - i / pointList.length))
-            //     })
-            // }
-            // tw.call(()=>{
-            //     this.state.setState("over");
-            // })
-            // // tw.to(0.2 * pointList.length, {scale: v3(0,0,0)})
-            // // tw.parallel(new Tween(this.node).to(0.007 * pointList.length, { scale: v3(0, 0, 0) }));
-            // // tw.
-            // tw.start();
-
-            // let tw = new Tween(this.node);
-            // tw.by(0.2, { scale: v3(1, 1, 1) });
-            // tw.call(() => {
-            //     this.state.setState("over");
-            // })
-            // tw.start();
-
         });
         this.state.addState("run", () => {
             //开始移动 
@@ -442,8 +509,15 @@ export class EnemyBase extends BaseObject {
 
             let scale = this.currentGasNum / this.baseGasNum;
             // console.log("scale", scale);
+            // this.currentMoveTw.stop();
+            // this.node.
+            // stop
+            // Tween.
             let tw = new Tween(this.node);
             tw.to(0.2, { scale: v3(scale, scale, scale) });
+            tw.call(() => {
+                // this.currentMoveTw
+            })
             tw.start();
 
             if (this.currentHealthCount <= 0) {
@@ -482,6 +556,9 @@ export class EnemyBase extends BaseObject {
         this.currentbeLockedCount--;
     }
     update(deltaTime: number) {
+        if (this.enemyColonyCtl) {
+            this.enemyColonyCtl.update(deltaTime);
+        }
         // Your update function goes here.
         //     if (this.state.getState() === 'run') {
         //         if (!this.currentMovePos) {
@@ -548,8 +625,12 @@ export class EnemyBase extends BaseObject {
     onDestroy() {
         // this.node.off('enter-show-boss-enter-state', this.enterShowBossEnter, this);
         // this.node.off('enter-continue-play-move-anim', this.contiuePlayMoveAnim, this);
-        this.enemyCtl.node.off("frozen-all-enemy", this.forzenSelf, this);
-        this.unschedule(this.shootOneBossBullet);
+        if (this.enemyCtl && isValid(this.enemyCtl.node)) {
+            this.enemyCtl.node.off("frozen-all-enemy", this.forzenSelf, this);
+        }
+        // this.unschedule(this.shootOneBossBullet);
     }
-
+    getColonyComCtl() {
+        return this.enemyColonyCtl;
+    }
 }

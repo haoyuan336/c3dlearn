@@ -14,6 +14,8 @@ export class CrazyRotateSkill extends BaseObject {
     //     console.log("初始化技能组件");
     //     super.init(gameConfig, gameController);
     // }
+    @property({ type: Node }) //武器角度
+    public weaponGunNode: Node = null;
     onLoad() {
         this.node.on("init", (gameConfig, gameController: GameController) => {
             this.init(gameConfig, gameController);
@@ -24,15 +26,19 @@ export class CrazyRotateSkill extends BaseObject {
             // console.log("发射一枚子弹");
             // let currentRotation = this.node.eulerAngles.y;
             // let dir = v2(0, 1).rotate(currentRotation);
-            let startPosNode = this.node.getComponent(TowerBase).bulletStartPos;
-            let dir = v3(startPosNode.worldPosition).subtract(this.node.position);
-            let baseAttackNum = this.getCurrentAttackNum()
+            let bulletStartPosList = this.node.getComponent(TowerBase).bulletStartPosList;
+            for (let i = 0; i < bulletStartPosList.length; i++) {
+                let startPosNode = bulletStartPosList[i];
+                let dir = v3(startPosNode.worldPosition).subtract(this.node.position);
+                let baseAttackNum = this.getCurrentAttackNum()
 
-            this.node.getComponent(TowerBase).shootOneBullet(
-                this.baseAttackRate + this.node.getComponent(BaseObject).baseAttackRate,
-                v2(dir.x, dir.z),
-                baseAttackNum
-            )
+                this.node.getComponent(TowerBase).shootOneBullet(
+                    this.baseAttackRate + this.node.getComponent(BaseObject).baseAttackRate,
+                    dir,
+                    baseAttackNum
+                )
+            }
+
         }
         this.node.on("release-skill", (cb) => {
             // let shootRate = data.shootRate + this.baseAttackRate;
@@ -53,6 +59,11 @@ export class CrazyRotateSkill extends BaseObject {
             let skillTime = currentRotate / this.rotateSpeed;
             let tw = new Tween(this.node);
             let signDir = Math.random() - 0.5;
+            // this.node.eulerAngles = v3(0,0,0);
+            // this.node.emit("weapon-euler-angles-init"); //武器角度归位
+            if (this.weaponGunNode) {
+                this.weaponGunNode.eulerAngles = v3(0, 0, 0);
+            }
             tw.by(skillTime, { eulerAngles: v3(0, currentRotate * (signDir / Math.abs(signDir)), 0) });
             tw.call(() => {
                 this.unschedule(shootBullet);

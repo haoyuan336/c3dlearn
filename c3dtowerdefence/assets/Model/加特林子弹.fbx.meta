@@ -1,0 +1,123 @@
+{
+  "ver": "1.3.21",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "a204af3d-f969-4672-a148-f679fb9b1756",
+  "files": [],
+  "subMetas": {
+    "e10e4": {
+      "importer": "gltf-mesh",
+      "uuid": "a204af3d-f969-4672-a148-f679fb9b1756@e10e4",
+      "displayName": "",
+      "id": "e10e4",
+      "name": "立方体.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "9881e": {
+      "importer": "gltf-embeded-image",
+      "uuid": "a204af3d-f969-4672-a148-f679fb9b1756@9881e",
+      "displayName": "",
+      "id": "9881e",
+      "name": "colorTexture.png.image",
+      "ver": "1.0.2",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "7d6ab": {
+      "importer": "texture",
+      "uuid": "a204af3d-f969-4672-a148-f679fb9b1756@7d6ab",
+      "displayName": "",
+      "id": "7d6ab",
+      "name": "base_color_texture.texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "a204af3d-f969-4672-a148-f679fb9b1756@9881e"
+      }
+    },
+    "22e2a": {
+      "importer": "gltf-material",
+      "uuid": "a204af3d-f969-4672-a148-f679fb9b1756@22e2a",
+      "displayName": "",
+      "id": "22e2a",
+      "name": "材质.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "7409b": {
+      "importer": "gltf-scene",
+      "uuid": "a204af3d-f969-4672-a148-f679fb9b1756@7409b",
+      "displayName": "",
+      "id": "7409b",
+      "name": "加特林子弹.prefab",
+      "ver": "1.0.11",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "colorTexture.png",
+        "uri": "a204af3d-f969-4672-a148-f679fb9b1756@9881e"
+      }
+    ],
+    "redirect": "a204af3d-f969-4672-a148-f679fb9b1756@7409b",
+    "assetFinder": {
+      "meshes": [
+        "a204af3d-f969-4672-a148-f679fb9b1756@e10e4"
+      ],
+      "skeletons": [],
+      "textures": [
+        "a204af3d-f969-4672-a148-f679fb9b1756@7d6ab"
+      ],
+      "materials": [
+        "a204af3d-f969-4672-a148-f679fb9b1756@22e2a"
+      ],
+      "scenes": [
+        "a204af3d-f969-4672-a148-f679fb9b1756@7409b"
+      ]
+    }
+  }
+}
