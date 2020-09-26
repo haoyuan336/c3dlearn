@@ -44,6 +44,7 @@ export class BaseObject extends Component {
     private enemyIndexType: number = 0; //敌人的
 
     private isConlony: boolean = false; //是否集群运动
+    private bulletRecoverTime: number = 0; //子弹的恢复时间
 
     public init(gameConfig: Object, gameController: GameController, startPos?: Vec3, endPos?: Vec3, objectType?: string) {
         // this.baseGasNum = gameConfig[]
@@ -123,6 +124,10 @@ export class BaseObject extends Component {
 
         if (gameConfig[this.objectType]['Colony']) {
             this.isConlony = gameConfig[this.objectType]['Colony'];
+        }
+        if (gameConfig[this.objectType]['BulletRecoverTime']){
+            //子弹的恢复时间
+            this.bulletRecoverTime = gameConfig[this.objectType]['BulletRecoverTime'];
         }
     }
     getBaseAttackDamage() {
@@ -309,5 +314,14 @@ export class BaseObject extends Component {
     }
     getIsColony(): boolean {
         return this.isConlony;
+    }
+    getBulletRecoverTime():number{
+        // BulletRecoverTime
+
+        //返回子弹恢复的时间
+        return this.bulletRecoverTime;
+    }
+    getMoveSpeed():number{
+        return this.moveSpeed;
     }
 }

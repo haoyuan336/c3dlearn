@@ -19,7 +19,7 @@
       ],
       "subMetas": {},
       "userData": {
-        "gltfIndex": 0,
+        "gltfIndex": 1,
         "wrapMode": 2,
         "sample": 30,
         "span": {
@@ -44,6 +44,30 @@
       "subMetas": {},
       "userData": {
         "gltfIndex": 0
+      }
+    },
+    "fdad8": {
+      "importer": "gltf-animation",
+      "uuid": "f3b23be1-0850-401c-ba80-601ca15a373f@fdad8",
+      "displayName": "",
+      "id": "fdad8",
+      "name": "骨架|AttackAnim.animation",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.2083333730697632
+        },
+        "events": []
       }
     },
     "438fe": {
@@ -145,6 +169,19 @@
       }
     ],
     "animationImportSettings": [
+      {
+        "name": "骨架|AttackAnim",
+        "duration": 1.2083333730697632,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "骨架|AttackAnim",
+            "from": 0,
+            "to": 1.2083333730697632,
+            "wrapMode": 2
+          }
+        ]
+      },
       {
         "name": "骨架|MoveAnim",
         "duration": 1.2083333730697632,

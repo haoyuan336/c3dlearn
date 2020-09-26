@@ -1,0 +1,181 @@
+{
+  "ver": "1.3.21",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "9e1f0bab-05ec-47db-ab69-579cab1a49ff",
+  "files": [],
+  "subMetas": {
+    "07d75": {
+      "importer": "gltf-mesh",
+      "uuid": "9e1f0bab-05ec-47db-ab69-579cab1a49ff@07d75",
+      "displayName": "",
+      "id": "07d75",
+      "name": "立方体.001.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "09a43": {
+      "importer": "gltf-animation",
+      "uuid": "9e1f0bab-05ec-47db-ab69-579cab1a49ff@09a43",
+      "displayName": "",
+      "id": "09a43",
+      "name": "骨架|骨架Action.animation",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.25
+        },
+        "events": []
+      }
+    },
+    "438fe": {
+      "importer": "gltf-skeleton",
+      "uuid": "9e1f0bab-05ec-47db-ab69-579cab1a49ff@438fe",
+      "displayName": "",
+      "id": "438fe",
+      "name": "UnnamedSkeleton.skeleton",
+      "ver": "1.0.1",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0,
+        "jointsLength": 2
+      }
+    },
+    "9881e": {
+      "importer": "gltf-embeded-image",
+      "uuid": "9e1f0bab-05ec-47db-ab69-579cab1a49ff@9881e",
+      "displayName": "",
+      "id": "9881e",
+      "name": "colorTexture.png.image",
+      "ver": "1.0.2",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "7d6ab": {
+      "importer": "texture",
+      "uuid": "9e1f0bab-05ec-47db-ab69-579cab1a49ff@7d6ab",
+      "displayName": "",
+      "id": "7d6ab",
+      "name": "base_color_texture.texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "9e1f0bab-05ec-47db-ab69-579cab1a49ff@9881e"
+      }
+    },
+    "22e2a": {
+      "importer": "gltf-material",
+      "uuid": "9e1f0bab-05ec-47db-ab69-579cab1a49ff@22e2a",
+      "displayName": "",
+      "id": "22e2a",
+      "name": "材质.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "6442a": {
+      "importer": "gltf-scene",
+      "uuid": "9e1f0bab-05ec-47db-ab69-579cab1a49ff@6442a",
+      "displayName": "",
+      "id": "6442a",
+      "name": "跟踪导弹.prefab",
+      "ver": "1.0.11",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "colorTexture.png",
+        "uri": "9e1f0bab-05ec-47db-ab69-579cab1a49ff@9881e"
+      }
+    ],
+    "animationImportSettings": [
+      {
+        "name": "骨架|骨架Action",
+        "duration": 0.25,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "骨架|骨架Action",
+            "from": 0,
+            "to": 0.25,
+            "wrapMode": 2
+          }
+        ]
+      }
+    ],
+    "redirect": "9e1f0bab-05ec-47db-ab69-579cab1a49ff@6442a",
+    "assetFinder": {
+      "meshes": [
+        "9e1f0bab-05ec-47db-ab69-579cab1a49ff@07d75"
+      ],
+      "skeletons": [
+        "9e1f0bab-05ec-47db-ab69-579cab1a49ff@438fe"
+      ],
+      "textures": [
+        "9e1f0bab-05ec-47db-ab69-579cab1a49ff@7d6ab"
+      ],
+      "materials": [
+        "9e1f0bab-05ec-47db-ab69-579cab1a49ff@22e2a"
+      ],
+      "scenes": [
+        "9e1f0bab-05ec-47db-ab69-579cab1a49ff@6442a"
+      ]
+    }
+  }
+}

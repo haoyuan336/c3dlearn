@@ -456,7 +456,7 @@ export class EnemyBase extends BaseObject {
             let skeleteAnim = this.rootNode.getComponent(SkeletalAnimationComponent);
             if (skeleteAnim) {
                 this.currentBoneAnimName = "骨架|MoveAnim"
-
+                console.log(this.objectType + "播放移动动作", this.currentBoneAnimName);
                 skeleteAnim.play(this.currentBoneAnimName);
                 // let clips = skeleteAnim.clips;
                 // let moveClip = null;
@@ -505,20 +505,42 @@ export class EnemyBase extends BaseObject {
 
             this.currentGasNum += baseGasNum;
 
-            // scale = 0;
+            let tw = new Tween(this.node);
+            tw.to(0.05, {
+                scale: v3(1.05, 0.98, 1.05)
+            })
+            tw.to(0.05, {
+                scale: v3(1, 1, 1)
+            })
+            tw.start();
 
-            let scale = this.currentGasNum / this.baseGasNum;
+
+            // let beAttackAnimName = "骨架|BeAttackAnim"; //被攻击的动画
+            // let skeleteAnim = this.rootNode.getComponent(SkeletalAnimationComponent);
+            // if (skeleteAnim) {
+            //     skeleteAnim.play(beAttackAnimName);
+            //     let stateAnim = skeleteAnim.getState(beAttackAnimName);
+            //     if (stateAnim && !stateAnim.isPlaying) {
+            //         let length = stateAnim.length;
+            //         this.scheduleOnce(() => {
+            //             skeleteAnim.play(this.currentBoneAnimName);
+            //         }, length);
+            //     }
+            //     // let beAttakcClick = skeleteAnim.clips
+            // }
+            // scale = 0;
+            // let scale = this.currentGasNum / this.baseGasNum;
             // console.log("scale", scale);
             // this.currentMoveTw.stop();
             // this.node.
             // stop
             // Tween.
-            let tw = new Tween(this.node);
-            tw.to(0.2, { scale: v3(scale, scale, scale) });
-            tw.call(() => {
-                // this.currentMoveTw
-            })
-            tw.start();
+            // let tw = new Tween(this.node);
+            // tw.to(0.2, { scale: v3(scale, scale, scale) });
+            // tw.call(() => {
+            // this.currentMoveTw
+            // })
+            // tw.start();
 
             if (this.currentHealthCount <= 0) {
                 this.currentHealthCount = 0;

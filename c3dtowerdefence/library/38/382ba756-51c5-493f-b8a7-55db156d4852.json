@@ -479,7 +479,7 @@
     "asset": {
       "__id__": 0
     },
-    "fileId": "65bGQiodxK86rRANLYFBR0",
+    "fileId": "eeDqqZQGtJs5YdzQW5Uxwx",
     "sync": false,
     "_synced": {
       "default": false,
@@ -715,7 +715,7 @@
     "asset": {
       "__id__": 0
     },
-    "fileId": "17IdjsDHFJTZiimpEDmklR",
+    "fileId": "aaXyFzEphPdp7D6sps9KS2",
     "sync": false,
     "_synced": {
       "default": false,
@@ -730,7 +730,7 @@
     "asset": {
       "__id__": 0
     },
-    "fileId": "27WyxCWPRHh51TZAYy1eTN",
+    "fileId": "0aeIaVVfBF3L+IxXRKFunM",
     "sync": false,
     "_synced": {
       "default": false,
@@ -745,7 +745,7 @@
     "asset": {
       "__id__": 0
     },
-    "fileId": "795TXljKRB9pbJY74R8PVs",
+    "fileId": "12c4e3z85AO6F4vhI3FM0Z",
     "sync": false,
     "_synced": {
       "default": false,
@@ -760,7 +760,7 @@
     "asset": {
       "__id__": 0
     },
-    "fileId": "62OSnMa0JJdIgadJHG0fj5",
+    "fileId": "e6DWX4xAJEu7rIGKVEJjb5",
     "sync": false,
     "_synced": {
       "default": false,
@@ -775,7 +775,7 @@
     "asset": {
       "__id__": 0
     },
-    "fileId": "88IEqSZoxOsJDNTrZ9S4op",
+    "fileId": "58NlOUrIZJHYowH6KtW+Yo",
     "sync": false,
     "_synced": {
       "default": false,
@@ -790,7 +790,7 @@
     "asset": {
       "__id__": 0
     },
-    "fileId": "6232zA6vBOnalraBwp6C1W",
+    "fileId": "4bt+si13ZAl4fTcp9t5y8q",
     "sync": false,
     "_synced": {
       "default": false,
@@ -809,6 +809,9 @@
     "_clips": [
       {
         "__uuid__": "f3b23be1-0850-401c-ba80-601ca15a373f@46940"
+      },
+      {
+        "__uuid__": "f3b23be1-0850-401c-ba80-601ca15a373f@fdad8"
       }
     ],
     "_defaultClip": {
@@ -826,7 +829,7 @@
     "asset": {
       "__id__": 0
     },
-    "fileId": "b0xGk4dA9Ez4/oMelqop3V",
+    "fileId": "fdjZj2KXNNyZNHP1iYhiu0",
     "sync": false,
     "_synced": {
       "default": false,
@@ -845,7 +848,7 @@
     "rootNode": {
       "__id__": 10
     },
-    "animSpeedMulOffset": 1.5,
+    "animSpeedMulOffset": 0.3,
     "caidaiEffect": {
       "__id__": 2
     },

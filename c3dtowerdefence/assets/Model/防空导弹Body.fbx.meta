@@ -1,0 +1,181 @@
+{
+  "ver": "1.3.21",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "f651dc16-60b1-4b2a-8c26-bcf88bc40685",
+  "files": [],
+  "subMetas": {
+    "fa0d6": {
+      "importer": "gltf-mesh",
+      "uuid": "f651dc16-60b1-4b2a-8c26-bcf88bc40685@fa0d6",
+      "displayName": "",
+      "id": "fa0d6",
+      "name": "立方体.003.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "fdad8": {
+      "importer": "gltf-animation",
+      "uuid": "f651dc16-60b1-4b2a-8c26-bcf88bc40685@fdad8",
+      "displayName": "",
+      "id": "fdad8",
+      "name": "骨架|AttackAnim.animation",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.375
+        },
+        "events": []
+      }
+    },
+    "438fe": {
+      "importer": "gltf-skeleton",
+      "uuid": "f651dc16-60b1-4b2a-8c26-bcf88bc40685@438fe",
+      "displayName": "",
+      "id": "438fe",
+      "name": "UnnamedSkeleton.skeleton",
+      "ver": "1.0.1",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0,
+        "jointsLength": 3
+      }
+    },
+    "9881e": {
+      "importer": "gltf-embeded-image",
+      "uuid": "f651dc16-60b1-4b2a-8c26-bcf88bc40685@9881e",
+      "displayName": "",
+      "id": "9881e",
+      "name": "colorTexture.png.image",
+      "ver": "1.0.2",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "7d6ab": {
+      "importer": "texture",
+      "uuid": "f651dc16-60b1-4b2a-8c26-bcf88bc40685@7d6ab",
+      "displayName": "",
+      "id": "7d6ab",
+      "name": "base_color_texture.texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "f651dc16-60b1-4b2a-8c26-bcf88bc40685@9881e"
+      }
+    },
+    "dd992": {
+      "importer": "gltf-material",
+      "uuid": "f651dc16-60b1-4b2a-8c26-bcf88bc40685@dd992",
+      "displayName": "",
+      "id": "dd992",
+      "name": "材质.001.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "51d98": {
+      "importer": "gltf-scene",
+      "uuid": "f651dc16-60b1-4b2a-8c26-bcf88bc40685@51d98",
+      "displayName": "",
+      "id": "51d98",
+      "name": "防空导弹Body.prefab",
+      "ver": "1.0.11",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "colorTexture.png",
+        "uri": "f651dc16-60b1-4b2a-8c26-bcf88bc40685@9881e"
+      }
+    ],
+    "redirect": "f651dc16-60b1-4b2a-8c26-bcf88bc40685@51d98",
+    "assetFinder": {
+      "meshes": [
+        "f651dc16-60b1-4b2a-8c26-bcf88bc40685@fa0d6"
+      ],
+      "skeletons": [
+        "f651dc16-60b1-4b2a-8c26-bcf88bc40685@438fe"
+      ],
+      "textures": [
+        "f651dc16-60b1-4b2a-8c26-bcf88bc40685@7d6ab"
+      ],
+      "materials": [
+        "f651dc16-60b1-4b2a-8c26-bcf88bc40685@dd992"
+      ],
+      "scenes": [
+        "f651dc16-60b1-4b2a-8c26-bcf88bc40685@51d98"
+      ]
+    },
+    "animationImportSettings": [
+      {
+        "name": "骨架|AttackAnim",
+        "duration": 0.375,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "骨架|AttackAnim",
+            "from": 0,
+            "to": 0.375,
+            "wrapMode": 2
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1567,7 +1567,7 @@
     "rootNode": {
       "__id__": 10
     },
-    "animSpeedMulOffset": 1.5,
+    "animSpeedMulOffset": 0.9,
     "caidaiEffect": {
       "__id__": 2
     },
@@ -1591,7 +1591,7 @@
     },
     "_size": {
       "__type__": "cc.Vec3",
-      "x": 6.865,
+      "x": 4.294,
       "y": 8,
       "z": 5
     },

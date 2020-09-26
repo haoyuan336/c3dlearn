@@ -74,17 +74,21 @@
         "ActiveCost": 1000
     },
     "Tower_5": {
+        "CanAttackType": [
+            "Fly"
+        ],
         "TowerType": "Tower_5",
         "Type": "Tower",
-        "IconSprteFrame": "Tower_1_Icon",
+        "IconSprteFrame": "Tower_4_Icon",
         "Index": 4,
         "BulletType": "BulletOne",
         "ShootRate": 1.2,
-        "AttackRange": 10,
+        "AttackRange": 15,
         "SkillType": "CrazyRotate",
         "BaseAttackNum": 1,
         "BuildCost": 15,
-        "ActiveCost": 1500
+        "ActiveCost": 1500,
+        "BulletRecoverTime": 4
     },
     "Enemy_0": {
         "EnemyType": "Enemy_0",
@@ -187,6 +191,58 @@
         "EnemyBulletType": 0,
         "EnemyIndex": 7
     },
+    "Boss_4": {
+        "EnemyType": "Boss_4",
+        "BaseAttackNum": 1,
+        "IconSprteFrame": "橘猫_Icon",
+        "MoveSpeed": 2,
+        "HealthCount": 1000,
+        "BeLockedCount": 10,
+        "BaseGasNum": 5,
+        "BaseGoldCount": 10,
+        "MoveType": "Fly",
+        "EnemyBulletType": 0,
+        "EnemyIndex": 8
+    },
+    "Boss_5": {
+        "EnemyType": "Boss_5",
+        "BaseAttackNum": 1,
+        "IconSprteFrame": "鲨鱼_Iconn",
+        "MoveSpeed": 2,
+        "HealthCount": 4000,
+        "BeLockedCount": 10,
+        "BaseGasNum": 5,
+        "BaseGoldCount": 10,
+        "MoveType": "Fly",
+        "EnemyBulletType": 0,
+        "EnemyIndex": 8
+    },
+    "Boss_6": {
+        "EnemyType": "Boss_6",
+        "BaseAttackNum": 1,
+        "IconSprteFrame": "比丘丘_Icon",
+        "MoveSpeed": 1.5,
+        "HealthCount": 100,
+        "BeLockedCount": 10,
+        "BaseGasNum": 5,
+        "BaseGoldCount": 10,
+        "MoveType": "Walk",
+        "EnemyBulletType": 0,
+        "EnemyIndex": 9
+    },
+    "Boss_7": {
+        "EnemyType": "Boss_6",
+        "BaseAttackNum": 1,
+        "IconSprteFrame": "xiaomianyang_icon",
+        "MoveSpeed": 1.5,
+        "HealthCount": 100,
+        "BeLockedCount": 10,
+        "BaseGasNum": 5,
+        "BaseGoldCount": 10,
+        "MoveType": "Walk",
+        "EnemyBulletType": 0,
+        "EnemyIndex": 10
+    },
     "Monster_1": {
         "MoveSpeed": 0.2,
         "HealthCount": 2,
@@ -225,6 +281,15 @@
         "isCollisionDestroy": true,
         "isCollisionGround": true,
         "LeftTime": 3
+    },
+    "Bullet_5": {
+        "MoveType": "Bezier",
+        "MoveSpeed": 20,
+        "BaseAttackNum": 2,
+        "BaseGasNum": 0,
+        "isCollisionDestroy": true,
+        "isCollisionGround": true,
+        "LeftTime": 10
     },
     "Level_0": {
         "InitGoldCount": 100,
@@ -277,30 +342,12 @@
             [
                 {
                     "type": 0,
-                    "count": 5
+                    "count": 0
                 }
             ],
             [
                 {
-                    "type": 1,
-                    "count": 10
-                }
-            ],
-            [
-                {
-                    "type": 2,
-                    "count": 15
-                }
-            ],
-            [
-                {
-                    "type": 3,
-                    "count": 10
-                }
-            ],
-            [
-                {
-                    "type": 3,
+                    "type": 5 ,
                     "count": 1
                 }
             ]

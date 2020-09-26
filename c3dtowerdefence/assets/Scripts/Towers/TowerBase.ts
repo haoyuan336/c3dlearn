@@ -197,7 +197,13 @@ export class TowerBase extends BaseObject {
             }
             if (isValid(this.currentTargetEnemy)) {
                 // console.log("找到了目标敌人");
-                this.rootNode.lookAt(this.currentTargetEnemy.position);
+                if (this.rootNode) {
+                    this.rootNode.lookAt(this.currentTargetEnemy.position);
+                    // console.log("this,root node", this.rootNode.eulerAngles);
+                    if (this.rootNode.eulerAngles.x < 0) {
+                        this.rootNode.eulerAngles = v3(0, this.rootNode.eulerAngles.y, this.rootNode.eulerAngles.z);
+                    }
+                }
                 if (this.currentTargetEnemy.getComponent(EnemyBase) &&
                     this.currentTargetEnemy.getComponent(EnemyBase).getIsDead()) {
                     this.currentTargetEnemy = null;
@@ -226,6 +232,7 @@ export class TowerBase extends BaseObject {
 
                     }
                     this.currentShootTime = 0;
+
                     this.shootOneBullet(this.getCurrentAttackRate(), this.currentShootDiraction, this.getCurrentAttackNum());
                 } else {
                     this.currentShootTime += deltaTime;
@@ -247,11 +254,31 @@ export class TowerBase extends BaseObject {
         //     }
         // }
 
+
         let baseNodeList: Node[] = [this.rootNode];
         if (this.weaponBaseNode) {
             baseNodeList.push(this.weaponBaseNode);
         }
+
+
+        let isHaveBullet = false;
+        if (this.getBulletRecoverTime() > 0) {
+            for (let i = 0; i < this.bulletStartPosList.length; i++) {
+                let node = this.bulletStartPosList[i];
+                if (node.active) {
+                    isHaveBullet = true;
+                    break;
+                }
+            }
+        } else {
+            isHaveBullet = true;
+        }
+
+        if (!isHaveBullet) {
+            return;
+        }
         let length: number = 0;
+
         for (let i = 0; i < baseNodeList.length; i++) {
             let skeleteAnim = baseNodeList[i].getComponent(SkeletalAnimationComponent);
             if (skeleteAnim) {
@@ -265,7 +292,6 @@ export class TowerBase extends BaseObject {
                 length = lengthTime;
                 // let stateAnim = skeleteAnim.getState(animName);
             }
-
         }
 
 
@@ -278,30 +304,55 @@ export class TowerBase extends BaseObject {
     }
     createOneTimeBullet(direction: Vec3, attackNum: number) {
         for (let i = 0; i < this.bulletStartPosList.length; i++) {
-            let bulletPosNode = this.bulletStartPosList[i];
-            let bulletNode = instantiate(this.bulletPrefab);
-            bulletNode.parent = this.node.parent;
-            bulletNode.active = false;
-            bulletNode.setPosition(bulletPosNode.worldPosition);
-            bulletNode.active = true;
-            console.log("createOneBullet base attack num", attackNum);
-            // direction.
-            let randomVec = v3(Math.random() * 2, Math.random() * 2, Math.random() * 2);
-            direction.add(randomVec);
-            bulletNode.getComponent(BulletBase).init(this.gameConfig, this.gameController, {
-                direction: direction,
-                targetEnemy: this.currentTargetEnemy,
-                baseAttackNum: attackNum,
-                targetTower: this
 
-            })
+            let bulletPosNode = this.bulletStartPosList[i];
+            if (bulletPosNode.active) {
+                let bulletNode = instantiate(this.bulletPrefab);
+                bulletNode.parent = this.node.parent;
+                bulletNode.active = false;
+                bulletNode.setPosition(bulletPosNode.worldPosition);
+                bulletNode.active = true;
+                console.log("createOneBullet base attack num", attackNum);
+                // direction.
+                let randomVec = v3(Math.random() * 2, Math.random() * 2, Math.random() * 2);
+                direction.add(randomVec);
+                bulletNode.getComponent(BulletBase).init(this.gameConfig, this.gameController, {
+                    direction: direction,
+                    targetEnemy: this.currentTargetEnemy,
+                    baseAttackNum: attackNum,
+                    targetTower: this
+
+                })
+                if (this.getBulletRecoverTime() > 0) {
+                    bulletPosNode.active = false;
+                    let oldPos = v3(bulletPosNode.position);
+                    let tw = new Tween(bulletPosNode);
+                    tw.set({
+                        position: v3(bulletPosNode.position).subtract(v3(0, 0.3, -0.3))
+                    })
+                    tw.delay(this.getBulletRecoverTime())
+                    tw.call(() => {
+                        bulletPosNode.active = true;
+
+                    });
+                    tw.to(0.2, {
+                        position: oldPos
+                    })
+                    tw.start();
+                    break;
+                }
+            }
+
+
         }
     }
     enemyDeadByThis(isDead: boolean) {
         //敌人被此塔打死
         if (isDead) {
             //如果敌人被打死了, 那么此塔增加能量 一个点
-            this.skillCtl.showAddPowerAnimEffect(2, this.node.position);
+            if (isValid(this.skillCtl)) {
+                this.skillCtl.showAddPowerAnimEffect(2, this.node.position);
+            }
         }
     }
     releaseSkill() {

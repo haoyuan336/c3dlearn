@@ -947,7 +947,7 @@
     "_mesh": {
       "__uuid__": "dc836dd5-b5c0-4011-a3f3-d818408a1663@e6af8"
     },
-    "_shadowCastingMode": 0,
+    "_shadowCastingMode": 1,
     "_enableMorph": true,
     "_skeleton": {
       "__uuid__": "dc836dd5-b5c0-4011-a3f3-d818408a1663@438fe"

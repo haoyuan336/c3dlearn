@@ -1,0 +1,218 @@
+{
+  "ver": "1.3.21",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "f0136f10-e01d-47c4-87bd-c3a4d6fda71b",
+  "files": [],
+  "subMetas": {
+    "46940": {
+      "importer": "gltf-animation",
+      "uuid": "f0136f10-e01d-47c4-87bd-c3a4d6fda71b@46940",
+      "displayName": "",
+      "id": "46940",
+      "name": "骨架|MoveAnim.animation",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 1,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.2083333730697632
+        },
+        "events": []
+      }
+    },
+    "e10e4": {
+      "importer": "gltf-mesh",
+      "uuid": "f0136f10-e01d-47c4-87bd-c3a4d6fda71b@e10e4",
+      "displayName": "",
+      "id": "e10e4",
+      "name": "立方体.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "fdad8": {
+      "importer": "gltf-animation",
+      "uuid": "f0136f10-e01d-47c4-87bd-c3a4d6fda71b@fdad8",
+      "displayName": "",
+      "id": "fdad8",
+      "name": "骨架|AttackAnim.animation",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.2083333730697632
+        },
+        "events": []
+      }
+    },
+    "438fe": {
+      "importer": "gltf-skeleton",
+      "uuid": "f0136f10-e01d-47c4-87bd-c3a4d6fda71b@438fe",
+      "displayName": "",
+      "id": "438fe",
+      "name": "UnnamedSkeleton.skeleton",
+      "ver": "1.0.1",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0,
+        "jointsLength": 12
+      }
+    },
+    "9881e": {
+      "importer": "gltf-embeded-image",
+      "uuid": "f0136f10-e01d-47c4-87bd-c3a4d6fda71b@9881e",
+      "displayName": "",
+      "id": "9881e",
+      "name": "colorTexture.png.image",
+      "ver": "1.0.2",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "7d6ab": {
+      "importer": "texture",
+      "uuid": "f0136f10-e01d-47c4-87bd-c3a4d6fda71b@7d6ab",
+      "displayName": "",
+      "id": "7d6ab",
+      "name": "base_color_texture.texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "f0136f10-e01d-47c4-87bd-c3a4d6fda71b@9881e"
+      }
+    },
+    "22e2a": {
+      "importer": "gltf-material",
+      "uuid": "f0136f10-e01d-47c4-87bd-c3a4d6fda71b@22e2a",
+      "displayName": "",
+      "id": "22e2a",
+      "name": "材质.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "bb6d0": {
+      "importer": "gltf-scene",
+      "uuid": "f0136f10-e01d-47c4-87bd-c3a4d6fda71b@bb6d0",
+      "displayName": "",
+      "id": "bb6d0",
+      "name": "橘猫.prefab",
+      "ver": "1.0.11",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "colorTexture.png",
+        "uri": "f0136f10-e01d-47c4-87bd-c3a4d6fda71b@9881e"
+      }
+    ],
+    "animationImportSettings": [
+      {
+        "name": "骨架|AttackAnim",
+        "duration": 1.2083333730697632,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "骨架|AttackAnim",
+            "from": 0,
+            "to": 1.2083333730697632,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "骨架|MoveAnim",
+        "duration": 1.2083333730697632,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "骨架|MoveAnim",
+            "from": 0,
+            "to": 1.2083333730697632,
+            "wrapMode": 2
+          }
+        ]
+      }
+    ],
+    "redirect": "f0136f10-e01d-47c4-87bd-c3a4d6fda71b@bb6d0",
+    "assetFinder": {
+      "meshes": [
+        "f0136f10-e01d-47c4-87bd-c3a4d6fda71b@e10e4"
+      ],
+      "skeletons": [
+        "f0136f10-e01d-47c4-87bd-c3a4d6fda71b@438fe"
+      ],
+      "textures": [
+        "f0136f10-e01d-47c4-87bd-c3a4d6fda71b@7d6ab"
+      ],
+      "materials": [
+        "f0136f10-e01d-47c4-87bd-c3a4d6fda71b@22e2a"
+      ],
+      "scenes": [
+        "f0136f10-e01d-47c4-87bd-c3a4d6fda71b@bb6d0"
+      ]
+    }
+  }
+}
