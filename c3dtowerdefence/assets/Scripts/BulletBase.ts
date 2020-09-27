@@ -72,15 +72,20 @@ export class BulletBase extends BaseObject {
         if (this.getMoveType() === 'Bezier') {
             //子弹的移动方式是贝塞尔曲线方式
             //  let ctlPos = [this.node.position];
-            let endPos = this.targetEnemyNode.position;
-            let middle = v3(this.node.position).add(endPos).multiplyScalar(0.5).add(v3(0, 15, 0));
-            let ctlPos = [this.node.position, middle, endPos];
-            this.movePathList = new BezierN(ctlPos).getPointList(50);
-            let tw = this.processMove(this.movePathList);
-            tw.call(() => {
-                this.state.setState("run");
-            })
-            tw.start();
+            if (isValid(this.targetEnemyNode)) {
+                let endPos = this.targetEnemyNode.position;
+                let middle = v3(this.node.position).add(endPos).multiplyScalar(0.5).add(v3(0, 15, 0));
+                let ctlPos = [this.node.position, middle, endPos];
+                this.movePathList = new BezierN(ctlPos).getPointList(50);
+                let tw = this.processMove(this.movePathList);
+                tw.call(() => {
+                    this.state.setState("run");
+                })
+                tw.start();
+            } else {
+                this.node.destroy();
+            }
+
 
         } else {
             this.state.setState("run");
@@ -188,6 +193,8 @@ export class BulletBase extends BaseObject {
                     let dir = v3(this.targetEnemyNode.position).add(v3(0, 2, 0)).subtract(this.node.position);
                     this.node.position = v3(this.node.position).add(dir.multiplyScalar(deltaTime * 0.5 * this.getMoveSpeed()));
                     this.node.lookAt(this.targetEnemyNode.position);
+                } else {
+                    this.node.destroy();
                 }
             } else {
                 this.speedY += this.accY * deltaTime;

@@ -243,6 +243,32 @@
         "EnemyBulletType": 0,
         "EnemyIndex": 10
     },
+    "Boss_8": {
+        "EnemyType": "Boss_8",
+        "BaseAttackNum": 1,
+        "IconSprteFrame": "卡通章鱼_Icon",
+        "MoveSpeed": 1.5,
+        "HealthCount": 100,
+        "BeLockedCount": 10,
+        "BaseGasNum": 5,
+        "BaseGoldCount": 10,
+        "MoveType": "Fly",
+        "EnemyBulletType": 0,
+        "EnemyIndex": 11
+    },
+    "Boss_9": {
+        "EnemyType": "Boss_9",
+        "BaseAttackNum": 1,
+        "IconSprteFrame": "卡通蜗牛",
+        "MoveSpeed": 0.5,
+        "HealthCount": 1000,
+        "BeLockedCount": 10,
+        "BaseGasNum": 5,
+        "BaseGoldCount": 10,
+        "MoveType": "Walk",
+        "EnemyBulletType": 0,
+        "EnemyIndex": 11
+    },
     "Monster_1": {
         "MoveSpeed": 0.2,
         "HealthCount": 2,
@@ -347,7 +373,7 @@
             ],
             [
                 {
-                    "type": 5 ,
+                    "type": 9 ,
                     "count": 1
                 }
             ]

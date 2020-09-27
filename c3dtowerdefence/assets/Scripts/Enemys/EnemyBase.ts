@@ -244,7 +244,7 @@ export class EnemyBase extends BaseObject {
             //     this.node.lookAt(pathList[index])
             // })
 
-
+            // this.node.position = pathList[0];
             let rotationAnim = () => {
                 let targetPos = pathList[index];
                 let dir = v3(this.node.position).subtract(targetPos).normalize();
@@ -255,15 +255,15 @@ export class EnemyBase extends BaseObject {
                 this.node.worldRotation = preQuat;
             }
             tw.call(() => {
-
-                this.schedule(rotationAnim, 1 / 60);
+                this.node.lookAt(pathList[index]);
+                // this.schedule(rotationAnim, 1 / 60);
             })
             tw.to(time, {
                 position: pathList[index],
                 // worldRotation: angle
             })
             tw.call(() => {
-                this.unschedule(rotationAnim);
+                // this.unschedule(rotationAnim);
             })
         }
         for (let i = 0; i < pathList.length; i++) {
@@ -293,7 +293,7 @@ export class EnemyBase extends BaseObject {
             pathPosList.push(this.groundMapCtl.getMapNodeList().getValue(pos[0], pos[1]).position);
         }
         let bezier = new BezierN(pathPosList); //通过获取到的 路径点，来制作一条贝塞尔曲线
-        this.bezierPathList = bezier.getPointList(30); //路径密度为20
+        this.bezierPathList = bezier.getPointList(50); //路径密度为20
         this.bezierPathList = this.bezierPathList.slice(0, this.bezierPathList.length - 5);
         if (this.node.position.equals(this.bezierPathList[this.bezierPathList.length - 1])) {
             console.log("不用再走一遍逻辑了")

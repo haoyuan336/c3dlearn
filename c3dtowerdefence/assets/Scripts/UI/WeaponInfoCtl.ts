@@ -99,7 +99,7 @@ export class WeaponInfoCtl extends InfoLayerCtlBase {
             node.parent = this.weaponCellParentNode;
             node.getComponent(WeaponUpdateCellPrefab).setData(data, gameController, gameConfig);
             node.position = v3(0, -i * (node.height + 10) - (node.height + 10) * 0.5 - 5, 0);
-            this.weaponCellParentNode.height = node.position.y * -1 + node.height * 0.5;
+            this.weaponCellParentNode.height = node.position.y * -1 + node.height * 0.5 + 10;
             this.weaponIndoCellNodeList.push(node);
         }
         this.gameController.node.on("update-gold-label", ()=>{

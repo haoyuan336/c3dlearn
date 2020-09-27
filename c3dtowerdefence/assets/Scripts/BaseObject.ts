@@ -281,6 +281,9 @@ export class BaseObject extends Component {
 
         return false;
     }
+    getCanAttackMoveTypeList():string[]{
+        return this.canAttackMoveTypeList;
+    }
     getIsBoss() {
         if (this.objectType.indexOf("Boss") > -1) {
             return true;

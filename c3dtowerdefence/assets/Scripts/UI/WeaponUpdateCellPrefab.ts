@@ -26,6 +26,11 @@ export class WeaponUpdateCellPrefab extends BaseObject {
     @property({ type: SpriteFrame })
     public activeButtonSpriteFrameLight: SpriteFrame = null;
 
+    @property({ type: Node })
+    public duidiAttackIcon: Node = null;
+    @property({ type: Node })
+    public duikonngAttackIcon: Node = null;
+
     private currentChooseRate: number = 0;
     start() {
     }
@@ -79,7 +84,15 @@ export class WeaponUpdateCellPrefab extends BaseObject {
     referUILabel() {
         let isActive = this.getWeaponIsActive();
         let currentGoldCount = this.gameController.playerData.getCurrentGoldCount();
-
+        let canAttackTypeList = this.getCanAttackMoveTypeList();
+        for (let i = 0; i < canAttackTypeList.length; i++) {
+            if (canAttackTypeList[i] === 'Walk') {
+                this.duidiAttackIcon.active = true;
+            }
+            if (canAttackTypeList[i] === 'Fly') {
+                this.duikonngAttackIcon.active = true;
+            }
+        }
         if (!isActive) {
             //如果未激活
             let firstNeedActiveTower = this.gameController.playerData.getFirstNeedToActiveTowerIndex();

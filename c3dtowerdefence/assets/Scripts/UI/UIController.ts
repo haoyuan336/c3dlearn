@@ -106,6 +106,17 @@ export class UIController extends Component {
         this.node.on("show-game-loss-ui", this.showGameLossUI.bind(this), this);
         this.node.on("show-game-win-ui", this.showGameWinUI.bind(this), this);
         this.node.on("show-current-level-icon-anim", this.showCurrentLevelIconAnim.bind(this), this);
+        this.node.on("close-all-ui", this.closeSomeUI.bind(this),this);
+    }
+    closeSomeUI(){
+        //重新刷新UI
+        
+        if(isValid( this.buildUINode)){
+            this.buildUINode.getComponent(BuildTowerUI).close();
+        }
+        if (isValid(this.updateUINode)){
+            this.updateUINode.getComponent(UpdateTowerUI).close();
+        }
     }
     showCurrentLevelIconAnim(cb) {
         // let label = new Node();
@@ -129,6 +140,7 @@ export class UIController extends Component {
         node.getComponent(GameWinPrefab).setGameResult(true, deadEnemyData, gameConfig, this, this.gameController);
     }
     showGameLossUI(deadEnemyData: DeadEnemyObj[]) {
+        this.closeSomeUI();
         let node = instantiate(this.gameResultPrefab);
         node.parent = this.node;
         let gameConfig = this.gameController.getGameConfig().json

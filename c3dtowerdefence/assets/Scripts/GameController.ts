@@ -333,6 +333,7 @@ export class GameController extends Component {
         // this
         //游戏胜利
         // this.uic
+        this.uiController.emit("close-all-ui") ;//重新刷新UI
         this.uiController.emit('close-weapon-info-layer')
         if (this.state.getState() === 'run') {
             this.state.setState("show-game-result"); //进入显示游戏结果的界面
@@ -359,6 +360,7 @@ export class GameController extends Component {
             if (isValid(this.homeIconNode)) {
                 this.homeIconNode.active = false;
             }
+            // this.node.emit("re-init-ui"); //重新刷新UI
             this.node.emit("destroy-all-tower");
             this.node.emit("destroy-all-tower-build-base");
             this.node.emit("destroy-all-enemy"); //销毁当前的所有敌人
