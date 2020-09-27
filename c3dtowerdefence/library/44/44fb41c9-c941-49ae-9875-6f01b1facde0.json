@@ -95,6 +95,23 @@
       "ActiveCost": 1500,
       "BulletRecoverTime": 4
     },
+    "Tower_6": {
+      "CanAttackType": [
+        "Fly"
+      ],
+      "TowerType": "Tower_6",
+      "Type": "Tower",
+      "IconSprteFrame": "Tower_6_Icon",
+      "Index": 5,
+      "BulletType": "BulletOne",
+      "ShootRate": 1.2,
+      "AttackRange": 15,
+      "SkillType": "CrazyRotate",
+      "BaseAttackNum": 1,
+      "BuildCost": 15,
+      "ActiveCost": 1500,
+      "BulletRecoverTime": 4
+    },
     "Enemy_0": {
       "EnemyType": "Enemy_0",
       "IconSprteFrame": "Enemy_0_Icon",
@@ -253,7 +270,7 @@
       "BaseAttackNum": 1,
       "IconSprteFrame": "卡通章鱼_Icon",
       "MoveSpeed": 1.5,
-      "HealthCount": 100,
+      "HealthCount": 10000,
       "BeLockedCount": 10,
       "BaseGasNum": 5,
       "BaseGoldCount": 10,
@@ -266,7 +283,7 @@
       "BaseAttackNum": 1,
       "IconSprteFrame": "卡通蜗牛",
       "MoveSpeed": 0.5,
-      "HealthCount": 1000,
+      "HealthCount": 10000,
       "BeLockedCount": 10,
       "BaseGasNum": 5,
       "BaseGoldCount": 10,
@@ -378,7 +395,7 @@
         ],
         [
           {
-            "type": 9,
+            "type": 8,
             "count": 1
           }
         ]

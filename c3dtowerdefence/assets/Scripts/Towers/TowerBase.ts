@@ -50,6 +50,7 @@ export class TowerBase extends BaseObject {
     private skillCtl: SkillCtl = null;
 
     // private isCanAttack: 
+    private currentShootBulletIndex: number = 0;
 
     init(gameConfig: Object, gameController: GameController) {
         super.init(gameConfig, gameController);
@@ -303,7 +304,8 @@ export class TowerBase extends BaseObject {
         }, length * this.attackAnimEventTimeOffset)
     }
     createOneTimeBullet(direction: Vec3, attackNum: number) {
-        for (let i = 0; i < this.bulletStartPosList.length; i++) {
+
+        for (let i = this.currentShootBulletIndex; i < this.bulletStartPosList.length; i++) {
 
             let bulletPosNode = this.bulletStartPosList[i];
             if (bulletPosNode.active) {
@@ -325,6 +327,10 @@ export class TowerBase extends BaseObject {
                 })
                 if (this.getBulletRecoverTime() > 0) {
                     bulletPosNode.active = false;
+                    this.currentShootBulletIndex++;
+                    if (this.currentShootBulletIndex === this.bulletStartPosList.length) {
+                        this.currentShootBulletIndex = 0;
+                    }
                     let oldPos = v3(bulletPosNode.position);
                     let tw = new Tween(bulletPosNode);
                     tw.set({
