@@ -1,6 +1,7 @@
 import { _decorator, Component, Node, SpriteFrame, loader, SpriteComponent, LabelComponent } from 'cc';
 import { BaseObject } from '../BaseObject';
 import { GameController } from '../GameController';
+import { WeaponInfoCtl } from './WeaponInfoCtl';
 const { ccclass, property } = _decorator;
 
 @ccclass('WeaponUpdateCellPrefab')
@@ -32,6 +33,7 @@ export class WeaponUpdateCellPrefab extends BaseObject {
     public duikonngAttackIcon: Node = null;
 
     private currentChooseRate: number = 0;
+    private weaponInfoCtl: WeaponInfoCtl = null;
     start() {
     }
     // init(gameConfig: Object){
@@ -50,12 +52,13 @@ export class WeaponUpdateCellPrefab extends BaseObject {
         this.currentChooseRate = rateNum;
         this.referUILabel();
     }
-    public setData(data: Object, gameController: GameController, gameConfig: Object) {
+    public setData(data: Object, gameController: GameController, gameConfig: Object, weaponCtl: WeaponInfoCtl) {
         console.log("初始化数据", data);
         // let iconStr = data['IconSprteFrame'];
         // this.gameController.uiController.on("on-gold-count-refer-event", ()=>{
         //     //注册当前金币个数改变的消息
         // });
+        this.weaponInfoCtl = weaponCtl;
         gameController.node.on("update-gold-label", () => {
             //根据当前的
             this.referUILabel();//更新uiLabel
@@ -145,6 +148,8 @@ export class WeaponUpdateCellPrefab extends BaseObject {
                         this.gameController.playerData.addGoldCount(-activeCost);
                         this.referUILabel();
                         this.showWeaponIcon();
+                        this.weaponInfoCtl.node.emit("refer-current-tower-menu-ui");
+                        this.weaponInfoCtl.weaponActived(this.node); //有weapon 被激活了
                     }
                 }
 

@@ -1,0 +1,181 @@
+{
+  "ver": "1.3.21",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "c4e196e5-a524-4e3a-9ad2-900f3cca0cff",
+  "files": [],
+  "subMetas": {
+    "e10e4": {
+      "importer": "gltf-mesh",
+      "uuid": "c4e196e5-a524-4e3a-9ad2-900f3cca0cff@e10e4",
+      "displayName": "",
+      "id": "e10e4",
+      "name": "立方体.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "fdad8": {
+      "importer": "gltf-animation",
+      "uuid": "c4e196e5-a524-4e3a-9ad2-900f3cca0cff@fdad8",
+      "displayName": "",
+      "id": "fdad8",
+      "name": "骨架|AttackAnim.animation",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.375
+        },
+        "events": []
+      }
+    },
+    "438fe": {
+      "importer": "gltf-skeleton",
+      "uuid": "c4e196e5-a524-4e3a-9ad2-900f3cca0cff@438fe",
+      "displayName": "",
+      "id": "438fe",
+      "name": "UnnamedSkeleton.skeleton",
+      "ver": "1.0.1",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0,
+        "jointsLength": 3
+      }
+    },
+    "9881e": {
+      "importer": "gltf-embeded-image",
+      "uuid": "c4e196e5-a524-4e3a-9ad2-900f3cca0cff@9881e",
+      "displayName": "",
+      "id": "9881e",
+      "name": "colorTexture.png.image",
+      "ver": "1.0.2",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "7d6ab": {
+      "importer": "texture",
+      "uuid": "c4e196e5-a524-4e3a-9ad2-900f3cca0cff@7d6ab",
+      "displayName": "",
+      "id": "7d6ab",
+      "name": "base_color_texture.texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "c4e196e5-a524-4e3a-9ad2-900f3cca0cff@9881e"
+      }
+    },
+    "22e2a": {
+      "importer": "gltf-material",
+      "uuid": "c4e196e5-a524-4e3a-9ad2-900f3cca0cff@22e2a",
+      "displayName": "",
+      "id": "22e2a",
+      "name": "材质.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "c2ead": {
+      "importer": "gltf-scene",
+      "uuid": "c4e196e5-a524-4e3a-9ad2-900f3cca0cff@c2ead",
+      "displayName": "",
+      "id": "c2ead",
+      "name": "核弹发射井.prefab",
+      "ver": "1.0.11",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "colorTexture.png",
+        "uri": "c4e196e5-a524-4e3a-9ad2-900f3cca0cff@9881e"
+      }
+    ],
+    "animationImportSettings": [
+      {
+        "name": "骨架|AttackAnim",
+        "duration": 1.375,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "骨架|AttackAnim",
+            "from": 0,
+            "to": 1.375,
+            "wrapMode": 2
+          }
+        ]
+      }
+    ],
+    "redirect": "c4e196e5-a524-4e3a-9ad2-900f3cca0cff@c2ead",
+    "assetFinder": {
+      "meshes": [
+        "c4e196e5-a524-4e3a-9ad2-900f3cca0cff@e10e4"
+      ],
+      "skeletons": [
+        "c4e196e5-a524-4e3a-9ad2-900f3cca0cff@438fe"
+      ],
+      "textures": [
+        "c4e196e5-a524-4e3a-9ad2-900f3cca0cff@7d6ab"
+      ],
+      "materials": [
+        "c4e196e5-a524-4e3a-9ad2-900f3cca0cff@22e2a"
+      ],
+      "scenes": [
+        "c4e196e5-a524-4e3a-9ad2-900f3cca0cff@c2ead"
+      ]
+    }
+  }
+}

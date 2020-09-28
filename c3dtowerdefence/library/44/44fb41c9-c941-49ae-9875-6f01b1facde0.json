@@ -112,6 +112,25 @@
       "ActiveCost": 1500,
       "BulletRecoverTime": 4
     },
+    "Tower_7": {
+      "CanAttackType": [
+        "Fly",
+        "Walk"
+      ],
+      "TowerType": "Tower_7",
+      "Type": "Tower",
+      "IconSprteFrame": "Tower_7_Icon",
+      "Index": 6,
+      "BulletType": "BulletOne",
+      "ShootRate": 10,
+      "AttackRange": 15,
+      "SkillType": "CrazyRotate",
+      "BaseAttackNum": 1,
+      "BuildCost": 15,
+      "ActiveCost": 1500,
+      "BulletRecoverTime": 0,
+      "IsLockEnemy": true
+    },
     "Enemy_0": {
       "EnemyType": "Enemy_0",
       "IconSprteFrame": "Enemy_0_Icon",

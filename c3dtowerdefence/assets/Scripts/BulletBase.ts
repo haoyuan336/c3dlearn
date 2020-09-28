@@ -57,7 +57,12 @@ export class BulletBase extends BaseObject {
         let targetEnemy: Node = data.targetEnemy;
         if (targetEnemy) {
             this.targetEnemyNode = targetEnemy;
+            // this.currentDirection = v3(this.targetEnemyNode.position).subtract(this.node.position);
+            // let randomV = v3(Math.random() * 2, Math.random() * 2, Math.random() * 2);
+            // this.currentDirection.add(randomV);
         }
+        let randomV = v3(Math.random() * 2 - 1, Math.random()* 2 - 1, Math.random() * 2 - 1);
+        this.currentDirection.add(randomV);
 
         let quat = new Quat();
         Quat.fromViewUp(quat, v3(direction).multiplyScalar(-1).normalize(), Vec3.UP);

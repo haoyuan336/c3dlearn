@@ -141,7 +141,7 @@ export class InfoLayerCtlBase extends Component {
                 if (this.state.getState() === 'close') {
                     //关闭状态
                     this.state.setState("play-open-anim");
-
+                    this.node.emit("close-tower-menu-ui"); //关闭升级建造塔相关的UI
                 }
                 break;
             case 'bg-node-click':

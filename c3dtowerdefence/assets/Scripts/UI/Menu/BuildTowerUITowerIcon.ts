@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, Prefab, find, instantiate, v3, LabelComponent } from 'cc';
+import { _decorator, Component, Node, Prefab, find, instantiate, v3, LabelComponent, isValid } from 'cc';
 import { GameController } from '../../GameController';
 import { BaseObject } from '../../BaseObject';
 const { ccclass, property } = _decorator;
@@ -16,6 +16,7 @@ export class BuildTowerUITowerIcon extends BaseObject {
     public gameConfig: {} = undefined;
     public currentBuildCost: number = null; //当前的建造消耗
     public towerType: number = null; //塔的类型
+    public currentAnimNode: Node = null;//当前播放动画的类型
     onLoad() {
         // this.gameConfig = find("GameController").getComponent(GameController).getGameConfig().json;
 
@@ -27,7 +28,11 @@ export class BuildTowerUITowerIcon extends BaseObject {
         this.gameConfig = gameConfig;
         this.towerType = type;
         // console.log("初始化塔的类型", type, this.gameConfig);
-        let node = instantiate(this.towerShowAnimList[type])
+        if (isValid(this.currentAnimNode)) {
+            this.currentAnimNode.destroy();
+        }
+        let node = instantiate(this.towerShowAnimList[type]);
+        this.currentAnimNode = node;
         node.scale = v3(0.5, 0.5, 0.5);
         node.parent = this.showTowerAnimLayer;
         //根据type 取处数据

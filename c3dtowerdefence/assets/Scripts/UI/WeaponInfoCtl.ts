@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, v3, view, Tween, SpriteComponent, Color, instantiate, Prefab, LabelComponent, SpriteFrame, game } from 'cc';
+import { _decorator, Component, Node, v3, view, Tween, SpriteComponent, Color, instantiate, Prefab, LabelComponent, SpriteFrame, game, UIComponent, isValid, ScrollViewComponent } from 'cc';
 import { GameController } from './../GameController';
 import { WeaponUpdateCellPrefab } from './../UI/WeaponUpdateCellPrefab';
 import { State } from './../util/State';
@@ -41,6 +41,8 @@ export class WeaponInfoCtl extends InfoLayerCtlBase {
     @property({ type: Node })
     public chooseAddRedHeartCountLabel: Node = null; //选择的增加的红心的个数
 
+    @property({ type: Node })
+    public scrollviewNode: Node = null;
     private weaponIndoCellNodeList: Node[] = [];
 
     private currentChooseRate: number = 0; //当前选择的倍数
@@ -48,8 +50,8 @@ export class WeaponInfoCtl extends InfoLayerCtlBase {
     start() {
         super.start();
         // this.weaponInfoNode.position = v3(this.weaponInfoNode.width * 0.5, 0, 0);
-    
-     
+
+
         this.node.on("refer-choose-rate-cost", (chooseRate) => {
             console.log("刷新当前选择的倍数", chooseRate);
             console.log("weapon indo cell node list", this.weaponIndoCellNodeList);
@@ -62,8 +64,8 @@ export class WeaponInfoCtl extends InfoLayerCtlBase {
             this.currentChooseRate = chooseRate;
             this.referCurrentRedHeartCountUI();
         })
-      
-        
+
+
         // this.node.on("enter-game", ()=>{
         this.initWeaponData();
         // })
@@ -97,20 +99,20 @@ export class WeaponInfoCtl extends InfoLayerCtlBase {
             let data = towerLevelData[i];
             let node = instantiate(this.updateWeaponInfoCellPrefab);
             node.parent = this.weaponCellParentNode;
-            node.getComponent(WeaponUpdateCellPrefab).setData(data, gameController, gameConfig);
+            node.getComponent(WeaponUpdateCellPrefab).setData(data, gameController, gameConfig, this);
             node.position = v3(0, -i * (node.height + 10) - (node.height + 10) * 0.5 - 5, 0);
             this.weaponCellParentNode.height = node.position.y * -1 + node.height * 0.5 + 10;
             this.weaponIndoCellNodeList.push(node);
         }
-        this.gameController.node.on("update-gold-label", ()=>{
+        this.gameController.node.on("update-gold-label", () => {
             this.referCurrentRedHeartCountUI();
         })
     }
-   
-   
-  
-    
- 
+
+
+
+
+
     onButtonClick(event, customData) {
         super.onButtonClick(event, customData)
         switch (customData) {
@@ -132,5 +134,20 @@ export class WeaponInfoCtl extends InfoLayerCtlBase {
             default:
                 break;
         }
+    }
+    weaponActived(node: Node) {
+        //有武器被激活了'\
+        let offSetY = node.position.y;
+        if (isValid(this.scrollviewNode)) {
+            console.log("scrollview pos", offSetY);
+            // offSetY = -500;
+            // this.scrollviewNode.getComponent(ScrollViewComponent).scrollToOffset(v3(0, offSetY * -1 + 200, 0), 0.2);
+        }
+        // let children = this.weaponCellParentNode.children;
+        // for (let i = 0 ; children.length ; i ++){
+        //     if (children[i].uuid === node.uuid){
+        //         offSetY = 
+        //     }
+        // }
     }
 }

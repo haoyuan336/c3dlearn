@@ -316,8 +316,8 @@ export class TowerBase extends BaseObject {
                 bulletNode.active = true;
                 console.log("createOneBullet base attack num", attackNum);
                 // direction.
-                let randomVec = v3(Math.random() * 2, Math.random() * 2, Math.random() * 2);
-                direction.add(randomVec);
+                // let randomVec = v3(Math.random() * 2, Math.random() * 2, Math.random() * 2);
+                // direction.add(randomVec);
                 bulletNode.getComponent(BulletBase).init(this.gameConfig, this.gameController, {
                     direction: direction,
                     targetEnemy: this.currentTargetEnemy,
