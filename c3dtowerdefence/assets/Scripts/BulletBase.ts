@@ -26,9 +26,12 @@ export class BulletBase extends BaseObject {
     private targetTowerBase: TowerBase = null; //目标塔
     private targetEnemyNode: Node = null; //目标敌人
     private movePathList: Vec3[] = []; //移动路径
-
+    private currentSpeedY: number = 10;
     @property({ type: Prefab })
     public exporeEffectPrefab: Prefab = null;
+
+    @property({ type: Prefab })
+    public daodanweijiPrefab: Prefab = null;
     onLoad() {
         // this.node.on("init-data", (data) => {
 
@@ -46,11 +49,22 @@ export class BulletBase extends BaseObject {
     }
     init(gameConfig: {}, gameController: GameController, data) {
         super.init(gameConfig, gameController);
+
         this.baseAttackNum += data.baseAttackNum;
         this.targetTowerBase = data.targetTower;
         // console.log("base attack num", this.baseAttackNum);
-        let direction = data.direction;
-        this.currentDirection = direction;
+        if (data && data.direction) {
+            let direction = data.direction;
+            this.currentDirection = direction;
+            let randomV = v3(Math.random() * 2 - 1, Math.random() * 2 - 1, Math.random() * 2 - 1);
+            this.currentDirection.add(randomV);
+            //导弹 从天而降的 导弹
+            let quat = new Quat();
+            Quat.fromViewUp(quat, v3(direction).multiplyScalar(-1).normalize(), Vec3.UP);
+            this.node.worldRotation = quat;
+            this.state.setState("run");
+        }
+
         // let angle: number = new Vec2(direction.x, direction.y).signAngle(v2(0, -1));
         // this.node.eulerAngles = v3(0, angle * 180 / Math.PI, 0);
         // this.node.lookAt();/
@@ -61,12 +75,9 @@ export class BulletBase extends BaseObject {
             // let randomV = v3(Math.random() * 2, Math.random() * 2, Math.random() * 2);
             // this.currentDirection.add(randomV);
         }
-        let randomV = v3(Math.random() * 2 - 1, Math.random()* 2 - 1, Math.random() * 2 - 1);
-        this.currentDirection.add(randomV);
 
-        let quat = new Quat();
-        Quat.fromViewUp(quat, v3(direction).multiplyScalar(-1).normalize(), Vec3.UP);
-        this.node.worldRotation = quat;
+
+
         this.gameConfigJson = gameConfig
         this.colliderComponent = this.node.getComponent(ColliderComponent);
         this.colliderComponent.on("onTriggerEnter", this.onTriggerEnter.bind(this));
@@ -200,6 +211,23 @@ export class BulletBase extends BaseObject {
                     this.node.lookAt(this.targetEnemyNode.position);
                 } else {
                     this.node.destroy();
+                }
+            } else if (this.getMoveType() === 'SkyDown') {
+                this.currentSpeedY += 2;
+                if (this.currentSpeedY % 10 === 0) {
+                    let node = instantiate(this.daodanweijiPrefab);
+                    node.parent = this.node.parent;
+                    node.position = this.node.position;
+                    let tw = new Tween(node);
+                    tw.by(0.2, { scale: v3(1, 1, 1) })
+                    tw.call(()=>{
+                        node.destroy();
+                    })
+                    tw.start();
+                }
+                this.node.position = v3(this.node.position).add(v3(0, deltaTime * this.currentSpeedY, 0));
+                if (this.node.position.y > 20){
+                    this.state.setState("move-over");
                 }
             } else {
                 this.speedY += this.accY * deltaTime;

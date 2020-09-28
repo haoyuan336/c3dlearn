@@ -126,6 +126,24 @@
         "BulletRecoverTime": 0,
         "IsLockEnemy": true
     },
+    "Tower_8": {
+        "CanAttackType": [
+            "Walk"
+        ],
+        "TowerType": "Tower_8",
+        "Type": "Tower",
+        "IconSprteFrame": "Tower_8_Icon",
+        "Index": 7,
+        "BulletType": "BulletOne",
+        "ShootRate": 0.5,
+        "AttackRange": 20,
+        "SkillType": "CrazyRotate",
+        "BaseAttackNum": 1,
+        "BuildCost": 15,
+        "ActiveCost": 1500,
+        "BulletRecoverTime": 4,
+        "AttackType": "Range"
+    },
     "Enemy_0": {
         "EnemyType": "Enemy_0",
         "IconSprteFrame": "Enemy_0_Icon",
@@ -353,6 +371,15 @@
         "isCollisionGround": true,
         "LeftTime": 10
     },
+    "Bullet_6": {
+        "MoveType": "SkyDown",
+        "MoveSpeed": 20,
+        "BaseAttackNum": 2,
+        "BaseGasNum": 0,
+        "isCollisionDestroy": true,
+        "isCollisionGround": true,
+        "LeftTime": 10
+    },
     "Level_0": {
         "InitGoldCount": 100,
         "TowerBuildPos": [
@@ -409,7 +436,7 @@
             ],
             [
                 {
-                    "type": 8 ,
+                    "type": 9 ,
                     "count": 1
                 }
             ]

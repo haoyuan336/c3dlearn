@@ -74,7 +74,7 @@ export class PlayData {
                 currentLevel: 0,
                 TowerType: data.TowerType
             }
-            if (i < 2) {
+            if (i < 8) {
                 obj.isActive = true;
                 obj.currentLevel = 1;
             } else {

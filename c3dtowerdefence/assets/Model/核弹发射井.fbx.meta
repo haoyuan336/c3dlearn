@@ -5,6 +5,30 @@
   "uuid": "c4e196e5-a524-4e3a-9ad2-900f3cca0cff",
   "files": [],
   "subMetas": {
+    "28587": {
+      "importer": "gltf-animation",
+      "uuid": "c4e196e5-a524-4e3a-9ad2-900f3cca0cff@28587",
+      "displayName": "",
+      "id": "28587",
+      "name": "骨架|ShowAnim.animation",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 1,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.4166666269302368
+        },
+        "events": []
+      }
+    },
     "e10e4": {
       "importer": "gltf-mesh",
       "uuid": "c4e196e5-a524-4e3a-9ad2-900f3cca0cff@e10e4",
@@ -41,7 +65,7 @@
         "sample": 30,
         "span": {
           "from": 0,
-          "to": 1.375
+          "to": 2.4583332538604736
         },
         "events": []
       }
@@ -147,13 +171,26 @@
     "animationImportSettings": [
       {
         "name": "骨架|AttackAnim",
-        "duration": 1.375,
+        "duration": 2.4583332538604736,
         "fps": 30,
         "splits": [
           {
             "name": "骨架|AttackAnim",
             "from": 0,
-            "to": 1.375,
+            "to": 2.4583332538604736,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "骨架|ShowAnim",
+        "duration": 1.4166666269302368,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "骨架|ShowAnim",
+            "from": 0,
+            "to": 1.4166666269302368,
             "wrapMode": 2
           }
         ]

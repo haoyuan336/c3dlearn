@@ -1,4 +1,5 @@
-import { _decorator, Component, Node, CCString, Vec3, v3, CCFloat, game, TERRAIN_HEIGHT_BASE, SpriteFrame, Quat } from 'cc';
+import { _decorator, Component, Node, CCString, Vec3, v3, CCFloat, game, TERRAIN_HEIGHT_BASE, SpriteFrame, Quat, isValid } from 'cc';
+// import { EnemyBase } from './Enemys/EnemyBase';
 import { GameController } from './GameController';
 const { ccclass, property } = _decorator;
 
@@ -45,7 +46,7 @@ export class BaseObject extends Component {
 
     private isConlony: boolean = false; //是否集群运动
     private bulletRecoverTime: number = 0; //子弹的恢复时间
-
+    private attackType: string = "normal" //攻击类型 ，范围攻击
     public init(gameConfig: Object, gameController: GameController, startPos?: Vec3, endPos?: Vec3, objectType?: string) {
         // this.baseGasNum = gameConfig[]
         if (objectType) {
@@ -125,9 +126,12 @@ export class BaseObject extends Component {
         if (gameConfig[this.objectType]['Colony']) {
             this.isConlony = gameConfig[this.objectType]['Colony'];
         }
-        if (gameConfig[this.objectType]['BulletRecoverTime']){
+        if (gameConfig[this.objectType]['BulletRecoverTime']) {
             //子弹的恢复时间
             this.bulletRecoverTime = gameConfig[this.objectType]['BulletRecoverTime'];
+        }
+        if (gameConfig[this.objectType]['AttackType']) {
+            this.attackType = gameConfig[this.objectType]['AttackType'];
         }
     }
     getBaseAttackDamage() {
@@ -267,6 +271,26 @@ export class BaseObject extends Component {
         return this.enemyMoveType;
     }
     getCanAttackEnemy(obj: Node): Boolean {
+
+        // if (isValid(enemyNode) && enemyNode.getComponent(EnemyBase).getIsCanLock() &&
+        //     !enemyNode.getComponent(EnemyBase).getIsDead() &&
+        //     this.getCanAttackEnemy(enemyNode)) {
+
+        if (!isValid(obj)) {
+            return false;
+        }
+        // if (!obj.getComponent(BaseObject).getIsCanLock()) {
+        //     return false
+        // }
+        // if (obj.getComponent(EnemyBase).getIsDead()) {
+        //     return false;
+        // }
+        // let dis = v3(obj.position).subtract(this.node.position).length();
+        // if (dis > this.getCurrentAttackRange()){
+        //     return;
+        // }
+
+
         let baseObj = obj.getComponent(BaseObject);
         if (baseObj) {
             let objType = baseObj.getMoveType();
@@ -281,7 +305,7 @@ export class BaseObject extends Component {
 
         return false;
     }
-    getCanAttackMoveTypeList():string[]{
+    getCanAttackMoveTypeList(): string[] {
         return this.canAttackMoveTypeList;
     }
     getIsBoss() {
@@ -318,13 +342,17 @@ export class BaseObject extends Component {
     getIsColony(): boolean {
         return this.isConlony;
     }
-    getBulletRecoverTime():number{
+    getBulletRecoverTime(): number {
         // BulletRecoverTime
 
         //返回子弹恢复的时间
         return this.bulletRecoverTime;
     }
-    getMoveSpeed():number{
+    getMoveSpeed(): number {
         return this.moveSpeed;
+    }
+    getAttackType(): string {
+        //返回攻击类型
+        return this.attackType;
     }
 }

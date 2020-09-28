@@ -12,7 +12,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "GroundTiled",
+    "_name": "导弹尾迹",
     "_objFlags": 0,
     "_parent": null,
     "_children": [
@@ -21,11 +21,52 @@
       }
     ],
     "_active": true,
-    "_components": [
+    "_components": [],
+    "_prefab": {
+      "__id__": 10
+    },
+    "_lpos": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_lrot": {
+      "__type__": "cc.Quat",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 1
+    },
+    "_lscale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "_layer": 1073741824,
+    "_euler": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_id": ""
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "导弹尾迹",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 1
+    },
+    "_children": [
       {
-        "__id__": 8
+        "__id__": 3
       }
     ],
+    "_active": true,
+    "_components": [],
     "_prefab": {
       "__id__": 9
     },
@@ -62,17 +103,17 @@
     "_name": "RootNode",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 1
+      "__id__": 2
     },
     "_children": [
       {
-        "__id__": 3
+        "__id__": 4
       }
     ],
     "_active": true,
     "_components": [],
     "_prefab": {
-      "__id__": 7
+      "__id__": 8
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -104,20 +145,20 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "立方体",
+    "_name": "棱角球",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 2
+      "__id__": 3
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 4
+        "__id__": 5
       }
     ],
     "_prefab": {
-      "__id__": 6
+      "__id__": 7
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -152,20 +193,20 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 3
+      "__id__": 4
     },
     "_enabled": true,
     "_materials": [
       {
-        "__uuid__": "9ea3cc07-03a0-41a2-a382-607dc03eb6db@22e2a"
+        "__uuid__": "690f3fdd-ff75-4541-a2dc-3ff4c061d52d@22e2a"
       }
     ],
     "_visFlags": 0,
     "lightmapSettings": {
-      "__id__": 5
+      "__id__": 6
     },
     "_mesh": {
-      "__uuid__": "9ea3cc07-03a0-41a2-a382-607dc03eb6db@e10e4"
+      "__uuid__": "690f3fdd-ff75-4541-a2dc-3ff4c061d52d@9ae49"
     },
     "_shadowCastingMode": 0,
     "_enableMorph": true,
@@ -195,7 +236,7 @@
     "asset": {
       "__id__": 0
     },
-    "fileId": "d2/RM/y6ZHYo++QFG1ucak",
+    "fileId": "5aIBkxemxCb5GpHH3WHJ0Q",
     "sync": false,
     "_synced": {
       "default": false,
@@ -210,25 +251,12 @@
     "asset": {
       "__id__": 0
     },
-    "fileId": "a5VQZQrdROGYbbunRbFABE",
+    "fileId": "3bSoQw/3tMG4R5h0U1/HiN",
     "sync": false,
     "_synced": {
       "default": false,
       "serializable": false
     }
-  },
-  {
-    "__type__": "75b72ybo0hO5rMJsDKDP6W5",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "objectType": "default",
-    "rootNode": null,
-    "animSpeedMulOffset": 1,
-    "_id": ""
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -238,7 +266,22 @@
     "asset": {
       "__id__": 0
     },
-    "fileId": "74PmcGtDRMDKrEBZyno81y",
+    "fileId": "7cSrBFG49Ft6sL35F5EA6D",
+    "sync": false,
+    "_synced": {
+      "default": false,
+      "serializable": false
+    }
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__id__": 0
+    },
+    "fileId": "b5ls03t/NCT49TPgi04i9E",
     "sync": false,
     "_synced": {
       "default": false,

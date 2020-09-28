@@ -28,7 +28,7 @@
         "__id__": 48
       },
       {
-        "__id__": 306
+        "__id__": 294
       },
       {
         "__id__": 245
@@ -42,7 +42,7 @@
     "_prefab": null,
     "autoReleaseAssets": false,
     "_globals": {
-      "__id__": 309
+      "__id__": 297
     },
     "_id": "54d4b3d4-8425-49ae-9814-eff3d81e7c47"
   },
@@ -1286,10 +1286,10 @@
         "__id__": 291
       },
       {
-        "__id__": 304
+        "__id__": 292
       },
       {
-        "__id__": 305
+        "__id__": 293
       }
     ],
     "_prefab": null,
@@ -1356,6 +1356,9 @@
       },
       {
         "__uuid__": "24790381-8eef-46cf-bd87-ac0ef1d19429"
+      },
+      {
+        "__uuid__": "ba6d6955-a575-42a6-83dc-09a4712842a9"
       }
     ],
     "startGameButton": {
@@ -9527,20 +9530,7 @@
         "__uuid__": "5e3ef4bf-08fb-41d4-8699-71fd76a75278"
       }
     ],
-    "startPosNodeList": [
-      {
-        "__id__": 292
-      },
-      {
-        "__id__": 295
-      },
-      {
-        "__id__": 298
-      },
-      {
-        "__id__": 301
-      }
-    ],
+    "startPosNodeList": [],
     "enemyHealthBarCtlNode": {
       "__id__": 47
     },
@@ -9587,330 +9577,6 @@
     "_id": "abjvBP7xtInIMfZkS3edwM"
   },
   {
-    "__type__": "cc.Node",
-    "_name": "EnemyStartPos",
-    "_objFlags": 0,
-    "_parent": null,
-    "_children": [],
-    "_active": false,
-    "_components": [
-      {
-        "__id__": 293
-      }
-    ],
-    "_prefab": null,
-    "_lpos": {
-      "__type__": "cc.Vec3",
-      "x": 9.994,
-      "y": 0,
-      "z": -9.882
-    },
-    "_lrot": {
-      "__type__": "cc.Quat",
-      "x": 0,
-      "y": 0,
-      "z": 0,
-      "w": 1
-    },
-    "_lscale": {
-      "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
-      "z": 1
-    },
-    "_layer": 1073741824,
-    "_euler": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_id": "a9T8hDg4NDf4hkSblqDH1C"
-  },
-  {
-    "__type__": "cc.ModelComponent",
-    "_name": "Cube<ModelComponent>",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 292
-    },
-    "_enabled": true,
-    "_materials": [
-      {
-        "__uuid__": "d3c7820c-2a98-4429-8bc7-b8453bc9ac41"
-      }
-    ],
-    "_visFlags": 0,
-    "lightmapSettings": {
-      "__id__": 294
-    },
-    "_mesh": {
-      "__uuid__": "1263d74c-8167-4928-91a6-4e2672411f47@a804a"
-    },
-    "_shadowCastingMode": 0,
-    "_enableMorph": true,
-    "_id": "edooK5xitPuZ954mMWgn7o"
-  },
-  {
-    "__type__": "cc.ModelLightmapSettings",
-    "texture": null,
-    "uvParam": {
-      "__type__": "cc.Vec4",
-      "x": 0,
-      "y": 0,
-      "z": 0,
-      "w": 0
-    },
-    "_bakeable": false,
-    "_castShadow": false,
-    "_receiveShadow": false,
-    "_recieveShadow": false,
-    "_lightmapSize": 64
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "EnemyStartPos-001",
-    "_objFlags": 0,
-    "_parent": null,
-    "_children": [],
-    "_active": false,
-    "_components": [
-      {
-        "__id__": 296
-      }
-    ],
-    "_prefab": null,
-    "_lpos": {
-      "__type__": "cc.Vec3",
-      "x": -14.876,
-      "y": 0,
-      "z": 14.936
-    },
-    "_lrot": {
-      "__type__": "cc.Quat",
-      "x": 0,
-      "y": 0,
-      "z": 0,
-      "w": 1
-    },
-    "_lscale": {
-      "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
-      "z": 1
-    },
-    "_layer": 1073741824,
-    "_euler": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_id": "f088BXre9Jz6RnDgvNE7we"
-  },
-  {
-    "__type__": "cc.ModelComponent",
-    "_name": "Cube<ModelComponent>",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 295
-    },
-    "_enabled": true,
-    "_materials": [
-      {
-        "__uuid__": "d3c7820c-2a98-4429-8bc7-b8453bc9ac41"
-      }
-    ],
-    "_visFlags": 0,
-    "lightmapSettings": {
-      "__id__": 297
-    },
-    "_mesh": {
-      "__uuid__": "1263d74c-8167-4928-91a6-4e2672411f47@a804a"
-    },
-    "_shadowCastingMode": 0,
-    "_enableMorph": true,
-    "_id": "51YqsZQupPf6++NvDZQzdP"
-  },
-  {
-    "__type__": "cc.ModelLightmapSettings",
-    "texture": null,
-    "uvParam": {
-      "__type__": "cc.Vec4",
-      "x": 0,
-      "y": 0,
-      "z": 0,
-      "w": 0
-    },
-    "_bakeable": false,
-    "_castShadow": false,
-    "_receiveShadow": false,
-    "_recieveShadow": false,
-    "_lightmapSize": 64
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "EnemyStartPos-002",
-    "_objFlags": 0,
-    "_parent": null,
-    "_children": [],
-    "_active": false,
-    "_components": [
-      {
-        "__id__": 299
-      }
-    ],
-    "_prefab": null,
-    "_lpos": {
-      "__type__": "cc.Vec3",
-      "x": -15.015,
-      "y": 0,
-      "z": -10.322
-    },
-    "_lrot": {
-      "__type__": "cc.Quat",
-      "x": 0,
-      "y": 0,
-      "z": 0,
-      "w": 1
-    },
-    "_lscale": {
-      "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
-      "z": 1
-    },
-    "_layer": 1073741824,
-    "_euler": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_id": "7e/mEyKL1O25sKbafKVvG6"
-  },
-  {
-    "__type__": "cc.ModelComponent",
-    "_name": "Cube<ModelComponent>",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 298
-    },
-    "_enabled": true,
-    "_materials": [
-      {
-        "__uuid__": "d3c7820c-2a98-4429-8bc7-b8453bc9ac41"
-      }
-    ],
-    "_visFlags": 0,
-    "lightmapSettings": {
-      "__id__": 300
-    },
-    "_mesh": {
-      "__uuid__": "1263d74c-8167-4928-91a6-4e2672411f47@a804a"
-    },
-    "_shadowCastingMode": 0,
-    "_enableMorph": true,
-    "_id": "6fdC3mf2ZO07TR2YjOxRhQ"
-  },
-  {
-    "__type__": "cc.ModelLightmapSettings",
-    "texture": null,
-    "uvParam": {
-      "__type__": "cc.Vec4",
-      "x": 0,
-      "y": 0,
-      "z": 0,
-      "w": 0
-    },
-    "_bakeable": false,
-    "_castShadow": false,
-    "_receiveShadow": false,
-    "_recieveShadow": false,
-    "_lightmapSize": 64
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "EnemyStartPos-003",
-    "_objFlags": 0,
-    "_parent": null,
-    "_children": [],
-    "_active": false,
-    "_components": [
-      {
-        "__id__": 302
-      }
-    ],
-    "_prefab": null,
-    "_lpos": {
-      "__type__": "cc.Vec3",
-      "x": 10.058,
-      "y": 0,
-      "z": 15.007
-    },
-    "_lrot": {
-      "__type__": "cc.Quat",
-      "x": 0,
-      "y": 0,
-      "z": 0,
-      "w": 1
-    },
-    "_lscale": {
-      "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
-      "z": 1
-    },
-    "_layer": 1073741824,
-    "_euler": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_id": "8234zELxRGo4PqSEnS+7A0"
-  },
-  {
-    "__type__": "cc.ModelComponent",
-    "_name": "Cube<ModelComponent>",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 301
-    },
-    "_enabled": true,
-    "_materials": [
-      {
-        "__uuid__": "d3c7820c-2a98-4429-8bc7-b8453bc9ac41"
-      }
-    ],
-    "_visFlags": 0,
-    "lightmapSettings": {
-      "__id__": 303
-    },
-    "_mesh": {
-      "__uuid__": "1263d74c-8167-4928-91a6-4e2672411f47@a804a"
-    },
-    "_shadowCastingMode": 0,
-    "_enableMorph": true,
-    "_id": "f87GRPev9Eg5np+LSRiwKo"
-  },
-  {
-    "__type__": "cc.ModelLightmapSettings",
-    "texture": null,
-    "uvParam": {
-      "__type__": "cc.Vec4",
-      "x": 0,
-      "y": 0,
-      "z": 0,
-      "w": 0
-    },
-    "_bakeable": false,
-    "_castShadow": false,
-    "_receiveShadow": false,
-    "_recieveShadow": false,
-    "_lightmapSize": 64
-  },
-  {
     "__type__": "44e5akPt5hEHpdS1j2qoO/6",
     "_name": "GameController<GroundMapCtl>",
     "_objFlags": 0,
@@ -9953,7 +9619,7 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 307
+        "__id__": 295
       }
     ],
     "_prefab": null,
@@ -9990,7 +9656,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 306
+      "__id__": 294
     },
     "_enabled": true,
     "_color": {
@@ -10003,7 +9669,7 @@
     "_useColorTemperature": false,
     "_colorTemperature": 6550,
     "_staticSettings": {
-      "__id__": 308
+      "__id__": 296
     },
     "_illuminance": 65000,
     "_id": "2fNNb97HpO451AEtsKsF1P"
@@ -10017,13 +9683,13 @@
   {
     "__type__": "cc.SceneGlobals",
     "ambient": {
-      "__id__": 310
+      "__id__": 298
     },
     "planarShadows": {
-      "__id__": 311
+      "__id__": 299
     },
     "_skybox": {
-      "__id__": 312
+      "__id__": 300
     }
   },
   {

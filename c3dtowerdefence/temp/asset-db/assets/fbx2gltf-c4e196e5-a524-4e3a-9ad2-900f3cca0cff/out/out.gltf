@@ -6,66 +6,76 @@
     "scene": 0,
     "buffers": [
         {
-            "byteLength": 37448,
+            "byteLength": 39084,
             "uri": "buffer.bin"
         }
     ],
     "bufferViews": [
         {
             "buffer": 0,
-            "byteLength": 136,
+            "byteLength": 240,
             "byteOffset": 0
         },
         {
             "buffer": 0,
-            "byteLength": 544,
-            "byteOffset": 136
+            "byteLength": 960,
+            "byteOffset": 240
         },
         {
             "buffer": 0,
-            "byteLength": 544,
-            "byteOffset": 680
+            "byteLength": 960,
+            "byteOffset": 1200
+        },
+        {
+            "buffer": 0,
+            "byteLength": 140,
+            "byteOffset": 2160
+        },
+        {
+            "buffer": 0,
+            "byteLength": 560,
+            "byteOffset": 2300
         },
         {
             "buffer": 0,
             "byteLength": 5568,
-            "byteOffset": 1224,
+            "byteOffset": 2860,
             "target": 34963
         },
         {
             "buffer": 0,
             "byteLength": 6528,
-            "byteOffset": 6792,
+            "byteOffset": 8428,
             "target": 34962
         },
         {
             "buffer": 0,
             "byteLength": 6528,
-            "byteOffset": 13320,
+            "byteOffset": 14956,
             "target": 34962
         },
         {
             "buffer": 0,
             "byteLength": 4352,
-            "byteOffset": 19848,
+            "byteOffset": 21484,
             "target": 34962
         },
         {
             "buffer": 0,
             "byteLength": 4352,
-            "byteOffset": 24200,
+            "byteOffset": 25836,
             "target": 34962
         },
         {
             "buffer": 0,
             "byteLength": 8704,
-            "byteOffset": 28552,
+            "byteOffset": 30188,
             "target": 34962
         },
         {
             "buffer": 0,
             "byteLength": 192,
-            "byteOffset": 37256
+            "byteOffset": 38892
         }
     ],
     "scenes": [
@@ -80,42 +90,62 @@
         {
             "componentType": 5126,
             "type": "SCALAR",
-            "count": 34,
+            "count": 60,
             "bufferView": 0,
             "byteOffset": 0,
             "min": [
                 0.0
             ],
             "max": [
-                1.375
+                2.45833325386047
             ]
         },
         {
             "componentType": 5126,
             "type": "VEC4",
-            "count": 34,
+            "count": 60,
             "bufferView": 1,
             "byteOffset": 0
         },
         {
             "componentType": 5126,
             "type": "VEC4",
-            "count": 34,
+            "count": 60,
             "bufferView": 2,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "SCALAR",
+            "count": 35,
+            "bufferView": 3,
+            "byteOffset": 0,
+            "min": [
+                0.0
+            ],
+            "max": [
+                1.41666662693024
+            ]
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 35,
+            "bufferView": 4,
             "byteOffset": 0
         },
         {
             "componentType": 5123,
             "type": "SCALAR",
             "count": 2784,
-            "bufferView": 3,
+            "bufferView": 5,
             "byteOffset": 0
         },
         {
             "componentType": 5126,
             "type": "VEC3",
             "count": 544,
-            "bufferView": 4,
+            "bufferView": 6,
             "byteOffset": 0,
             "min": [
                 -0.0122824776917696,
@@ -132,35 +162,35 @@
             "componentType": 5126,
             "type": "VEC3",
             "count": 544,
-            "bufferView": 5,
+            "bufferView": 7,
             "byteOffset": 0
         },
         {
             "componentType": 5126,
             "type": "VEC2",
             "count": 544,
-            "bufferView": 6,
+            "bufferView": 8,
             "byteOffset": 0
         },
         {
             "componentType": 5123,
             "type": "VEC4",
             "count": 544,
-            "bufferView": 7,
+            "bufferView": 9,
             "byteOffset": 0
         },
         {
             "componentType": 5126,
             "type": "VEC4",
             "count": 544,
-            "bufferView": 8,
+            "bufferView": 10,
             "byteOffset": 0
         },
         {
             "componentType": 5126,
             "type": "MAT4",
             "count": 3,
-            "bufferView": 9,
+            "bufferView": 11,
             "byteOffset": 0
         }
     ],
@@ -214,13 +244,13 @@
                     "material": 0,
                     "mode": 4,
                     "attributes": {
-                        "JOINTS_0": 7,
-                        "NORMAL": 5,
-                        "POSITION": 4,
-                        "TEXCOORD_0": 6,
-                        "WEIGHTS_0": 8
+                        "JOINTS_0": 9,
+                        "NORMAL": 7,
+                        "POSITION": 6,
+                        "TEXCOORD_0": 8,
+                        "WEIGHTS_0": 10
                     },
-                    "indices": 3
+                    "indices": 5
                 }
             ]
         }
@@ -232,7 +262,7 @@
                 4,
                 5
             ],
-            "inverseBindMatrices": 9,
+            "inverseBindMatrices": 11,
             "skeleton": 3
         }
     ],
@@ -265,6 +295,25 @@
                     "input": 0,
                     "interpolation": "LINEAR",
                     "output": 2
+                }
+            ]
+        },
+        {
+            "name": "骨架|ShowAnim",
+            "channels": [
+                {
+                    "sampler": 0,
+                    "target": {
+                        "node": 3,
+                        "path": "rotation"
+                    }
+                }
+            ],
+            "samplers": [
+                {
+                    "input": 3,
+                    "interpolation": "LINEAR",
+                    "output": 4
                 }
             ]
         }

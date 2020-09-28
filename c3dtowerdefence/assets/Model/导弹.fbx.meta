@@ -1,0 +1,123 @@
+{
+  "ver": "1.3.21",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "a1bb72b1-1baa-4f40-9c09-906394d5f652",
+  "files": [],
+  "subMetas": {
+    "49b7c": {
+      "importer": "gltf-mesh",
+      "uuid": "a1bb72b1-1baa-4f40-9c09-906394d5f652@49b7c",
+      "displayName": "",
+      "id": "49b7c",
+      "name": "柱体.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "9881e": {
+      "importer": "gltf-embeded-image",
+      "uuid": "a1bb72b1-1baa-4f40-9c09-906394d5f652@9881e",
+      "displayName": "",
+      "id": "9881e",
+      "name": "colorTexture.png.image",
+      "ver": "1.0.2",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "7d6ab": {
+      "importer": "texture",
+      "uuid": "a1bb72b1-1baa-4f40-9c09-906394d5f652@7d6ab",
+      "displayName": "",
+      "id": "7d6ab",
+      "name": "base_color_texture.texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "a1bb72b1-1baa-4f40-9c09-906394d5f652@9881e"
+      }
+    },
+    "22e2a": {
+      "importer": "gltf-material",
+      "uuid": "a1bb72b1-1baa-4f40-9c09-906394d5f652@22e2a",
+      "displayName": "",
+      "id": "22e2a",
+      "name": "材质.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "5ac9a": {
+      "importer": "gltf-scene",
+      "uuid": "a1bb72b1-1baa-4f40-9c09-906394d5f652@5ac9a",
+      "displayName": "",
+      "id": "5ac9a",
+      "name": "导弹.prefab",
+      "ver": "1.0.11",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "colorTexture.png",
+        "uri": "a1bb72b1-1baa-4f40-9c09-906394d5f652@9881e"
+      }
+    ],
+    "redirect": "a1bb72b1-1baa-4f40-9c09-906394d5f652@5ac9a",
+    "assetFinder": {
+      "meshes": [
+        "a1bb72b1-1baa-4f40-9c09-906394d5f652@49b7c"
+      ],
+      "skeletons": [],
+      "textures": [
+        "a1bb72b1-1baa-4f40-9c09-906394d5f652@7d6ab"
+      ],
+      "materials": [
+        "a1bb72b1-1baa-4f40-9c09-906394d5f652@22e2a"
+      ],
+      "scenes": [
+        "a1bb72b1-1baa-4f40-9c09-906394d5f652@5ac9a"
+      ]
+    }
+  }
+}

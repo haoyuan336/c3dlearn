@@ -1,6 +1,0 @@
-{
-    "resolveMap": {
-        "./util/State": "util/State.ts",
-        "./GameController": "GameController.ts"
-    }
-}
