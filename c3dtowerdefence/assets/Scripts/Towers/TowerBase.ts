@@ -232,8 +232,8 @@ export class TowerBase extends BaseObject {
             let node = instantiate(this.bulletPrefab);
             node.parent = this.node.parent;
             node.position = startPosNode.worldPosition;
-            node.getComponent(BulletBase).init(this.gameConfig, this.gameController,{});
-
+            node.getComponent(BulletBase).init(this.gameConfig, this.gameController,{baseAttackNum: this.getCurrentAttackNum()});
+            
 
 
         })
@@ -384,11 +384,11 @@ export class TowerBase extends BaseObject {
         // stateAnim.setTime(0.5);
         this.scheduleOnce(() => {
             // if (isValid(this.currentTargetEnemy)) {
-            this.createOneTimeBullet(currentShootDiraction, this.getCurrentAttackNum());
+            this.createOneTimeBullet(currentShootDiraction);
             // }
         }, length * this.attackAnimEventTimeOffset)
     }
-    createOneTimeBullet(direction: Vec3, attackNum: number) {
+    createOneTimeBullet(direction: Vec3) {
         // console.log("创建一枚导弹");
         for (let i = this.currentShootBulletIndex; i < this.bulletStartPosList.length; i++) {
 
@@ -399,14 +399,14 @@ export class TowerBase extends BaseObject {
                 bulletNode.active = false;
                 bulletNode.setPosition(bulletPosNode.worldPosition);
                 bulletNode.active = true;
-                console.log("createOneBullet base attack num", attackNum);
+                // console.log("createOneBullet base attack num", attackNum);
                 // direction.
                 // let randomVec = v3(Math.random() * 2, Math.random() * 2, Math.random() * 2);
                 // direction.add(randomVec);
                 bulletNode.getComponent(BulletBase).init(this.gameConfig, this.gameController, {
                     direction: direction,
                     targetEnemy: this.currentTargetEnemy,
-                    baseAttackNum: attackNum,
+                    baseAttackNum: this.getCurrentAttackNum(),
                     targetTower: this
 
                 })

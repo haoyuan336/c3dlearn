@@ -4,6 +4,7 @@
         "./GameController": "GameController.ts",
         "./BaseObject": "BaseObject.ts",
         "./Enemys/EnemyBase": "Enemys/EnemyBase.ts",
-        "./util/BezierN": "util/BezierN.ts"
+        "./util/BezierN": "util/BezierN.ts",
+        "./EnemyController": "EnemyController.ts"
     }
 }

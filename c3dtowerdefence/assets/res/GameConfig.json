@@ -135,10 +135,10 @@
         "IconSprteFrame": "Tower_8_Icon",
         "Index": 7,
         "BulletType": "BulletOne",
-        "ShootRate": 0.5,
+        "ShootRate": 0.2,
         "AttackRange": 20,
         "SkillType": "CrazyRotate",
-        "BaseAttackNum": 1,
+        "BaseAttackNum": 10 ,
         "BuildCost": 15,
         "ActiveCost": 1500,
         "BulletRecoverTime": 4,
@@ -323,6 +323,32 @@
         "EnemyBulletType": 0,
         "EnemyIndex": 11
     },
+    "Boss_10": {
+        "EnemyType": "Boss_10",
+        "BaseAttackNum": 1,
+        "IconSprteFrame": "卡通猪",
+        "MoveSpeed": 0.8,
+        "HealthCount": 10000,
+        "BeLockedCount": 10,
+        "BaseGasNum": 5,
+        "BaseGoldCount": 10,
+        "MoveType": "Walk",
+        "EnemyBulletType": 0,
+        "EnemyIndex": 12
+    },
+    "Boss_11": {
+        "EnemyType": "Boss_11",
+        "BaseAttackNum": 1,
+        "IconSprteFrame": "卡通恐龙",
+        "MoveSpeed": 0.8,
+        "HealthCount": 10000,
+        "BeLockedCount": 10,
+        "BaseGasNum": 5,
+        "BaseGoldCount": 10,
+        "MoveType": "Walk",
+        "EnemyBulletType": 0,
+        "EnemyIndex": 13
+    },
     "Monster_1": {
         "MoveSpeed": 0.2,
         "HealthCount": 2,
@@ -434,9 +460,10 @@
                     "count": 0
                 }
             ],
+          
             [
                 {
-                    "type": 9 ,
+                    "type": 11,
                     "count": 1
                 }
             ]

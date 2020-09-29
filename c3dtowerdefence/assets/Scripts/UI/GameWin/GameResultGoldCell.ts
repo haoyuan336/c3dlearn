@@ -24,11 +24,11 @@ export class GameResultGoldCell extends BaseObject {
         let iconStr = this.getIconSprteFrame();
         this.enemyCountLabel.getComponent(LabelComponent).string = data["enemyCount"] + '';
         this.winGoldCountLabel.getComponent(LabelComponent).string = data["winGoldCount"] + '';
-        console.log("icon str", iconStr);
+        // console.log("icon str", iconStr);
         
         loader.loadRes(iconStr + "/spriteFrame",SpriteFrame, (err, result) => {
-            console.log("err", err)
-            console.log("result", result);
+            // console.log("err", err)
+            // console.log("result", result);
             if (!err){
                 this.enemyIconNode.getComponent(SpriteComponent).spriteFrame = result;
             }
@@ -37,11 +37,11 @@ export class GameResultGoldCell extends BaseObject {
     setData(enemyCount: number, winGoldCount: number, iconStr: string) {
         this.enemyCountLabel.getComponent(LabelComponent).string = enemyCount + '';
         this.winGoldCountLabel.getComponent(LabelComponent).string = winGoldCount + '';
-        console.log("icon str", iconStr);
+        // console.log("icon str", iconStr);
         
         loader.loadRes(iconStr + "/spriteFrame",SpriteFrame, (err, result) => {
-            console.log("err", err)
-            console.log("result", result);
+            // console.log("err", err)
+            // console.log("result", result);
             if (!err){
                 this.enemyIconNode.getComponent(SpriteComponent).spriteFrame = result;
             }

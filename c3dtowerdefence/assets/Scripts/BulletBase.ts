@@ -5,6 +5,7 @@ import { BaseObject } from './BaseObject'
 import { EnemyBase } from './Enemys/EnemyBase';
 import { TowerBase } from './Towers/TowerBase';
 import { BezierN } from './util/BezierN';
+import { EnemyController } from './EnemyController';
 const { ccclass, property } = _decorator;
 
 @ccclass('BulletBase')
@@ -32,6 +33,9 @@ export class BulletBase extends BaseObject {
 
     @property({ type: Prefab })
     public daodanweijiPrefab: Prefab = null;
+
+    @property({ type: Prefab })
+    public baozhaEffectPrefab: Prefab = null;
     onLoad() {
         // this.node.on("init-data", (data) => {
 
@@ -152,6 +156,9 @@ export class BulletBase extends BaseObject {
     onTriggerEnter(event: ITriggerEvent) {
         // console.log("onTriggerEnter", event);
         // this.state.setState("sleep");
+        if (this.getMoveType() === 'SkyDown') {
+            return;
+        }
 
         let otherCollider: ColliderComponent = event.otherCollider;
         if (isValid(otherCollider) && isValid(otherCollider.node) && otherCollider.node.name.indexOf("Wall") > 1) {
@@ -220,14 +227,34 @@ export class BulletBase extends BaseObject {
                     node.position = this.node.position;
                     let tw = new Tween(node);
                     tw.by(0.2, { scale: v3(1, 1, 1) })
-                    tw.call(()=>{
+                    tw.call(() => {
                         node.destroy();
                     })
                     tw.start();
                 }
                 this.node.position = v3(this.node.position).add(v3(0, deltaTime * this.currentSpeedY, 0));
-                if (this.node.position.y > 20){
+                if (this.node.position.y > 30) {
                     this.state.setState("move-over");
+                    this.node.position = v3(this.node.position.x, 30, this.node.position.z);
+                    //检查需要攻击的敌人
+                    let endPos = this.checkDownPos();
+                    if (isValid(endPos)){
+                        console.log("end pos", endPos);
+                        this.node.position = v3(endPos.x, 30, endPos.z);
+                        // endPos.add(v3(0, 10, 0))
+                        this.rootNode.scale = v3(1, -1, 1);
+                        // this.node.scale = v3(1, -1, 1);
+                        let tw = new Tween(this.node);
+                        tw.to(0.6, { position: endPos });
+                        tw.call(() => {
+                            //     console.log("移动结束")
+                            this.showBaozhaEffect();
+                        });
+                        tw.start();
+                    }else{
+                        this.node.destroy();
+                    }
+                    
                 }
             } else {
                 this.speedY += this.accY * deltaTime;
@@ -256,5 +283,100 @@ export class BulletBase extends BaseObject {
 
 
         }
+    }
+    checkDownPos(): Vec3 {
+        //计算落地点
+        let enemyNodeList = this.gameController.node.getComponent(EnemyController).getCurrentEnemyNodeList();
+        if (enemyNodeList.length === 0) {
+            this.node.destroy();
+            return;
+        }
+        //寻找附近敌人最多的敌人
+        // let  
+        let disList = [];
+        for (let i = 0; i < enemyNodeList.length; i++) {
+            let node1 = enemyNodeList[i];
+            if (isValid(node1) && !node1.getComponent(EnemyBase).getIsDead()) {
+                let list = [];
+                for (let j = 0; j < enemyNodeList.length; j++) {
+                    let node = enemyNodeList[j];
+                    if (node1.uuid !== node.uuid && !node.getComponent(EnemyBase).getIsDead()) {
+                        let dis = v3(node1.position).subtract(node.position).length();
+                        list.push(dis);
+                    }
+                }
+                list = list.sort((a, b) => {
+                    return a - b;
+                })
+                list = list.slice(0, Math.min(3, list.length));
+                let sum = 0;
+                for (let h = 0; h < list.length; h++) {
+                    sum += list[h];
+                }
+                disList.push({
+                    node: node1,
+                    dis: sum
+                })
+            }
+
+        }
+        // console.log("dis list", disList);
+        disList = disList.sort((a, b) => {
+            return a.dis - b.dis;
+        })
+        // console.log("dis list", disList);
+
+        return disList[0].node.position;
+
+    }
+    showBaozhaEffect() {
+        let exporeEffectNode = instantiate(this.exporeEffectPrefab);
+        exporeEffectNode.position = this.node.position;
+        exporeEffectNode.parent = this.node.parent;
+        // this.node.destroy();
+        let tw = new Tween(exporeEffectNode);
+        tw.by(0.3, {
+            scale: v3(5, 5, 5)
+        })
+        tw.call(() => {
+            // console.log("伤害")
+            this.rangeAttackEnemy(exporeEffectNode);
+            exporeEffectNode.destroy();
+
+        })
+
+        tw.start();
+    }
+    rangeAttackEnemy(exporeEffectNode: Node) {
+        //范围内攻击敌人
+        // otherCollider.node.emit("be-attacked", {
+        //     baseAttackNum: this.baseAttackNum,
+        //     baseGasNum: this.baseGasNum,
+        //     cb: (isDead: boolean) => {
+        //         console.log("是否死了", isDead)
+        //         if (this.targetTowerBase) {
+        //             this.targetTowerBase.enemyDeadByThis(isDead);
+        //         }
+        //     }
+        // });
+        let enemyNodeList = this.gameController.node.getComponent(EnemyController).getCurrentEnemyNodeList();
+        for (let i = 0; i < enemyNodeList.length; i++) {
+            let node = enemyNodeList[i];
+            let dis = v3(node.position).subtract(exporeEffectNode.position).length();
+            if (dis < 10) {
+                console.log('dis', dis);
+                console.log("攻击敌人")
+                node.emit("be-attacked", {
+                    baseAttackNum: this.getCurrentAttackNum(),
+                    baseGasNum: 0,
+                    cb: (isDead: boolean) => {
+                        if (this.targetTowerBase) {
+                            this.targetTowerBase.enemyDeadByThis(isDead);
+                        }
+                    }
+                })
+            }
+        }
+        this.node.destroy();
     }
 }

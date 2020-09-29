@@ -106,7 +106,7 @@ export class EnemyBase extends BaseObject {
         })
     }
     startRun(startPos: Vec2, endPos: Vec2) {
-        console.log("start pos ", startPos);
+        // console.log("start pos ", startPos);
         this.state.setState("run");
         let moveType = this.getMoveType();
         if (moveType === "Walk") {
@@ -456,7 +456,7 @@ export class EnemyBase extends BaseObject {
             let skeleteAnim = this.rootNode.getComponent(SkeletalAnimationComponent);
             if (skeleteAnim) {
                 this.currentBoneAnimName = "骨架|MoveAnim"
-                console.log(this.objectType + "播放移动动作", this.currentBoneAnimName);
+                // console.log(this.objectType + "播放移动动作", this.currentBoneAnimName);
                 skeleteAnim.play(this.currentBoneAnimName);
                 // let clips = skeleteAnim.clips;
                 // let moveClip = null;

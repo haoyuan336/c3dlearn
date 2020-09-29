@@ -1,0 +1,40 @@
+{
+  "ver": "1.0.18",
+  "importer": "image",
+  "imported": true,
+  "uuid": "cc6588c8-bbfa-49b7-bbd5-84ef16ff6ffe",
+  "files": [
+    ".png",
+    ".json"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "cc6588c8-bbfa-49b7-bbd5-84ef16ff6ffe@6c48a",
+      "displayName": "卡通猪",
+      "id": "6c48a",
+      "name": "texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "cc6588c8-bbfa-49b7-bbd5-84ef16ff6ffe"
+      }
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "redirect": "cc6588c8-bbfa-49b7-bbd5-84ef16ff6ffe@6c48a"
+  }
+}
