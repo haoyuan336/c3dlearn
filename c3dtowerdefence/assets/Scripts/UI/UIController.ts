@@ -7,6 +7,7 @@ import { BuildTowerUI } from './Menu/BuildTowerUI';
 import { GameWinPrefab } from './GameWin/GameWinPrefab';
 import { DeadEnemyObj } from '../EnemyController';
 import { GameController } from '../GameController';
+import { TowerInfoLayer } from './TowerInfoLayer';
 const { ccclass, property } = _decorator;
 
 @ccclass('UIController')
@@ -40,6 +41,9 @@ export class UIController extends Component {
 
     @property({ type: Node })
     public currentLevelLabelIcon: Node = null;
+
+    @property({type: Node})
+    public towerInfoLayer: Node = null; //塔的详细信息层
     // @property({ type: Node })
     // public currentWaveLabelNode: Node = null;
 
@@ -110,6 +114,13 @@ export class UIController extends Component {
         this.node.on("refer-current-tower-menu-ui", this.referTowerBuildMenuUI.bind(this), this);
         this.node.on("close-tower-menu-ui", this.coloseTowerBuildMenuUI.bind(this), this);
     }
+    // showTowerInfo(target){
+    //     if (isValid(this.towerInfoLayer)){
+    //         this.towerInfoLayer.active = true;
+    //         // this.towerInfoLayer.getComponent(TowerInfoLayer).setTowerData(target);
+    //         // this.node.getComponent
+    //     }
+    // }
     coloseTowerBuildMenuUI() {
         if (isValid(this.buildUINode)) {
             this.buildUINode.getComponent(BuildTowerUI).close();

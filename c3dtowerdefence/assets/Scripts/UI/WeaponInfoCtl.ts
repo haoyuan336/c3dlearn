@@ -131,6 +131,12 @@ export class WeaponInfoCtl extends InfoLayerCtlBase {
                 this.referCurrentRedHeartCountUI();
 
                 break;
+
+            case 'bg-node-click':
+                //关闭
+                //
+                this.node.emit("close-tower-info-layer");
+                break;    
             default:
                 break;
         }

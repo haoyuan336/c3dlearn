@@ -47,6 +47,8 @@ export class BaseObject extends Component {
     private isConlony: boolean = false; //是否集群运动
     private bulletRecoverTime: number = 0; //子弹的恢复时间
     private attackType: string = "normal" //攻击类型 ，范围攻击
+
+    private towerName: string = "无" //塔的名字
     public init(gameConfig: Object, gameController: GameController, startPos?: Vec3, endPos?: Vec3, objectType?: string) {
         // this.baseGasNum = gameConfig[]
         if (objectType) {
@@ -132,6 +134,9 @@ export class BaseObject extends Component {
         }
         if (gameConfig[this.objectType]['AttackType']) {
             this.attackType = gameConfig[this.objectType]['AttackType'];
+        }
+        if (gameConfig[this.objectType]['TowerName']){
+            this.towerName = gameConfig[this.objectType]['TowerName'];
         }
     }
     getBaseAttackDamage() {
@@ -354,5 +359,8 @@ export class BaseObject extends Component {
     getAttackType(): string {
         //返回攻击类型
         return this.attackType;
+    }
+    getTowerName(): string{
+        return this.towerName
     }
 }

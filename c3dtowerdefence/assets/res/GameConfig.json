@@ -11,6 +11,7 @@
         "CanAttackType": [
             "Walk"
         ],
+        "TowerName": "无敌大炮",
         "TowerType": "Tower_1",
         "Type": "Tower",
         "IconSprteFrame": "Tower_0_Icon",
@@ -27,6 +28,7 @@
         "CanAttackType": [
             "Walk"
         ],
+        "TowerName": "无敌箭塔",
         "TowerType": "Tower_2",
         "Type": "Tower",
         "IconSprteFrame": "Tower_1_Icon",
@@ -44,6 +46,7 @@
             "Walk",
             "Fly"
         ],
+        "TowerName": "无敌机器人",
         "TowerType": "Tower_3",
         "Type": "Tower",
         "IconSprteFrame": "Tower_2_Icon",
@@ -341,13 +344,26 @@
         "BaseAttackNum": 1,
         "IconSprteFrame": "卡通恐龙",
         "MoveSpeed": 0.8,
-        "HealthCount": 10000,
+        "HealthCount": 1000,
         "BeLockedCount": 10,
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
         "MoveType": "Walk",
         "EnemyBulletType": 0,
         "EnemyIndex": 13
+    },
+    "Boss_12": {
+        "EnemyType": "Boss_12",
+        "BaseAttackNum": 1,
+        "IconSprteFrame": "卡通飞龙",
+        "MoveSpeed": 0.8,
+        "HealthCount": 1000,
+        "BeLockedCount": 10,
+        "BaseGasNum": 5,
+        "BaseGoldCount": 10,
+        "MoveType": "Fly",
+        "EnemyBulletType": 0,
+        "EnemyIndex": 14
     },
     "Monster_1": {
         "MoveSpeed": 0.2,
@@ -460,10 +476,9 @@
                     "count": 0
                 }
             ],
-          
             [
                 {
-                    "type": 11,
+                    "type": 12,
                     "count": 1
                 }
             ]

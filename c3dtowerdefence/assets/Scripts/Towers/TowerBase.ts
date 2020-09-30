@@ -104,6 +104,8 @@ export class TowerBase extends BaseObject {
             let destroyAnimName = "骨架|todestroy"
             // let destroyClip = skeleteAnim.clips[2];
             let stateAnim = skeleteAnim.getState(destroyAnimName);
+            let randomPos = v3(Math.random() * 2, 0, Math.random() * 2);
+
             if (stateAnim) {
                 stateAnim.repeatCount = 1;
                 skeleteAnim.play(destroyAnimName);
@@ -111,7 +113,6 @@ export class TowerBase extends BaseObject {
                     if (this.towerBuildBase) {
                         this.towerBuildBase.getComponent(TowerBuildBase).unSetTargetTower(this.node);
                     }
-                    let randomPos = v3(Math.random() * 2, 0, Math.random() * 2);
                     this.gameController.getComponent(GameController).showAddGoldAnimEffect(this.getDestroyCount(), v3(this.node.position.x, 0, this.node.position.z).add(randomPos));
 
                     this.node.destroy();
@@ -121,6 +122,8 @@ export class TowerBase extends BaseObject {
                 this.node.destroy();
                 if (this.towerBuildBase) {
                     this.towerBuildBase.getComponent(TowerBuildBase).unSetTargetTower(this.node);
+                    this.gameController.getComponent(GameController).showAddGoldAnimEffect(this.getDestroyCount(), v3(this.node.position.x, 0, this.node.position.z).add(randomPos));
+                    
                 }
             }
 

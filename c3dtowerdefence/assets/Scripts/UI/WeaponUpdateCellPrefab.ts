@@ -155,6 +155,13 @@ export class WeaponUpdateCellPrefab extends BaseObject {
 
 
                 break;
+            case 'WeaponBg':
+                // console.log("武器背景");
+                //显示塔的详细信息
+
+                // this.node.parent.emit("show-tower-info", this);
+                this.weaponInfoCtl.node.emit("show-tower-info", this);
+                break;
             default:
                 break;
         }
