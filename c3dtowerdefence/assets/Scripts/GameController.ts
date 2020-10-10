@@ -199,6 +199,7 @@ export class GameController extends Component {
         this.state.addState("game-loss", () => {
             console.log("进入游戏失败的状态");
             this.uiController.emit('close-weapon-info-layer')
+            
             this.node.getComponent(EnemyController).frozenAllEnemy();
             this.node.getComponent(TowerBuildBaseCtl).frozenAllTowerBuildBase(); //禁锢所有塔的基座
             // this.homeIconTw.stop();

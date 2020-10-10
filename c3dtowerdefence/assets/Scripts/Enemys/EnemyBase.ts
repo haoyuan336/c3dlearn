@@ -21,7 +21,7 @@ export class EnemyBase extends BaseObject {
     public cameraNode: CameraComponent = null;
     public healthBar: Node = null;
     public gameConfigJson: Object = null;
-    public healthCount: number = 0;
+    // public healthCount: number = 0;
     public currentHealthCount: number = 0;
     // private endPos: Vec3 = null;
     // private startPos: Vec3 = null;
@@ -46,7 +46,7 @@ export class EnemyBase extends BaseObject {
         }
         this.groundMapCtl = find("GameController").getComponent(GroundMapCtl);
         this.gameConfigJson = gameConfig;
-        this.healthCount = this.gameConfigJson[this.objectType].HealthCount;
+        // this.healthCount = this.gameConfigJson[this.objectType].HealthCount;
         this.beLockedMaxNum = this.gameConfigJson[this.objectType].BeLockedCount;
         this.currentHealthCount = this.healthCount;
         let angle = this.getLookAtAngle(this.node.position, endPos);

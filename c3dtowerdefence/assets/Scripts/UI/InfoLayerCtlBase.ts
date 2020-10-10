@@ -54,7 +54,13 @@ export class InfoLayerCtlBase extends Component {
             if (this.state.getState() === 'open') {
                 this.state.setState("play-close-anim");
             }
+            // if (this.closeUICb){
+            //     this.closeUICb();
+            // }
         });
+    }
+    closeUICb(){
+
     }
     showCtlInfoButtonn() {
         return new Promise((resolve, reject) => {

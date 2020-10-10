@@ -11,7 +11,7 @@
         "CanAttackType": [
             "Walk"
         ],
-        "TowerName": "无敌大炮",
+        "Name": "无敌大炮",
         "TowerType": "Tower_1",
         "Type": "Tower",
         "IconSprteFrame": "Tower_0_Icon",
@@ -22,13 +22,14 @@
         "SkillType": "CrazyRotate",
         "BaseAttackNum": 1,
         "BuildCost": 10,
-        "ActiveCost": 10
+        "ActiveCost": 10,
+        "Des": "研发的新炮塔"
     },
     "Tower_2": {
         "CanAttackType": [
             "Walk"
         ],
-        "TowerName": "无敌箭塔",
+        "Name": "无敌箭塔",
         "TowerType": "Tower_2",
         "Type": "Tower",
         "IconSprteFrame": "Tower_1_Icon",
@@ -46,7 +47,7 @@
             "Walk",
             "Fly"
         ],
-        "TowerName": "无敌机器人",
+        "Name": "无敌机器人",
         "TowerType": "Tower_3",
         "Type": "Tower",
         "IconSprteFrame": "Tower_2_Icon",
@@ -145,7 +146,7 @@
         "ShootRate": 0.2,
         "AttackRange": 20,
         "SkillType": "CrazyRotate",
-        "BaseAttackNum": 10 ,
+        "BaseAttackNum": 10,
         "BuildCost": 15,
         "ActiveCost": 1500,
         "NeedRecoverBullet": true,
@@ -154,18 +155,21 @@
     },
     "Enemy_0": {
         "EnemyType": "Enemy_0",
+        "Name": "初级南瓜怪",
         "IconSprteFrame": "Enemy_0_Icon",
-        "MoveSpeed": 0.1,
+        "MoveSpeed": 0.6,
         "HealthCount": 10,
         "BeLockedCount": 3,
         "BaseGasNum": 5,
         "BaseGoldCount": 1,
         "MoveType": "Walk",
-        "EnemyIndex": 0
+        "EnemyIndex": 0,
+        "Des": ""
     },
     "Enemy_1": {
         "EnemyType": "Enemy_1",
         "BaseAttackNum": 1,
+        "Name": "螺旋桨南瓜怪",
         "IconSprteFrame": "Enemy_1_Icon",
         "MoveSpeed": 0.8,
         "HealthCount": 10,
@@ -178,6 +182,7 @@
     "Enemy_2": {
         "EnemyType": "Enemy_2",
         "BaseAttackNum": 1,
+        "Name": "飞天无敌南瓜怪",
         "IconSprteFrame": "Enemy_2_Icon",
         "MoveSpeed": 2,
         "HealthCount": 10,
@@ -190,8 +195,139 @@
     "Enemy_3": {
         "EnemyType": "Enemy_3",
         "BaseAttackNum": 1,
+        "Name": "小丑鱼",
         "IconSprteFrame": "Fish小丑鱼",
         "MoveSpeed": 6,
+        "HealthCount": 10,
+        "BeLockedCount": 10,
+        "BaseGasNum": 5,
+        "BaseGoldCount": 10,
+        "MoveType": "Fly",
+        "EnemyIndex": 6
+    },
+    "Enemy_4": {
+        "EnemyType": "Enemy_4",
+        "BaseAttackNum": 1,
+        "Name": "飞天南瓜怪",
+        "IconSprteFrame": "Fish小丑鱼",
+        "MoveSpeed": 6,
+        "HealthCount": 10,
+        "BeLockedCount": 10,
+        "BaseGasNum": 5,
+        "BaseGoldCount": 10,
+        "MoveType": "Fly",
+        "EnemyIndex": 6
+    },
+    "Enemy_5": {
+        "EnemyType": "Enemy_5",
+        "BaseAttackNum": 1,
+        "Name": "无敌飞天神龟",
+        "IconSprteFrame": "Enemy_3_Icon",
+        "MoveSpeed": 4,
+        "HealthCount": 10,
+        "BeLockedCount": 10,
+        "BaseGasNum": 5,
+        "BaseGoldCount": 10,
+        "MoveType": "Fly",
+        "EnemyIndex": 6
+    },
+    "Enemy_6": {
+        "EnemyType": "Enemy_6",
+        "BaseAttackNum": 1,
+        "Name": "无敌飞天橘猫",
+        "IconSprteFrame": "橘猫_Icon",
+        "MoveSpeed": 4,
+        "HealthCount": 10,
+        "BeLockedCount": 10,
+        "BaseGasNum": 5,
+        "BaseGoldCount": 10,
+        "MoveType": "Fly",
+        "EnemyIndex": 6
+    },
+    "Enemy_7": {
+        "EnemyType": "Enemy_7",
+        "BaseAttackNum": 1,
+        "Name": "无敌飞天鲨鱼",
+        "IconSprteFrame": "鲨鱼_Iconn",
+        "MoveSpeed": 4,
+        "HealthCount": 10,
+        "BeLockedCount": 10,
+        "BaseGasNum": 5,
+        "BaseGoldCount": 10,
+        "MoveType": "Fly",
+        "EnemyIndex": 6
+    },
+    "Enemy_8": {
+        "EnemyType": "Enemy_8",
+        "BaseAttackNum": 1,
+        "Name": "比丘丘",
+        "IconSprteFrame": "比丘丘_Icon",
+        "MoveSpeed": 1,
+        "HealthCount": 10,
+        "BeLockedCount": 10,
+        "BaseGasNum": 5,
+        "BaseGoldCount": 10,
+        "MoveType": "Walk",
+        "EnemyIndex": 6
+    },
+    "Enemy_9": {
+        "EnemyType": "Enemy_9",
+        "BaseAttackNum": 1,
+        "Name": "小肥羊",
+        "IconSprteFrame": "xiaomianyang_icon",
+        "MoveSpeed": 1,
+        "HealthCount": 10,
+        "BeLockedCount": 10,
+        "BaseGasNum": 5,
+        "BaseGoldCount": 10,
+        "MoveType": "Walk",
+        "EnemyIndex": 6
+    },
+    "Enemy_10": {
+        "EnemyType": "Enemy_10",
+        "BaseAttackNum": 1,
+        "Name": "八爪鱼",
+        "IconSprteFrame": "卡通章鱼_Icon",
+        "MoveSpeed": 1,
+        "HealthCount": 10,
+        "BeLockedCount": 10,
+        "BaseGasNum": 5,
+        "BaseGoldCount": 10,
+        "MoveType": "Fly",
+        "EnemyIndex": 6
+    },
+    "Enemy_11": {
+        "EnemyType": "Enemy_11",
+        "BaseAttackNum": 1,
+        "Name": "钢铁蜗牛",
+        "IconSprteFrame": "卡通蜗牛",
+        "MoveSpeed": 0.6,
+        "HealthCount": 10,
+        "BeLockedCount": 10,
+        "BaseGasNum": 5,
+        "BaseGoldCount": 10,
+        "MoveType": "Walk",
+        "EnemyIndex": 6
+    },
+    "Enemy_12": {
+        "EnemyType": "Enemy_12",
+        "BaseAttackNum": 1,
+        "Name": "无敌霸王龙",
+        "IconSprteFrame": "卡通恐龙",
+        "MoveSpeed": 0.8,
+        "HealthCount": 10,
+        "BeLockedCount": 10,
+        "BaseGasNum": 5,
+        "BaseGoldCount": 10,
+        "MoveType": "Walk",
+        "EnemyIndex": 6
+    },
+    "Enemy_13": {
+        "EnemyType": "Enemy_12",
+        "BaseAttackNum": 1,
+        "Name": "无敌黄金飞龙",
+        "IconSprteFrame": "卡通飞龙",
+        "MoveSpeed": 1,
         "HealthCount": 10,
         "BeLockedCount": 10,
         "BaseGasNum": 5,
@@ -230,7 +366,7 @@
     "Boss_2": {
         "EnemyType": "Boss_2",
         "BaseAttackNum": 1,
-        "IconSprteFrame": "Enemy_2_Icon",
+        "IconSprteFrame": "Enemy_3_Icon",
         "MoveSpeed": 8,
         "HealthCount": 10,
         "BeLockedCount": 10,
@@ -477,7 +613,7 @@
         "EnemyType": [
             [
                 {
-                    "type": 0,
+                    "type": 13,
                     "count": 20
                 }
             ],

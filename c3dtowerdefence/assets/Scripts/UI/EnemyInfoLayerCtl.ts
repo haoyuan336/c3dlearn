@@ -26,7 +26,7 @@ export class EnemyInfoLayerCtl extends InfoLayerCtlBase {
         this.node.on("refer-enemy-info-cell", (enemyType: string) => {
             console.log("`激活了某个敌人`", enemyType);
             console.log("enemy info cell map", this.enemyInfoCellMap);
-            if (this.enemyInfoCellMap[enemyType]){
+            if (this.enemyInfoCellMap[enemyType]) {
                 console.log("刷新这个敌人的UI")
                 // this.enemyInfoCellMap[enemyType].getComponent(EnemyInfoCellPrefab).referUI();
                 let node = this.enemyInfoCellMap[enemyType];
@@ -34,13 +34,19 @@ export class EnemyInfoLayerCtl extends InfoLayerCtlBase {
             }
         })
     }
+    closeUICb() {
+        // console.log("close ui cb");
+        // this
+    }
     initEnemyData() {
         // let currentActiveEnemyList = this.gameController.playerData.getCurrentActiveEnemyList();
         let gameConfig = this.gameController.getGameConfig().json;
         let enemyList = [];
         for (let i in gameConfig) {
             let data = gameConfig[i];
-            if (i.indexOf("Enemy") > -1 || i.indexOf("Boss") > -1) {
+            if (i.indexOf("Boss") > -1) {
+                // if (i.indexOf("Enemy") > -1 || i.indexOf("Boss") > -1) {
+
                 console.log("iu", i);
                 console.log("data", data);
                 enemyList.push(data);
@@ -79,7 +85,7 @@ export class EnemyInfoLayerCtl extends InfoLayerCtlBase {
     }
     onButtonClick(event, customData) {
         super.onButtonClick(event, customData);
-        if (customData === 'bg-node-click'){
+        if (customData === 'bg-node-click') {
             this.node.emit("close-monster-info-layer")
         }
     }

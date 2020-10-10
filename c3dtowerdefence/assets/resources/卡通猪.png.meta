@@ -31,10 +31,43 @@
         "isUuid": true,
         "imageUuidOrDatabaseUri": "cc6588c8-bbfa-49b7-bbd5-84ef16ff6ffe"
       }
+    },
+    "f9941": {
+      "importer": "sprite-frame",
+      "uuid": "cc6588c8-bbfa-49b7-bbd5-84ef16ff6ffe@f9941",
+      "displayName": "卡通猪",
+      "id": "f9941",
+      "name": "spriteFrame",
+      "ver": "1.0.8",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "trimType": "custom",
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": 0,
+        "offsetY": 0,
+        "trimX": 0,
+        "trimY": 0,
+        "width": 100,
+        "height": 100,
+        "rawWidth": 100,
+        "rawHeight": 100,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "cc6588c8-bbfa-49b7-bbd5-84ef16ff6ffe@6c48a",
+        "atlasUuid": ""
+      }
     }
   },
   "userData": {
-    "type": "texture",
-    "redirect": "cc6588c8-bbfa-49b7-bbd5-84ef16ff6ffe@6c48a"
+    "type": "sprite-frame",
+    "redirect": "cc6588c8-bbfa-49b7-bbd5-84ef16ff6ffe@f9941"
   }
 }

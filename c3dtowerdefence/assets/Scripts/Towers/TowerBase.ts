@@ -223,6 +223,18 @@ export class TowerBase extends BaseObject {
                 let targetEnemy = this.findSingleEnemy(deltaTime);
                 if (isValid(targetEnemy)) {
                     //找到了敌人
+                    if (isValid(this.rootNode)) {
+                        this.rootNode.lookAt(this.currentTargetEnemy.position);
+                        // console.log("this,root node", this.rootNode.eulerAngles);
+                        if (this.rootNode.eulerAngles.x < 0) {
+                            this.rootNode.eulerAngles = v3(0, this.rootNode.eulerAngles.y, this.rootNode.eulerAngles.z);
+                        }
+
+                    }
+                    if (this.weaponBaseNode) {
+                        this.weaponBaseNode.lookAt(this.currentTargetEnemy.position);
+                        this.weaponBaseNode.eulerAngles = v3(0, this.weaponBaseNode.eulerAngles.y, this.rootNode.eulerAngles.z);
+                    }
                     if (this.isShooting) {
                         return
                     }
@@ -237,21 +249,9 @@ export class TowerBase extends BaseObject {
 
                         // stateAnim.repeatCount = 0;
                         skeleAnim.play(animName);
-                        if (isValid(this.rootNode)) {
-                            this.rootNode.lookAt(this.currentTargetEnemy.position);
-                            // console.log("this,root node", this.rootNode.eulerAngles);
-                            if (this.rootNode.eulerAngles.x < 0) {
-                                this.rootNode.eulerAngles = v3(0, this.rootNode.eulerAngles.y, this.rootNode.eulerAngles.z);
-                            }
 
-                        }
-                        if (this.weaponBaseNode) {
-                            this.weaponBaseNode.lookAt(this.currentTargetEnemy.position);
-                            this.weaponBaseNode.eulerAngles = v3(0, this.weaponBaseNode.eulerAngles.y, this.rootNode.eulerAngles.z);
-                        }
 
                     })
-                    let direction = v3(this.currentShootDiraction);
 
                     let shoot = (tw: Tween) => {
                         tw.call(() => {
@@ -262,6 +262,8 @@ export class TowerBase extends BaseObject {
                             //     }, this.shootDuraction);
                             // });
                             // createOneTimeBullet\
+                            let direction = v3(this.currentShootDiraction);
+
                             if (isValid(this.currentTargetEnemy) && !this.currentTargetEnemy.getComponent(EnemyBase).getIsDead()) {
                                 this.createOneTimeBullet(direction).then(() => {
 

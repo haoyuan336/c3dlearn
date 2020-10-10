@@ -12,7 +12,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Boss_12",
+    "_name": "Enemy_13",
     "_objFlags": 0,
     "_parent": null,
     "_children": [
@@ -319,9 +319,9 @@
     },
     "_lscale": {
       "__type__": "cc.Vec3",
-      "x": 1.2,
-      "y": 1.2,
-      "z": 1.2
+      "x": 0.6,
+      "y": 0.6,
+      "z": 0.6
     },
     "_layer": 1073741824,
     "_euler": {
@@ -3244,11 +3244,11 @@
       "__id__": 1
     },
     "_enabled": true,
-    "objectType": "Boss_12",
+    "objectType": "Enemy_13",
     "rootNode": {
       "__id__": 10
     },
-    "animSpeedMulOffset": 0.6,
+    "animSpeedMulOffset": 0.4,
     "caidaiEffect": {
       "__id__": 2
     },
@@ -3267,14 +3267,14 @@
     "_center": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 1.5,
+      "y": 1,
       "z": 0
     },
     "_size": {
       "__type__": "cc.Vec3",
-      "x": 9.017,
-      "y": 3,
-      "z": 4.659
+      "x": 4,
+      "y": 2,
+      "z": 4
     },
     "_id": ""
   },

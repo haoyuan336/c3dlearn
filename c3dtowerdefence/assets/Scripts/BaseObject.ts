@@ -50,7 +50,11 @@ export class BaseObject extends Component {
     private needRecoverBullet: boolean = false; //需要恢复子弹
     private attackType: string = "normal" //攻击类型 ，范围攻击
 
-    private towerName: string = "无" //塔的名字
+    public healthCount: number = 0; //当前的血量
+    // private towerName: string = "无" //塔的名字
+    private objectName: string = "无" // 名字
+
+    private desString: string = "" //描述内容
 
     // private attackType: string = "normal"//攻击类型a
     public init(gameConfig: Object, gameController: GameController, startPos?: Vec3, endPos?: Vec3, objectType?: string) {
@@ -139,11 +143,21 @@ export class BaseObject extends Component {
         if (gameConfig[this.objectType]['AttackType']) {
             this.attackType = gameConfig[this.objectType]['AttackType'];
         }
-        if (gameConfig[this.objectType]['TowerName']) {
-            this.towerName = gameConfig[this.objectType]['TowerName'];
+        // if (gameConfig[this.objectType]['TowerName']) {
+        //     this.towerName = gameConfig[this.objectType]['TowerName'];
+        // }
+        if (gameConfig[this.objectType]['Name']) {
+            this.objectName = gameConfig[this.objectType]['Name'];
         }
-        if (gameConfig[this.objectType]['NeedRecoverBullet']){
+        if (gameConfig[this.objectType]['NeedRecoverBullet']) {
             this.needRecoverBullet = gameConfig[this.objectType]['NeedRecoverBullet']; //需要恢复子弹
+        }
+        if (gameConfig[this.objectType]['HealthCount']) {
+            this.healthCount = gameConfig[this.objectType]['HealthCount'];
+        }
+        if (gameConfig[this.objectType]['Des']) {
+            // this.init
+            this.desString = gameConfig[this.objectType]["Des"];
         }
     }
     getBaseAttackDamage() {
@@ -243,7 +257,7 @@ export class BaseObject extends Component {
         console.log("升级之后 的 攻击事件间隔", this.shootDuraction);
 
         this.bulletRecoverTime *= (1 - this.currentLevel * this.currentLevel * 0.1);
-        if (this.bulletRecoverTime < 0.2){
+        if (this.bulletRecoverTime < 0.2) {
             this.bulletRecoverTime = 0.2;
         }
 
@@ -373,15 +387,24 @@ export class BaseObject extends Component {
         //返回攻击类型
         return this.attackType;
     }
-    getTowerName(): string {
-        return this.towerName
+    // getTowerName(): string {
+    //     return this.towerName
+    // }
+    getObjectName(): string {
+        return this.objectName;
     }
-    getAttackSpeedLevel(): number{
+    getAttackSpeedLevel(): number {
         //获取攻击速度的级数
         return this.currentLevel;
     }
-    getIsNeedRecoverBullet(): boolean{
+    getIsNeedRecoverBullet(): boolean {
         //是否需要恢复子弹
-        return this.needRecoverBullet; 
+        return this.needRecoverBullet;
+    }
+    getHealthCount(): number {
+        return this.healthCount;
+    }
+    getDesString(): string {
+        return this.desString;
     }
 }

@@ -1,4 +1,4 @@
-import { _decorator, Component, Node } from 'cc';
+import { _decorator, Component, Node, LabelComponent } from 'cc';
 import { BaseObject } from '../BaseObject';
 const { ccclass, property } = _decorator;
 
@@ -16,20 +16,30 @@ export class MonsterInfoLayer extends Component {
     @property({ type: Node })
     public storyLabel: Node = null;
 
-    @property({type: Node})
+    @property({ type: Node })
     public monsterInfoLayer: Node = null;
     start() {
         // this.node.on('show--info', this.setMonsterInfo.bind(this), this)
-        this.node.on("close-monster-info-layer", ()=>{
+        this.node.on("close-monster-info-layer", () => {
             // this.towerInfoLayer.active = false;
             this.monsterInfoLayer.active = false;
         });
+        this.node.on("close-weapon-info-layer", () => {
+            this.monsterInfoLayer.active = false;
+
+        })
     }
     // setMonsterInfo(){
     //     this.monsterInfoLayer.active = true;
 
     // }
-    showMonsterInfoLayer(target: BaseObject){
+    showMonsterInfoLayer(target: BaseObject) {
         this.monsterInfoLayer.active = true;
+        this.nameLabel.getComponent(LabelComponent).string = target.getObjectName();
+        this.healthCountLabel.getComponent(LabelComponent).string = target.getHealthCount().toString(); //获得
+        // this.speedLabel.getComponent(LabelComponent).string = target.getMoveSpeed().toString(); //移动速度
+        // this.des
+        // this.healthCountLabel.getComponent(LabelComponent).string = target.getCoun
+        // this.storyLabel.getComponent(LabelComponent).string = target.getDesString();
     }
 }

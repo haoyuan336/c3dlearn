@@ -45,7 +45,7 @@ export class TowerInfoLayer extends Component {
         this.currentAttackDamageLabel.getComponent(LabelComponent).string = target.getCurrentAttackNum().toString();
         this.currentAttackSpeedLabel.getComponent(LabelComponent).string = Math.round(1 / target.getCurrentShootRate()).toString() + '/S';
         this.currentAttckRangeLabel.getComponent(LabelComponent).string = Math.floor(target.getCurrentAttackRange()).toString();
-        this.towerNameLabel.getComponent(LabelComponent).string = target.getTowerName();
+        this.towerNameLabel.getComponent(LabelComponent).string = target.getObjectName();
 
         let typeIndex = target.towerIndexType;
         if (isValid(this.currentShowAnimNode)) {

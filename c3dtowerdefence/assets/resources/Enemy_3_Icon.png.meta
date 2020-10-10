@@ -2,7 +2,7 @@
   "ver": "1.0.18",
   "importer": "image",
   "imported": true,
-  "uuid": "4b356413-449e-403e-bb8a-1ccb6fe0113e",
+  "uuid": "b66e139d-1bde-4696-b8b3-860c96ecfd21",
   "files": [
     ".png",
     ".json"
@@ -10,8 +10,8 @@
   "subMetas": {
     "6c48a": {
       "importer": "texture",
-      "uuid": "4b356413-449e-403e-bb8a-1ccb6fe0113e@6c48a",
-      "displayName": "橘猫_Icon",
+      "uuid": "b66e139d-1bde-4696-b8b3-860c96ecfd21@6c48a",
+      "displayName": "Enemy_3_Icon",
       "id": "6c48a",
       "name": "texture",
       "ver": "1.0.19",
@@ -29,13 +29,13 @@
         "premultiplyAlpha": false,
         "anisotropy": 1,
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "4b356413-449e-403e-bb8a-1ccb6fe0113e"
+        "imageUuidOrDatabaseUri": "b66e139d-1bde-4696-b8b3-860c96ecfd21"
       }
     },
     "f9941": {
       "importer": "sprite-frame",
-      "uuid": "4b356413-449e-403e-bb8a-1ccb6fe0113e@f9941",
-      "displayName": "橘猫_Icon",
+      "uuid": "b66e139d-1bde-4696-b8b3-860c96ecfd21@f9941",
+      "displayName": "Enemy_3_Icon",
       "id": "f9941",
       "name": "spriteFrame",
       "ver": "1.0.8",
@@ -61,13 +61,13 @@
         "borderLeft": 0,
         "borderRight": 0,
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "4b356413-449e-403e-bb8a-1ccb6fe0113e@6c48a",
+        "imageUuidOrDatabaseUri": "b66e139d-1bde-4696-b8b3-860c96ecfd21@6c48a",
         "atlasUuid": ""
       }
     }
   },
   "userData": {
     "type": "sprite-frame",
-    "redirect": "4b356413-449e-403e-bb8a-1ccb6fe0113e@f9941"
+    "redirect": "b66e139d-1bde-4696-b8b3-860c96ecfd21@f9941"
   }
 }
