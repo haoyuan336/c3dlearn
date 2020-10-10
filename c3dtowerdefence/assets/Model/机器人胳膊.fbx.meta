@@ -46,6 +46,30 @@
         "events": []
       }
     },
+    "09a43": {
+      "importer": "gltf-animation",
+      "uuid": "80572139-dee9-4648-8bb7-069a7333b18a@09a43",
+      "displayName": "",
+      "id": "09a43",
+      "name": "骨架|骨架Action.animation",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 1,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.375
+        },
+        "events": []
+      }
+    },
     "438fe": {
       "importer": "gltf-skeleton",
       "uuid": "80572139-dee9-4648-8bb7-069a7333b18a@438fe",
@@ -187,6 +211,19 @@
         "splits": [
           {
             "name": "骨架|AttackAnim",
+            "from": 0,
+            "to": 0.375,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "骨架|骨架Action",
+        "duration": 0.375,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "骨架|骨架Action",
             "from": 0,
             "to": 0.375,
             "wrapMode": 2

@@ -59,7 +59,7 @@ export class BulletBase extends BaseObject {
         // console.log("base attack num", this.baseAttackNum);
         if (data && data.direction) {
             let direction = data.direction;
-            this.currentDirection = direction;
+            this.currentDirection = v3(direction);
             let randomV = v3(Math.random() * 2 - 1, Math.random() * 2 - 1, Math.random() * 2 - 1);
             this.currentDirection.add(randomV);
             //导弹 从天而降的 导弹

@@ -1580,7 +1580,7 @@
     "weaponBaseNode": {
       "__id__": 14
     },
-    "attackAnimEventTimeOffset": 0.3,
+    "attackAnimEventTimeOffset": 0.2,
     "attackRangeNode": {
       "__id__": 2
     },

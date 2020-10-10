@@ -1,4 +1,5 @@
 import { _decorator, Component, Node, view, Tween, v3, Prefab, instantiate } from 'cc';
+import { BaseObject } from '../BaseObject';
 import { GameController } from '../GameController';
 import { State } from '../util/State';
 import { EnemyInfoCellPrefab } from './EnemyInfoCellPrefab';
@@ -78,7 +79,13 @@ export class EnemyInfoLayerCtl extends InfoLayerCtlBase {
     }
     onButtonClick(event, customData) {
         super.onButtonClick(event, customData);
+        if (customData === 'bg-node-click'){
+            this.node.emit("close-monster-info-layer")
+        }
     }
+    // showMonsterInfoLayer(target: BaseObject){
+    //     // this.showMonsterInfoLayer
+    // }
 
     // update (deltaTime: number) {
     //     // Your update function goes here.

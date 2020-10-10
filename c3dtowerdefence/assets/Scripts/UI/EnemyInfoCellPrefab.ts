@@ -1,15 +1,21 @@
-import { _decorator, Component, Node, Prefab, Game, loader, SpriteFrame, SpriteComponent } from 'cc';
+import { _decorator, Component, Node, Prefab, Game, loader, SpriteFrame, SpriteComponent, find } from 'cc';
 import { BaseObject } from '../BaseObject';
 import { GameController } from '../GameController';
+import { EnemyInfoLayerCtl } from './EnemyInfoLayerCtl';
+import { MonsterInfoLayer } from './MonsterInfoLayer';
 const { ccclass, property } = _decorator;
 
 @ccclass('EnemyInfoCellPrefab')
 export class EnemyInfoCellPrefab extends BaseObject {
     @property({ type: Node })
     public enemyIconNode: Node = null;
+    
+
+    public uiControllerNode: Node = null;
     public init(gameController: GameController, data: Object) {
         let enemyType = data["enemyType"];
         console.log("enemy type", enemyType);
+        this.uiControllerNode = find('Canvas');
         let gameConfig = gameController.getGameConfig().json;
         // super.objectType = enemyType;
         // console.log("super object type", super.objectType);
@@ -17,6 +23,7 @@ export class EnemyInfoCellPrefab extends BaseObject {
         this.gameController.node.on("refer-enemy-info-cell", ()=>{
             this.referUI();
         })
+        this.node.on("click",this.onButtonClick.bind(this), this);
     }
     public referUI() {
         //刷新UI 
@@ -34,6 +41,14 @@ export class EnemyInfoCellPrefab extends BaseObject {
 
         }
 
+    }
+    onButtonClick(){
+        console.log("click");
+        if (this.getEnemyIsActive()){
+            // thi
+            this.uiControllerNode.getComponent(MonsterInfoLayer).showMonsterInfoLayer(this);
+            
+        }
     }
     // public init(gameConfig: Object, gameController: GameController){
 
