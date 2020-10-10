@@ -357,7 +357,7 @@
         "BaseAttackNum": 1,
         "IconSprteFrame": "卡通飞龙",
         "MoveSpeed": 0.8,
-        "HealthCount": 1000,
+        "HealthCount": 10000,
         "BeLockedCount": 10,
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
@@ -406,7 +406,7 @@
     },
     "Bullet_5": {
         "MoveType": "Bezier",
-        "MoveSpeed": 20,
+        "MoveSpeed": 10,
         "BaseAttackNum": 2,
         "BaseGasNum": 0,
         "isCollisionDestroy": true,
@@ -473,7 +473,7 @@
             [
                 {
                     "type": 0,
-                    "count": 0
+                    "count": 10
                 }
             ],
             [

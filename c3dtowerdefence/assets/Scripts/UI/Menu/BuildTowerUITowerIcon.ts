@@ -33,7 +33,7 @@ export class BuildTowerUITowerIcon extends BaseObject {
         }
         let node = instantiate(this.towerShowAnimList[type]);
         this.currentAnimNode = node;
-        node.scale = v3(0.5, 0.5, 0.5);
+        node.scale = v3(1, 1, 1);
         node.parent = this.showTowerAnimLayer;
         //根据type 取处数据
         // let configList = [];

@@ -93,6 +93,7 @@ export class TowerBase extends BaseObject {
             //     this.towerBuildBase.getComponent(TowerBuildBase).unSetTargetTower(this.node);
             // }
             // this.node.destroy();
+            
             let skeleteAnim = this.rootNode.getComponent(SkeletalAnimationComponent);
             // if (skeleteAnim.clips.length < 3) {
             //     this.node.destroy();
@@ -344,7 +345,10 @@ export class TowerBase extends BaseObject {
         // }
 
 
-        let baseNodeList: Node[] = [this.rootNode];
+        let baseNodeList: Node[] = [];
+        if (this.rootNode){
+            baseNodeList.push(this.rootNode);
+        }
         if (this.weaponBaseNode) {
             baseNodeList.push(this.weaponBaseNode);
         }

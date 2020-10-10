@@ -135,7 +135,7 @@ export class BaseObject extends Component {
         if (gameConfig[this.objectType]['AttackType']) {
             this.attackType = gameConfig[this.objectType]['AttackType'];
         }
-        if (gameConfig[this.objectType]['TowerName']){
+        if (gameConfig[this.objectType]['TowerName']) {
             this.towerName = gameConfig[this.objectType]['TowerName'];
         }
     }
@@ -179,7 +179,8 @@ export class BaseObject extends Component {
         // baseAttackNum
         let currentShootRate = this.baseAttackRate;
         console.log("current shoot rate", currentShootRate);
-        currentShootRate *= (1 + this.currentLevel * this.currentLevel * 0.01);
+        // currentShootRate *= (1 + this.currentLevel * this.currentLevel * 0.01);
+        currentShootRate *= (1 + this.currentLevel * this.currentLevel * 0.1);
 
         console.log("current shoor rate", currentShootRate);
         //不能太快 设置一个封顶
@@ -233,6 +234,11 @@ export class BaseObject extends Component {
 
         this.shootDuraction = 1 / currentShootRate;
         console.log("升级之后 的 攻击事件间隔", this.shootDuraction);
+
+        this.bulletRecoverTime *= (1 - this.currentLevel * this.currentLevel * 0.1);
+        if (this.bulletRecoverTime < 0.2){
+            this.bulletRecoverTime = 0.2;
+        }
 
     }
     getCurrentAttackRange() {
@@ -360,7 +366,7 @@ export class BaseObject extends Component {
         //返回攻击类型
         return this.attackType;
     }
-    getTowerName(): string{
+    getTowerName(): string {
         return this.towerName
     }
 }

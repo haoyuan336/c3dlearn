@@ -63,11 +63,11 @@ export class BuildTowerUI extends MenuUIBase {
             // node.on("click", this.onButtonClick.bind(this));
             // node.parent = this.node;
             node.getComponent(BuildTowerUITowerIcon).init(activedTowerIndexList[i], this.gameController, this.gameConfig);
-            let scale = 76 / node.width;
+            let scale = 60 / node.width;
             node.scale = v3(scale, scale, 1);
             let v = v2(0, 1);
             v = v.rotate(Math.PI * 2 / length * i).normalize();
-            let pos = v.multiplyScalar(60);
+            let pos = v.multiplyScalar(75);
             node.setPosition(v3(pos.x, pos.y, 0));
 
         }

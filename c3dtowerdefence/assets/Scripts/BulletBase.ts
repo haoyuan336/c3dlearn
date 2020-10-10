@@ -215,7 +215,7 @@ export class BulletBase extends BaseObject {
                 if (isValid(this.targetEnemyNode)) {
                     let dir = v3(this.targetEnemyNode.position).add(v3(0, 2, 0)).subtract(this.node.position);
                     this.node.position = v3(this.node.position).add(dir.multiplyScalar(deltaTime * 0.5 * this.getMoveSpeed()));
-                    this.node.lookAt(this.targetEnemyNode.position);
+                    // this.node.lookAt(this.targetEnemyNode.position);
                 } else {
                     this.node.destroy();
                 }
@@ -238,7 +238,7 @@ export class BulletBase extends BaseObject {
                     this.node.position = v3(this.node.position.x, 30, this.node.position.z);
                     //检查需要攻击的敌人
                     let endPos = this.checkDownPos();
-                    if (isValid(endPos)){
+                    if (isValid(endPos)) {
                         console.log("end pos", endPos);
                         this.node.position = v3(endPos.x, 30, endPos.z);
                         // endPos.add(v3(0, 10, 0))
@@ -251,10 +251,10 @@ export class BulletBase extends BaseObject {
                             this.showBaozhaEffect();
                         });
                         tw.start();
-                    }else{
+                    } else {
                         this.node.destroy();
                     }
-                    
+
                 }
             } else {
                 this.speedY += this.accY * deltaTime;
@@ -321,12 +321,16 @@ export class BulletBase extends BaseObject {
 
         }
         // console.log("dis list", disList);
+
         disList = disList.sort((a, b) => {
             return a.dis - b.dis;
         })
         // console.log("dis list", disList);
+        if (isValid(disList[0].node)) {
+            return disList[0].node.position;
 
-        return disList[0].node.position;
+        }
+        return null;
 
     }
     showBaozhaEffect() {

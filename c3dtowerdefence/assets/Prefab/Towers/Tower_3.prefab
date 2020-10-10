@@ -322,9 +322,9 @@
     "_lrot": {
       "__type__": "cc.Quat",
       "x": 0,
-      "y": 1,
+      "y": 0,
       "z": 0,
-      "w": 6.123233995736766e-17
+      "w": 1
     },
     "_lscale": {
       "__type__": "cc.Vec3",
@@ -336,7 +336,7 @@
     "_euler": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 180,
+      "y": 0,
       "z": 0
     },
     "_id": ""
@@ -1370,9 +1370,7 @@
         "__uuid__": "ff74caaa-16a9-48dd-ab50-2d1746594e90@6d39e"
       }
     ],
-    "_defaultClip": {
-      "__uuid__": "ff74caaa-16a9-48dd-ab50-2d1746594e90@fdad8"
-    },
+    "_defaultClip": null,
     "_useBakedAnimation": true,
     "_sockets": [],
     "_id": ""
@@ -3495,6 +3493,7 @@
         "__id__": 76
       }
     ],
+    "weaponBaseNode": null,
     "attackAnimEventTimeOffset": 0.1,
     "attackRangeNode": {
       "__id__": 2
@@ -3536,6 +3535,7 @@
     "objectType": "CrazyRotateSkill",
     "rootNode": null,
     "animSpeedMulOffset": 1,
+    "weaponGunNode": null,
     "_id": ""
   },
   {
