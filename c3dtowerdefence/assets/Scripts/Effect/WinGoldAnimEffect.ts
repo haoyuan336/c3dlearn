@@ -38,10 +38,13 @@ export class WinGoldAnimEffect extends Component {
         //     state.repeatCount = 1;
         //     skelete.play(animClip.name);
         // }
+        let dis = v3(this.node.position).subtract(v3(-25, 10, 0)).length();
+        let speed = 50;
+        let time = dis / speed;
         this.goldCount = goldCount;
         let tw = new Tween(this.node)
         tw.delay(3)
-        tw.to(0.4, {
+        tw.to(time, {
             // eulerAngles: v3(0, 0, 0),
             position: v3(-25, 10, 0)
         })

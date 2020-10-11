@@ -85,7 +85,7 @@ export class EnemyBase extends BaseObject {
         return new Promise((resolve, reject) => {
             let tw = new Tween(node);
             let pos = node.position;
-            tw.delay(0.1 * index)
+            tw.delay(0.2 * index)
             // let moveType = this.getMoveType();
             // tw.set({ scale: v3(0, moveType.indexOf("Fly") > -1 ? 10 : 0, 0) })
             tw.show();

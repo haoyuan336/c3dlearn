@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, view, Tween, v3, Prefab, instantiate } from 'cc';
+import { _decorator, Component, Node, view, Tween, v3, Prefab, instantiate, JsonAsset } from 'cc';
 import { BaseObject } from '../BaseObject';
 import { GameController } from '../GameController';
 import { State } from '../util/State';
@@ -17,6 +17,8 @@ export class EnemyInfoLayerCtl extends InfoLayerCtlBase {
     public enemyInfoCellPrefab: Node = null;
 
     private enemyInfoCellMap: Object = {};
+
+  
     start() {
         super.start();
         // Your initialization goes here.

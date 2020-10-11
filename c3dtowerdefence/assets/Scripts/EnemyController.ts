@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, JsonAsset, Prefab, instantiate, v3, Vec2, Tween, random, Vec3, CameraComponent, find, profiler } from 'cc';
+import { _decorator, Component, Node, JsonAsset, Prefab, instantiate, v3, Vec2, Tween, random, Vec3, CameraComponent, find, profiler, isValid } from 'cc';
 import { State } from './util/State';
 import { EnemyBase } from './Enemys/EnemyBase'
 import { GroundMapCtl } from './GroundMapCtl';
@@ -66,6 +66,9 @@ export class EnemyController extends Component {
 
 
     private currentLevelDeadEnemyDataList: DeadEnemyObj[] = [];
+
+    @property({type: JsonAsset})
+    // public GameLevelConfig: JsonAsset = null;
     onLoad() {
         this.node.on("destroy-all-enemy", (cb) => {
             //删除当前的所有敌人
@@ -108,6 +111,7 @@ export class EnemyController extends Component {
 
             } else {
                 this.addOneWaveEnemy().then(() => {
+                    console.log("一波敌人增加完成");
                     this.currentWaveIndex++;
 
                     this.scheduleOnce(() => {
@@ -146,8 +150,16 @@ export class EnemyController extends Component {
         //在这里需要初始化一些游戏数据 
         this.currentWaveIndex = 0;
         this.waveData = this.gameConfig['Level_' + this.gameController.getCurrentLevelNum()];
+        // this.waveData = this.GameLevelConfig.json['Level_' + this.gameController.getCurrentLevelNum()];
 
-        this.state.setState("enter-next-wave");
+
+
+
+        this.scheduleOnce(() => {
+            this.state.setState("enter-next-wave");
+
+        }, 3);
+
         Promise.all([
             new Promise((resolve, reject) => {
                 this.allWaveAddOverCb = resolve;
@@ -163,6 +175,8 @@ export class EnemyController extends Component {
     continueGame() {
         this.currentWaveIndex--;
         this.waveData = this.gameConfig['Level_' + this.gameController.getCurrentLevelNum()];
+        // this.waveData = this.GameLevelConfig['Level_' + this.gameController.getCurrentLevelNum()];
+
         this.state.setState("enter-next-wave");
         Promise.all([
             new Promise((resolve, reject) => {
@@ -291,52 +305,96 @@ export class EnemyController extends Component {
         for (let i = 0; i < this.currentRandomEnemyTypeList.length; i++) {
             maxEnemyCount += this.currentRandomEnemyTypeList[i].count;
         }
+        let typeList = [];
+        for (let i = 0; i < this.currentRandomEnemyTypeList.length; i++) {
+            let waveData = this.currentRandomEnemyTypeList[i];
+            for (let i = 0; i < waveData.count; i++) {
+                typeList.push(waveData.type);
+            }
+        }
+        console.log("type list", typeList);
         // console.log("max enemy count", maxEnemyCount);
-        if (maxEnemyCount >= indexList.length) {
-            console.error("数据错误");
-            return;
-        }
-        while (addEnemyCount < maxEnemyCount) {
-            // addEnemyCount ++;
-            // console.log("random index", randomIndex);
-            if (randomIndex >= indexList.length) {
-                randomIndex = 0;
+        // if (maxEnemyCount >= indexList.length) {
+        //     console.error("数据错误");
+        //     return;
+        // }
+        let randomStartIndex = Math.round(Math.random() * indexList.length);
+        const createOneEnemy = (index: number, type: number) => {
+
+            let startIndex = randomStartIndex + index;
+            if (startIndex >= indexList.length) {
+                startIndex -= indexList.length;
             }
-            let indexV2 = indexList[randomIndex];
-            let node = nodeMapList.getValue(indexV2.x, indexV2.y);
-            if (node && node.getComponent(GroundTiled)) {
-                let groundTiled = node.getComponent(GroundTiled);
-                if (groundTiled.getIsVoid()) {
-                    // console.log("找到了一个空位置");
-                    // let currentEnemyType = this.currentRandomEnemyTypeList
-                    // let enemyNode = instantiate(this.enenm)
-                    let waveData = this.currentRandomEnemyTypeList[enemyTypeIndex];
-                    let type = waveData.type;
-                    let count = waveData.count;
-                    if (waveAddEnemyCount >= count) {
-                        waveAddEnemyCount = 0;
-                        enemyTypeIndex++;
+            return new Promise((resolve, reject) => {
+                let indexV2 = indexList[startIndex];
+                let node = nodeMapList.getValue(indexV2.x, indexV2.y);
+
+                // this.scheduleOnce(() => {
+                //     resolve();
+                // }, 0.1 * index);
+                if (isValid(node) && node.getComponent(GroundTiled)) {
+                    let groundTiled = node.getComponent(GroundTiled);
+                    if (groundTiled.getIsVoid()) {
+                        let enemyNode = instantiate(this.enemysPrefabList[type]);
+                        // console.log("enemy node", enemyNode)
+                        enemyNode.parent = this.node;
+                        enemyNode.position = v3(node.position.x, 0, node.position.z);
+                        enemyNode.active = false;
+
+                        enemyNode.getComponent(EnemyBase).init(this.gameConfig, this.gameController, node.position, this.endPos);
+                        this.enemyNodeList.push(enemyNode);
+
+                        promiseList.push(enemyNode.getComponent(EnemyBase).showEnemyEnterAnim(index, this, indexV2, new Vec2(5, 5)));
                     }
-                    let enemyNode = instantiate(this.enemysPrefabList[type]);
-                    // console.log("enemy node", enemyNode)
-                    enemyNode.parent = this.node;
-                    enemyNode.position = v3(node.position.x, 0, node.position.z);
-                    enemyNode.active = false;
-
-                    enemyNode.getComponent(EnemyBase).init(this.gameConfig, this.gameController, node.position, this.endPos);
-
-                    // this.showEnemyEnterAnim(enemyNode, addEnemyCount);
-                    promiseList.push(enemyNode.getComponent(EnemyBase).showEnemyEnterAnim(addEnemyCount, this, indexV2, new Vec2(5, 5)));
-                    addEnemyCount++;
-                    this.enemyNodeList.push(enemyNode);
-                    // console.log("增加一个敌人")
+                } else {
+                    // promiseList.push(Promise.resolve())
                 }
-                // randomIndex++
-                randomIndex = Math.round(Math.random() * (indexList.length - 1));
-            } else {
-                addEnemyCount++;
-            }
+            })
         }
+        for (let i = 0; i < typeList.length; i++) {
+            createOneEnemy(i, typeList[i])
+        }
+        // while (addEnemyCount < maxEnemyCount) {
+        //     // addEnemyCount ++;
+        //     // console.log("random index", randomIndex);
+        //     if (randomIndex >= indexList.length) {
+        //         randomIndex = 0;
+        //     }
+        //     let indexV2 = indexList[randomIndex];
+        //     let node = nodeMapList.getValue(indexV2.x, indexV2.y);
+        //     if (node && node.getComponent(GroundTiled)) {
+        //         let groundTiled = node.getComponent(GroundTiled);
+        //         if (groundTiled.getIsVoid()) {
+        //             // console.log("找到了一个空位置");
+        //             // let currentEnemyType = this.currentRandomEnemyTypeList
+        //             // let enemyNode = instantiate(this.enenm)
+        //             let waveData = this.currentRandomEnemyTypeList[enemyTypeIndex];
+        //             let type = waveData.type;
+        //             let count = waveData.count;
+        //             if (waveAddEnemyCount >= count) {
+        //                 waveAddEnemyCount = 0;
+        //                 enemyTypeIndex++;
+        //             }
+        //             let enemyNode = instantiate(this.enemysPrefabList[type]);
+        //             // console.log("enemy node", enemyNode)
+        //             enemyNode.parent = this.node;
+        //             enemyNode.position = v3(node.position.x, 0, node.position.z);
+        //             enemyNode.active = false;
+
+        //             enemyNode.getComponent(EnemyBase).init(this.gameConfig, this.gameController, node.position, this.endPos);
+
+        //             // this.showEnemyEnterAnim(enemyNode, addEnemyCount);
+        //             promiseList.push(enemyNode.getComponent(EnemyBase).showEnemyEnterAnim(addEnemyCount, this, indexV2, new Vec2(5, 5)));
+        //             addEnemyCount++;
+        //             this.enemyNodeList.push(enemyNode);
+        //             // console.log("增加一个敌人")
+        //         }
+        //         // randomIndex++
+        //         randomIndex = Math.round(Math.random() * (indexList.length - 1));
+        //     } else {
+        //         addEnemyCount++;
+        //     }
+        // }
         return Promise.all(promiseList)
     }
 

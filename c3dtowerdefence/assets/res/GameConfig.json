@@ -517,7 +517,7 @@
         "MoveSpeed": 30,
         "BaseAttackNum": 1,
         "BaseGasNum": 0.2,
-        "isCollisionDestroy": false,
+        "isCollisionDestroy": true,
         "isCollisionGround": false,
         "LeftTime": 3
     },
@@ -525,7 +525,7 @@
         "MoveSpeed": 30,
         "BaseAttackNum": 2,
         "BaseGasNum": 0,
-        "isCollisionDestroy": false,
+        "isCollisionDestroy": true,
         "isCollisionGround": false,
         "LeftTime": 3
     },
@@ -613,13 +613,13 @@
         "EnemyType": [
             [
                 {
-                    "type": 13,
-                    "count": 20
+                    "type": 0,
+                    "count": 5
                 }
             ],
             [
                 {
-                    "type": 12,
+                    "type": 0,
                     "count": 1
                 }
             ]
