@@ -340,6 +340,7 @@
         "BaseAttackNum": 1
     },
     "Boss_0": {
+        "Name": "超级无敌南瓜怪",
         "EnemyType": "Boss_0",
         "BaseAttackNum": 1,
         "IconSprteFrame": "Enemy_1_Icon",

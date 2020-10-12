@@ -411,5 +411,6 @@ export class GameController extends Component {
         //
         // this.node.emit("")
         this.uiController.emit("refer-enemy-info-cell", enemyType);
+
     }
 }

@@ -10,7 +10,7 @@ export class PlayData {
     public currentTowerLevelData: Object[] = [];
     public currentInitRedHeartCounnt: number = 3;
     public currentRedHeardCount: number = 0;//当前的红心个数
-    public currentActiveEnemyMap: string[] = [];
+    public currentActiveEnemyMap: Object = {};
     // public currentActiveEnemyMap:
     // public currentActiveTowerBuildBaseCount = 2; //当前激活的建造塔的位置的个数
     constructor(gameCtl) {
@@ -23,10 +23,10 @@ export class PlayData {
         // this.setLocalData('active-tower-build-base-count', '2');
         // this.setLocalData("current-level-num", this.currentLevelNum + '');
         // this.initTowerLevelLocalData(this.gameController.getGameConfig().json);
-        this.setLocalData("current-init-red-heart-count", this.currentInitRedHeartCounnt + "");
         // this.setLocalData("current-init-red-heart-count", this.currentInitRedHeartCounnt + "");
-        this.setLocalData("active-enemy-list", JSON.stringify(this.currentActiveEnemyMap));
-        this.initTowerLevelLocalData(this.gameController.getGameConfig().json);
+        // this.setLocalData("current-init-red-heart-count", this.currentInitRedHeartCounnt + "");
+        // this.setLocalData("active-enemy-list", JSON.stringify(this.currentActiveEnemyMap));
+        // this.initTowerLevelLocalData(this.gameController.getGameConfig().json);
 
         if (gameTime) {
             // 首次进入游戏. 初始化游戏数据
@@ -40,6 +40,7 @@ export class PlayData {
             this.currentTowerLevelData = JSON.parse(this.getLocalData("tower-level-data"));
             this.currentInitRedHeartCounnt = Number(this.getLocalData("current-init-red-heart-count")); //获取当前初始化的红心的个数
             this.currentActiveEnemyMap = JSON.parse(this.getLocalData("active-enemy-list")); //获取当前激活的敌人的列表
+            console.log("current active enemy map", this.currentActiveEnemyMap);
         } else {
             this.setLocalData("game-time", '1');
             this.setLocalData("current-active-skill-count", this.currentActiveSkillCount + '');
@@ -74,7 +75,7 @@ export class PlayData {
                 currentLevel: 0,
                 TowerType: data.TowerType
             }
-            if (i < 8) {
+            if (i < 2) {
                 obj.isActive = true;
                 obj.currentLevel = 1;
             } else {
@@ -224,7 +225,9 @@ export class PlayData {
         if (!this.currentActiveEnemyMap[enemyType]) {
             this.currentActiveEnemyMap[enemyType] = true;
             console.log("激活一个敌人", enemyType)
+            console.log("current active enemy map", this.currentActiveEnemyMap);
             this.setLocalData("active-enemy-list", JSON.stringify(this.currentActiveEnemyMap));
+            console.log("data = ", this.getLocalData("active-enemy-list"));
             this.gameController.activeEnemySuccess(enemyType);
             // this.gameController
         }

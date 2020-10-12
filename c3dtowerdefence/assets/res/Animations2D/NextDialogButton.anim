@@ -1,0 +1,80 @@
+[
+  {
+    "__type__": "cc.AnimationClip",
+    "_name": "NextDialogButton",
+    "_objFlags": 0,
+    "_native": "",
+    "sample": 30,
+    "speed": 1,
+    "wrapMode": 2,
+    "events": [],
+    "_duration": 0.3333333333333333,
+    "_keys": [
+      [
+        0,
+        0.03333333333333333,
+        0.06666666666666667,
+        0.1,
+        0.13333333333333333,
+        0.16666666666666666,
+        0.2,
+        0.23333333333333334,
+        0.26666666666666666,
+        0.3
+      ]
+    ],
+    "_stepness": 0,
+    "_curves": [
+      {
+        "modifiers": [
+          {
+            "__id__": 1
+          },
+          "spriteFrame"
+        ],
+        "data": {
+          "keys": 0,
+          "values": [
+            {
+              "__uuid__": "61b248df-e63f-489d-916f-3e5649af2786@f9941"
+            },
+            {
+              "__uuid__": "58165244-824b-4e5c-9a8a-324469cfb764@f9941"
+            },
+            {
+              "__uuid__": "57813208-3126-414c-8fc0-26000f20d515@f9941"
+            },
+            {
+              "__uuid__": "6b20a45d-d827-4b2f-b36d-b9bf030f285c@f9941"
+            },
+            {
+              "__uuid__": "474c0ea7-5979-4703-908b-ed122a3a1b1f@f9941"
+            },
+            {
+              "__uuid__": "29f7aa7c-5162-41bc-b728-d0eaffe79915@f9941"
+            },
+            {
+              "__uuid__": "7dbe7846-d456-4c96-aa8d-ea55f695931e@f9941"
+            },
+            {
+              "__uuid__": "337699ac-9965-4a46-b864-0f16a9a8a44b@f9941"
+            },
+            {
+              "__uuid__": "3f9ca16b-f30f-4815-8eae-9d388bd2c305@f9941"
+            },
+            {
+              "__uuid__": "d9a58c40-4ca0-42c8-af05-d03d623d7a6d@f9941"
+            }
+          ],
+          "easingMethods": {}
+        }
+      }
+    ],
+    "_commonTargets": [],
+    "_hash": 1792593774
+  },
+  {
+    "__type__": "cc.animation.ComponentPath",
+    "component": "cc.SpriteComponent"
+  }
+]

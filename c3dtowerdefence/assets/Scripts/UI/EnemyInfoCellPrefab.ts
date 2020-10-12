@@ -24,6 +24,8 @@ export class EnemyInfoCellPrefab extends BaseObject {
             this.referUI();
         })
         this.node.on("click",this.onButtonClick.bind(this), this);
+
+        this.referUI();
     }
     public referUI() {
         //刷新UI 

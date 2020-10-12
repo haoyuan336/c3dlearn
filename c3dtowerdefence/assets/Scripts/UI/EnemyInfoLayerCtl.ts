@@ -24,7 +24,7 @@ export class EnemyInfoLayerCtl extends InfoLayerCtlBase {
         // Your initialization goes here.
         // let screenSize = view.getVisibleSize();
         this.initEnemyData();
-        this.node.on("refer-enemy-data", this.referEnemyData.bind(this), this);
+        // this.node.on("refer-enemy-data", this.referEnemyData.bind(this), this);
         this.node.on("refer-enemy-info-cell", (enemyType: string) => {
             console.log("`激活了某个敌人`", enemyType);
             console.log("enemy info cell map", this.enemyInfoCellMap);
@@ -81,6 +81,8 @@ export class EnemyInfoLayerCtl extends InfoLayerCtlBase {
             this.enemyInfoNodeParentNode.height = node.position.y * -1 + 70;
             this.enemyInfoCellMap[enemyType] = node;
         }
+        //取出。激活敌人数据
+        // let activeEnemyData = this.gameController.playerData.getEnemyIsActive
     }
     referEnemyData() {
 

@@ -6,7 +6,7 @@ import { GroundTiled } from './GroundTiled/GroundTiled';
 import My2dArray from './util/My2Array';
 import { WinGoldAnimEffect } from './Effect/WinGoldAnimEffect';
 import { GameController } from './GameController';
-import { UIController } from './UI/UIController';
+// import { UIController } from './UI/UIController';
 import { EnemyBullet } from './Enemys/EnemyBullet';
 
 const { ccclass, property } = _decorator;
@@ -67,7 +67,9 @@ export class EnemyController extends Component {
 
     private currentLevelDeadEnemyDataList: DeadEnemyObj[] = [];
 
-    @property({type: JsonAsset})
+
+    private uiControllerNode: Node = null;
+    // @property({type: JsonAsset})
     // public GameLevelConfig: JsonAsset = null;
     onLoad() {
         this.node.on("destroy-all-enemy", (cb) => {
@@ -88,6 +90,8 @@ export class EnemyController extends Component {
         })
     }
     start() {
+        this.uiControllerNode = find("Canvas");
+
         // Your initialization goes here.
         this.gameConfig = this.gameConfigRes.json;
         this.gameController = this.node.getComponent(GameController);
@@ -154,11 +158,17 @@ export class EnemyController extends Component {
 
 
 
+        this.uiControllerNode.emit("show-start-dialog", this.gameController.getCurrentLevelNum(), () => {
+            console.log("开始对话内容播放结束");
+            this.scheduleOnce(() => {
+                this.state.setState("enter-next-wave");
+            }, 2.5)
+        });
 
-        this.scheduleOnce(() => {
-            this.state.setState("enter-next-wave");
+        // this.scheduleOnce(() => {
+        // this.state.setState("enter-next-wave");
 
-        }, 3);
+        // }, 3);
 
         Promise.all([
             new Promise((resolve, reject) => {
@@ -192,6 +202,7 @@ export class EnemyController extends Component {
     }
     pushOneEnemyDeadData(enemyDeadData: DeadEnemyObj) {
         console.log("push one enemy dead data", enemyDeadData);
+        
         this.currentLevelDeadEnemyDataList.push(enemyDeadData);
         this.gameController.playerData.activeEnemy(enemyDeadData.enemyType);
     }
