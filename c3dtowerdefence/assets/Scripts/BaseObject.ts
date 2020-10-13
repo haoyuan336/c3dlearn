@@ -371,6 +371,14 @@ export class BaseObject extends Component {
         //获得当前敌人是否激活了
         return this.gameController.playerData.getEnemyIsActive(this.objectType);
     }
+    getIsShowed() {
+        //获取是否展示过
+        return this.gameController.playerData.getIsShowed(this.objectType);
+
+    }
+    setShowed(){
+        this.gameController.playerData.setShowed(this.objectType);
+    }
     getIsColony(): boolean {
         return this.isConlony;
     }

@@ -551,7 +551,7 @@
       "__id__": 1
     },
     "_children": [],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 19
@@ -565,8 +565,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 35,
-      "y": 17,
+      "x": 23.328,
+      "y": 30.131,
       "z": 0
     },
     "_lrot": {
@@ -578,9 +578,9 @@
     },
     "_lscale": {
       "__type__": "cc.Vec3",
-      "x": 0.5,
-      "y": 0.5,
-      "z": 0.5
+      "x": 0.3,
+      "y": 0.3,
+      "z": 0.3
     },
     "_layer": 1073741824,
     "_euler": {
@@ -697,6 +697,9 @@
     "animSpeedMulOffset": 1,
     "enemyIconNode": {
       "__id__": 7
+    },
+    "newInfoTipsNode": {
+      "__id__": 18
     },
     "_id": ""
   },

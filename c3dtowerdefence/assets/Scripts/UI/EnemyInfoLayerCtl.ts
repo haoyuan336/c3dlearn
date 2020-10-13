@@ -18,7 +18,9 @@ export class EnemyInfoLayerCtl extends InfoLayerCtlBase {
 
     private enemyInfoCellMap: Object = {};
 
-  
+    @property({ type: Node })
+    public newInfoTipsNode: Node = null;
+
     start() {
         super.start();
         // Your initialization goes here.
@@ -28,6 +30,7 @@ export class EnemyInfoLayerCtl extends InfoLayerCtlBase {
         this.node.on("refer-enemy-info-cell", (enemyType: string) => {
             console.log("`激活了某个敌人`", enemyType);
             console.log("enemy info cell map", this.enemyInfoCellMap);
+
             if (this.enemyInfoCellMap[enemyType]) {
                 console.log("刷新这个敌人的UI")
                 // this.enemyInfoCellMap[enemyType].getComponent(EnemyInfoCellPrefab).referUI();
@@ -35,6 +38,21 @@ export class EnemyInfoLayerCtl extends InfoLayerCtlBase {
                 node.getComponent(EnemyInfoCellPrefab).referUI();
             }
         })
+        this.node.on("show-new-enemy-info-tips", () => {
+            let isHave = false;
+            this.newInfoTipsNode.active = false;
+            for (let i in this.enemyInfoCellMap) {
+                let node = this.enemyInfoCellMap[i];
+                if (!node.getComponent(BaseObject).getIsShowed() && node.getComponent(BaseObject).getEnemyIsActive()) {
+                    isHave = true;
+                    break;
+                }
+            }
+            console.log("is have", isHave);
+            if (isHave) {
+                this.newInfoTipsNode.active = true;
+            }
+        });
     }
     closeUICb() {
         // console.log("close ui cb");

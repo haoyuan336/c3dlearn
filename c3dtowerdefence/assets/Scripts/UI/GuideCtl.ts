@@ -1,17 +1,107 @@
-import { _decorator, Component, Node } from 'cc';
+import { _decorator, Component, Node, JsonAsset, find, Tween, v3, UIComponent, UITransformComponent } from 'cc';
+import { GameController } from '../GameController';
 const { ccclass, property } = _decorator;
 
 @ccclass('GuideCtl')
 export class GuideCtl extends Component {
-    /* class member could be defined like this */
-    // dummy = '';
 
-    /* use `property` decorator if your want the member to be serializable */
-    // @property
-    // serializableDummy = 0;
+    @property({ type: Node })
+    public guideLayer: Node = null;
 
-    start () {
+    @property({ type: JsonAsset })
+    public guideConfigJsonAsset: JsonAsset = null;
+
+    private currentGuideIndex: number = 1;
+
+    private gameController: GameController = null;
+
+    private guideCompleteCb: Function = null;
+    start() {
         // Your initialization goes here.
+        this.gameController = find("GameController").getComponent(GameController);
+    }
+    onLoad() {
+        this.node.on("show-guide", (cb) => {
+            //显示引导层
+            let stepStr = "Step_" + this.currentGuideIndex;
+            if (this.guideConfigJsonAsset.json[stepStr]){
+                let isShowGuide = this.gameController.playerData.getIsShowGuide(stepStr);
+                if (isShowGuide) {
+                    if (cb) {
+                        cb();
+                    }
+                } else {
+                    this.guideCompleteCb = cb;
+                    this.showMaskAnim(stepStr);
+                }
+            }else{
+                if (cb){
+                    cb();
+                }
+            }
+           
+        });
+
+        this.node.on("complete-current-guide", () => {
+            //完成了当前的 引导逻辑
+          
+            let stepStr = "Step_" + this.currentGuideIndex;
+            this.gameController.playerData.setIsShowGuide(stepStr);
+            this.currentGuideIndex++;
+            this.hideMaskAnim().then(()=>{
+                console.log("引导操作完成");
+                if (this.guideCompleteCb) {
+                    console.log("存在回调");
+                    this.guideCompleteCb();
+                    // this.guideCompleteCb = null;
+                }
+            });
+        })
+    }
+    hideMaskAnim() {
+        return new Promise((resolve, reject)=>{
+            let uiTransfrom = this.guideLayer.getComponent(UITransformComponent);
+            let tw = new Tween(uiTransfrom);
+            tw.to(0.6, {
+                width: 1700,
+                height: 1700
+            })
+            tw.call(()=>{
+                resolve();
+            })
+            tw.start();
+        })
+     
+    }
+    showMaskAnim(stepStr: string) {
+        return new Promise((resolve, reject) => {
+            let guideData = this.guideConfigJsonAsset.json[stepStr];
+            console.log("guide data", guideData);
+            let size = guideData.Size;
+            let pos = guideData.MaskPos;
+            let time = guideData.Time;
+            this.guideLayer.active = true;
+            let uiTransfrom = this.guideLayer.getComponent(UITransformComponent);
+            // uiTransfrom.width = 1700;
+            // uiTransfrom.height = 1700;
+            let tw = new Tween(uiTransfrom)
+            
+            tw.to(time, {
+                width: size.width,
+                height: size.height
+                // position: v3(pos.x, pos.y, 0)
+            })
+            tw.call(() => {
+                resolve();
+            })
+            tw.start();
+
+            let posTw = new Tween(this.guideLayer);
+            posTw.to(time, {
+                position: v3(pos.x, pos.y, pos.z)
+            })
+            posTw.start();
+        })
     }
 
     // update (deltaTime: number) {

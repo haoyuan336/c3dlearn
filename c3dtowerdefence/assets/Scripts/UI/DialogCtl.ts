@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, JsonAsset, SpriteComponent, LabelComponent, loader, SpriteFrame } from 'cc';
+import { _decorator, Component, Node, JsonAsset, SpriteComponent, LabelComponent, loader, SpriteFrame, v3, Tween } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('DialogCtl')
@@ -44,19 +44,40 @@ export class DialogCtl extends Component {
             this.showOneDialog();
 
             this.dialogOverCb = () => {
-                this.closeDialogLayer();
-                cb()
+                this.closeDialogLayer().then(() => {
+                    cb()
+                });
             };
         });
         this.node.on("show-end-dialog", (currentLevel, cb) => {
             //播放结束的时候的对话
-            console.log("展示结束的时候的对话", currentLevel);
-            this.dialogOverCb = cb;
+            console.log("展示开始对话的内容", currentLevel);
+            this.dialogBgNode.active = true;
+            this.dialogLayer.active = true;
+
+            //取出当前的对话数据
+            this.currentLevelDialogData = this.dialogConfigJsonAsset.json['Level_' + currentLevel]['EndDialogList'];
+            this.currentDialogIndex = 0;
+            this.showOneDialog();
+
+            this.dialogOverCb = () => {
+                this.closeDialogLayer().then(() => {
+                    cb()
+                });
+            };
+
+
         })
     }
     closeDialogLayer() {
-        this.dialogBgNode.active = false;
-        this.dialogLayer.active = false;
+        return new Promise((resolve, reject) => {
+            this.showTLPOutAnim().then(() => {
+                this.dialogBgNode.active = false;
+                this.dialogLayer.active = false;
+                resolve();
+            })
+        })
+
     }
     showOneDialog() {
         if (this.currentDialogIndex >= this.currentLevelDialogData.length) {
@@ -70,11 +91,15 @@ export class DialogCtl extends Component {
         //展示一条dialog
         let dialogData = this.currentLevelDialogData[this.currentDialogIndex];
         let picStr = dialogData['Pic'];
-        let text = dialogData['Text'];
-        this.dialogLabel.getComponent(LabelComponent).string = text;
         loader.loadRes(picStr + '/spriteFrame', SpriteFrame, (err, result) => {
+
             if (!err) {
-                this.dialogPicNode.getComponent(SpriteComponent).spriteFrame = result;
+                this.showTLPEnterAnim().then(() => {
+                    this.dialogPicNode.getComponent(SpriteComponent).spriteFrame = result;
+                    let text = dialogData['Text'];
+                    this.dialogLabel.getComponent(LabelComponent).string = text;
+
+                })
             }
         });
         this.currentDialogIndex++;
@@ -89,6 +114,37 @@ export class DialogCtl extends Component {
             default:
                 break;
         }
+    }
+    showTLPEnterAnim() {
+        return new Promise((resolve, reject) => {
+
+            if (this.dialogPicNode.position.x > -500) {
+                resolve();
+            } else {
+                this.dialogPicNode.position = v3(-1000, -161.675, 0);
+                let tw = new Tween(this.dialogPicNode)
+                tw.to(0.2, {
+                    position: v3(-407.421, -161, 0)
+                })
+                tw.call(() => {
+                    resolve();
+                })
+                tw.start();
+            }
+
+        })
+    }
+    showTLPOutAnim() {
+        return new Promise((resolve, reject) => {
+            let tw = new Tween(this.dialogPicNode)
+            tw.to(0.2, {
+                position: v3(-1000, -161, 0)
+            });
+            tw.call(() => {
+                resolve();
+            })
+            tw.start();
+        })
     }
 
     // update (deltaTime: number) {

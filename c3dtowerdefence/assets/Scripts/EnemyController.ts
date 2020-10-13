@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, JsonAsset, Prefab, instantiate, v3, Vec2, Tween, random, Vec3, CameraComponent, find, profiler, isValid } from 'cc';
+import { _decorator, Component, Node, JsonAsset, Prefab, instantiate, v3, Vec2, Tween, random, Vec3, CameraComponent, find, profiler, isValid, Scheduler } from 'cc';
 import { State } from './util/State';
 import { EnemyBase } from './Enemys/EnemyBase'
 import { GroundMapCtl } from './GroundMapCtl';
@@ -159,10 +159,24 @@ export class EnemyController extends Component {
 
 
         this.uiControllerNode.emit("show-start-dialog", this.gameController.getCurrentLevelNum(), () => {
-            console.log("开始对话内容播放结束");
-            this.scheduleOnce(() => {
-                this.state.setState("enter-next-wave");
-            }, 2.5)
+            // console.log("开始对话内容播放结束");
+            // this.scheduleOnce(() => {
+            //     this.state.setState("enter-next-wave");
+            // }, 2.5)
+
+            //开始点击 塔的基座的 引导操作
+            this.uiControllerNode.emit("show-guide", () => {
+                //开始点击 建造塔的 引导操作
+                this.uiControllerNode.emit("show-guide", () => {
+                    this.scheduleOnce(() => {
+                        this.state.setState("enter-next-wave");
+                    }, 2.5)
+                })
+
+
+            })
+
+
         });
 
         // this.scheduleOnce(() => {
@@ -179,7 +193,10 @@ export class EnemyController extends Component {
             })
         ]).then(() => {
             console.log("游戏胜利");
-            this.gameController.gameWin(this.currentLevelDeadEnemyDataList);
+            this.uiControllerNode.emit("show-end-dialog", this.gameController.getCurrentLevelNum(), () => {
+                this.gameController.gameWin(this.currentLevelDeadEnemyDataList);
+            })
+
         })
     }
     continueGame() {
@@ -202,9 +219,17 @@ export class EnemyController extends Component {
     }
     pushOneEnemyDeadData(enemyDeadData: DeadEnemyObj) {
         console.log("push one enemy dead data", enemyDeadData);
-        
+
         this.currentLevelDeadEnemyDataList.push(enemyDeadData);
         this.gameController.playerData.activeEnemy(enemyDeadData.enemyType);
+    }
+
+
+    pauseGame() {
+        //暂停游戏
+        // Scheduler.
+
+
     }
     // showCameraFocusBoosAnim(bossNode: Node) {
     //     return new Promise((resolve, reject) => {
@@ -306,12 +331,8 @@ export class EnemyController extends Component {
     addOneWaveEnemy() {
         //增加一波敌人
         let promiseList = [];
-        let addEnemyCount = 0;
         let indexList: Vec2[] = this.node.getComponent(GroundMapCtl).getInEdageIndexList();
         let nodeMapList: My2dArray<Node> = this.node.getComponent(GroundMapCtl).getMapNodeList();
-        let randomIndex = Math.round(Math.random() * (indexList.length - 1));
-        let enemyTypeIndex = 0;
-        let waveAddEnemyCount = 0;
         let maxEnemyCount = 0;
         for (let i = 0; i < this.currentRandomEnemyTypeList.length; i++) {
             maxEnemyCount += this.currentRandomEnemyTypeList[i].count;
@@ -328,8 +349,14 @@ export class EnemyController extends Component {
         // if (maxEnemyCount >= indexList.length) {
         //     console.error("数据错误");
         //     return;
-        // }
+        // }、
         let randomStartIndex = Math.round(Math.random() * indexList.length);
+
+        if (this.currentWaveIndex === 0 && this.gameController.getCurrentLevelNum() === 0) {
+            randomStartIndex = 0;
+        }
+        console.log("current wave", this.currentWaveIndex);
+        console.log("current level", this.gameController.getCurrentLevelNum());
         const createOneEnemy = (index: number, type: number) => {
 
             let startIndex = randomStartIndex + index;

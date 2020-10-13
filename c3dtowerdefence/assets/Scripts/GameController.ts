@@ -143,6 +143,7 @@ export class GameController extends Component {
 
         this.node.on("build-one-tower", (index, towerBaseNode: Node) => {
             //建造一座塔
+            this.uiController.emit("complete-current-guide");
             if (index < this.towersPrefabList.length) {
                 let node = instantiate(this.towersPrefabList[index]);
                 node.parent = this.node;
@@ -158,6 +159,8 @@ export class GameController extends Component {
 
         this.state.addState("play-start-button-anim", () => {
             // console.log("玩家点中了开始游戏按钮");
+            this.uiController.emit("complete-current-guide"); 
+            //给ui控制器发送，完成了当前的引导操作
             this.playStatrButtonPressAnim().then(() => {
                 return new Promise((resolve, reject) => {
                     let tw = new Tween(this.startGameButton)
@@ -413,4 +416,5 @@ export class GameController extends Component {
         this.uiController.emit("refer-enemy-info-cell", enemyType);
 
     }
+   
 }

@@ -9,7 +9,9 @@ const { ccclass, property } = _decorator;
 export class EnemyInfoCellPrefab extends BaseObject {
     @property({ type: Node })
     public enemyIconNode: Node = null;
-    
+    @property({ type: Node })
+    public newInfoTipsNode: Node = null;
+
 
     public uiControllerNode: Node = null;
     public init(gameController: GameController, data: Object) {
@@ -20,10 +22,10 @@ export class EnemyInfoCellPrefab extends BaseObject {
         // super.objectType = enemyType;
         // console.log("super object type", super.objectType);
         super.init(gameConfig, gameController, null, null, enemyType);
-        this.gameController.node.on("refer-enemy-info-cell", ()=>{
+        this.gameController.node.on("refer-enemy-info-cell", () => {
             this.referUI();
         })
-        this.node.on("click",this.onButtonClick.bind(this), this);
+        this.node.on("click", this.onButtonClick.bind(this), this);
 
         this.referUI();
     }
@@ -40,16 +42,23 @@ export class EnemyInfoCellPrefab extends BaseObject {
                     this.enemyIconNode.getComponent(SpriteComponent).spriteFrame = result;
                 }
             });
+            let isShowed = this.getIsShowed();
+            if (!isShowed) {
+                this.newInfoTipsNode.active = true;
+                this.uiControllerNode.emit("show-new-enemy-info-tips");
+            }
 
         }
 
     }
-    onButtonClick(){
+    onButtonClick() {
         console.log("click");
-        if (this.getEnemyIsActive()){
+        if (this.getEnemyIsActive()) {
             // thi
             this.uiControllerNode.getComponent(MonsterInfoLayer).showMonsterInfoLayer(this);
-            
+            this.newInfoTipsNode.active = false;
+            this.setShowed();
+            this.uiControllerNode.emit("show-new-enemy-info-tips");
         }
     }
     // public init(gameConfig: Object, gameController: GameController){

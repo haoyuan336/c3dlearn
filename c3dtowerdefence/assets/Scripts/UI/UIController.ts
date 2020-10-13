@@ -66,6 +66,7 @@ export class UIController extends Component {
         this.gameController.node.on("touch-base-build-base", (node: Node) => {
             //玩家点中了塔的基座
             //显示建造tower 的UI
+            this.node.emit("complete-current-guide");
             if (this.isHoldSkillIcon) {
                 return;
             }
