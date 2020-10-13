@@ -37,14 +37,17 @@ export class AudioCtl extends Component {
     }
     playAudio(audioStr, cb) {
 
-        loader.loadRes('音乐文件/' + audioStr, AudioClip, (err, result: AudioClip) => {
-            if (err) {
-                console.log("load audio err", err)
-            } else {
-                // AudioSourceComponent
-                // result.play();
-                this.audioSourcesCom.playOneShot(result);
-            }
-        })
+        if (audioStr){
+            loader.loadRes('音乐文件/' + audioStr, AudioClip, (err, result: AudioClip) => {
+                if (err) {
+                    console.log("load audio err", err)
+                } else {
+                    // AudioSourceComponent
+                    // result.play();
+                    this.audioSourcesCom.playOneShot(result);
+                }
+            })
+        }
+       
     }
 }

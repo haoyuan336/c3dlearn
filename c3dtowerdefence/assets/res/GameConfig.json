@@ -170,10 +170,11 @@
         "MoveType": "Walk",
         "EnemyIndex": 0,
         "Des": "",
-        "ShowAudio": "",
+        "ShowAudio": "击中音效1",
         "WalkAudio": "",
         "DeadAudio": "",
         "AttackAduio": ""
+
         },
     "Enemy_1": {
         "EnemyType": "Enemy_1",
@@ -186,7 +187,9 @@
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
         "MoveType": "Walk",
-        "EnemyIndex": 2
+        "EnemyIndex": 2,
+        "ShowAudio": "击中音效1"
+
     },
     "Enemy_2": {
         "EnemyType": "Enemy_2",
@@ -199,7 +202,9 @@
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
         "MoveType": "Walk",
-        "EnemyIndex": 4
+        "EnemyIndex": 4,
+        "ShowAudio": "击中音效1"
+
     },
     "Enemy_3": {
         "EnemyType": "Enemy_3",
@@ -212,7 +217,9 @@
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
         "MoveType": "Fly",
-        "EnemyIndex": 6
+        "EnemyIndex": 6,
+        "ShowAudio": "击中音效1"
+
     },
     "Enemy_4": {
         "EnemyType": "Enemy_4",
@@ -225,7 +232,9 @@
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
         "MoveType": "Fly",
-        "EnemyIndex": 6
+        "EnemyIndex": 6,
+        "ShowAudio": "击中音效1"
+
     },
     "Enemy_5": {
         "EnemyType": "Enemy_5",
@@ -238,7 +247,9 @@
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
         "MoveType": "Fly",
-        "EnemyIndex": 6
+        "EnemyIndex": 6,
+        "ShowAudio": "击中音效1"
+
     },
     "Enemy_6": {
         "EnemyType": "Enemy_6",
@@ -251,7 +262,9 @@
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
         "MoveType": "Fly",
-        "EnemyIndex": 6
+        "EnemyIndex": 6,
+        "ShowAudio": "击中音效1"
+
     },
     "Enemy_7": {
         "EnemyType": "Enemy_7",
@@ -264,7 +277,9 @@
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
         "MoveType": "Fly",
-        "EnemyIndex": 6
+        "EnemyIndex": 6,
+        "ShowAudio": "击中音效1"
+
     },
     "Enemy_8": {
         "EnemyType": "Enemy_8",
@@ -277,7 +292,9 @@
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
         "MoveType": "Walk",
-        "EnemyIndex": 6
+        "EnemyIndex": 6,
+        "ShowAudio": "击中音效1"
+
     },
     "Enemy_9": {
         "EnemyType": "Enemy_9",
@@ -290,7 +307,9 @@
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
         "MoveType": "Walk",
-        "EnemyIndex": 6
+        "EnemyIndex": 6,
+        "ShowAudio": "击中音效1"
+
     },
     "Enemy_10": {
         "EnemyType": "Enemy_10",
@@ -303,7 +322,9 @@
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
         "MoveType": "Fly",
-        "EnemyIndex": 6
+        "EnemyIndex": 6,
+        "ShowAudio": "击中音效1"
+        
     },
     "Enemy_11": {
         "EnemyType": "Enemy_11",
@@ -316,7 +337,9 @@
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
         "MoveType": "Walk",
-        "EnemyIndex": 6
+        "EnemyIndex": 6,
+        "ShowAudio": "击中音效1"
+        
     },
     "Enemy_12": {
         "EnemyType": "Enemy_12",
@@ -329,7 +352,10 @@
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
         "MoveType": "Walk",
-        "EnemyIndex": 6
+        "EnemyIndex": 6,
+        "ShowAudio": "击中音效1"
+        
+
     },
     "Enemy_13": {
         "EnemyType": "Enemy_12",
@@ -342,7 +368,9 @@
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
         "MoveType": "Fly",
-        "EnemyIndex": 6
+        "EnemyIndex": 6,
+        "ShowAudio": "击中音效1"
+
     },
     "EnemyBullet_0": {
         "Mass": 10,
@@ -359,7 +387,8 @@
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
         "EnemyIndex": 1,
-        "MoveType": "Walk"
+        "MoveType": "Walk",
+        "ShowAudio": "跳跃音效"
     },
     "Boss_1": {
         "EnemyType": "Boss_1",

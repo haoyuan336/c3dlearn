@@ -296,3 +296,14 @@
 2020-10-13 22:26:31-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\Bullets\Bullet_5.prefab) saved
 2020-10-13 22:27:20-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
 2020-10-13 22:33:01-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-13 22:44:08-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-13 22:48:32-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-13 22:49:11-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-13 22:51:54-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-13 22:53:55-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-13 22:55:53-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-13 22:57:09-error: [Asset DB] Importer exec failed: {asset[D:\workspace\c3dlearn\c3dtowerdefence\assets\res\GameConfig.json](44fb41c9-c941-49ae-9875-6f01b1facde0)}
+2020-10-13 22:57:09-error: [Asset DB] SyntaxError: D:\workspace\c3dlearn\c3dtowerdefence\assets\res\GameConfig.json: Unexpected token } in JSON at position 10061
+2020-10-13 22:57:09-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-13 22:57:31-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-13 22:57:33-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
