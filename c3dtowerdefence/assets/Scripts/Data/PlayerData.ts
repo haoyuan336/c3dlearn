@@ -232,4 +232,20 @@ export class PlayData {
             // this.gameController
         }
     }
+    getIsShowed(objectType: string) {
+        let isShow = Boolean(this.getLocalData("set-object-showed" + objectType));
+        if (!isShow) {
+            return false;
+        }
+        return true;
+    }
+    setShowed(objectType: string) {
+        this.setLocalData("set-object-showed" + objectType, "true");
+    }
+    getIsShowGuide(guideStep: string) {
+        return Boolean(this.getLocalData("guide-step-" + guideStep));
+    }
+    setIsShowGuide(guideStep: string) {
+        this.setLocalData("guide-step-" + guideStep, "true");
+    }
 }   

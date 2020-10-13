@@ -1,0 +1,38 @@
+{
+    "Step_1": {
+        "MaskPos": {
+            "x": 5,
+            "y": 30
+        },
+        "Size": {
+            "width": 200,
+            "height": 200
+        },
+        "Time": 0.6,
+        "Audio": "第一步引导音频"
+    },
+    "Step_2": {
+        "MaskPos": {
+            "x": 0,
+            "y": 150
+        },
+        "Size": {
+            "width": 100,
+            "height": 100
+        },
+        "Time": 0.6,
+        "Audio": "第二步引导音频"
+    },
+    "Step_3": {
+        "MaskPos": {
+            "x": 0,
+            "y": 135
+        },
+        "Size": {
+            "width": 230,
+            "height": 230
+        },
+        "Time": 0.6,
+        "Audio": "第二步引导音频"
+    }
+}

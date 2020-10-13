@@ -123,9 +123,7 @@ export class SkillCtl extends Component {
 
         this.node.on(Node.EventType.TOUCH_START, (event: EventTouch) => {
             console.log("touch start", event);
-
             let boundingBox = this.skillDouIcon.getComponent(UITransformComponent).getBoundingBoxToWorld();
-
             let pos = event.getUILocation();
             // let endPos = this.node.getComponent(UITransformComponent).convertToNodeSpaceAR(v3(pos.x, pos.y, 0));
             // console.log("pos", pos);
@@ -137,27 +135,6 @@ export class SkillCtl extends Component {
                 this.startCheckSkillNode();
                 this.node.getComponent(UIController).setHoldSkillIcon(true);
             }
-            // console.log("skill node list", this.skillNodeList.length);
-            // for (let i = 0; i < this.skillNodeList.length; i++) {
-            //     let node = this.skillNodeList[i];
-            //     // let boundingBox = node.ge
-            //     let boundingBox: Rect = node.getComponent(UITransformComponent).getBoundingBoxToWorld();
-            //     let pos = event.getLocation();
-            //     console.log(pos);
-            //     console.log("bound ing box", boundingBox);
-            //     if (boundingBox.contains(pos)) {
-            //         console.log("找到了点");
-            //         this.currentTouchNode = node;
-            //     }
-            // }
-            // if (this.currentTouchNode) {
-            //     // this.gameController
-            //     // this.gameController.setHoldSkillIcon(true);
-            //     this.node.getComponent(UIController).setHoldSkillIcon(true);
-            //     this.startCheckSkillNode();
-            // }
-
-
         });
         this.node.on(Node.EventType.TOUCH_MOVE, (event: EventTouch) => {
             if (this.currentTouchNode) {
