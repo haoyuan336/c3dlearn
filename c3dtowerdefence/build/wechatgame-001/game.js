@@ -18,7 +18,7 @@ var boot = window.boot;
 // So we use require to load engine, and register the engine module using SystemJS named register.
 boot.prepare.engine = function() {
     
-    var ccGlobal = require('cocos3d-js.min');
+    var ccGlobal = require('cocos3d-js');
     
     System.register('cc', [], function (_export, _context) {
         return {

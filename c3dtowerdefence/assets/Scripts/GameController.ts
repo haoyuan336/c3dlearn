@@ -161,6 +161,8 @@ export class GameController extends Component {
             // console.log("玩家点中了开始游戏按钮");
             this.uiController.emit("complete-current-guide"); 
             //给ui控制器发送，完成了当前的引导操作
+            this.node.emit("play-audio", "按钮音效")
+            this.node.emit("play-bg-music");
             this.playStatrButtonPressAnim().then(() => {
                 return new Promise((resolve, reject) => {
                     let tw = new Tween(this.startGameButton)

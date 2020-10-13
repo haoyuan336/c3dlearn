@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, Vec3, v3, v2, Vec2, math, ColliderComponent, SphereColliderComponent, TriggerEventType, ITriggerEvent, isValid, Quat, path, Tween, Prefab, instantiate } from 'cc';
+import { _decorator, Component, Node, Vec3, v3, v2, Vec2, math, ColliderComponent, SphereColliderComponent, TriggerEventType, ITriggerEvent, isValid, Quat, path, Tween, Prefab, instantiate, find } from 'cc';
 import { State } from './util/State';
 import { GameController } from './GameController';
 import { BaseObject } from './BaseObject'
@@ -168,6 +168,7 @@ export class BulletBase extends BaseObject {
         if (otherCollider && otherCollider.getComponent(EnemyBase) && !otherCollider.getComponent(EnemyBase).getIsDead()) {
             console.log("base attack num", this.baseAttackNum);
             if (this.getIsCollisionDestroy()) {
+                this.gameController.node.emit("play-audio", "击中音效1");
                 this.state.setState("enter-to-destroy");
                 if (isValid(this.exporeEffectPrefab)) {
                     this.rootNode.active = false;

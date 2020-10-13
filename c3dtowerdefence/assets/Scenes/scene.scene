@@ -28,7 +28,7 @@
         "__id__": 48
       },
       {
-        "__id__": 441
+        "__id__": 442
       },
       {
         "__id__": 391
@@ -42,7 +42,7 @@
     "_prefab": null,
     "autoReleaseAssets": false,
     "_globals": {
-      "__id__": 444
+      "__id__": 445
     },
     "_id": "54d4b3d4-8425-49ae-9814-eff3d81e7c47"
   },
@@ -1293,6 +1293,9 @@
       },
       {
         "__id__": 440
+      },
+      {
+        "__id__": 441
       }
     ],
     "_prefab": null,
@@ -14608,6 +14611,20 @@
     "_id": "e8uFxbwfpNub+Ey9V5s60b"
   },
   {
+    "__type__": "cc.AudioSourceComponent",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 45
+    },
+    "_enabled": true,
+    "_clip": null,
+    "_loop": false,
+    "_playOnAwake": true,
+    "_volume": 1,
+    "_id": "e8tOxQp6BL6KwykflDf4sY"
+  },
+  {
     "__type__": "cc.Node",
     "_name": "Directional Light",
     "_objFlags": 0,
@@ -14618,7 +14635,7 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 442
+        "__id__": 443
       }
     ],
     "_prefab": null,
@@ -14655,7 +14672,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 441
+      "__id__": 442
     },
     "_enabled": true,
     "_color": {
@@ -14668,7 +14685,7 @@
     "_useColorTemperature": false,
     "_colorTemperature": 6550,
     "_staticSettings": {
-      "__id__": 443
+      "__id__": 444
     },
     "_illuminance": 65000,
     "_id": "2fNNb97HpO451AEtsKsF1P"
@@ -14682,13 +14699,13 @@
   {
     "__type__": "cc.SceneGlobals",
     "ambient": {
-      "__id__": 445
-    },
-    "planarShadows": {
       "__id__": 446
     },
-    "_skybox": {
+    "planarShadows": {
       "__id__": 447
+    },
+    "_skybox": {
+      "__id__": 448
     }
   },
   {

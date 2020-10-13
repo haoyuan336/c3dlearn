@@ -3,7 +3,7 @@
     "modules": {
       "cache": {
         "Audio": {
-          "value": false
+          "value": true
         },
         "Core": {
           "value": true
@@ -19,7 +19,7 @@
           "value": true
         },
         "Terrain": {
-          "value": false
+          "value": true
         },
         "Tween": {
           "value": true
@@ -42,7 +42,9 @@
         "particle",
         "physics-builtin",
         "physics-framework",
-        "tween"
+        "audio",
+        "tween",
+        "terrain"
       ]
     }
   }

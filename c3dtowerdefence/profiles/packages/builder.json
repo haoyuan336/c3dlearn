@@ -19,7 +19,7 @@
     "md5Cache": true,
     "mergeStartScene": true,
     "replaceSplashScreen": true,
-    "debug": false
+    "debug": true
   },
   "wechatgame": {
     "wechatgame": {
@@ -38,7 +38,7 @@
           "taskName": "wechatgame-001",
           "platform": "wechatgame",
           "buildPath": "build",
-          "debug": false,
+          "debug": true,
           "md5Cache": true,
           "sourceMaps": false,
           "replaceSplashScreen": true,
@@ -92,7 +92,9 @@
             "particle",
             "physics-builtin",
             "physics-framework",
-            "tween"
+            "audio",
+            "tween",
+            "terrain"
           ],
           "renderPipeline": "fd8ec536-a354-4a17-9c74-4f3883c378c8",
           "splashScreen": {
@@ -109,12 +111,12 @@
             "displayWatermark": true
           }
         },
-        "message": "build success in 20671 ms!",
+        "message": "build success in 54243 ms!",
         "logMap": {
           "log": 19,
-          "warn": 19,
+          "warn": 16,
           "error": 0,
-          "debug": 241
+          "debug": 281
         }
       }
     ]

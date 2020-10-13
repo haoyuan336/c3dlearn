@@ -66,6 +66,7 @@ export class TowerBuildBaseCtl extends Component {
             })
             tw.to(0.5, { position: v3(pos.x, 0, pos.z) }, { easing: "bounceOut" });
             tw.call(() => {
+                this.gameController.node.emit("play-audio", 'drop');
                 resolve();
             })
             tw.start()

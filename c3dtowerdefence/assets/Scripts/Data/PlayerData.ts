@@ -112,6 +112,12 @@ export class PlayData {
     addGoldCount(goldCount: number) {
         this.currentGoldCount += goldCount;
         this.setLocalData('gold-count', this.currentGoldCount + '');
+        // if (goldCount > 0) {
+        //     this.gameController.node.emit("play-audio", '收集金币')
+        // } else {
+        //     this.gameController.node.emit("play-audio", '消费金币')
+
+        // }
         this.gameController.node.emit("update-gold-label", this.currentGoldCount, goldCount);
     }
     newGame() {

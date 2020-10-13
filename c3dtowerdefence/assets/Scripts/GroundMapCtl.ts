@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, Prefab, CCInteger, instantiate, v3, CCFloat, Tween, v2, TweenEasing, Vec2 } from 'cc';
+import { _decorator, Component, Node, Prefab, CCInteger, instantiate, v3, CCFloat, Tween, v2, TweenEasing, Vec2, find } from 'cc';
 import My2dArray from './util/My2Array';
 import { GroundTiled } from './GroundTiled/GroundTiled';
 const { ccclass, property } = _decorator;
@@ -230,6 +230,7 @@ export class GroundMapCtl extends Component {
             })
             tw.to(0.4, { position: v3(pos.x, 0, pos.z) }, { easing: 'elasticOut' })
             tw.call(() => {
+                // find("GameController").emit("play-audio","drop",1);
                 resolve();
             })
             tw.start();
