@@ -97,7 +97,9 @@
         "BuildCost": 15,
         "ActiveCost": 1500,
         "NeedRecoverBullet": true,
-        "BulletRecoverTime": 4
+        "BulletRecoverTime": 4,
+        "ShootAudio": "导弹发射的音效"
+
     },
     "Tower_6": {
         "CanAttackType": [
@@ -527,7 +529,8 @@
         "BaseGasNum": 0.2,
         "isCollisionDestroy": true,
         "isCollisionGround": false,
-        "LeftTime": 3
+        "LeftTime": 3,
+        "BoomAudio": "击中音效1"
     },
     "Bullet_2": {
         "MoveSpeed": 30,
@@ -535,7 +538,9 @@
         "BaseGasNum": 0,
         "isCollisionDestroy": true,
         "isCollisionGround": false,
-        "LeftTime": 3
+        "LeftTime": 3,
+        "BoomAudio": "击中音效1"
+
     },
     "Bullet_3": {
         "MoveSpeed": 30,
@@ -543,7 +548,9 @@
         "BaseGasNum": 0,
         "isCollisionDestroy": true,
         "isCollisionGround": true,
-        "LeftTime": 3
+        "LeftTime": 3,
+        "BoomAudio": "击中音效1"
+
     },
     "Bullet_4": {
         "MoveSpeed": 40,
@@ -551,7 +558,9 @@
         "BaseGasNum": 0,
         "isCollisionDestroy": true,
         "isCollisionGround": true,
-        "LeftTime": 3
+        "LeftTime": 3,
+        "BoomAudio": "击中音效1"
+
     },
     "Bullet_5": {
         "MoveType": "Bezier",
@@ -560,7 +569,9 @@
         "BaseGasNum": 0,
         "isCollisionDestroy": true,
         "isCollisionGround": true,
-        "LeftTime": 10
+        "LeftTime": 10,
+        "BoomAudio": "榴弹炮"
+
     },
     "Bullet_6": {
         "MoveType": "SkyDown",
@@ -569,7 +580,9 @@
         "BaseGasNum": 0,
         "isCollisionDestroy": true,
         "isCollisionGround": true,
-        "LeftTime": 10
+        "LeftTime": 10,
+        "BoomAudio": "洲际导弹爆炸音效"
+
     },
     "Level_0": {
         "InitGoldCount": 100,

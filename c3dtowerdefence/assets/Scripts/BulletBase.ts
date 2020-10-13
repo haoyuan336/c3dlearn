@@ -168,7 +168,7 @@ export class BulletBase extends BaseObject {
         if (otherCollider && otherCollider.getComponent(EnemyBase) && !otherCollider.getComponent(EnemyBase).getIsDead()) {
             console.log("base attack num", this.baseAttackNum);
             if (this.getIsCollisionDestroy()) {
-                this.gameController.node.emit("play-audio", "击中音效1");
+                this.gameController.node.emit("play-audio", this.getBoomAudioStr());
                 this.state.setState("enter-to-destroy");
                 if (isValid(this.exporeEffectPrefab)) {
                     this.rootNode.active = false;
