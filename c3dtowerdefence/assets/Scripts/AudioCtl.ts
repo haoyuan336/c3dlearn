@@ -21,7 +21,7 @@ export class AudioCtl extends Component {
             });
         })
         this.node.on("player-button-click-audio-2", () => {
-            this.playAudio("按钮音效", () => {
+            this.playAudio("按钮音效2", () => {
 
             })
         })
@@ -31,7 +31,7 @@ export class AudioCtl extends Component {
                 // result.setVolume(0.5);
                 // this.audioSourcesCom.volume = 0.5;
                 // result.setVolume(0.1, true);
-                this.audioSourcesCom.playOneShot(result);
+                // this.audioSourcesCom.playOneShot(result);
             });
         })
     }
