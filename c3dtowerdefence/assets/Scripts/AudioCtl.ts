@@ -1,20 +1,35 @@
-import { _decorator, Component, Node } from 'cc';
+import { _decorator, Component, Node, loader, AudioClip, AudioSourceComponent } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('AudioCtl')
 export class AudioCtl extends Component {
-    /* class member could be defined like this */
-    // dummy = '';
+    start() {
 
-    /* use `property` decorator if your want the member to be serializable */
-    // @property
-    // serializableDummy = 0;
-
-    start () {
-        // Your initialization goes here.
     }
+    onLoad() {
+        this.node.on("play-audio", (audioStr, cb) => {
+            console.log("player- audio", audioStr);
+            this.playAudio(audioStr, cb);
+        })
+        this.node.on("player-button-click-audio", ()=>{
+            this.playAudio("按钮音效2", ()=>{
 
-    // update (deltaTime: number) {
-    //     // Your update function goes here.
-    // }
+            });
+        })
+        this.node.on("player-button-click-audio-2", ()=>{
+            this.playAudio("按钮音效", ()=>{
+                
+            })
+        })
+    }
+    playAudio(audioStr, cb) {
+        loader.loadRes('音乐文件/' + audioStr, AudioClip, (err, result: AudioClip) => {
+            if (err) {
+                console.log("load audio err", err)
+            } else {
+                // AudioSourceComponent
+                result.play();
+            }
+        })
+    }
 }

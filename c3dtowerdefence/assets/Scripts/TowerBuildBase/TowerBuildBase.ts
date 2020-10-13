@@ -36,6 +36,7 @@ export class TowerBuildBase extends Component {
                 if (result.collider.node && result.collider.node.uuid === this.node.uuid) {
                     console.log("点中了此塔的基座");
                     this.gameController.emit("touch-base-build-base", this.node);
+                    this.gameController.emit('player-button-click-audio-2');
                 }
             }
         }

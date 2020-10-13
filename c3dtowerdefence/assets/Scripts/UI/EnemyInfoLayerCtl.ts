@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, view, Tween, v3, Prefab, instantiate, JsonAsset } from 'cc';
+import { _decorator, Component, Node, view, Tween, v3, Prefab, instantiate, JsonAsset ,find} from 'cc';
 import { BaseObject } from '../BaseObject';
 import { GameController } from '../GameController';
 import { State } from '../util/State';
@@ -106,6 +106,8 @@ export class EnemyInfoLayerCtl extends InfoLayerCtlBase {
 
     }
     onButtonClick(event, customData) {
+        find("GameController").emit("player-button-click-audio");
+
         super.onButtonClick(event, customData);
         if (customData === 'bg-node-click') {
             this.node.emit("close-monster-info-layer")

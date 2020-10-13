@@ -39,6 +39,8 @@ export class UpdateTowerUI extends MenuUIBase {
         super.init(gameConfig, gameController);
     }
     onButtonClick(event, customData) {
+        find("GameController").emit("player-button-click-audio");
+
         console.log("custom data", customData);
         let currentGoldCount = this.gameController.playerData.getCurrentGoldCount();
 

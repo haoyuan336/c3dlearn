@@ -42,6 +42,9 @@ export class WinGoldAnimEffect extends Component {
         let speed = 50;
         let time = dis / speed;
         this.goldCount = goldCount;
+
+        find("GameController").emit("play-audio", "金币掉落1");
+
         let tw = new Tween(this.node)
         tw.delay(3)
         tw.to(time, {

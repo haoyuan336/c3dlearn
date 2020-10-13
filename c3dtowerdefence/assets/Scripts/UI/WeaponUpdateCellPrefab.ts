@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, SpriteFrame, loader, SpriteComponent, LabelComponent } from 'cc';
+import { _decorator, Component, Node, SpriteFrame, loader, SpriteComponent, LabelComponent , find} from 'cc';
 import { BaseObject } from '../BaseObject';
 import { GameController } from '../GameController';
 import { WeaponInfoCtl } from './WeaponInfoCtl';
@@ -126,6 +126,8 @@ export class WeaponUpdateCellPrefab extends BaseObject {
         }
     }
     onButtonClick(event, customData) {
+        find("GameController").emit("player-button-click-audio");
+
         switch (customData) {
             case 'update-button':
                 console.log("升级按钮");
