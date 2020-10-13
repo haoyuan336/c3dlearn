@@ -76,6 +76,8 @@ export class BuildTowerUI extends MenuUIBase {
         this.node.getChildByName("BuildTowerBgNode").on("click", this.onButtonClick.bind(this));
     }
     onButtonClick(event: ButtonComponent, customData) {
+        find("GameController").emit("player-button-click-audio");
+
         if (customData === 'close') {
             this.state.setState("close-ui");
 

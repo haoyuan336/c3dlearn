@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, Prefab, SpriteFrame, SpriteComponent, instantiate, v3, Tween, LabelComponent, ScrollViewComponent } from 'cc';
+import { _decorator, Component, Node, Prefab, SpriteFrame, SpriteComponent, instantiate, v3, Tween, LabelComponent, ScrollViewComponent ,find} from 'cc';
 import { DeadEnemyObj } from '../../EnemyController';
 import { GameController } from '../../GameController';
 import { UIController } from '../UIController';
@@ -166,6 +166,8 @@ export class GameWinPrefab extends Component {
         // tw.start();
     }
     onButtonClick(event, customData) {
+        find("GameController").emit("player-button-click-audio");
+
         switch (customData) {
             case 'left-button':
                 console.log("分享游戏结果")

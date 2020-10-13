@@ -52,15 +52,22 @@ export class TowerBase extends BaseObject {
     // private isCanAttack: 
     private currentShootBulletIndex: number = 0;
 
-    private canShootOneDaoDan: boolean = true;
+    // private canShootOneDaoDan: boolean = true;
 
     private isShooting: boolean = false;
+
+
+    // private shootAudio: string = "";//子弹发射时候的音效
+
+
     init(gameConfig: Object, gameController: GameController) {
         super.init(gameConfig, gameController);
         this.skillCtl = find("Canvas").getComponent(SkillCtl);
         this.gameConfig = gameConfig;
         console.log('tower base init');
         this.node.emit("init", gameConfig, gameController);
+
+        // this.shootAudio = 
         // this.node.on("weapon-euler-angles-init", ()=>{
         //     //武器角度归为
         // })
@@ -534,8 +541,10 @@ export class TowerBase extends BaseObject {
             }
             console.log("shoot one bullet length", length);
 
+            
             // stateAnim.setTime(0.5);
             this.scheduleOnce(() => {
+                this.gameController.node.emit("play-audio", this.shootAudio);
                 // if (isValid(this.currentTargetEnemy)) {
                 this.createOneTimeBullet(currentShootDiraction).then(() => {
                     resolve();

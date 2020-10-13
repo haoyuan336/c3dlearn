@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, v3, view, Tween, SpriteComponent, Color, instantiate, Prefab, LabelComponent, SpriteFrame, game, UIComponent, isValid, ScrollViewComponent } from 'cc';
+import { _decorator, Component, Node, v3, view, Tween, SpriteComponent, Color, instantiate, Prefab, LabelComponent, SpriteFrame, game, UIComponent, isValid, ScrollViewComponent, find } from 'cc';
 import { GameController } from './../GameController';
 import { WeaponUpdateCellPrefab } from './../UI/WeaponUpdateCellPrefab';
 import { State } from './../util/State';
@@ -115,6 +115,8 @@ export class WeaponInfoCtl extends InfoLayerCtlBase {
 
     onButtonClick(event, customData) {
         super.onButtonClick(event, customData)
+        find("GameController").emit("player-button-click-audio");
+
         switch (customData) {
             case 'add-heart-button':
                 //增加红心的按钮

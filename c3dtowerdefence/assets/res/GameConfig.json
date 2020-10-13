@@ -23,7 +23,8 @@
         "BaseAttackNum": 1,
         "BuildCost": 10,
         "ActiveCost": 10,
-        "Des": "研发的新炮塔"
+        "Des": "研发的新炮塔",
+        "ShootAudio": "打炮发射子弹音效"
     },
     "Tower_2": {
         "CanAttackType": [
@@ -40,7 +41,9 @@
         "SkillType": "CrazyRotate",
         "BaseAttackNum": 1,
         "BuildCost": 15,
-        "ActiveCost": 100
+        "ActiveCost": 100,
+        "ShootAudio": "弓箭发射子弹时候音效"
+
     },
     "Tower_3": {
         "CanAttackType": [
@@ -164,8 +167,12 @@
         "BaseGoldCount": 1,
         "MoveType": "Walk",
         "EnemyIndex": 0,
-        "Des": ""
-    },
+        "Des": "",
+        "ShowAudio": "",
+        "WalkAudio": "",
+        "DeadAudio": "",
+        "AttackAduio": ""
+        },
     "Enemy_1": {
         "EnemyType": "Enemy_1",
         "BaseAttackNum": 1,

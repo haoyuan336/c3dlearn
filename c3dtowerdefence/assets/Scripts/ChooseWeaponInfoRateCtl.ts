@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, SpriteAtlas, SpriteFrame, v2, v3, Vec3, Vec2, Tween } from 'cc';
+import { _decorator, Component, Node, SpriteAtlas, SpriteFrame, v2, v3, Vec3, Vec2, Tween, find } from 'cc';
 import { State } from './util/State';
 const { ccclass, property } = _decorator;
 
@@ -30,6 +30,7 @@ export class ChooseWeaponInfoRateCtl extends Component {
 
     }
     onButtonClick(event, customData) {
+        find("GameController").emit("player-button-click-audio");
         if (customData.indexOf("rate") > -1) {
             console.log("旋转按钮");
             if (this.state.getState() !=='wait'){

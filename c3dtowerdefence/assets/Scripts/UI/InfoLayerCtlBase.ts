@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, view, Tween, v3, SpriteComponent } from 'cc';
+import { _decorator, Component, Node, view, Tween, v3, SpriteComponent ,find} from 'cc';
 import { State } from '../util/State';
 const { ccclass, property } = _decorator;
 
@@ -141,6 +141,8 @@ export class InfoLayerCtlBase extends Component {
 
     }
     onButtonClick(event, customData) {
+        find("GameController").emit("player-button-click-audio");
+
         switch (customData) {
             case 'show-info-layer':
                 console.log("武器信息按钮");

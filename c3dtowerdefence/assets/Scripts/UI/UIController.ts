@@ -222,6 +222,8 @@ export class UIController extends Component {
     }
     onButtonClick(event: ButtonComponent, customData) {
         console.log("on button click", customData);
+        find("GameController").emit("player-button-click-audio");
+
         switch (customData) {
             case 'start-game':
                 //玩家点击了开始游戏按钮

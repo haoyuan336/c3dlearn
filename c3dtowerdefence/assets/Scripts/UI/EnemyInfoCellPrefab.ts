@@ -52,6 +52,8 @@ export class EnemyInfoCellPrefab extends BaseObject {
 
     }
     onButtonClick() {
+        find("GameController").emit("player-button-click-audio");
+
         console.log("click");
         if (this.getEnemyIsActive()) {
             // thi

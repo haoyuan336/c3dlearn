@@ -56,6 +56,9 @@ export class BaseObject extends Component {
 
     private desString: string = "" //描述内容
 
+
+    public shootAudio: string = "" //子弹发射时候的音效
+
     // private attackType: string = "normal"//攻击类型a
     public init(gameConfig: Object, gameController: GameController, startPos?: Vec3, endPos?: Vec3, objectType?: string) {
         // this.baseGasNum = gameConfig[]
@@ -158,6 +161,9 @@ export class BaseObject extends Component {
         if (gameConfig[this.objectType]['Des']) {
             // this.init
             this.desString = gameConfig[this.objectType]["Des"];
+        }
+        if(gameConfig[this.objectType]['ShootAudio']){
+            this.shootAudio = gameConfig[this.objectType]['ShootAudio'];
         }
     }
     getBaseAttackDamage() {

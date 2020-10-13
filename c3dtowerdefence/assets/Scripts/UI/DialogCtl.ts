@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, JsonAsset, SpriteComponent, LabelComponent, loader, SpriteFrame, v3, Tween } from 'cc';
+import { _decorator, Component, Node, JsonAsset, SpriteComponent, LabelComponent, loader, SpriteFrame, v3, Tween, find } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('DialogCtl')
@@ -105,6 +105,7 @@ export class DialogCtl extends Component {
         this.currentDialogIndex++;
     }
     onButtonClick(event, customData) {
+        find("GameController").emit("player-button-click-audio");
         switch (customData) {
             case 'next-button':
                 console.log("下一步");
