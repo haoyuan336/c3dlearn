@@ -42,7 +42,7 @@
         "BaseAttackNum": 1,
         "BuildCost": 15,
         "ActiveCost": 100,
-        "ShootAudio": "弓箭发射子弹时候音效"
+        "ShootAudio": "射箭音效3"
     },
     "Tower_3": {
         "CanAttackType": [
