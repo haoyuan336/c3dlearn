@@ -553,7 +553,9 @@
         "MoveType": "Walk",
         "EnemyBulletType": 0,
         "EnemyIndex": 12,
-        "DeadAudio": "怪兽叫声5"
+        "ShowAudio": "猪的出场音效",
+        "ShootAudio": "怪兽叫声8",
+        "DeadAudio": "猪死了的音效"
     },
     "Boss_11": {
         "Name": "无敌霸王龙",
@@ -704,7 +706,7 @@
             ],
             [
                 {
-                    "type": 7,
+                    "type": 11,
                     "count": 1
                 }
             ]
