@@ -59,6 +59,7 @@ export class BaseObject extends Component {
 
     public shootAudio: string = "" //子弹发射时候的音效
     public boomAudio: string = "" //子弹爆炸的声音
+    public showAudio: string  = "" //展示的音效
 
     // private attackType: string = "normal"//攻击类型a
     public init(gameConfig: Object, gameController: GameController, startPos?: Vec3, endPos?: Vec3, objectType?: string) {
@@ -168,6 +169,9 @@ export class BaseObject extends Component {
         }
         if(gameConfig[this.objectType]['BoomAudio']){
             this.boomAudio = gameConfig[this.objectType]['BoomAudio'];
+        }
+        if (gameConfig[this.objectType]['ShowAudio']){
+            this.showAudio = gameConfig[this.objectType]['ShowAudio'];
         }
     }
     getBaseAttackDamage() {
@@ -427,5 +431,8 @@ export class BaseObject extends Component {
     }
     getBoomAudioStr(){
         return this.boomAudio;
+    }
+    getShowAudio(){
+        return this.showAudio;
     }
 }

@@ -90,6 +90,7 @@ export class EnemyBase extends BaseObject {
             // tw.set({ scale: v3(0, moveType.indexOf("Fly") > -1 ? 10 : 0, 0) })
             tw.show();
             tw.call(() => {
+                this.gameController.node.emit("play-audio", this.getShowAudio());
                 node.active = true;
             })
             tw.to(0.1, { scale: v3(1, 1, 1) })
