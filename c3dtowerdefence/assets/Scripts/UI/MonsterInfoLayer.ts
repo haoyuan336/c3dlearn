@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, LabelComponent } from 'cc';
+import { _decorator, Component, Node, LabelComponent, loader, SpriteFrame, SpriteComponent } from 'cc';
 import { BaseObject } from '../BaseObject';
 const { ccclass, property } = _decorator;
 
@@ -18,6 +18,9 @@ export class MonsterInfoLayer extends Component {
 
     @property({ type: Node })
     public monsterInfoLayer: Node = null;
+
+    @property({type: Node})
+    public spriteIconNode: Node = null;
     start() {
         // this.node.on('show--info', this.setMonsterInfo.bind(this), this)
         this.node.on("close-monster-info-layer", () => {
@@ -37,6 +40,13 @@ export class MonsterInfoLayer extends Component {
         this.monsterInfoLayer.active = true;
         this.nameLabel.getComponent(LabelComponent).string = target.getObjectName();
         this.healthCountLabel.getComponent(LabelComponent).string = target.getHealthCount().toString(); //获得
+        this.speedLabel.getComponent(LabelComponent).string = target.getMoveSpeed().toString(); //获得移动速度
+        this.storyLabel.getComponent(LabelComponent).string = target.getDesString(); //获得详细简介
+        loader.loadRes(target.getIconSprteFrame() + "/spriteFrame", SpriteFrame, (err, result)=>{
+            this.spriteIconNode.getComponent(SpriteComponent).spriteFrame = result;
+        });
+
+
         // this.speedLabel.getComponent(LabelComponent).string = target.getMoveSpeed().toString(); //移动速度
         // this.des
         // this.healthCountLabel.getComponent(LabelComponent).string = target.getCoun

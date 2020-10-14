@@ -9927,7 +9927,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Enemy_0_Icon",
+    "_name": "SpriteIcon",
     "_objFlags": 0,
     "_parent": {
       "__id__": 282
@@ -13030,6 +13030,9 @@
     "monsterInfoLayer": {
       "__id__": 282
     },
+    "spriteIconNode": {
+      "__id__": 292
+    },
     "_id": "e00JfxyBBKOrCacLMb0mXW"
   },
   {
@@ -14608,6 +14611,9 @@
       "__id__": 45
     },
     "_enabled": true,
+    "gameConfigJsonAsset": {
+      "__uuid__": "44fb41c9-c941-49ae-9875-6f01b1facde0"
+    },
     "_id": "e8uFxbwfpNub+Ey9V5s60b"
   },
   {

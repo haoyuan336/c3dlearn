@@ -1,309 +1,163 @@
-2020-10-13 08:51:58-log: [Package] builder@1.0.0 enable
-2020-10-13 08:51:58-log: [Package] lightmap@1.0.0 enable
-2020-10-13 08:51:58-log: [Package] alipay-mini-game@1.0.0 enable
-2020-10-13 08:51:58-log: [Package] android@1.0.0 enable
-2020-10-13 08:51:58-log: [Package] baidu-mini-game@1.0.0 enable
-2020-10-13 08:51:58-log: [Package] bytedance-mini-game@1.0.0 enable
-2020-10-13 08:51:58-log: [Package] cocos-play@1.0.0 enable
-2020-10-13 08:51:58-log: [Package] huawei-mini-game@1.0.0 enable
-2020-10-13 08:51:58-log: [Package] ios@1.0.0 enable
-2020-10-13 08:51:58-log: [Package] mac@1.0.0 enable
-2020-10-13 08:51:58-log: [Package] native@1.0.0 enable
-2020-10-13 08:51:58-log: [Package] oppo-mini-game@1.0.0 enable
-2020-10-13 08:51:58-log: [Package] vivo-mini-game@1.0.0 enable
-2020-10-13 08:51:58-log: [Package] web-desktop@1.0.0 enable
-2020-10-13 08:51:58-log: [Package] web-mobile@1.0.0 enable
-2020-10-13 08:51:58-log: [Package] wechatgame@1.0.0 enable
-2020-10-13 08:51:58-log: [Package] windows@1.0.0 enable
-2020-10-13 08:51:58-log: [Package] xiaomi-quick-game@1.0.0 enable
-2020-10-13 08:51:53-log: [Package] ipc@1.0.0 enable
-2020-10-13 08:51:53-log: [Package] preferences@1.0.0 enable
-2020-10-13 08:51:53-log: [Package] tester@1.0.0 enable
-2020-10-13 08:51:56-log: [Package] engine@1.0.0 enable
-2020-10-13 08:51:56-log: [Package] asset-db@1.0.0 enable
-2020-10-13 08:51:56-log: [Package] console@1.0.0 enable
-2020-10-13 08:51:56-log: [Package] scene@1.0.0 enable
-2020-10-13 08:51:56-log: [Package] packager@1.0.0 enable
-2020-10-13 08:51:56-log: [Package] project-setting@1.0.0 enable
-2020-10-13 08:51:56-log: [Package] about@1.0.0 enable
-2020-10-13 08:51:57-log: [Package] server@1.0.0 enable
-2020-10-13 08:51:57-log: [Package] profile@1.0.0 enable
-2020-10-13 08:51:57-log: [Package] assets@1.0.0 enable
-2020-10-13 08:51:57-log: [Package] inspector@1.0.0 enable
-2020-10-13 08:51:57-log: [Package] hierarchy@1.0.0 enable
-2020-10-13 08:51:57-log: [Package] preview@1.0.0 enable
-2020-10-13 08:51:57-log: [Package] animator@1.0.0 enable
-2020-10-13 08:51:58-log: [Package] builder@1.0.0 enable
-2020-10-13 08:51:58-log: [Package] lightmap@1.0.0 enable
-2020-10-13 08:51:58-log: [Package] alipay-mini-game@1.0.0 enable
-2020-10-13 08:51:58-log: [Package] android@1.0.0 enable
-2020-10-13 08:51:58-log: [Package] baidu-mini-game@1.0.0 enable
-2020-10-13 08:51:53-log: [Package] ui-kit@1.0.0 enable
-2020-10-13 08:51:58-log: [Package] cocos-play@1.0.0 enable
-2020-10-13 08:51:58-log: [Package] bytedance-mini-game@1.0.0 enable
-2020-10-13 08:51:58-log: [Package] ios@1.0.0 enable
-2020-10-13 08:51:58-log: [Package] huawei-mini-game@1.0.0 enable
-2020-10-13 08:51:58-log: [Package] native@1.0.0 enable
-2020-10-13 08:51:58-log: [Package] oppo-mini-game@1.0.0 enable
-2020-10-13 08:51:58-log: [Package] vivo-mini-game@1.0.0 enable
-2020-10-13 08:51:58-log: [Package] web-desktop@1.0.0 enable
-2020-10-13 08:51:58-log: [Package] web-mobile@1.0.0 enable
-2020-10-13 08:51:58-log: [Package] wechatgame@1.0.0 enable
-2020-10-13 08:51:58-log: [Package] xiaomi-quick-game@1.0.0 enable
-2020-10-13 08:51:58-log: [Package] windows@1.0.0 enable
-2020-10-13 08:51:58-log: [Package] mac@1.0.0 enable
-2020-10-13 08:51:57-log: [Package] utils@1.0.0 enable
-2020-10-13 08:52:04-warn: [Scene] Sender does not exist
-2020-10-13 08:52:11-warn: [Asset DB] Browserslist: caniuse-lite is outdated. Please run the following command: `npx browserslist --update-db`
-2020-10-13 09:00:42-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 09:00:42-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 09:02:43-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 09:02:43-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 09:06:01-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 09:06:12-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 09:06:15-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 09:06:37-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 09:06:44-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 09:10:17-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 09:10:30-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 09:10:44-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 09:10:47-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 09:11:30-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 09:11:30-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 09:11:30-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 09:12:33-error: [Asset DB] Importer exec failed: {asset[D:\workspace\c3dlearn\c3dtowerdefence\assets\res\GuideConfig.json](3b16d778-73e9-4e3b-a01f-823ceb9c5382)}
-2020-10-13 09:12:33-error: [Asset DB] SyntaxError: D:\workspace\c3dlearn\c3dtowerdefence\assets\res\GuideConfig.json: Unexpected end of JSON input
-2020-10-13 09:23:10-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 09:23:16-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 09:23:27-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 10:22:03-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 10:25:19-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 10:25:40-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 10:25:44-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 10:25:57-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 10:26:11-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 10:26:15-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 10:26:24-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 10:27:20-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 10:27:32-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 10:28:07-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 10:28:11-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 10:28:41-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 10:31:35-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 10:32:01-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 10:32:16-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 10:32:28-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 10:32:52-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 10:33:07-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 10:33:07-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 10:37:00-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 10:37:34-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 10:37:50-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 10:38:28-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 10:40:43-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 10:40:51-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 10:42:43-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 10:42:43-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 10:45:12-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 10:45:17-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 10:45:20-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 10:45:47-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 10:45:57-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 10:53:39-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 10:56:49-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 10:57:33-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 10:58:36-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 10:59:55-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:00:58-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:01:05-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:01:37-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:02:11-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:02:47-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:03:27-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:04:48-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:05:58-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:06:48-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:08:05-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:10:29-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:11:25-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:12:17-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:12:17-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:13:01-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:13:25-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:13:47-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:14:06-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:14:10-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:14:13-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:14:15-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:14:22-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:14:51-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:16:12-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:16:35-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:16:36-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:17:13-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:18:59-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:19:39-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:19:40-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:20:03-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:20:29-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:22:03-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:22:03-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:22:51-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:28:09-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:28:09-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:37:59-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:39:29-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:39:45-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:41:11-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:41:21-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:42:55-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:45:19-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:47:36-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:50:02-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:51:17-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:51:41-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:52:27-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:52:52-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:53:40-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:55:07-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:55:57-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 11:57:02-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 12:00:04-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 12:01:34-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 12:02:09-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 12:03:00-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 12:03:48-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 12:04:40-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 12:06:17-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 12:08:28-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 12:09:50-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 12:10:55-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 12:14:49-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 12:16:39-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 12:34:02-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 12:34:39-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 12:35:20-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 12:38:31-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 12:39:54-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 12:42:10-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 13:59:43-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 16:39:30-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 16:59:36-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 17:09:31-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 17:09:51-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 17:10:50-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 17:12:04-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 17:14:56-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 17:17:30-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 17:21:32-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 17:31:57-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 17:36:53-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 17:37:11-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 17:37:11-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 17:37:11-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 17:37:29-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 17:41:32-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 17:45:43-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 17:46:17-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 17:46:17-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 18:02:56-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 18:09:52-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 18:11:33-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 18:17:20-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 18:17:52-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 18:25:12-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 18:25:42-error: [preview-error]Uncaught TypeError: Cannot read property 'currentSoundChannel' of undefined in http://localhost:7456/scripting/assets/Scripts/AudioCtl.js
-2020-10-13 18:26:13-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 18:26:14-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 18:28:22-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 18:29:40-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 18:30:59-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 18:31:11-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 18:31:12-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 18:35:14-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 18:36:47-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 18:36:47-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 18:37:53-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 19:08:13-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 19:08:39-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 19:09:01-warn: [Build] Browserslist: caniuse-lite is outdated. Please run the following command: `npx browserslist --update-db`
-2020-10-13 19:09:05-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Enemys\EnemyBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
-2020-10-13 19:09:05-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Enemys\EnemyBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts
-2020-10-13 19:09:05-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Enemys\EnemyBullet.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
-2020-10-13 19:09:05-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\TowerBuildBaseCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
-2020-10-13 19:09:05-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
-2020-10-13 19:09:05-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
-2020-10-13 19:09:05-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\BulletBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\BulletBase.ts
-2020-10-13 19:09:05-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
-2020-10-13 19:09:05-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts
-2020-10-13 19:09:05-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\Menu\MenuUIBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts
-2020-10-13 19:09:05-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\GoldCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
-2020-10-13 19:09:05-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\Menu\UpdateTowerUI.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
-2020-10-13 19:09:05-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\Menu\UpdateTowerUI.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts
-2020-10-13 19:09:05-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts
-2020-10-13 19:09:05-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
-2020-10-13 19:09:05-warn: [Build] Generated an empty bundle
-2020-10-13 19:09:08-warn: [Build] Browserslist: caniuse-lite is outdated. Please run next command `npm update`
-2020-10-13 19:12:37-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Enemys\EnemyBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
-2020-10-13 19:12:37-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Enemys\EnemyBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts
-2020-10-13 19:12:37-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
-2020-10-13 19:12:37-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Enemys\EnemyBullet.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
-2020-10-13 19:12:37-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\TowerBuildBaseCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
-2020-10-13 19:12:37-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
-2020-10-13 19:12:37-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\BulletBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\BulletBase.ts
-2020-10-13 19:12:37-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
-2020-10-13 19:12:37-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts
-2020-10-13 19:12:37-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts
-2020-10-13 19:12:37-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\Menu\MenuUIBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts
-2020-10-13 19:12:37-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\GoldCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
-2020-10-13 19:12:37-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\Menu\UpdateTowerUI.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
-2020-10-13 19:12:37-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
-2020-10-13 19:12:37-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\Menu\UpdateTowerUI.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts
-2020-10-13 19:12:37-warn: [Build] Generated an empty bundle
-2020-10-13 19:17:50-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Enemys\EnemyBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
-2020-10-13 19:17:50-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
-2020-10-13 19:17:50-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Enemys\EnemyBullet.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
-2020-10-13 19:17:50-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\TowerBuildBaseCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
-2020-10-13 19:17:50-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
-2020-10-13 19:17:50-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\BulletBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\BulletBase.ts
-2020-10-13 19:17:50-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
-2020-10-13 19:17:50-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\Menu\MenuUIBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts
-2020-10-13 19:17:50-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts
-2020-10-13 19:17:50-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\GoldCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
-2020-10-13 19:17:50-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\Menu\UpdateTowerUI.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts
-2020-10-13 19:17:50-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\Menu\UpdateTowerUI.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
-2020-10-13 19:17:50-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts
-2020-10-13 19:17:50-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
-2020-10-13 19:17:50-warn: [Build] Generated an empty bundle
-2020-10-13 19:17:50-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Enemys\EnemyBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts
-2020-10-13 20:35:54-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 20:38:41-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 20:39:53-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 20:41:06-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 20:43:14-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 20:47:38-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 21:58:26-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 22:02:05-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 22:04:30-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 22:06:16-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 22:13:28-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 22:17:28-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 22:22:22-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\Bullets\Bullet_5.prefab) saved
-2020-10-13 22:24:40-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\Bullets\Bullet_5.prefab) saved
-2020-10-13 22:25:09-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\Bullets\Bullet_5.prefab) saved
-2020-10-13 22:26:23-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\Bullets\Bullet_5.prefab) saved
-2020-10-13 22:26:30-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\Bullets\Bullet_5.prefab) saved
-2020-10-13 22:26:31-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\Bullets\Bullet_5.prefab) saved
-2020-10-13 22:27:20-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 22:33:01-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 22:44:08-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 22:48:32-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 22:49:11-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 22:51:54-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 22:53:55-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 22:55:53-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 22:57:09-error: [Asset DB] Importer exec failed: {asset[D:\workspace\c3dlearn\c3dtowerdefence\assets\res\GameConfig.json](44fb41c9-c941-49ae-9875-6f01b1facde0)}
-2020-10-13 22:57:09-error: [Asset DB] SyntaxError: D:\workspace\c3dlearn\c3dtowerdefence\assets\res\GameConfig.json: Unexpected token } in JSON at position 10061
-2020-10-13 22:57:09-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 22:57:31-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-13 22:57:33-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 08:40:36-log: [Package] builder@1.0.0 enable
+2020-10-14 08:40:36-log: [Package] lightmap@1.0.0 enable
+2020-10-14 08:40:36-log: [Package] baidu-mini-game@1.0.0 enable
+2020-10-14 08:40:36-log: [Package] android@1.0.0 enable
+2020-10-14 08:40:36-log: [Package] alipay-mini-game@1.0.0 enable
+2020-10-14 08:40:37-log: [Package] huawei-mini-game@1.0.0 enable
+2020-10-14 08:40:37-log: [Package] ios@1.0.0 enable
+2020-10-14 08:40:37-log: [Package] mac@1.0.0 enable
+2020-10-14 08:40:37-log: [Package] native@1.0.0 enable
+2020-10-14 08:40:37-log: [Package] oppo-mini-game@1.0.0 enable
+2020-10-14 08:40:37-log: [Package] web-desktop@1.0.0 enable
+2020-10-14 08:40:37-log: [Package] web-mobile@1.0.0 enable
+2020-10-14 08:40:37-log: [Package] wechatgame@1.0.0 enable
+2020-10-14 08:40:37-log: [Package] windows@1.0.0 enable
+2020-10-14 08:40:37-log: [Package] xiaomi-quick-game@1.0.0 enable
+2020-10-14 08:40:36-log: [Package] cocos-play@1.0.0 enable
+2020-10-14 08:40:36-log: [Package] bytedance-mini-game@1.0.0 enable
+2020-10-14 08:40:37-log: [Package] vivo-mini-game@1.0.0 enable
+2020-10-14 08:40:28-log: [Package] ui-kit@1.0.0 enable
+2020-10-14 08:40:28-log: [Package] tester@1.0.0 enable
+2020-10-14 08:40:28-log: [Package] preferences@1.0.0 enable
+2020-10-14 08:40:35-log: [Package] asset-db@1.0.0 enable
+2020-10-14 08:40:35-log: [Package] engine@1.0.0 enable
+2020-10-14 08:40:35-log: [Package] console@1.0.0 enable
+2020-10-14 08:40:28-log: [Package] ipc@1.0.0 enable
+2020-10-14 08:40:35-log: [Package] scene@1.0.0 enable
+2020-10-14 08:40:35-log: [Package] packager@1.0.0 enable
+2020-10-14 08:40:35-log: [Package] project-setting@1.0.0 enable
+2020-10-14 08:40:35-log: [Package] about@1.0.0 enable
+2020-10-14 08:40:36-log: [Package] server@1.0.0 enable
+2020-10-14 08:40:36-log: [Package] utils@1.0.0 enable
+2020-10-14 08:40:36-log: [Package] profile@1.0.0 enable
+2020-10-14 08:40:36-log: [Package] assets@1.0.0 enable
+2020-10-14 08:40:36-log: [Package] inspector@1.0.0 enable
+2020-10-14 08:40:36-log: [Package] preview@1.0.0 enable
+2020-10-14 08:40:36-log: [Package] hierarchy@1.0.0 enable
+2020-10-14 08:40:36-log: [Package] animator@1.0.0 enable
+2020-10-14 08:40:36-log: [Package] builder@1.0.0 enable
+2020-10-14 08:40:36-log: [Package] lightmap@1.0.0 enable
+2020-10-14 08:40:36-log: [Package] alipay-mini-game@1.0.0 enable
+2020-10-14 08:40:36-log: [Package] android@1.0.0 enable
+2020-10-14 08:40:36-log: [Package] baidu-mini-game@1.0.0 enable
+2020-10-14 08:40:36-log: [Package] bytedance-mini-game@1.0.0 enable
+2020-10-14 08:40:36-log: [Package] cocos-play@1.0.0 enable
+2020-10-14 08:40:37-log: [Package] huawei-mini-game@1.0.0 enable
+2020-10-14 08:40:37-log: [Package] ios@1.0.0 enable
+2020-10-14 08:40:37-log: [Package] mac@1.0.0 enable
+2020-10-14 08:40:37-log: [Package] native@1.0.0 enable
+2020-10-14 08:40:37-log: [Package] oppo-mini-game@1.0.0 enable
+2020-10-14 08:40:37-log: [Package] vivo-mini-game@1.0.0 enable
+2020-10-14 08:40:37-log: [Package] web-desktop@1.0.0 enable
+2020-10-14 08:40:37-log: [Package] web-mobile@1.0.0 enable
+2020-10-14 08:40:37-log: [Package] wechatgame@1.0.0 enable
+2020-10-14 08:40:37-log: [Package] windows@1.0.0 enable
+2020-10-14 08:40:37-log: [Package] xiaomi-quick-game@1.0.0 enable
+2020-10-14 08:54:35-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\Enemys\Boss_5.prefab) saved
+2020-10-14 08:59:46-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\Enemys\Boss_5.prefab) saved
+2020-10-14 09:01:09-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\Enemys\Boss_5.prefab) saved
+2020-10-14 09:11:15-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\Enemys\Boss_5.prefab) saved
+2020-10-14 09:12:44-warn: [Asset DB] Browserslist: caniuse-lite is outdated. Please run the following command: `npx browserslist --update-db`
+2020-10-14 09:12:45-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\Enemys\Boss_5.prefab) saved
+2020-10-14 09:12:50-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 09:18:24-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 09:18:38-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 09:18:48-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 09:18:57-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 09:21:55-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 09:23:33-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 09:26:12-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 09:26:13-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 09:26:13-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 09:28:16-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 09:29:54-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 09:34:10-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 09:34:32-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 09:36:23-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 09:37:31-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 09:40:10-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 09:43:20-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 09:44:06-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 10:18:26-warn: [Build] Browserslist: caniuse-lite is outdated. Please run the following command: `npx browserslist --update-db`
+2020-10-14 10:18:30-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Enemys\EnemyBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
+2020-10-14 10:18:30-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Enemys\EnemyBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts
+2020-10-14 10:18:30-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
+2020-10-14 10:18:30-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\TowerBuildBaseCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
+2020-10-14 10:18:30-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\BulletBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\BulletBase.ts
+2020-10-14 10:18:30-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
+2020-10-14 10:18:30-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts
+2020-10-14 10:18:30-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
+2020-10-14 10:18:30-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts
+2020-10-14 10:18:30-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Enemys\EnemyBullet.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
+2020-10-14 10:18:30-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\GoldCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
+2020-10-14 10:18:30-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\Menu\UpdateTowerUI.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
+2020-10-14 10:18:30-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
+2020-10-14 10:18:30-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\Menu\UpdateTowerUI.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts
+2020-10-14 10:18:30-warn: [Build] Generated an empty bundle
+2020-10-14 10:18:30-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\Menu\MenuUIBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts
+2020-10-14 10:18:31-warn: [Build] Browserslist: caniuse-lite is outdated. Please run next command `npm update`
+2020-10-14 10:19:13-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 10:24:30-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 10:24:30-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 10:24:30-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 10:26:11-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 10:30:01-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 10:51:02-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 10:53:23-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 10:54:23-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 10:54:24-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 10:55:09-error: [Asset DB] Failed to transform script D:\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\AudioCtl.ts: SyntaxError: D:\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\AudioCtl.ts: Decorators must not be followed by a semicolon (8:33)
+
+   6 |     public audioSourcesCom: AudioSourceComponent = null;
+   7 | 
+>  8 |     @property({type: JsonAsset});
+     |                                  ^
+   9 |     public gameConfigJsonAsset: JsonAsset = null;
+  10 |     start() {
+  11 |         this.audioSourcesCom = this.node.getComponent(AudioSourceComponent); {asset(7fa36766-9cb8-4f18-b95d-5ec35829b411)}
+2020-10-14 10:55:20-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 10:56:21-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 11:08:50-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 11:10:08-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 11:10:08-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 11:11:06-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 11:11:12-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 11:12:40-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 11:18:47-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 11:19:19-error: [preview-error]Uncaught RangeError: Maximum call stack size exceeded in http://localhost:7456/scripting/engine/cocos/core/scene-graph/base-node.js
+2020-10-14 11:19:20-error: [preview-error]Uncaught RangeError: Maximum call stack size exceeded in http://localhost:7456/scripting/engine/cocos/core/scene-graph/node-event-processor.js
+2020-10-14 11:19:23-error: [preview-error]Uncaught RangeError: Maximum call stack size exceeded in http://localhost:7456/scripting/engine/cocos/core/scene-graph/node-event-processor.js
+2020-10-14 11:19:23-error: [preview-error]Uncaught RangeError: Maximum call stack size exceeded in http://localhost:7456/scripting/engine/cocos/core/scene-graph/node-event-processor.js
+2020-10-14 11:19:25-error: [preview-error]Uncaught RangeError: Maximum call stack size exceeded in http://localhost:7456/scripting/engine/cocos/core/scene-graph/node-event-processor.js
+2020-10-14 11:19:25-error: [preview-error]Uncaught RangeError: Maximum call stack size exceeded in http://localhost:7456/scripting/engine/cocos/core/scene-graph/node-event-processor.js
+2020-10-14 11:19:28-error: [preview-error]Uncaught RangeError: Maximum call stack size exceeded in http://localhost:7456/scripting/engine/cocos/core/scene-graph/node-event-processor.js
+2020-10-14 11:19:28-error: [preview-error]Uncaught RangeError: Maximum call stack size exceeded in http://localhost:7456/scripting/engine/cocos/core/scene-graph/node-event-processor.js
+2020-10-14 11:19:43-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 11:19:45-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 11:21:00-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 11:21:00-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 11:22:57-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 11:22:57-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 11:26:05-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 11:47:56-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 12:19:29-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 12:20:32-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 12:21:21-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 12:22:34-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 12:23:29-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 12:29:57-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 12:30:15-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 12:30:28-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 12:32:14-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 12:35:30-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 12:35:31-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 12:37:21-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 12:37:21-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 12:38:07-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 12:38:07-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 12:46:05-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 12:46:05-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 12:49:40-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 12:50:57-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 12:50:58-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-14 12:51:29-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved

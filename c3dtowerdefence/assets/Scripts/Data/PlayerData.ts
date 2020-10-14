@@ -4,7 +4,7 @@ import { GameController } from "../GameController";
 export class PlayData {
     public currentSkillCount: number = 2;
     public currentActiveSkillCount: number = 3; //当前激活的道具个数
-    public currentGoldCount = 30; //当前的金币个数
+    public currentGoldCount = 30000; //当前的金币个数
     public gameController: GameController = null;
     public currentLevelNum: number = 0;
     public currentTowerLevelData: Object[] = [];
@@ -96,7 +96,7 @@ export class PlayData {
         return localStorage.getItem(key);
     }
     setLocalData(key: string, data: string) {
-        localStorage.setItem(key, data);
+        // localStorage.setItem(key, data);
     }
     updateGoldCount(value: number) {
         this.setLocalData("gold-count", value.toString());
