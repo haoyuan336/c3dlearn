@@ -168,7 +168,7 @@
         "MoveType": "Walk",
         "EnemyIndex": 0,
         "Des": "",
-        "ShowAudio": "击中音效1",
+        "ShowAudio": "drop",
         "WalkAudio": "",
         "DeadAudio": "",
         "AttackAduio": ""
@@ -487,7 +487,7 @@
         "EnemyIndex": 9,
         "ShowAudio": "怪兽叫声9",
         "ShootAudio": "怪兽叫声8",
-        "DeadAudio": "怪兽叫声5"
+        "DeadAudio": "怪兽叫声9"
     },
     "Boss_7": {
         "Name": "无敌肥羊",
@@ -504,7 +504,7 @@
         "EnemyIndex": 10,
         "ShowAudio": "绵羊的叫声",
         "ShootAudio": "怪兽叫声8",
-        "DeadAudio": "怪兽叫声5"
+        "DeadAudio": "绵羊的叫声"
     },
     "Boss_8": {
         "Name": "紫八爪鱼",
@@ -570,7 +570,9 @@
         "MoveType": "Walk",
         "EnemyBulletType": 0,
         "EnemyIndex": 13,
-        "DeadAudio": "怪兽叫声5"
+        "ShowAudio": "猴子的叫声类似",
+        "ShootAudio": "怪兽叫声8",
+        "DeadAudio": "猴子的叫声类似"
     },
     "Boss_12": {
         "Name": "无敌卡通飞龙",
@@ -585,7 +587,9 @@
         "MoveType": "Fly",
         "EnemyBulletType": 0,
         "EnemyIndex": 14,
-        "DeadAudio": "怪兽叫声5"
+        "ShowAudio": "鲸鱼的叫声",
+        "ShootAudio": "怪兽叫声8",
+        "DeadAudio": "鲸鱼的叫声"
     },
     "Monster_1": {
         "MoveSpeed": 0.2,
@@ -706,7 +710,7 @@
             ],
             [
                 {
-                    "type": 11,
+                    "type": 12,
                     "count": 1
                 }
             ]
