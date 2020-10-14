@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, Tween, LabelComponent, Color, UIComponent, UIOpacityComponent } from 'cc';
+import { _decorator, Component, Node, Tween, LabelComponent, Color, UIComponent, UIOpacityComponent, find } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('EnterGameAnimCtl')
@@ -33,7 +33,11 @@ export class EnterGameAnimCtl extends Component {
         }).then(()=>{
             return this.showAnim(this.bgNode, true, 0.01)
         }).then(()=>{
-            this.logoLayer.active = false;
+            // this.logoLayer.active = false;
+            this.logoLayer.on("click", ()=>{
+                find("GameController").emit("player-button-click-audio");
+                this.logoLayer.active = false;
+            })
             this.node.emit("show-guide");//调用显示引导层 的命令
         })
 

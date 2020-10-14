@@ -438,7 +438,7 @@ export class EnemyBase extends BaseObject {
                 this.currentMoveTw.stop();
             }
             let tw = new Tween(this.rootNode);
-            this.node.eulerAngles = v3(0, 0, 0);
+            // this.node.eulerAngles = v3(0, 0, 0);
             this.unscheduleAllCallbacks();
             tw.by(0.1, { scale: v3(1, 1, 1) })
             tw.call(() => {
