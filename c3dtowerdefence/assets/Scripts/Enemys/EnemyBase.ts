@@ -90,7 +90,7 @@ export class EnemyBase extends BaseObject {
             // tw.set({ scale: v3(0, moveType.indexOf("Fly") > -1 ? 10 : 0, 0) })
             tw.show();
             tw.call(() => {
-                this.gameController.node.emit("play-audio", this.getShowAudio());
+                // this.gameController.node.emit("play-audio", this.getShowAudio());
                 node.active = true;
             })
             tw.to(0.1, { scale: v3(1, 1, 1) })
@@ -109,6 +109,7 @@ export class EnemyBase extends BaseObject {
     startRun(startPos: Vec2, endPos: Vec2) {
         // console.log("start pos ", startPos);
         this.state.setState("run");
+
         let moveType = this.getMoveType();
         if (moveType === "Walk") {
             this.proceeWalkLogic(startPos, endPos);
@@ -151,6 +152,8 @@ export class EnemyBase extends BaseObject {
         //1首先设置一条敌人需要飞过的控制点\
         // let endPoint = this.groundMapCtl.getMapNodeList().getValue(endPos.x, endPos.y).position;
         // this.node.position = endPoint;
+        this.gameController.node.emit("play-audio", this.getShowAudio());
+
         if (this.state.getState() !== 'run') {
             //当前的游戏状态是run , 如果当前的状态不是运行状态，那么需要打断飞行移动
             return;
@@ -275,6 +278,8 @@ export class EnemyBase extends BaseObject {
     }
     proceeWalkLogic(startPos: Vec2, endPos: Vec2) {
         //处理走路的逻辑
+        this.gameController.node.emit("play-audio", this.getShowAudio());
+
         if (this.state.getState() !== 'run') {
             return;
         }
@@ -324,6 +329,7 @@ export class EnemyBase extends BaseObject {
             let stateAnim = skeleteAnim.getState(this.currentBoneAnimName);
             let animLength = stateAnim.length;
             stateAnim.repeatCount = 1;
+            this.gameController.node.emit("play-audio", this.shootAudio);
             let tw = new Tween(this.node);
             tw.delay(this.animSpeedMulOffset * animLength)
             tw.call(() => {
@@ -383,6 +389,7 @@ export class EnemyBase extends BaseObject {
             tw.delay(this.animSpeedMulOffset * animLength)
             tw.call(() => {
                 this.enemyCtl.bossShootOneEgg(this.node);
+                this.gameController.node.emit("play-audio", this.shootAudio);
 
             })
             tw.delay((1 - this.animSpeedMulOffset) * animLength)
@@ -435,6 +442,10 @@ export class EnemyBase extends BaseObject {
             this.unscheduleAllCallbacks();
             tw.by(0.1, { scale: v3(1, 1, 1) })
             tw.call(() => {
+                if (this.deadAudio){
+                    this.gameController.node.emit("play-audio", this.deadAudio);
+
+                }
                 this.node.position = v3(this.node.position.x, 0, this.node.position.z)
                 this.rootNode.active = false;
                 this.caidaiEffect.eulerAngles = v3(0, 360 * Math.random(), 0)
@@ -459,40 +470,11 @@ export class EnemyBase extends BaseObject {
                 this.currentBoneAnimName = "骨架|MoveAnim"
                 // console.log(this.objectType + "播放移动动作", this.currentBoneAnimName);
                 skeleteAnim.play(this.currentBoneAnimName);
-                // let clips = skeleteAnim.clips;
-                // let moveClip = null;
-                // for (let i = 0 ; i < clips.length ; i ++){
-                //     // moveClips = clips[i];
-                //     let clip = clips[i];
-                //     console.log("clip name", clip.name);
-                //     if (clip.name === '骨架|MoveAnim'){
-                //         moveClip = clip;
-                //     }
-                // }
-                // if (moveClip){
-                //     skeleteAnim.play(moveClip.)
-                // }
+
             }
+            this.playWalkAudio();
 
-            // console.log("start move");
-            // let tw = new Tween(this.node);
-            // let moveTime = new Vec3(this.startPos).subtract(this.endPos).length() / this.moveSpeed;
-            // tw.to(moveTime, { position: this.endPos });
-            // tw.call(() => {
-            //     // this.state.setState("to-dead");
-            // })
-            // tw.to(0.2, { scale: v3(0, 0, 0) });
-            // tw.call(() => {
-            //     this.state.setState("over");
-            // })
-            // tw.start();
-            // this.currentMoveTw = tw;
-            // 开始运行之后，计算一条 最短路径
-            // let pathList = this.groundMapCtl.getPathList();
 
-            // if (this.healthBar) {
-            //     // this.healthBar.active = true;
-            // }
         });
         this.node.on("be-attacked", (data) => {
             //被攻击
@@ -559,6 +541,17 @@ export class EnemyBase extends BaseObject {
     }
     start() {
         // this.state.setState("ready");
+    }
+    playWalkAudio() {
+        if (this.walkAudio){
+            this.gameController.node.emit("play-audio", this.walkAudio, () => {
+                console.log("音效播放完成", this.state.getState());
+                if (this.state.getState() === 'run') {
+                    this.playWalkAudio();
+                }
+            })
+        }
+       
     }
     getIsDead(): boolean {
         if (this.state.getState() === 'over' || this.state.getState() === 'to-dead') {

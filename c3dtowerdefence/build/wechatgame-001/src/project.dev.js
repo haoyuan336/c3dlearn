@@ -1,3 +1,111 @@
+System.register("chunks:///AudioCtl.js", ["./_virtual/_rollupPluginBabelHelpers.js", "cc"], function (_export, _context) {
+  "use strict";
+
+  var _inherits, _classCallCheck, _possibleConstructorReturn, _getPrototypeOf, _createClass, cclegacy, _decorator, AudioSourceComponent, loader, AudioClip, Component, _dec, _class, _temp, ccclass, property, AudioCtl;
+
+  _export({
+    _dec: void 0,
+    _class: void 0,
+    _temp: void 0
+  });
+
+  return {
+    setters: [function (_virtual_rollupPluginBabelHelpersJs) {
+      _inherits = _virtual_rollupPluginBabelHelpersJs.inherits;
+      _classCallCheck = _virtual_rollupPluginBabelHelpersJs.classCallCheck;
+      _possibleConstructorReturn = _virtual_rollupPluginBabelHelpersJs.possibleConstructorReturn;
+      _getPrototypeOf = _virtual_rollupPluginBabelHelpersJs.getPrototypeOf;
+      _createClass = _virtual_rollupPluginBabelHelpersJs.createClass;
+    }, function (_cc) {
+      cclegacy = _cc.cclegacy;
+      _decorator = _cc._decorator;
+      AudioSourceComponent = _cc.AudioSourceComponent;
+      loader = _cc.loader;
+      AudioClip = _cc.AudioClip;
+      Component = _cc.Component;
+    }],
+    execute: function () {
+      cclegacy._RF.push({}, "7fa36dmnLhPGLldXsNYKbQR", "AudioCtl", undefined);
+
+      ccclass = _decorator.ccclass;
+      property = _decorator.property;
+
+      _export("AudioCtl", AudioCtl = (_dec = ccclass('AudioCtl'), _dec(_class = (_temp = /*#__PURE__*/function (_Component) {
+        _inherits(AudioCtl, _Component);
+
+        function AudioCtl() {
+          var _getPrototypeOf2;
+
+          var _this;
+
+          _classCallCheck(this, AudioCtl);
+
+          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+          }
+
+          _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(AudioCtl)).call.apply(_getPrototypeOf2, [this].concat(args)));
+          _this.audioSourcesCom = null;
+          return _this;
+        }
+
+        _createClass(AudioCtl, [{
+          key: "start",
+          value: function start() {
+            this.audioSourcesCom = this.node.getComponent(AudioSourceComponent);
+          }
+        }, {
+          key: "onLoad",
+          value: function onLoad() {
+            var _this2 = this;
+
+            this.node.on("play-audio", function (audioStr, cb) {
+              console.log("player- audio", audioStr);
+
+              _this2.playAudio(audioStr, cb);
+            });
+            this.node.on("player-button-click-audio", function () {
+              _this2.playAudio("按钮音效2", function () {});
+            });
+            this.node.on("player-button-click-audio-2", function () {
+              _this2.playAudio("按钮音效2", function () {});
+            });
+            this.node.on("play-bg-music", function () {
+              //播放背景音乐
+              loader.loadRes("音乐文件/背景音效", AudioClip, function (err, result) {// result.setVolume(0.5);
+                // this.audioSourcesCom.volume = 0.5;
+                // result.setVolume(0.1, true);
+                // this.audioSourcesCom.playOneShot(result);
+              });
+            });
+          }
+        }, {
+          key: "playAudio",
+          value: function playAudio(audioStr, cb) {
+            var _this3 = this;
+
+            if (audioStr) {
+              loader.loadRes('音乐文件/' + audioStr, AudioClip, function (err, result) {
+                if (err) {
+                  console.log("load audio err", err);
+                } else {
+                  // AudioSourceComponent
+                  // result.play();
+                  _this3.audioSourcesCom.playOneShot(result);
+                }
+              });
+            }
+          }
+        }]);
+
+        return AudioCtl;
+      }(Component), _temp)) || _class));
+
+      cclegacy._RF.pop();
+    }
+  };
+});
+
 System.register("chunks:///BaseObject.js", ["./_virtual/_rollupPluginBabelHelpers.js", "cc"], function (_export, _context) {
   "use strict";
 
@@ -103,12 +211,14 @@ System.register("chunks:///BaseObject.js", ["./_virtual/_rollupPluginBabelHelper
           _this.objectName = "无";
           _this.desString = "";
           _this.shootAudio = "";
+          _this.boomAudio = "";
+          _this.showAudio = "";
           return _this;
         }
 
         _createClass(BaseObject, [{
           key: "init",
-          //子弹发射时候的音效
+          //展示的音效
           // private attackType: string = "normal"//攻击类型a
           value: function init(gameConfig, gameController, startPos, endPos, objectType) {
             // this.baseGasNum = gameConfig[]
@@ -238,6 +348,14 @@ System.register("chunks:///BaseObject.js", ["./_virtual/_rollupPluginBabelHelper
 
             if (gameConfig[this.objectType]['ShootAudio']) {
               this.shootAudio = gameConfig[this.objectType]['ShootAudio'];
+            }
+
+            if (gameConfig[this.objectType]['BoomAudio']) {
+              this.boomAudio = gameConfig[this.objectType]['BoomAudio'];
+            }
+
+            if (gameConfig[this.objectType]['ShowAudio']) {
+              this.showAudio = gameConfig[this.objectType]['ShowAudio'];
             }
           }
         }, {
@@ -557,6 +675,16 @@ System.register("chunks:///BaseObject.js", ["./_virtual/_rollupPluginBabelHelper
           key: "getDesString",
           value: function getDesString() {
             return this.desString;
+          }
+        }, {
+          key: "getBoomAudioStr",
+          value: function getBoomAudioStr() {
+            return this.boomAudio;
+          }
+        }, {
+          key: "getShowAudio",
+          value: function getShowAudio() {
+            return this.showAudio;
           }
         }]);
 
@@ -2053,6 +2181,8 @@ System.register("chunks:///Enemys/EnemyBase.js", ["../_virtual/_rollupPluginBabe
 
               tw.show();
               tw.call(function () {
+                _this3.gameController.node.emit("play-audio", _this3.getShowAudio());
+
                 node.active = true;
               });
               tw.to(0.1, {
@@ -2279,6 +2409,9 @@ System.register("chunks:///Enemys/EnemyBase.js", ["../_virtual/_rollupPluginBabe
               var stateAnim = skeleteAnim.getState(_this7.currentBoneAnimName);
               var animLength = stateAnim.length;
               stateAnim.repeatCount = 1;
+
+              _this7.gameController.node.emit("play-audio", _this7.shootAudio);
+
               var tw = new Tween(_this7.node);
               tw.delay(_this7.animSpeedMulOffset * animLength);
               tw.call(function () {
@@ -3625,7 +3758,7 @@ System.register("chunks:///Data/PlayerData.js", ["../_virtual/_rollupPluginBabel
 
           this.currentSkillCount = 2;
           this.currentActiveSkillCount = 3;
-          this.currentGoldCount = 30;
+          this.currentGoldCount = 30000;
           this.gameController = null;
           this.currentLevelNum = 0;
           this.currentTowerLevelData = [];
@@ -3729,8 +3862,7 @@ System.register("chunks:///Data/PlayerData.js", ["../_virtual/_rollupPluginBabel
           }
         }, {
           key: "setLocalData",
-          value: function setLocalData(key, data) {
-            localStorage.setItem(key, data);
+          value: function setLocalData(key, data) {// localStorage.setItem(key, data);
           }
         }, {
           key: "updateGoldCount",
@@ -3753,13 +3885,11 @@ System.register("chunks:///Data/PlayerData.js", ["../_virtual/_rollupPluginBabel
           key: "addGoldCount",
           value: function addGoldCount(goldCount) {
             this.currentGoldCount += goldCount;
-            this.setLocalData('gold-count', this.currentGoldCount + '');
-
-            if (goldCount > 0) {
-              this.gameController.node.emit("play-audio", '收集金币');
-            } else {
-              this.gameController.node.emit("play-audio", '消费金币');
-            }
+            this.setLocalData('gold-count', this.currentGoldCount + ''); // if (goldCount > 0) {
+            //     this.gameController.node.emit("play-audio", '收集金币')
+            // } else {
+            //     this.gameController.node.emit("play-audio", '消费金币')
+            // }
 
             this.gameController.node.emit("update-gold-label", this.currentGoldCount, goldCount);
           }
@@ -8552,6 +8682,7 @@ System.register("chunks:///BulletBase.js", ["./_virtual/_rollupPluginBabelHelper
               console.log("base attack num", this.baseAttackNum);
 
               if (this.getIsCollisionDestroy()) {
+                this.gameController.node.emit("play-audio", this.getBoomAudioStr());
                 this.state.setState("enter-to-destroy");
 
                 if (isValid(this.exporeEffectPrefab)) {
@@ -9983,6 +10114,281 @@ System.register("chunks:///UI/AStartFindPath.js", ["../_virtual/_rollupPluginBab
   };
 });
 
+System.register("chunks:///UI/DialogCtl.js", ["../_virtual/_rollupPluginBabelHelpers.js", "cc"], function (_export, _context) {
+  "use strict";
+
+  var _applyDecoratedDescriptor, _inherits, _classCallCheck, _possibleConstructorReturn, _getPrototypeOf, _initializerDefineProperty, _assertThisInitialized, _createClass, cclegacy, _decorator, JsonAsset, Node, loader, SpriteFrame, SpriteComponent, LabelComponent, find, v3, Tween, Component, _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _temp, ccclass, property, DialogCtl;
+
+  _export({
+    _dec: void 0,
+    _dec2: void 0,
+    _dec3: void 0,
+    _dec4: void 0,
+    _dec5: void 0,
+    _dec6: void 0,
+    _class: void 0,
+    _class2: void 0,
+    _descriptor: void 0,
+    _descriptor2: void 0,
+    _descriptor3: void 0,
+    _descriptor4: void 0,
+    _descriptor5: void 0,
+    _temp: void 0
+  });
+
+  return {
+    setters: [function (_virtual_rollupPluginBabelHelpersJs) {
+      _applyDecoratedDescriptor = _virtual_rollupPluginBabelHelpersJs.applyDecoratedDescriptor;
+      _inherits = _virtual_rollupPluginBabelHelpersJs.inherits;
+      _classCallCheck = _virtual_rollupPluginBabelHelpersJs.classCallCheck;
+      _possibleConstructorReturn = _virtual_rollupPluginBabelHelpersJs.possibleConstructorReturn;
+      _getPrototypeOf = _virtual_rollupPluginBabelHelpersJs.getPrototypeOf;
+      _initializerDefineProperty = _virtual_rollupPluginBabelHelpersJs.initializerDefineProperty;
+      _assertThisInitialized = _virtual_rollupPluginBabelHelpersJs.assertThisInitialized;
+      _createClass = _virtual_rollupPluginBabelHelpersJs.createClass;
+    }, function (_cc) {
+      cclegacy = _cc.cclegacy;
+      _decorator = _cc._decorator;
+      JsonAsset = _cc.JsonAsset;
+      Node = _cc.Node;
+      loader = _cc.loader;
+      SpriteFrame = _cc.SpriteFrame;
+      SpriteComponent = _cc.SpriteComponent;
+      LabelComponent = _cc.LabelComponent;
+      find = _cc.find;
+      v3 = _cc.v3;
+      Tween = _cc.Tween;
+      Component = _cc.Component;
+    }],
+    execute: function () {
+      cclegacy._RF.push({}, "6cd17627e9OW6ntczLEzTI0", "DialogCtl", undefined);
+
+      ccclass = _decorator.ccclass;
+      property = _decorator.property;
+
+      _export("DialogCtl", DialogCtl = (_dec = ccclass('DialogCtl'), _dec2 = property({
+        type: JsonAsset
+      }), _dec3 = property({
+        type: Node
+      }), _dec4 = property({
+        type: Node
+      }), _dec5 = property({
+        type: Node
+      }), _dec6 = property({
+        type: Node
+      }), _dec(_class = (_class2 = (_temp = /*#__PURE__*/function (_Component) {
+        _inherits(DialogCtl, _Component);
+
+        function DialogCtl() {
+          var _getPrototypeOf2;
+
+          var _this;
+
+          _classCallCheck(this, DialogCtl);
+
+          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+          }
+
+          _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(DialogCtl)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+          _initializerDefineProperty(_this, "dialogConfigJsonAsset", _descriptor, _assertThisInitialized(_this));
+
+          _initializerDefineProperty(_this, "dialogBgNode", _descriptor2, _assertThisInitialized(_this));
+
+          _initializerDefineProperty(_this, "dialogLayer", _descriptor3, _assertThisInitialized(_this));
+
+          _initializerDefineProperty(_this, "dialogLabel", _descriptor4, _assertThisInitialized(_this));
+
+          _initializerDefineProperty(_this, "dialogPicNode", _descriptor5, _assertThisInitialized(_this));
+
+          _this.currentLevelDialogData = [];
+          _this.currentDialogIndex = 0;
+          _this.dialogOverCb = null;
+          return _this;
+        }
+
+        _createClass(DialogCtl, [{
+          key: "start",
+          value: function start() {
+            var _this2 = this; // Your initialization goes here.
+
+
+            this.node.on("show-start-dialog", function (currentLevel, cb) {
+              //播放开始的时候的 对话
+              console.log("展示开始对话的内容", currentLevel);
+              _this2.dialogBgNode.active = true;
+              _this2.dialogLayer.active = true; //取出当前的对话数据
+
+              _this2.currentLevelDialogData = _this2.dialogConfigJsonAsset.json['Level_' + currentLevel]['StartDialogList'];
+              _this2.currentDialogIndex = 0;
+
+              _this2.showOneDialog();
+
+              _this2.dialogOverCb = function () {
+                _this2.closeDialogLayer().then(function () {
+                  cb();
+                });
+              };
+            });
+            this.node.on("show-end-dialog", function (currentLevel, cb) {
+              //播放结束的时候的对话
+              console.log("展示开始对话的内容", currentLevel);
+              _this2.dialogBgNode.active = true;
+              _this2.dialogLayer.active = true; //取出当前的对话数据
+
+              _this2.currentLevelDialogData = _this2.dialogConfigJsonAsset.json['Level_' + currentLevel]['EndDialogList'];
+              _this2.currentDialogIndex = 0;
+
+              _this2.showOneDialog();
+
+              _this2.dialogOverCb = function () {
+                _this2.closeDialogLayer().then(function () {
+                  cb();
+                });
+              };
+            });
+          }
+        }, {
+          key: "closeDialogLayer",
+          value: function closeDialogLayer() {
+            var _this3 = this;
+
+            return new Promise(function (resolve, reject) {
+              _this3.showTLPOutAnim().then(function () {
+                _this3.dialogBgNode.active = false;
+                _this3.dialogLayer.active = false;
+                resolve();
+              });
+            });
+          }
+        }, {
+          key: "showOneDialog",
+          value: function showOneDialog() {
+            var _this4 = this;
+
+            if (this.currentDialogIndex >= this.currentLevelDialogData.length) {
+              if (this.dialogOverCb) {
+                this.dialogOverCb();
+              }
+
+              return;
+            } //展示一条dialog
+
+
+            var dialogData = this.currentLevelDialogData[this.currentDialogIndex];
+            var picStr = dialogData['Pic'];
+            loader.loadRes(picStr + '/spriteFrame', SpriteFrame, function (err, result) {
+              if (!err) {
+                _this4.showTLPEnterAnim().then(function () {
+                  _this4.dialogPicNode.getComponent(SpriteComponent).spriteFrame = result;
+                  var text = dialogData['Text'];
+                  _this4.dialogLabel.getComponent(LabelComponent).string = text;
+                });
+              }
+            });
+            this.currentDialogIndex++;
+          }
+        }, {
+          key: "onButtonClick",
+          value: function onButtonClick(event, customData) {
+            find("GameController").emit("player-button-click-audio");
+
+            switch (customData) {
+              case 'next-button':
+                console.log("下一步");
+                this.showOneDialog();
+                break;
+
+              default:
+                break;
+            }
+          }
+        }, {
+          key: "showTLPEnterAnim",
+          value: function showTLPEnterAnim() {
+            var _this5 = this;
+
+            return new Promise(function (resolve, reject) {
+              if (_this5.dialogPicNode.position.x > -500) {
+                resolve();
+              } else {
+                _this5.dialogPicNode.position = v3(-1000, -161.675, 0);
+                var tw = new Tween(_this5.dialogPicNode);
+                tw.to(0.2, {
+                  position: v3(-407.421, -161, 0)
+                });
+                tw.call(function () {
+                  resolve();
+                });
+                tw.start();
+              }
+            });
+          }
+        }, {
+          key: "showTLPOutAnim",
+          value: function showTLPOutAnim() {
+            var _this6 = this;
+
+            return new Promise(function (resolve, reject) {
+              var tw = new Tween(_this6.dialogPicNode);
+              tw.to(0.2, {
+                position: v3(-1000, -161, 0)
+              });
+              tw.call(function () {
+                resolve();
+              });
+              tw.start();
+            });
+          } // update (deltaTime: number) {
+          //     // Your update function goes here.
+          // }
+
+        }]);
+
+        return DialogCtl;
+      }(Component), _temp), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "dialogConfigJsonAsset", [_dec2], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "dialogBgNode", [_dec3], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, "dialogLayer", [_dec4], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, "dialogLabel", [_dec5], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, "dialogPicNode", [_dec6], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      })), _class2)) || _class));
+
+      cclegacy._RF.pop();
+    }
+  };
+});
+
 System.register("chunks:///UI/EnemyHealthBarCtl.js", ["../_virtual/_rollupPluginBabelHelpers.js", "cc"], function (_export, _context) {
   "use strict";
 
@@ -10078,6 +10484,361 @@ System.register("chunks:///UI/EnemyHealthBarCtl.js", ["../_virtual/_rollupPlugin
           return null;
         }
       }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "cameraNode", [_dec3], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      })), _class2)) || _class));
+
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///UI/MonsterInfoLayer.js", ["../_virtual/_rollupPluginBabelHelpers.js", "cc"], function (_export, _context) {
+  "use strict";
+
+  var _applyDecoratedDescriptor, _inherits, _classCallCheck, _possibleConstructorReturn, _getPrototypeOf, _initializerDefineProperty, _assertThisInitialized, _createClass, cclegacy, _decorator, Node, LabelComponent, loader, SpriteFrame, SpriteComponent, Component, _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _temp, ccclass, property, MonsterInfoLayer;
+
+  _export({
+    _dec: void 0,
+    _dec2: void 0,
+    _dec3: void 0,
+    _dec4: void 0,
+    _dec5: void 0,
+    _dec6: void 0,
+    _dec7: void 0,
+    _class: void 0,
+    _class2: void 0,
+    _descriptor: void 0,
+    _descriptor2: void 0,
+    _descriptor3: void 0,
+    _descriptor4: void 0,
+    _descriptor5: void 0,
+    _descriptor6: void 0,
+    _temp: void 0
+  });
+
+  return {
+    setters: [function (_virtual_rollupPluginBabelHelpersJs) {
+      _applyDecoratedDescriptor = _virtual_rollupPluginBabelHelpersJs.applyDecoratedDescriptor;
+      _inherits = _virtual_rollupPluginBabelHelpersJs.inherits;
+      _classCallCheck = _virtual_rollupPluginBabelHelpersJs.classCallCheck;
+      _possibleConstructorReturn = _virtual_rollupPluginBabelHelpersJs.possibleConstructorReturn;
+      _getPrototypeOf = _virtual_rollupPluginBabelHelpersJs.getPrototypeOf;
+      _initializerDefineProperty = _virtual_rollupPluginBabelHelpersJs.initializerDefineProperty;
+      _assertThisInitialized = _virtual_rollupPluginBabelHelpersJs.assertThisInitialized;
+      _createClass = _virtual_rollupPluginBabelHelpersJs.createClass;
+    }, function (_cc) {
+      cclegacy = _cc.cclegacy;
+      _decorator = _cc._decorator;
+      Node = _cc.Node;
+      LabelComponent = _cc.LabelComponent;
+      loader = _cc.loader;
+      SpriteFrame = _cc.SpriteFrame;
+      SpriteComponent = _cc.SpriteComponent;
+      Component = _cc.Component;
+    }],
+    execute: function () {
+      cclegacy._RF.push({}, "19cfe434XNK0JMjRNGL9hyg", "MonsterInfoLayer", undefined);
+
+      ccclass = _decorator.ccclass;
+      property = _decorator.property;
+
+      _export("MonsterInfoLayer", MonsterInfoLayer = (_dec = ccclass('MonsterInfoLayer'), _dec2 = property({
+        type: Node
+      }), _dec3 = property({
+        type: Node
+      }), _dec4 = property({
+        type: Node
+      }), _dec5 = property({
+        type: Node
+      }), _dec6 = property({
+        type: Node
+      }), _dec7 = property({
+        type: Node
+      }), _dec(_class = (_class2 = (_temp = /*#__PURE__*/function (_Component) {
+        _inherits(MonsterInfoLayer, _Component);
+
+        function MonsterInfoLayer() {
+          var _getPrototypeOf2;
+
+          var _this;
+
+          _classCallCheck(this, MonsterInfoLayer);
+
+          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+          }
+
+          _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(MonsterInfoLayer)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+          _initializerDefineProperty(_this, "nameLabel", _descriptor, _assertThisInitialized(_this));
+
+          _initializerDefineProperty(_this, "speedLabel", _descriptor2, _assertThisInitialized(_this));
+
+          _initializerDefineProperty(_this, "healthCountLabel", _descriptor3, _assertThisInitialized(_this));
+
+          _initializerDefineProperty(_this, "storyLabel", _descriptor4, _assertThisInitialized(_this));
+
+          _initializerDefineProperty(_this, "monsterInfoLayer", _descriptor5, _assertThisInitialized(_this));
+
+          _initializerDefineProperty(_this, "spriteIconNode", _descriptor6, _assertThisInitialized(_this));
+
+          return _this;
+        }
+
+        _createClass(MonsterInfoLayer, [{
+          key: "start",
+          value: function start() {
+            var _this2 = this; // this.node.on('show--info', this.setMonsterInfo.bind(this), this)
+
+
+            this.node.on("close-monster-info-layer", function () {
+              // this.towerInfoLayer.active = false;
+              _this2.monsterInfoLayer.active = false;
+            });
+            this.node.on("close-weapon-info-layer", function () {
+              _this2.monsterInfoLayer.active = false;
+            });
+          } // setMonsterInfo(){
+          //     this.monsterInfoLayer.active = true;
+          // }
+
+        }, {
+          key: "showMonsterInfoLayer",
+          value: function showMonsterInfoLayer(target) {
+            var _this3 = this;
+
+            this.monsterInfoLayer.active = true;
+            this.nameLabel.getComponent(LabelComponent).string = target.getObjectName();
+            this.healthCountLabel.getComponent(LabelComponent).string = target.getHealthCount().toString(); //获得
+
+            this.speedLabel.getComponent(LabelComponent).string = target.getMoveSpeed().toString(); //获得移动速度
+
+            this.storyLabel.getComponent(LabelComponent).string = target.getDesString(); //获得详细简介
+
+            loader.loadRes(target.getIconSprteFrame() + "/spriteFrame", SpriteFrame, function (err, result) {
+              _this3.spriteIconNode.getComponent(SpriteComponent).spriteFrame = result;
+            }); // this.speedLabel.getComponent(LabelComponent).string = target.getMoveSpeed().toString(); //移动速度
+            // this.des
+            // this.healthCountLabel.getComponent(LabelComponent).string = target.getCoun
+            // this.storyLabel.getComponent(LabelComponent).string = target.getDesString();
+          }
+        }]);
+
+        return MonsterInfoLayer;
+      }(Component), _temp), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "nameLabel", [_dec2], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "speedLabel", [_dec3], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, "healthCountLabel", [_dec4], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, "storyLabel", [_dec5], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, "monsterInfoLayer", [_dec6], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, "spriteIconNode", [_dec7], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      })), _class2)) || _class));
+
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///UI/EnemyInfoCellPrefab.js", ["../_virtual/_rollupPluginBabelHelpers.js", "cc", "../BaseObject.js", "./MonsterInfoLayer.js"], function (_export, _context) {
+  "use strict";
+
+  var _applyDecoratedDescriptor, _inherits, _classCallCheck, _possibleConstructorReturn, _getPrototypeOf, _initializerDefineProperty, _assertThisInitialized, _createClass, _get, cclegacy, _decorator, Node, find, loader, SpriteFrame, SpriteComponent, BaseObject, MonsterInfoLayer, _dec, _dec2, _dec3, _class, _class2, _descriptor, _descriptor2, _temp, ccclass, property, EnemyInfoCellPrefab;
+
+  _export({
+    _dec: void 0,
+    _dec2: void 0,
+    _dec3: void 0,
+    _class: void 0,
+    _class2: void 0,
+    _descriptor: void 0,
+    _descriptor2: void 0,
+    _temp: void 0
+  });
+
+  return {
+    setters: [function (_virtual_rollupPluginBabelHelpersJs) {
+      _applyDecoratedDescriptor = _virtual_rollupPluginBabelHelpersJs.applyDecoratedDescriptor;
+      _inherits = _virtual_rollupPluginBabelHelpersJs.inherits;
+      _classCallCheck = _virtual_rollupPluginBabelHelpersJs.classCallCheck;
+      _possibleConstructorReturn = _virtual_rollupPluginBabelHelpersJs.possibleConstructorReturn;
+      _getPrototypeOf = _virtual_rollupPluginBabelHelpersJs.getPrototypeOf;
+      _initializerDefineProperty = _virtual_rollupPluginBabelHelpersJs.initializerDefineProperty;
+      _assertThisInitialized = _virtual_rollupPluginBabelHelpersJs.assertThisInitialized;
+      _createClass = _virtual_rollupPluginBabelHelpersJs.createClass;
+      _get = _virtual_rollupPluginBabelHelpersJs.get;
+    }, function (_cc) {
+      cclegacy = _cc.cclegacy;
+      _decorator = _cc._decorator;
+      Node = _cc.Node;
+      find = _cc.find;
+      loader = _cc.loader;
+      SpriteFrame = _cc.SpriteFrame;
+      SpriteComponent = _cc.SpriteComponent;
+    }, function (_BaseObjectJs) {
+      BaseObject = _BaseObjectJs.BaseObject;
+    }, function (_MonsterInfoLayerJs) {
+      MonsterInfoLayer = _MonsterInfoLayerJs.MonsterInfoLayer;
+    }],
+    execute: function () {
+      cclegacy._RF.push({}, "ede41pxC3ZOx6d6u8MOr8l/", "EnemyInfoCellPrefab", undefined);
+
+      ccclass = _decorator.ccclass;
+      property = _decorator.property;
+
+      _export("EnemyInfoCellPrefab", EnemyInfoCellPrefab = (_dec = ccclass('EnemyInfoCellPrefab'), _dec2 = property({
+        type: Node
+      }), _dec3 = property({
+        type: Node
+      }), _dec(_class = (_class2 = (_temp = /*#__PURE__*/function (_BaseObject) {
+        _inherits(EnemyInfoCellPrefab, _BaseObject);
+
+        function EnemyInfoCellPrefab() {
+          var _getPrototypeOf2;
+
+          var _this;
+
+          _classCallCheck(this, EnemyInfoCellPrefab);
+
+          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+          }
+
+          _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(EnemyInfoCellPrefab)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+          _initializerDefineProperty(_this, "enemyIconNode", _descriptor, _assertThisInitialized(_this));
+
+          _initializerDefineProperty(_this, "newInfoTipsNode", _descriptor2, _assertThisInitialized(_this));
+
+          _this.uiControllerNode = null;
+          return _this;
+        }
+
+        _createClass(EnemyInfoCellPrefab, [{
+          key: "init",
+          value: function init(gameController, data) {
+            var _this2 = this;
+
+            var enemyType = data["enemyType"];
+            console.log("enemy type", enemyType);
+            this.uiControllerNode = find('Canvas');
+            var gameConfig = gameController.getGameConfig().json; // super.objectType = enemyType;
+            // console.log("super object type", super.objectType);
+
+            _get(_getPrototypeOf(EnemyInfoCellPrefab.prototype), "init", this).call(this, gameConfig, gameController, null, null, enemyType);
+
+            this.gameController.node.on("refer-enemy-info-cell", function () {
+              _this2.referUI();
+            });
+            this.node.on("click", this.onButtonClick.bind(this), this);
+            this.referUI();
+          }
+        }, {
+          key: "referUI",
+          value: function referUI() {
+            var _this3 = this; //刷新UI 
+
+
+            var isActive = this.getEnemyIsActive();
+            console.log("is active", isActive);
+
+            if (isActive) {
+              var spriteFrameIconStr = this.getIconSprteFrame(); //如果是激活了
+
+              console.log("sprite frame icon str", spriteFrameIconStr);
+              loader.loadRes(spriteFrameIconStr + "/spriteFrame", SpriteFrame, function (err, result) {
+                if (!err) {
+                  _this3.enemyIconNode.getComponent(SpriteComponent).spriteFrame = result;
+                }
+              });
+              var isShowed = this.getIsShowed();
+
+              if (!isShowed) {
+                this.newInfoTipsNode.active = true;
+                this.uiControllerNode.emit("show-new-enemy-info-tips");
+              }
+            }
+          }
+        }, {
+          key: "onButtonClick",
+          value: function onButtonClick() {
+            find("GameController").emit("player-button-click-audio");
+            console.log("click");
+
+            if (this.getEnemyIsActive()) {
+              // thi
+              this.uiControllerNode.getComponent(MonsterInfoLayer).showMonsterInfoLayer(this);
+              this.newInfoTipsNode.active = false;
+              this.setShowed();
+              this.uiControllerNode.emit("show-new-enemy-info-tips");
+            }
+          } // public init(gameConfig: Object, gameController: GameController){
+          // }
+          // public init() {
+          //     // super.init(gameConfig, gameController);
+          // }
+          // public init(gameConfig: Object, gameController: GameController, objectType?: string){
+          //     super.init(gameConfig, gameController);
+          //     // super.objectType = objectType;
+          //     // console.log("object type", super.objectType);
+          //     // let gameConfig = gameController.getGameConfig().json;
+          //     // super.init(gameConfig, gameController);
+          //     // //获取是否激活了
+          //     // let isActive = this.getEnemyIsActive();
+          //     // if (isActive){
+          //     // }
+          // }
+
+        }]);
+
+        return EnemyInfoCellPrefab;
+      }(BaseObject), _temp), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "enemyIconNode", [_dec2], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "newInfoTipsNode", [_dec3], {
         configurable: true,
         enumerable: true,
         writable: true,
@@ -10392,10 +11153,10 @@ System.register("chunks:///UI/InfoLayerCtlBase.js", ["../_virtual/_rollupPluginB
   };
 });
 
-System.register("chunks:///UI/MonsterInfoLayer.js", ["../_virtual/_rollupPluginBabelHelpers.js", "cc"], function (_export, _context) {
+System.register("chunks:///UI/EnemyInfoLayerCtl.js", ["../_virtual/_rollupPluginBabelHelpers.js", "cc", "../BaseObject.js", "../GameController.js", "./EnemyInfoCellPrefab.js", "./InfoLayerCtlBase.js"], function (_export, _context) {
   "use strict";
 
-  var _applyDecoratedDescriptor, _inherits, _classCallCheck, _possibleConstructorReturn, _getPrototypeOf, _initializerDefineProperty, _assertThisInitialized, _createClass, cclegacy, _decorator, Node, LabelComponent, Component, _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _temp, ccclass, property, MonsterInfoLayer;
+  var _applyDecoratedDescriptor, _inherits, _classCallCheck, _possibleConstructorReturn, _getPrototypeOf, _initializerDefineProperty, _assertThisInitialized, _createClass, _get, cclegacy, _decorator, Node, Prefab, instantiate, v3, find, BaseObject, GameController, EnemyInfoCellPrefab, InfoLayerCtlBase, _dec, _dec2, _dec3, _dec4, _dec5, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _temp, ccclass, property, EnemyInfoLayerCtl;
 
   _export({
     _dec: void 0,
@@ -10403,14 +11164,255 @@ System.register("chunks:///UI/MonsterInfoLayer.js", ["../_virtual/_rollupPluginB
     _dec3: void 0,
     _dec4: void 0,
     _dec5: void 0,
-    _dec6: void 0,
     _class: void 0,
     _class2: void 0,
     _descriptor: void 0,
     _descriptor2: void 0,
     _descriptor3: void 0,
     _descriptor4: void 0,
-    _descriptor5: void 0,
+    _temp: void 0
+  });
+
+  return {
+    setters: [function (_virtual_rollupPluginBabelHelpersJs) {
+      _applyDecoratedDescriptor = _virtual_rollupPluginBabelHelpersJs.applyDecoratedDescriptor;
+      _inherits = _virtual_rollupPluginBabelHelpersJs.inherits;
+      _classCallCheck = _virtual_rollupPluginBabelHelpersJs.classCallCheck;
+      _possibleConstructorReturn = _virtual_rollupPluginBabelHelpersJs.possibleConstructorReturn;
+      _getPrototypeOf = _virtual_rollupPluginBabelHelpersJs.getPrototypeOf;
+      _initializerDefineProperty = _virtual_rollupPluginBabelHelpersJs.initializerDefineProperty;
+      _assertThisInitialized = _virtual_rollupPluginBabelHelpersJs.assertThisInitialized;
+      _createClass = _virtual_rollupPluginBabelHelpersJs.createClass;
+      _get = _virtual_rollupPluginBabelHelpersJs.get;
+    }, function (_cc) {
+      cclegacy = _cc.cclegacy;
+      _decorator = _cc._decorator;
+      Node = _cc.Node;
+      Prefab = _cc.Prefab;
+      instantiate = _cc.instantiate;
+      v3 = _cc.v3;
+      find = _cc.find;
+    }, function (_BaseObjectJs) {
+      BaseObject = _BaseObjectJs.BaseObject;
+    }, function (_GameControllerJs) {
+      GameController = _GameControllerJs.GameController;
+    }, function (_EnemyInfoCellPrefabJs) {
+      EnemyInfoCellPrefab = _EnemyInfoCellPrefabJs.EnemyInfoCellPrefab;
+    }, function (_InfoLayerCtlBaseJs) {
+      InfoLayerCtlBase = _InfoLayerCtlBaseJs.InfoLayerCtlBase;
+    }],
+    execute: function () {
+      cclegacy._RF.push({}, "dd7e3sy4eVGxLt1hsBdjeJ6", "EnemyInfoLayerCtl", undefined);
+
+      ccclass = _decorator.ccclass;
+      property = _decorator.property;
+
+      _export("EnemyInfoLayerCtl", EnemyInfoLayerCtl = (_dec = ccclass('EnemyInfoLayerCtl'), _dec2 = property({
+        type: GameController
+      }), _dec3 = property({
+        type: Node
+      }), _dec4 = property({
+        type: Prefab
+      }), _dec5 = property({
+        type: Node
+      }), _dec(_class = (_class2 = (_temp = /*#__PURE__*/function (_InfoLayerCtlBase) {
+        _inherits(EnemyInfoLayerCtl, _InfoLayerCtlBase);
+
+        function EnemyInfoLayerCtl() {
+          var _getPrototypeOf2;
+
+          var _this;
+
+          _classCallCheck(this, EnemyInfoLayerCtl);
+
+          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+          }
+
+          _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(EnemyInfoLayerCtl)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+          _initializerDefineProperty(_this, "gameController", _descriptor, _assertThisInitialized(_this));
+
+          _initializerDefineProperty(_this, "enemyInfoNodeParentNode", _descriptor2, _assertThisInitialized(_this));
+
+          _initializerDefineProperty(_this, "enemyInfoCellPrefab", _descriptor3, _assertThisInitialized(_this));
+
+          _this.enemyInfoCellMap = {};
+
+          _initializerDefineProperty(_this, "newInfoTipsNode", _descriptor4, _assertThisInitialized(_this));
+
+          return _this;
+        }
+
+        _createClass(EnemyInfoLayerCtl, [{
+          key: "start",
+          value: function start() {
+            var _this2 = this;
+
+            _get(_getPrototypeOf(EnemyInfoLayerCtl.prototype), "start", this).call(this); // Your initialization goes here.
+            // let screenSize = view.getVisibleSize();
+
+
+            this.initEnemyData(); // this.node.on("refer-enemy-data", this.referEnemyData.bind(this), this);
+
+            this.node.on("refer-enemy-info-cell", function (enemyType) {
+              console.log("`激活了某个敌人`", enemyType);
+              console.log("enemy info cell map", _this2.enemyInfoCellMap);
+
+              if (_this2.enemyInfoCellMap[enemyType]) {
+                console.log("刷新这个敌人的UI"); // this.enemyInfoCellMap[enemyType].getComponent(EnemyInfoCellPrefab).referUI();
+
+                var node = _this2.enemyInfoCellMap[enemyType];
+                node.getComponent(EnemyInfoCellPrefab).referUI();
+              }
+            });
+            this.node.on("show-new-enemy-info-tips", function () {
+              var isHave = false;
+              _this2.newInfoTipsNode.active = false;
+
+              for (var i in _this2.enemyInfoCellMap) {
+                var node = _this2.enemyInfoCellMap[i];
+
+                if (!node.getComponent(BaseObject).getIsShowed() && node.getComponent(BaseObject).getEnemyIsActive()) {
+                  isHave = true;
+                  break;
+                }
+              }
+
+              console.log("is have", isHave);
+
+              if (isHave) {
+                _this2.newInfoTipsNode.active = true;
+              }
+            });
+          }
+        }, {
+          key: "closeUICb",
+          value: function closeUICb() {// console.log("close ui cb");
+            // this
+          }
+        }, {
+          key: "initEnemyData",
+          value: function initEnemyData() {
+            // let currentActiveEnemyList = this.gameController.playerData.getCurrentActiveEnemyList();
+            var gameConfig = this.gameController.getGameConfig().json;
+            var enemyList = [];
+
+            for (var i in gameConfig) {
+              var data = gameConfig[i];
+
+              if (i.indexOf("Boss") > -1) {
+                // if (i.indexOf("Enemy") > -1 || i.indexOf("Boss") > -1) {
+                console.log("iu", i);
+                console.log("data", data);
+                enemyList.push(data);
+              }
+            } //排序
+
+
+            console.log("enemy list", enemyList);
+            enemyList = enemyList.sort(function (a, b) {
+              return a.EnemyIndex - b.EnemyIndex;
+            });
+            console.log("enemy list", enemyList);
+
+            for (var _i = 0; _i < enemyList.length; _i++) {
+              console.log("data = ", enemyList[_i]);
+              var node = instantiate(this.enemyInfoCellPrefab);
+              node.parent = this.enemyInfoNodeParentNode; // console.log("data", enemyList[i]);
+
+              var enemyType = enemyList[_i]['EnemyType'];
+              console.log("enemy type", enemyType);
+              node.getComponent(EnemyInfoCellPrefab).init(this.gameController, {
+                enemyType: enemyType
+              });
+              node.getComponent(EnemyInfoCellPrefab).referUI();
+              var x = _i % 3;
+              var y = Math.floor(_i / 3);
+              console.log("x", x);
+              console.log("y = ", y);
+              node.position = v3((3 - 1) * -0.5 * 100 + x * 100, y * -100 - 70, 0);
+              this.enemyInfoNodeParentNode.height = node.position.y * -1 + 70;
+              this.enemyInfoCellMap[enemyType] = node;
+            } //取出。激活敌人数据
+            // let activeEnemyData = this.gameController.playerData.getEnemyIsActive
+
+          }
+        }, {
+          key: "referEnemyData",
+          value: function referEnemyData() {}
+        }, {
+          key: "onButtonClick",
+          value: function onButtonClick(event, customData) {
+            find("GameController").emit("player-button-click-audio");
+
+            _get(_getPrototypeOf(EnemyInfoLayerCtl.prototype), "onButtonClick", this).call(this, event, customData);
+
+            if (customData === 'bg-node-click') {
+              this.node.emit("close-monster-info-layer");
+            }
+          } // showMonsterInfoLayer(target: BaseObject){
+          //     // this.showMonsterInfoLayer
+          // }
+          // update (deltaTime: number) {
+          //     // Your update function goes here.
+          // }
+
+        }]);
+
+        return EnemyInfoLayerCtl;
+      }(InfoLayerCtlBase), _temp), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "gameController", [_dec2], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "enemyInfoNodeParentNode", [_dec3], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, "enemyInfoCellPrefab", [_dec4], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, "newInfoTipsNode", [_dec5], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      })), _class2)) || _class));
+
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///UI/EnterGameAnimCtl.js", ["../_virtual/_rollupPluginBabelHelpers.js", "cc"], function (_export, _context) {
+  "use strict";
+
+  var _applyDecoratedDescriptor, _inherits, _classCallCheck, _possibleConstructorReturn, _getPrototypeOf, _initializerDefineProperty, _assertThisInitialized, _createClass, cclegacy, _decorator, Node, UIOpacityComponent, Tween, Component, _dec, _dec2, _dec3, _dec4, _dec5, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _temp, ccclass, property, EnterGameAnimCtl;
+
+  _export({
+    _dec: void 0,
+    _dec2: void 0,
+    _dec3: void 0,
+    _dec4: void 0,
+    _dec5: void 0,
+    _class: void 0,
+    _class2: void 0,
+    _descriptor: void 0,
+    _descriptor2: void 0,
+    _descriptor3: void 0,
+    _descriptor4: void 0,
     _temp: void 0
   });
 
@@ -10428,16 +11430,17 @@ System.register("chunks:///UI/MonsterInfoLayer.js", ["../_virtual/_rollupPluginB
       cclegacy = _cc.cclegacy;
       _decorator = _cc._decorator;
       Node = _cc.Node;
-      LabelComponent = _cc.LabelComponent;
+      UIOpacityComponent = _cc.UIOpacityComponent;
+      Tween = _cc.Tween;
       Component = _cc.Component;
     }],
     execute: function () {
-      cclegacy._RF.push({}, "19cfe434XNK0JMjRNGL9hyg", "MonsterInfoLayer", undefined);
+      cclegacy._RF.push({}, "965ecmCN75I15VOe1C9JGA5", "EnterGameAnimCtl", undefined);
 
       ccclass = _decorator.ccclass;
       property = _decorator.property;
 
-      _export("MonsterInfoLayer", MonsterInfoLayer = (_dec = ccclass('MonsterInfoLayer'), _dec2 = property({
+      _export("EnterGameAnimCtl", EnterGameAnimCtl = (_dec = ccclass('EnterGameAnimCtl'), _dec2 = property({
         type: Node
       }), _dec3 = property({
         type: Node
@@ -10445,97 +11448,315 @@ System.register("chunks:///UI/MonsterInfoLayer.js", ["../_virtual/_rollupPluginB
         type: Node
       }), _dec5 = property({
         type: Node
-      }), _dec6 = property({
-        type: Node
       }), _dec(_class = (_class2 = (_temp = /*#__PURE__*/function (_Component) {
-        _inherits(MonsterInfoLayer, _Component);
+        _inherits(EnterGameAnimCtl, _Component);
 
-        function MonsterInfoLayer() {
+        function EnterGameAnimCtl() {
           var _getPrototypeOf2;
 
           var _this;
 
-          _classCallCheck(this, MonsterInfoLayer);
+          _classCallCheck(this, EnterGameAnimCtl);
 
           for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
             args[_key] = arguments[_key];
           }
 
-          _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(MonsterInfoLayer)).call.apply(_getPrototypeOf2, [this].concat(args)));
+          _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(EnterGameAnimCtl)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-          _initializerDefineProperty(_this, "nameLabel", _descriptor, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "logoLayer", _descriptor, _assertThisInitialized(_this));
 
-          _initializerDefineProperty(_this, "speedLabel", _descriptor2, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "logoNode", _descriptor2, _assertThisInitialized(_this));
 
-          _initializerDefineProperty(_this, "healthCountLabel", _descriptor3, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "bgNode", _descriptor3, _assertThisInitialized(_this));
 
-          _initializerDefineProperty(_this, "storyLabel", _descriptor4, _assertThisInitialized(_this));
-
-          _initializerDefineProperty(_this, "monsterInfoLayer", _descriptor5, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "healthGameTips", _descriptor4, _assertThisInitialized(_this));
 
           return _this;
         }
 
-        _createClass(MonsterInfoLayer, [{
+        _createClass(EnterGameAnimCtl, [{
           key: "start",
+          //健康游戏忠告
           value: function start() {
-            var _this2 = this; // this.node.on('show--info', this.setMonsterInfo.bind(this), this)
+            var _this2 = this; // Your initialization goes here.
 
 
-            this.node.on("close-monster-info-layer", function () {
-              // this.towerInfoLayer.active = false;
-              _this2.monsterInfoLayer.active = false;
+            this.logoLayer.active = true;
+            this.showAnim(this.healthGameTips, false, 1).then(function () {
+              return _this2.showAnim(_this2.healthGameTips, true, 0.01);
+            }).then(function () {
+              return _this2.showAnim(_this2.logoNode, false, 1);
+            }).then(function () {
+              return _this2.showAnim(_this2.logoNode, true, 0.01);
+            }).then(function () {
+              return _this2.showAnim(_this2.bgNode, true, 0.01);
+            }).then(function () {
+              _this2.logoLayer.active = false;
+
+              _this2.node.emit("show-guide"); //调用显示引导层 的命令
+
             });
-            this.node.on("close-weapon-info-layer", function () {
-              _this2.monsterInfoLayer.active = false;
+          }
+        }, {
+          key: "showAnim",
+          value: function showAnim(node, hide, delayTime) {
+            var opacityCom = node.getComponent(UIOpacityComponent);
+
+            if (hide) {
+              opacityCom.opacity = 255;
+            } else {
+              opacityCom.opacity = 0;
+            }
+
+            return new Promise(function (resolve, reject) {
+              var tw = new Tween(opacityCom);
+              tw.to(1, {
+                opacity: hide ? 0 : 255
+              });
+              tw.delay(delayTime);
+              tw.call(function () {
+                resolve();
+              });
+              tw.start();
             });
-          } // setMonsterInfo(){
-          //     this.monsterInfoLayer.active = true;
+          } // update (deltaTime: number) {
+          //     // Your update function goes here.
           // }
 
-        }, {
-          key: "showMonsterInfoLayer",
-          value: function showMonsterInfoLayer(target) {
-            this.monsterInfoLayer.active = true;
-            this.nameLabel.getComponent(LabelComponent).string = target.getObjectName();
-            this.healthCountLabel.getComponent(LabelComponent).string = target.getHealthCount().toString(); //获得
-            // this.speedLabel.getComponent(LabelComponent).string = target.getMoveSpeed().toString(); //移动速度
-            // this.des
-            // this.healthCountLabel.getComponent(LabelComponent).string = target.getCoun
-            // this.storyLabel.getComponent(LabelComponent).string = target.getDesString();
-          }
         }]);
 
-        return MonsterInfoLayer;
-      }(Component), _temp), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "nameLabel", [_dec2], {
+        return EnterGameAnimCtl;
+      }(Component), _temp), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "logoLayer", [_dec2], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: function initializer() {
           return null;
         }
-      }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "speedLabel", [_dec3], {
+      }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "logoNode", [_dec3], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: function initializer() {
           return null;
         }
-      }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, "healthCountLabel", [_dec4], {
+      }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, "bgNode", [_dec4], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: function initializer() {
           return null;
         }
-      }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, "storyLabel", [_dec5], {
+      }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, "healthGameTips", [_dec5], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: function initializer() {
           return null;
         }
-      }), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, "monsterInfoLayer", [_dec6], {
+      })), _class2)) || _class));
+
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///UI/GuideCtl.js", ["../_virtual/_rollupPluginBabelHelpers.js", "cc", "../GameController.js"], function (_export, _context) {
+  "use strict";
+
+  var _applyDecoratedDescriptor, _inherits, _classCallCheck, _possibleConstructorReturn, _getPrototypeOf, _initializerDefineProperty, _assertThisInitialized, _createClass, cclegacy, _decorator, Node, JsonAsset, find, UITransformComponent, Tween, v3, Component, GameController, _dec, _dec2, _dec3, _class, _class2, _descriptor, _descriptor2, _temp, ccclass, property, GuideCtl;
+
+  _export({
+    _dec: void 0,
+    _dec2: void 0,
+    _dec3: void 0,
+    _class: void 0,
+    _class2: void 0,
+    _descriptor: void 0,
+    _descriptor2: void 0,
+    _temp: void 0
+  });
+
+  return {
+    setters: [function (_virtual_rollupPluginBabelHelpersJs) {
+      _applyDecoratedDescriptor = _virtual_rollupPluginBabelHelpersJs.applyDecoratedDescriptor;
+      _inherits = _virtual_rollupPluginBabelHelpersJs.inherits;
+      _classCallCheck = _virtual_rollupPluginBabelHelpersJs.classCallCheck;
+      _possibleConstructorReturn = _virtual_rollupPluginBabelHelpersJs.possibleConstructorReturn;
+      _getPrototypeOf = _virtual_rollupPluginBabelHelpersJs.getPrototypeOf;
+      _initializerDefineProperty = _virtual_rollupPluginBabelHelpersJs.initializerDefineProperty;
+      _assertThisInitialized = _virtual_rollupPluginBabelHelpersJs.assertThisInitialized;
+      _createClass = _virtual_rollupPluginBabelHelpersJs.createClass;
+    }, function (_cc) {
+      cclegacy = _cc.cclegacy;
+      _decorator = _cc._decorator;
+      Node = _cc.Node;
+      JsonAsset = _cc.JsonAsset;
+      find = _cc.find;
+      UITransformComponent = _cc.UITransformComponent;
+      Tween = _cc.Tween;
+      v3 = _cc.v3;
+      Component = _cc.Component;
+    }, function (_GameControllerJs) {
+      GameController = _GameControllerJs.GameController;
+    }],
+    execute: function () {
+      cclegacy._RF.push({}, "d0053QZKoxNv4NvDDstfYlR", "GuideCtl", undefined);
+
+      ccclass = _decorator.ccclass;
+      property = _decorator.property;
+
+      _export("GuideCtl", GuideCtl = (_dec = ccclass('GuideCtl'), _dec2 = property({
+        type: Node
+      }), _dec3 = property({
+        type: JsonAsset
+      }), _dec(_class = (_class2 = (_temp = /*#__PURE__*/function (_Component) {
+        _inherits(GuideCtl, _Component);
+
+        function GuideCtl() {
+          var _getPrototypeOf2;
+
+          var _this;
+
+          _classCallCheck(this, GuideCtl);
+
+          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+          }
+
+          _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(GuideCtl)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+          _initializerDefineProperty(_this, "guideLayer", _descriptor, _assertThisInitialized(_this));
+
+          _initializerDefineProperty(_this, "guideConfigJsonAsset", _descriptor2, _assertThisInitialized(_this));
+
+          _this.currentGuideIndex = 1;
+          _this.gameController = null;
+          _this.guideCompleteCb = null;
+          return _this;
+        }
+
+        _createClass(GuideCtl, [{
+          key: "start",
+          value: function start() {
+            // Your initialization goes here.
+            this.gameController = find("GameController").getComponent(GameController);
+          }
+        }, {
+          key: "onLoad",
+          value: function onLoad() {
+            var _this2 = this;
+
+            this.node.on("show-guide", function (cb) {
+              //显示引导层
+              var stepStr = "Step_" + _this2.currentGuideIndex;
+
+              if (_this2.guideConfigJsonAsset.json[stepStr]) {
+                var isShowGuide = _this2.gameController.playerData.getIsShowGuide(stepStr);
+
+                if (isShowGuide) {
+                  if (cb) {
+                    cb();
+                  }
+                } else {
+                  _this2.guideCompleteCb = cb;
+
+                  _this2.showMaskAnim(stepStr);
+                }
+              } else {
+                if (cb) {
+                  cb();
+                }
+              }
+            });
+            this.node.on("complete-current-guide", function () {
+              //完成了当前的 引导逻辑
+              var stepStr = "Step_" + _this2.currentGuideIndex;
+
+              _this2.gameController.playerData.setIsShowGuide(stepStr);
+
+              _this2.currentGuideIndex++;
+
+              _this2.hideMaskAnim().then(function () {
+                console.log("引导操作完成");
+
+                if (_this2.guideCompleteCb) {
+                  console.log("存在回调");
+
+                  _this2.guideCompleteCb(); // this.guideCompleteCb = null;
+
+                }
+              });
+            });
+          }
+        }, {
+          key: "hideMaskAnim",
+          value: function hideMaskAnim() {
+            var _this3 = this;
+
+            return new Promise(function (resolve, reject) {
+              var uiTransfrom = _this3.guideLayer.getComponent(UITransformComponent);
+
+              var tw = new Tween(uiTransfrom);
+              tw.to(0.6, {
+                width: 1700,
+                height: 1700
+              });
+              tw.call(function () {
+                resolve();
+              });
+              tw.start();
+            });
+          }
+        }, {
+          key: "showMaskAnim",
+          value: function showMaskAnim(stepStr) {
+            var _this4 = this;
+
+            return new Promise(function (resolve, reject) {
+              var guideData = _this4.guideConfigJsonAsset.json[stepStr];
+              console.log("guide data", guideData);
+              var size = guideData.Size;
+              var pos = guideData.MaskPos;
+              var time = guideData.Time;
+              _this4.guideLayer.active = true;
+
+              var uiTransfrom = _this4.guideLayer.getComponent(UITransformComponent); // uiTransfrom.width = 1700;
+              // uiTransfrom.height = 1700;
+
+
+              var tw = new Tween(uiTransfrom);
+              tw.to(time, {
+                width: size.width,
+                height: size.height // position: v3(pos.x, pos.y, 0)
+
+              });
+              tw.call(function () {
+                resolve();
+              });
+              tw.start();
+              var posTw = new Tween(_this4.guideLayer);
+              posTw.to(time, {
+                position: v3(pos.x, pos.y, pos.z)
+              });
+              posTw.start();
+            });
+          } // update (deltaTime: number) {
+          //     // Your update function goes here.
+          // }
+
+        }]);
+
+        return GuideCtl;
+      }(Component), _temp), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "guideLayer", [_dec2], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "guideConfigJsonAsset", [_dec3], {
         configurable: true,
         enumerable: true,
         writable: true,
@@ -11860,1189 +13081,17 @@ System.register("chunks:///util/Besize.js", ["../_virtual/_rollupPluginBabelHelp
   };
 });
 
-System.register("chunks:///UI/EnterGameAnimCtl.js", ["../_virtual/_rollupPluginBabelHelpers.js", "cc"], function (_export, _context) {
-  "use strict";
-
-  var _applyDecoratedDescriptor, _inherits, _classCallCheck, _possibleConstructorReturn, _getPrototypeOf, _initializerDefineProperty, _assertThisInitialized, _createClass, cclegacy, _decorator, Node, UIOpacityComponent, Tween, Component, _dec, _dec2, _dec3, _dec4, _dec5, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _temp, ccclass, property, EnterGameAnimCtl;
-
-  _export({
-    _dec: void 0,
-    _dec2: void 0,
-    _dec3: void 0,
-    _dec4: void 0,
-    _dec5: void 0,
-    _class: void 0,
-    _class2: void 0,
-    _descriptor: void 0,
-    _descriptor2: void 0,
-    _descriptor3: void 0,
-    _descriptor4: void 0,
-    _temp: void 0
-  });
-
-  return {
-    setters: [function (_virtual_rollupPluginBabelHelpersJs) {
-      _applyDecoratedDescriptor = _virtual_rollupPluginBabelHelpersJs.applyDecoratedDescriptor;
-      _inherits = _virtual_rollupPluginBabelHelpersJs.inherits;
-      _classCallCheck = _virtual_rollupPluginBabelHelpersJs.classCallCheck;
-      _possibleConstructorReturn = _virtual_rollupPluginBabelHelpersJs.possibleConstructorReturn;
-      _getPrototypeOf = _virtual_rollupPluginBabelHelpersJs.getPrototypeOf;
-      _initializerDefineProperty = _virtual_rollupPluginBabelHelpersJs.initializerDefineProperty;
-      _assertThisInitialized = _virtual_rollupPluginBabelHelpersJs.assertThisInitialized;
-      _createClass = _virtual_rollupPluginBabelHelpersJs.createClass;
-    }, function (_cc) {
-      cclegacy = _cc.cclegacy;
-      _decorator = _cc._decorator;
-      Node = _cc.Node;
-      UIOpacityComponent = _cc.UIOpacityComponent;
-      Tween = _cc.Tween;
-      Component = _cc.Component;
-    }],
-    execute: function () {
-      cclegacy._RF.push({}, "965ecmCN75I15VOe1C9JGA5", "EnterGameAnimCtl", undefined);
-
-      ccclass = _decorator.ccclass;
-      property = _decorator.property;
-
-      _export("EnterGameAnimCtl", EnterGameAnimCtl = (_dec = ccclass('EnterGameAnimCtl'), _dec2 = property({
-        type: Node
-      }), _dec3 = property({
-        type: Node
-      }), _dec4 = property({
-        type: Node
-      }), _dec5 = property({
-        type: Node
-      }), _dec(_class = (_class2 = (_temp = /*#__PURE__*/function (_Component) {
-        _inherits(EnterGameAnimCtl, _Component);
-
-        function EnterGameAnimCtl() {
-          var _getPrototypeOf2;
-
-          var _this;
-
-          _classCallCheck(this, EnterGameAnimCtl);
-
-          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-            args[_key] = arguments[_key];
-          }
-
-          _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(EnterGameAnimCtl)).call.apply(_getPrototypeOf2, [this].concat(args)));
-
-          _initializerDefineProperty(_this, "logoLayer", _descriptor, _assertThisInitialized(_this));
-
-          _initializerDefineProperty(_this, "logoNode", _descriptor2, _assertThisInitialized(_this));
-
-          _initializerDefineProperty(_this, "bgNode", _descriptor3, _assertThisInitialized(_this));
-
-          _initializerDefineProperty(_this, "healthGameTips", _descriptor4, _assertThisInitialized(_this));
-
-          return _this;
-        }
-
-        _createClass(EnterGameAnimCtl, [{
-          key: "start",
-          //健康游戏忠告
-          value: function start() {
-            var _this2 = this; // Your initialization goes here.
-
-
-            this.logoLayer.active = true;
-            this.showAnim(this.healthGameTips, false, 1).then(function () {
-              return _this2.showAnim(_this2.healthGameTips, true, 0.01);
-            }).then(function () {
-              return _this2.showAnim(_this2.logoNode, false, 1);
-            }).then(function () {
-              return _this2.showAnim(_this2.logoNode, true, 0.01);
-            }).then(function () {
-              return _this2.showAnim(_this2.bgNode, true, 0.01);
-            }).then(function () {
-              _this2.logoLayer.active = false;
-
-              _this2.node.emit("show-guide"); //调用显示引导层 的命令
-
-            });
-          }
-        }, {
-          key: "showAnim",
-          value: function showAnim(node, hide, delayTime) {
-            var opacityCom = node.getComponent(UIOpacityComponent);
-
-            if (hide) {
-              opacityCom.opacity = 255;
-            } else {
-              opacityCom.opacity = 0;
-            }
-
-            return new Promise(function (resolve, reject) {
-              var tw = new Tween(opacityCom);
-              tw.to(1, {
-                opacity: hide ? 0 : 255
-              });
-              tw.delay(delayTime);
-              tw.call(function () {
-                resolve();
-              });
-              tw.start();
-            });
-          } // update (deltaTime: number) {
-          //     // Your update function goes here.
-          // }
-
-        }]);
-
-        return EnterGameAnimCtl;
-      }(Component), _temp), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "logoLayer", [_dec2], {
-        configurable: true,
-        enumerable: true,
-        writable: true,
-        initializer: function initializer() {
-          return null;
-        }
-      }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "logoNode", [_dec3], {
-        configurable: true,
-        enumerable: true,
-        writable: true,
-        initializer: function initializer() {
-          return null;
-        }
-      }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, "bgNode", [_dec4], {
-        configurable: true,
-        enumerable: true,
-        writable: true,
-        initializer: function initializer() {
-          return null;
-        }
-      }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, "healthGameTips", [_dec5], {
-        configurable: true,
-        enumerable: true,
-        writable: true,
-        initializer: function initializer() {
-          return null;
-        }
-      })), _class2)) || _class));
-
-      cclegacy._RF.pop();
-    }
-  };
-});
-
-System.register("chunks:///UI/GuideCtl.js", ["../_virtual/_rollupPluginBabelHelpers.js", "cc", "../GameController.js"], function (_export, _context) {
-  "use strict";
-
-  var _applyDecoratedDescriptor, _inherits, _classCallCheck, _possibleConstructorReturn, _getPrototypeOf, _initializerDefineProperty, _assertThisInitialized, _createClass, cclegacy, _decorator, Node, JsonAsset, find, UITransformComponent, Tween, v3, Component, GameController, _dec, _dec2, _dec3, _class, _class2, _descriptor, _descriptor2, _temp, ccclass, property, GuideCtl;
-
-  _export({
-    _dec: void 0,
-    _dec2: void 0,
-    _dec3: void 0,
-    _class: void 0,
-    _class2: void 0,
-    _descriptor: void 0,
-    _descriptor2: void 0,
-    _temp: void 0
-  });
-
-  return {
-    setters: [function (_virtual_rollupPluginBabelHelpersJs) {
-      _applyDecoratedDescriptor = _virtual_rollupPluginBabelHelpersJs.applyDecoratedDescriptor;
-      _inherits = _virtual_rollupPluginBabelHelpersJs.inherits;
-      _classCallCheck = _virtual_rollupPluginBabelHelpersJs.classCallCheck;
-      _possibleConstructorReturn = _virtual_rollupPluginBabelHelpersJs.possibleConstructorReturn;
-      _getPrototypeOf = _virtual_rollupPluginBabelHelpersJs.getPrototypeOf;
-      _initializerDefineProperty = _virtual_rollupPluginBabelHelpersJs.initializerDefineProperty;
-      _assertThisInitialized = _virtual_rollupPluginBabelHelpersJs.assertThisInitialized;
-      _createClass = _virtual_rollupPluginBabelHelpersJs.createClass;
-    }, function (_cc) {
-      cclegacy = _cc.cclegacy;
-      _decorator = _cc._decorator;
-      Node = _cc.Node;
-      JsonAsset = _cc.JsonAsset;
-      find = _cc.find;
-      UITransformComponent = _cc.UITransformComponent;
-      Tween = _cc.Tween;
-      v3 = _cc.v3;
-      Component = _cc.Component;
-    }, function (_GameControllerJs) {
-      GameController = _GameControllerJs.GameController;
-    }],
-    execute: function () {
-      cclegacy._RF.push({}, "d0053QZKoxNv4NvDDstfYlR", "GuideCtl", undefined);
-
-      ccclass = _decorator.ccclass;
-      property = _decorator.property;
-
-      _export("GuideCtl", GuideCtl = (_dec = ccclass('GuideCtl'), _dec2 = property({
-        type: Node
-      }), _dec3 = property({
-        type: JsonAsset
-      }), _dec(_class = (_class2 = (_temp = /*#__PURE__*/function (_Component) {
-        _inherits(GuideCtl, _Component);
-
-        function GuideCtl() {
-          var _getPrototypeOf2;
-
-          var _this;
-
-          _classCallCheck(this, GuideCtl);
-
-          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-            args[_key] = arguments[_key];
-          }
-
-          _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(GuideCtl)).call.apply(_getPrototypeOf2, [this].concat(args)));
-
-          _initializerDefineProperty(_this, "guideLayer", _descriptor, _assertThisInitialized(_this));
-
-          _initializerDefineProperty(_this, "guideConfigJsonAsset", _descriptor2, _assertThisInitialized(_this));
-
-          _this.currentGuideIndex = 1;
-          _this.gameController = null;
-          _this.guideCompleteCb = null;
-          return _this;
-        }
-
-        _createClass(GuideCtl, [{
-          key: "start",
-          value: function start() {
-            // Your initialization goes here.
-            this.gameController = find("GameController").getComponent(GameController);
-          }
-        }, {
-          key: "onLoad",
-          value: function onLoad() {
-            var _this2 = this;
-
-            this.node.on("show-guide", function (cb) {
-              //显示引导层
-              var stepStr = "Step_" + _this2.currentGuideIndex;
-
-              if (_this2.guideConfigJsonAsset.json[stepStr]) {
-                var isShowGuide = _this2.gameController.playerData.getIsShowGuide(stepStr);
-
-                if (isShowGuide) {
-                  if (cb) {
-                    cb();
-                  }
-                } else {
-                  _this2.guideCompleteCb = cb;
-
-                  _this2.showMaskAnim(stepStr);
-                }
-              } else {
-                if (cb) {
-                  cb();
-                }
-              }
-            });
-            this.node.on("complete-current-guide", function () {
-              //完成了当前的 引导逻辑
-              var stepStr = "Step_" + _this2.currentGuideIndex;
-
-              _this2.gameController.playerData.setIsShowGuide(stepStr);
-
-              _this2.currentGuideIndex++;
-
-              _this2.hideMaskAnim().then(function () {
-                console.log("引导操作完成");
-
-                if (_this2.guideCompleteCb) {
-                  console.log("存在回调");
-
-                  _this2.guideCompleteCb(); // this.guideCompleteCb = null;
-
-                }
-              });
-            });
-          }
-        }, {
-          key: "hideMaskAnim",
-          value: function hideMaskAnim() {
-            var _this3 = this;
-
-            return new Promise(function (resolve, reject) {
-              var uiTransfrom = _this3.guideLayer.getComponent(UITransformComponent);
-
-              var tw = new Tween(uiTransfrom);
-              tw.to(0.6, {
-                width: 1700,
-                height: 1700
-              });
-              tw.call(function () {
-                resolve();
-              });
-              tw.start();
-            });
-          }
-        }, {
-          key: "showMaskAnim",
-          value: function showMaskAnim(stepStr) {
-            var _this4 = this;
-
-            return new Promise(function (resolve, reject) {
-              var guideData = _this4.guideConfigJsonAsset.json[stepStr];
-              console.log("guide data", guideData);
-              var size = guideData.Size;
-              var pos = guideData.MaskPos;
-              var time = guideData.Time;
-              _this4.guideLayer.active = true;
-
-              var uiTransfrom = _this4.guideLayer.getComponent(UITransformComponent); // uiTransfrom.width = 1700;
-              // uiTransfrom.height = 1700;
-
-
-              var tw = new Tween(uiTransfrom);
-              tw.to(time, {
-                width: size.width,
-                height: size.height // position: v3(pos.x, pos.y, 0)
-
-              });
-              tw.call(function () {
-                resolve();
-              });
-              tw.start();
-              var posTw = new Tween(_this4.guideLayer);
-              posTw.to(time, {
-                position: v3(pos.x, pos.y, pos.z)
-              });
-              posTw.start();
-            });
-          } // update (deltaTime: number) {
-          //     // Your update function goes here.
-          // }
-
-        }]);
-
-        return GuideCtl;
-      }(Component), _temp), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "guideLayer", [_dec2], {
-        configurable: true,
-        enumerable: true,
-        writable: true,
-        initializer: function initializer() {
-          return null;
-        }
-      }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "guideConfigJsonAsset", [_dec3], {
-        configurable: true,
-        enumerable: true,
-        writable: true,
-        initializer: function initializer() {
-          return null;
-        }
-      })), _class2)) || _class));
-
-      cclegacy._RF.pop();
-    }
-  };
-});
-
-System.register("chunks:///UI/DialogCtl.js", ["../_virtual/_rollupPluginBabelHelpers.js", "cc"], function (_export, _context) {
-  "use strict";
-
-  var _applyDecoratedDescriptor, _inherits, _classCallCheck, _possibleConstructorReturn, _getPrototypeOf, _initializerDefineProperty, _assertThisInitialized, _createClass, cclegacy, _decorator, JsonAsset, Node, loader, SpriteFrame, SpriteComponent, LabelComponent, find, v3, Tween, Component, _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _temp, ccclass, property, DialogCtl;
-
-  _export({
-    _dec: void 0,
-    _dec2: void 0,
-    _dec3: void 0,
-    _dec4: void 0,
-    _dec5: void 0,
-    _dec6: void 0,
-    _class: void 0,
-    _class2: void 0,
-    _descriptor: void 0,
-    _descriptor2: void 0,
-    _descriptor3: void 0,
-    _descriptor4: void 0,
-    _descriptor5: void 0,
-    _temp: void 0
-  });
-
-  return {
-    setters: [function (_virtual_rollupPluginBabelHelpersJs) {
-      _applyDecoratedDescriptor = _virtual_rollupPluginBabelHelpersJs.applyDecoratedDescriptor;
-      _inherits = _virtual_rollupPluginBabelHelpersJs.inherits;
-      _classCallCheck = _virtual_rollupPluginBabelHelpersJs.classCallCheck;
-      _possibleConstructorReturn = _virtual_rollupPluginBabelHelpersJs.possibleConstructorReturn;
-      _getPrototypeOf = _virtual_rollupPluginBabelHelpersJs.getPrototypeOf;
-      _initializerDefineProperty = _virtual_rollupPluginBabelHelpersJs.initializerDefineProperty;
-      _assertThisInitialized = _virtual_rollupPluginBabelHelpersJs.assertThisInitialized;
-      _createClass = _virtual_rollupPluginBabelHelpersJs.createClass;
-    }, function (_cc) {
-      cclegacy = _cc.cclegacy;
-      _decorator = _cc._decorator;
-      JsonAsset = _cc.JsonAsset;
-      Node = _cc.Node;
-      loader = _cc.loader;
-      SpriteFrame = _cc.SpriteFrame;
-      SpriteComponent = _cc.SpriteComponent;
-      LabelComponent = _cc.LabelComponent;
-      find = _cc.find;
-      v3 = _cc.v3;
-      Tween = _cc.Tween;
-      Component = _cc.Component;
-    }],
-    execute: function () {
-      cclegacy._RF.push({}, "6cd17627e9OW6ntczLEzTI0", "DialogCtl", undefined);
-
-      ccclass = _decorator.ccclass;
-      property = _decorator.property;
-
-      _export("DialogCtl", DialogCtl = (_dec = ccclass('DialogCtl'), _dec2 = property({
-        type: JsonAsset
-      }), _dec3 = property({
-        type: Node
-      }), _dec4 = property({
-        type: Node
-      }), _dec5 = property({
-        type: Node
-      }), _dec6 = property({
-        type: Node
-      }), _dec(_class = (_class2 = (_temp = /*#__PURE__*/function (_Component) {
-        _inherits(DialogCtl, _Component);
-
-        function DialogCtl() {
-          var _getPrototypeOf2;
-
-          var _this;
-
-          _classCallCheck(this, DialogCtl);
-
-          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-            args[_key] = arguments[_key];
-          }
-
-          _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(DialogCtl)).call.apply(_getPrototypeOf2, [this].concat(args)));
-
-          _initializerDefineProperty(_this, "dialogConfigJsonAsset", _descriptor, _assertThisInitialized(_this));
-
-          _initializerDefineProperty(_this, "dialogBgNode", _descriptor2, _assertThisInitialized(_this));
-
-          _initializerDefineProperty(_this, "dialogLayer", _descriptor3, _assertThisInitialized(_this));
-
-          _initializerDefineProperty(_this, "dialogLabel", _descriptor4, _assertThisInitialized(_this));
-
-          _initializerDefineProperty(_this, "dialogPicNode", _descriptor5, _assertThisInitialized(_this));
-
-          _this.currentLevelDialogData = [];
-          _this.currentDialogIndex = 0;
-          _this.dialogOverCb = null;
-          return _this;
-        }
-
-        _createClass(DialogCtl, [{
-          key: "start",
-          value: function start() {
-            var _this2 = this; // Your initialization goes here.
-
-
-            this.node.on("show-start-dialog", function (currentLevel, cb) {
-              //播放开始的时候的 对话
-              console.log("展示开始对话的内容", currentLevel);
-              _this2.dialogBgNode.active = true;
-              _this2.dialogLayer.active = true; //取出当前的对话数据
-
-              _this2.currentLevelDialogData = _this2.dialogConfigJsonAsset.json['Level_' + currentLevel]['StartDialogList'];
-              _this2.currentDialogIndex = 0;
-
-              _this2.showOneDialog();
-
-              _this2.dialogOverCb = function () {
-                _this2.closeDialogLayer().then(function () {
-                  cb();
-                });
-              };
-            });
-            this.node.on("show-end-dialog", function (currentLevel, cb) {
-              //播放结束的时候的对话
-              console.log("展示开始对话的内容", currentLevel);
-              _this2.dialogBgNode.active = true;
-              _this2.dialogLayer.active = true; //取出当前的对话数据
-
-              _this2.currentLevelDialogData = _this2.dialogConfigJsonAsset.json['Level_' + currentLevel]['EndDialogList'];
-              _this2.currentDialogIndex = 0;
-
-              _this2.showOneDialog();
-
-              _this2.dialogOverCb = function () {
-                _this2.closeDialogLayer().then(function () {
-                  cb();
-                });
-              };
-            });
-          }
-        }, {
-          key: "closeDialogLayer",
-          value: function closeDialogLayer() {
-            var _this3 = this;
-
-            return new Promise(function (resolve, reject) {
-              _this3.showTLPOutAnim().then(function () {
-                _this3.dialogBgNode.active = false;
-                _this3.dialogLayer.active = false;
-                resolve();
-              });
-            });
-          }
-        }, {
-          key: "showOneDialog",
-          value: function showOneDialog() {
-            var _this4 = this;
-
-            if (this.currentDialogIndex >= this.currentLevelDialogData.length) {
-              if (this.dialogOverCb) {
-                this.dialogOverCb();
-              }
-
-              return;
-            } //展示一条dialog
-
-
-            var dialogData = this.currentLevelDialogData[this.currentDialogIndex];
-            var picStr = dialogData['Pic'];
-            loader.loadRes(picStr + '/spriteFrame', SpriteFrame, function (err, result) {
-              if (!err) {
-                _this4.showTLPEnterAnim().then(function () {
-                  _this4.dialogPicNode.getComponent(SpriteComponent).spriteFrame = result;
-                  var text = dialogData['Text'];
-                  _this4.dialogLabel.getComponent(LabelComponent).string = text;
-                });
-              }
-            });
-            this.currentDialogIndex++;
-          }
-        }, {
-          key: "onButtonClick",
-          value: function onButtonClick(event, customData) {
-            find("GameController").emit("player-button-click-audio");
-
-            switch (customData) {
-              case 'next-button':
-                console.log("下一步");
-                this.showOneDialog();
-                break;
-
-              default:
-                break;
-            }
-          }
-        }, {
-          key: "showTLPEnterAnim",
-          value: function showTLPEnterAnim() {
-            var _this5 = this;
-
-            return new Promise(function (resolve, reject) {
-              if (_this5.dialogPicNode.position.x > -500) {
-                resolve();
-              } else {
-                _this5.dialogPicNode.position = v3(-1000, -161.675, 0);
-                var tw = new Tween(_this5.dialogPicNode);
-                tw.to(0.2, {
-                  position: v3(-407.421, -161, 0)
-                });
-                tw.call(function () {
-                  resolve();
-                });
-                tw.start();
-              }
-            });
-          }
-        }, {
-          key: "showTLPOutAnim",
-          value: function showTLPOutAnim() {
-            var _this6 = this;
-
-            return new Promise(function (resolve, reject) {
-              var tw = new Tween(_this6.dialogPicNode);
-              tw.to(0.2, {
-                position: v3(-1000, -161, 0)
-              });
-              tw.call(function () {
-                resolve();
-              });
-              tw.start();
-            });
-          } // update (deltaTime: number) {
-          //     // Your update function goes here.
-          // }
-
-        }]);
-
-        return DialogCtl;
-      }(Component), _temp), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "dialogConfigJsonAsset", [_dec2], {
-        configurable: true,
-        enumerable: true,
-        writable: true,
-        initializer: function initializer() {
-          return null;
-        }
-      }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "dialogBgNode", [_dec3], {
-        configurable: true,
-        enumerable: true,
-        writable: true,
-        initializer: function initializer() {
-          return null;
-        }
-      }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, "dialogLayer", [_dec4], {
-        configurable: true,
-        enumerable: true,
-        writable: true,
-        initializer: function initializer() {
-          return null;
-        }
-      }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, "dialogLabel", [_dec5], {
-        configurable: true,
-        enumerable: true,
-        writable: true,
-        initializer: function initializer() {
-          return null;
-        }
-      }), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, "dialogPicNode", [_dec6], {
-        configurable: true,
-        enumerable: true,
-        writable: true,
-        initializer: function initializer() {
-          return null;
-        }
-      })), _class2)) || _class));
-
-      cclegacy._RF.pop();
-    }
-  };
-});
-
-System.register("chunks:///UI/EnemyInfoCellPrefab.js", ["../_virtual/_rollupPluginBabelHelpers.js", "cc", "../BaseObject.js", "./MonsterInfoLayer.js"], function (_export, _context) {
-  "use strict";
-
-  var _applyDecoratedDescriptor, _inherits, _classCallCheck, _possibleConstructorReturn, _getPrototypeOf, _initializerDefineProperty, _assertThisInitialized, _createClass, _get, cclegacy, _decorator, Node, find, loader, SpriteFrame, SpriteComponent, BaseObject, MonsterInfoLayer, _dec, _dec2, _dec3, _class, _class2, _descriptor, _descriptor2, _temp, ccclass, property, EnemyInfoCellPrefab;
-
-  _export({
-    _dec: void 0,
-    _dec2: void 0,
-    _dec3: void 0,
-    _class: void 0,
-    _class2: void 0,
-    _descriptor: void 0,
-    _descriptor2: void 0,
-    _temp: void 0
-  });
-
-  return {
-    setters: [function (_virtual_rollupPluginBabelHelpersJs) {
-      _applyDecoratedDescriptor = _virtual_rollupPluginBabelHelpersJs.applyDecoratedDescriptor;
-      _inherits = _virtual_rollupPluginBabelHelpersJs.inherits;
-      _classCallCheck = _virtual_rollupPluginBabelHelpersJs.classCallCheck;
-      _possibleConstructorReturn = _virtual_rollupPluginBabelHelpersJs.possibleConstructorReturn;
-      _getPrototypeOf = _virtual_rollupPluginBabelHelpersJs.getPrototypeOf;
-      _initializerDefineProperty = _virtual_rollupPluginBabelHelpersJs.initializerDefineProperty;
-      _assertThisInitialized = _virtual_rollupPluginBabelHelpersJs.assertThisInitialized;
-      _createClass = _virtual_rollupPluginBabelHelpersJs.createClass;
-      _get = _virtual_rollupPluginBabelHelpersJs.get;
-    }, function (_cc) {
-      cclegacy = _cc.cclegacy;
-      _decorator = _cc._decorator;
-      Node = _cc.Node;
-      find = _cc.find;
-      loader = _cc.loader;
-      SpriteFrame = _cc.SpriteFrame;
-      SpriteComponent = _cc.SpriteComponent;
-    }, function (_BaseObjectJs) {
-      BaseObject = _BaseObjectJs.BaseObject;
-    }, function (_MonsterInfoLayerJs) {
-      MonsterInfoLayer = _MonsterInfoLayerJs.MonsterInfoLayer;
-    }],
-    execute: function () {
-      cclegacy._RF.push({}, "ede41pxC3ZOx6d6u8MOr8l/", "EnemyInfoCellPrefab", undefined);
-
-      ccclass = _decorator.ccclass;
-      property = _decorator.property;
-
-      _export("EnemyInfoCellPrefab", EnemyInfoCellPrefab = (_dec = ccclass('EnemyInfoCellPrefab'), _dec2 = property({
-        type: Node
-      }), _dec3 = property({
-        type: Node
-      }), _dec(_class = (_class2 = (_temp = /*#__PURE__*/function (_BaseObject) {
-        _inherits(EnemyInfoCellPrefab, _BaseObject);
-
-        function EnemyInfoCellPrefab() {
-          var _getPrototypeOf2;
-
-          var _this;
-
-          _classCallCheck(this, EnemyInfoCellPrefab);
-
-          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-            args[_key] = arguments[_key];
-          }
-
-          _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(EnemyInfoCellPrefab)).call.apply(_getPrototypeOf2, [this].concat(args)));
-
-          _initializerDefineProperty(_this, "enemyIconNode", _descriptor, _assertThisInitialized(_this));
-
-          _initializerDefineProperty(_this, "newInfoTipsNode", _descriptor2, _assertThisInitialized(_this));
-
-          _this.uiControllerNode = null;
-          return _this;
-        }
-
-        _createClass(EnemyInfoCellPrefab, [{
-          key: "init",
-          value: function init(gameController, data) {
-            var _this2 = this;
-
-            var enemyType = data["enemyType"];
-            console.log("enemy type", enemyType);
-            this.uiControllerNode = find('Canvas');
-            var gameConfig = gameController.getGameConfig().json; // super.objectType = enemyType;
-            // console.log("super object type", super.objectType);
-
-            _get(_getPrototypeOf(EnemyInfoCellPrefab.prototype), "init", this).call(this, gameConfig, gameController, null, null, enemyType);
-
-            this.gameController.node.on("refer-enemy-info-cell", function () {
-              _this2.referUI();
-            });
-            this.node.on("click", this.onButtonClick.bind(this), this);
-            this.referUI();
-          }
-        }, {
-          key: "referUI",
-          value: function referUI() {
-            var _this3 = this; //刷新UI 
-
-
-            var isActive = this.getEnemyIsActive();
-            console.log("is active", isActive);
-
-            if (isActive) {
-              var spriteFrameIconStr = this.getIconSprteFrame(); //如果是激活了
-
-              console.log("sprite frame icon str", spriteFrameIconStr);
-              loader.loadRes(spriteFrameIconStr + "/spriteFrame", SpriteFrame, function (err, result) {
-                if (!err) {
-                  _this3.enemyIconNode.getComponent(SpriteComponent).spriteFrame = result;
-                }
-              });
-              var isShowed = this.getIsShowed();
-
-              if (!isShowed) {
-                this.newInfoTipsNode.active = true;
-                this.uiControllerNode.emit("show-new-enemy-info-tips");
-              }
-            }
-          }
-        }, {
-          key: "onButtonClick",
-          value: function onButtonClick() {
-            find("GameController").emit("player-button-click-audio");
-            console.log("click");
-
-            if (this.getEnemyIsActive()) {
-              // thi
-              this.uiControllerNode.getComponent(MonsterInfoLayer).showMonsterInfoLayer(this);
-              this.newInfoTipsNode.active = false;
-              this.setShowed();
-              this.uiControllerNode.emit("show-new-enemy-info-tips");
-            }
-          } // public init(gameConfig: Object, gameController: GameController){
-          // }
-          // public init() {
-          //     // super.init(gameConfig, gameController);
-          // }
-          // public init(gameConfig: Object, gameController: GameController, objectType?: string){
-          //     super.init(gameConfig, gameController);
-          //     // super.objectType = objectType;
-          //     // console.log("object type", super.objectType);
-          //     // let gameConfig = gameController.getGameConfig().json;
-          //     // super.init(gameConfig, gameController);
-          //     // //获取是否激活了
-          //     // let isActive = this.getEnemyIsActive();
-          //     // if (isActive){
-          //     // }
-          // }
-
-        }]);
-
-        return EnemyInfoCellPrefab;
-      }(BaseObject), _temp), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "enemyIconNode", [_dec2], {
-        configurable: true,
-        enumerable: true,
-        writable: true,
-        initializer: function initializer() {
-          return null;
-        }
-      }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "newInfoTipsNode", [_dec3], {
-        configurable: true,
-        enumerable: true,
-        writable: true,
-        initializer: function initializer() {
-          return null;
-        }
-      })), _class2)) || _class));
-
-      cclegacy._RF.pop();
-    }
-  };
-});
-
-System.register("chunks:///UI/EnemyInfoLayerCtl.js", ["../_virtual/_rollupPluginBabelHelpers.js", "cc", "../BaseObject.js", "../GameController.js", "./InfoLayerCtlBase.js", "./EnemyInfoCellPrefab.js"], function (_export, _context) {
-  "use strict";
-
-  var _applyDecoratedDescriptor, _inherits, _classCallCheck, _possibleConstructorReturn, _getPrototypeOf, _initializerDefineProperty, _assertThisInitialized, _createClass, _get, cclegacy, _decorator, Node, Prefab, instantiate, v3, find, BaseObject, GameController, InfoLayerCtlBase, EnemyInfoCellPrefab, _dec, _dec2, _dec3, _dec4, _dec5, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _temp, ccclass, property, EnemyInfoLayerCtl;
-
-  _export({
-    _dec: void 0,
-    _dec2: void 0,
-    _dec3: void 0,
-    _dec4: void 0,
-    _dec5: void 0,
-    _class: void 0,
-    _class2: void 0,
-    _descriptor: void 0,
-    _descriptor2: void 0,
-    _descriptor3: void 0,
-    _descriptor4: void 0,
-    _temp: void 0
-  });
-
-  return {
-    setters: [function (_virtual_rollupPluginBabelHelpersJs) {
-      _applyDecoratedDescriptor = _virtual_rollupPluginBabelHelpersJs.applyDecoratedDescriptor;
-      _inherits = _virtual_rollupPluginBabelHelpersJs.inherits;
-      _classCallCheck = _virtual_rollupPluginBabelHelpersJs.classCallCheck;
-      _possibleConstructorReturn = _virtual_rollupPluginBabelHelpersJs.possibleConstructorReturn;
-      _getPrototypeOf = _virtual_rollupPluginBabelHelpersJs.getPrototypeOf;
-      _initializerDefineProperty = _virtual_rollupPluginBabelHelpersJs.initializerDefineProperty;
-      _assertThisInitialized = _virtual_rollupPluginBabelHelpersJs.assertThisInitialized;
-      _createClass = _virtual_rollupPluginBabelHelpersJs.createClass;
-      _get = _virtual_rollupPluginBabelHelpersJs.get;
-    }, function (_cc) {
-      cclegacy = _cc.cclegacy;
-      _decorator = _cc._decorator;
-      Node = _cc.Node;
-      Prefab = _cc.Prefab;
-      instantiate = _cc.instantiate;
-      v3 = _cc.v3;
-      find = _cc.find;
-    }, function (_BaseObjectJs) {
-      BaseObject = _BaseObjectJs.BaseObject;
-    }, function (_GameControllerJs) {
-      GameController = _GameControllerJs.GameController;
-    }, function (_InfoLayerCtlBaseJs) {
-      InfoLayerCtlBase = _InfoLayerCtlBaseJs.InfoLayerCtlBase;
-    }, function (_EnemyInfoCellPrefabJs) {
-      EnemyInfoCellPrefab = _EnemyInfoCellPrefabJs.EnemyInfoCellPrefab;
-    }],
-    execute: function () {
-      cclegacy._RF.push({}, "dd7e3sy4eVGxLt1hsBdjeJ6", "EnemyInfoLayerCtl", undefined);
-
-      ccclass = _decorator.ccclass;
-      property = _decorator.property;
-
-      _export("EnemyInfoLayerCtl", EnemyInfoLayerCtl = (_dec = ccclass('EnemyInfoLayerCtl'), _dec2 = property({
-        type: GameController
-      }), _dec3 = property({
-        type: Node
-      }), _dec4 = property({
-        type: Prefab
-      }), _dec5 = property({
-        type: Node
-      }), _dec(_class = (_class2 = (_temp = /*#__PURE__*/function (_InfoLayerCtlBase) {
-        _inherits(EnemyInfoLayerCtl, _InfoLayerCtlBase);
-
-        function EnemyInfoLayerCtl() {
-          var _getPrototypeOf2;
-
-          var _this;
-
-          _classCallCheck(this, EnemyInfoLayerCtl);
-
-          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-            args[_key] = arguments[_key];
-          }
-
-          _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(EnemyInfoLayerCtl)).call.apply(_getPrototypeOf2, [this].concat(args)));
-
-          _initializerDefineProperty(_this, "gameController", _descriptor, _assertThisInitialized(_this));
-
-          _initializerDefineProperty(_this, "enemyInfoNodeParentNode", _descriptor2, _assertThisInitialized(_this));
-
-          _initializerDefineProperty(_this, "enemyInfoCellPrefab", _descriptor3, _assertThisInitialized(_this));
-
-          _this.enemyInfoCellMap = {};
-
-          _initializerDefineProperty(_this, "newInfoTipsNode", _descriptor4, _assertThisInitialized(_this));
-
-          return _this;
-        }
-
-        _createClass(EnemyInfoLayerCtl, [{
-          key: "start",
-          value: function start() {
-            var _this2 = this;
-
-            _get(_getPrototypeOf(EnemyInfoLayerCtl.prototype), "start", this).call(this); // Your initialization goes here.
-            // let screenSize = view.getVisibleSize();
-
-
-            this.initEnemyData(); // this.node.on("refer-enemy-data", this.referEnemyData.bind(this), this);
-
-            this.node.on("refer-enemy-info-cell", function (enemyType) {
-              console.log("`激活了某个敌人`", enemyType);
-              console.log("enemy info cell map", _this2.enemyInfoCellMap);
-
-              if (_this2.enemyInfoCellMap[enemyType]) {
-                console.log("刷新这个敌人的UI"); // this.enemyInfoCellMap[enemyType].getComponent(EnemyInfoCellPrefab).referUI();
-
-                var node = _this2.enemyInfoCellMap[enemyType];
-                node.getComponent(EnemyInfoCellPrefab).referUI();
-              }
-            });
-            this.node.on("show-new-enemy-info-tips", function () {
-              var isHave = false;
-              _this2.newInfoTipsNode.active = false;
-
-              for (var i in _this2.enemyInfoCellMap) {
-                var node = _this2.enemyInfoCellMap[i];
-
-                if (!node.getComponent(BaseObject).getIsShowed() && node.getComponent(BaseObject).getEnemyIsActive()) {
-                  isHave = true;
-                  break;
-                }
-              }
-
-              console.log("is have", isHave);
-
-              if (isHave) {
-                _this2.newInfoTipsNode.active = true;
-              }
-            });
-          }
-        }, {
-          key: "closeUICb",
-          value: function closeUICb() {// console.log("close ui cb");
-            // this
-          }
-        }, {
-          key: "initEnemyData",
-          value: function initEnemyData() {
-            // let currentActiveEnemyList = this.gameController.playerData.getCurrentActiveEnemyList();
-            var gameConfig = this.gameController.getGameConfig().json;
-            var enemyList = [];
-
-            for (var i in gameConfig) {
-              var data = gameConfig[i];
-
-              if (i.indexOf("Boss") > -1) {
-                // if (i.indexOf("Enemy") > -1 || i.indexOf("Boss") > -1) {
-                console.log("iu", i);
-                console.log("data", data);
-                enemyList.push(data);
-              }
-            } //排序
-
-
-            console.log("enemy list", enemyList);
-            enemyList = enemyList.sort(function (a, b) {
-              return a.EnemyIndex - b.EnemyIndex;
-            });
-            console.log("enemy list", enemyList);
-
-            for (var _i = 0; _i < enemyList.length; _i++) {
-              console.log("data = ", enemyList[_i]);
-              var node = instantiate(this.enemyInfoCellPrefab);
-              node.parent = this.enemyInfoNodeParentNode; // console.log("data", enemyList[i]);
-
-              var enemyType = enemyList[_i]['EnemyType'];
-              console.log("enemy type", enemyType);
-              node.getComponent(EnemyInfoCellPrefab).init(this.gameController, {
-                enemyType: enemyType
-              });
-              node.getComponent(EnemyInfoCellPrefab).referUI();
-              var x = _i % 3;
-              var y = Math.floor(_i / 3);
-              console.log("x", x);
-              console.log("y = ", y);
-              node.position = v3((3 - 1) * -0.5 * 100 + x * 100, y * -100 - 70, 0);
-              this.enemyInfoNodeParentNode.height = node.position.y * -1 + 70;
-              this.enemyInfoCellMap[enemyType] = node;
-            } //取出。激活敌人数据
-            // let activeEnemyData = this.gameController.playerData.getEnemyIsActive
-
-          }
-        }, {
-          key: "referEnemyData",
-          value: function referEnemyData() {}
-        }, {
-          key: "onButtonClick",
-          value: function onButtonClick(event, customData) {
-            find("GameController").emit("player-button-click-audio");
-
-            _get(_getPrototypeOf(EnemyInfoLayerCtl.prototype), "onButtonClick", this).call(this, event, customData);
-
-            if (customData === 'bg-node-click') {
-              this.node.emit("close-monster-info-layer");
-            }
-          } // showMonsterInfoLayer(target: BaseObject){
-          //     // this.showMonsterInfoLayer
-          // }
-          // update (deltaTime: number) {
-          //     // Your update function goes here.
-          // }
-
-        }]);
-
-        return EnemyInfoLayerCtl;
-      }(InfoLayerCtlBase), _temp), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "gameController", [_dec2], {
-        configurable: true,
-        enumerable: true,
-        writable: true,
-        initializer: function initializer() {
-          return null;
-        }
-      }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "enemyInfoNodeParentNode", [_dec3], {
-        configurable: true,
-        enumerable: true,
-        writable: true,
-        initializer: function initializer() {
-          return null;
-        }
-      }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, "enemyInfoCellPrefab", [_dec4], {
-        configurable: true,
-        enumerable: true,
-        writable: true,
-        initializer: function initializer() {
-          return null;
-        }
-      }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, "newInfoTipsNode", [_dec5], {
-        configurable: true,
-        enumerable: true,
-        writable: true,
-        initializer: function initializer() {
-          return null;
-        }
-      })), _class2)) || _class));
-
-      cclegacy._RF.pop();
-    }
-  };
-});
-
-System.register("chunks:///AudioCtl.js", ["./_virtual/_rollupPluginBabelHelpers.js", "cc"], function (_export, _context) {
-  "use strict";
-
-  var _inherits, _classCallCheck, _possibleConstructorReturn, _getPrototypeOf, _createClass, cclegacy, _decorator, AudioSourceComponent, loader, AudioClip, Component, _dec, _class, _temp, ccclass, property, AudioCtl;
-
-  _export({
-    _dec: void 0,
-    _class: void 0,
-    _temp: void 0
-  });
-
-  return {
-    setters: [function (_virtual_rollupPluginBabelHelpersJs) {
-      _inherits = _virtual_rollupPluginBabelHelpersJs.inherits;
-      _classCallCheck = _virtual_rollupPluginBabelHelpersJs.classCallCheck;
-      _possibleConstructorReturn = _virtual_rollupPluginBabelHelpersJs.possibleConstructorReturn;
-      _getPrototypeOf = _virtual_rollupPluginBabelHelpersJs.getPrototypeOf;
-      _createClass = _virtual_rollupPluginBabelHelpersJs.createClass;
-    }, function (_cc) {
-      cclegacy = _cc.cclegacy;
-      _decorator = _cc._decorator;
-      AudioSourceComponent = _cc.AudioSourceComponent;
-      loader = _cc.loader;
-      AudioClip = _cc.AudioClip;
-      Component = _cc.Component;
-    }],
-    execute: function () {
-      cclegacy._RF.push({}, "7fa36dmnLhPGLldXsNYKbQR", "AudioCtl", undefined);
-
-      ccclass = _decorator.ccclass;
-      property = _decorator.property;
-
-      _export("AudioCtl", AudioCtl = (_dec = ccclass('AudioCtl'), _dec(_class = (_temp = /*#__PURE__*/function (_Component) {
-        _inherits(AudioCtl, _Component);
-
-        function AudioCtl() {
-          var _getPrototypeOf2;
-
-          var _this;
-
-          _classCallCheck(this, AudioCtl);
-
-          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-            args[_key] = arguments[_key];
-          }
-
-          _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(AudioCtl)).call.apply(_getPrototypeOf2, [this].concat(args)));
-          _this.audioSourcesCom = null;
-          return _this;
-        }
-
-        _createClass(AudioCtl, [{
-          key: "start",
-          value: function start() {
-            this.audioSourcesCom = this.node.getComponent(AudioSourceComponent);
-          }
-        }, {
-          key: "onLoad",
-          value: function onLoad() {
-            var _this2 = this;
-
-            this.node.on("play-audio", function (audioStr, cb) {
-              console.log("player- audio", audioStr);
-
-              _this2.playAudio(audioStr, cb);
-            });
-            this.node.on("player-button-click-audio", function () {
-              _this2.playAudio("按钮音效2", function () {});
-            });
-            this.node.on("player-button-click-audio-2", function () {
-              _this2.playAudio("按钮音效", function () {});
-            });
-            this.node.on("play-bg-music", function () {
-              //播放背景音乐
-              loader.loadRes("音乐文件/背景音效", AudioClip, function (err, result) {
-                // result.setVolume(0.5);
-                // this.audioSourcesCom.volume = 0.5;
-                result.setVolume(0.1, true);
-
-                _this2.audioSourcesCom.playOneShot(result);
-              });
-            });
-          }
-        }, {
-          key: "playAudio",
-          value: function playAudio(audioStr, cb) {
-            var _this3 = this;
-
-            loader.loadRes('音乐文件/' + audioStr, AudioClip, function (err, result) {
-              if (err) {
-                console.log("load audio err", err);
-              } else {
-                // AudioSourceComponent
-                // result.play();
-                _this3.audioSourcesCom.playOneShot(result);
-              }
-            });
-          }
-        }]);
-
-        return AudioCtl;
-      }(Component), _temp)) || _class));
-
-      cclegacy._RF.pop();
-    }
-  };
-});
-
-System.register("chunks:///_virtual/prerequisite-imports:main", ["../BaseObject.js", "../BossController.js", "../util/State.js", "../TowerBuildBase/TowerBuildBase.js", "../util/BezierN.js", "../util/My2Array.js", "../GroundTiled/GroundTiled.js", "../GroundMapCtl.js", "../util/FindPathWithAStart.js", "../Enemys/EnemyBase.js", "../Enemys/EnemyBullet.js", "../EnemyController.js", "../TowerBuildBaseCtl.js", "../Data/PlayerData.js", "../UI/Menu/MenuUIBase.js", "../util/Tool.js", "../UI/GoldCtl.js", "../UI/Menu/UpdateTowerUI.js", "../UI/Menu/BuildTowerUITowerIcon.js", "../UI/Menu/BuildTowerUI.js", "../UI/GameWin/GameResultGoldCell.js", "../UI/GameWin/GameWinPrefab.js", "../UI/UIController.js", "../UI/SkillCtl.js", "../Towers/TowerBase.js", "../Effect/WinGoldAnimEffect.js", "../Home/HomeIcon.js", "../GameController.js", "../BulletBase.js", "../ChooseWeaponInfoRateCtl.js", "../Enemys/EnemyColonyCom.js", "../Enemys/EnemyCube.js", "../Enemys/WinGold.js", "../SkillComponent/CrazyRotateSkill.js", "../UI/AStartFindPath.js", "../UI/EnemyHealthBarCtl.js", "../UI/InfoLayerCtlBase.js", "../UI/MonsterInfoLayer.js", "../UI/TouchScreenLayer.js", "../UI/TowerInfoLayer.js", "../UI/typescript.js", "../UI/WeaponUpdateCellPrefab.js", "../UI/WeaponInfoCtl.js", "../UI/\u9053\u5177/KuangBaoSkill.js", "../UI/\u9053\u5177/TreePrefab.js", "../util/AdsController.js", "../util/Besize.js", "../UI/EnterGameAnimCtl.js", "../UI/GuideCtl.js", "../UI/DialogCtl.js", "../UI/EnemyInfoCellPrefab.js", "../UI/EnemyInfoLayerCtl.js", "../AudioCtl.js"], function (_export, _context) {
+System.register("chunks:///_virtual/prerequisite-imports:main", ["../AudioCtl.js", "../BaseObject.js", "../BossController.js", "../util/State.js", "../TowerBuildBase/TowerBuildBase.js", "../util/BezierN.js", "../util/My2Array.js", "../GroundTiled/GroundTiled.js", "../GroundMapCtl.js", "../util/FindPathWithAStart.js", "../Enemys/EnemyBase.js", "../Enemys/EnemyBullet.js", "../EnemyController.js", "../TowerBuildBaseCtl.js", "../Data/PlayerData.js", "../UI/Menu/MenuUIBase.js", "../util/Tool.js", "../UI/GoldCtl.js", "../UI/Menu/UpdateTowerUI.js", "../UI/Menu/BuildTowerUITowerIcon.js", "../UI/Menu/BuildTowerUI.js", "../UI/GameWin/GameResultGoldCell.js", "../UI/GameWin/GameWinPrefab.js", "../UI/UIController.js", "../UI/SkillCtl.js", "../Towers/TowerBase.js", "../Effect/WinGoldAnimEffect.js", "../Home/HomeIcon.js", "../GameController.js", "../BulletBase.js", "../ChooseWeaponInfoRateCtl.js", "../Enemys/EnemyColonyCom.js", "../Enemys/EnemyCube.js", "../Enemys/WinGold.js", "../SkillComponent/CrazyRotateSkill.js", "../UI/AStartFindPath.js", "../UI/DialogCtl.js", "../UI/EnemyHealthBarCtl.js", "../UI/MonsterInfoLayer.js", "../UI/EnemyInfoCellPrefab.js", "../UI/InfoLayerCtlBase.js", "../UI/EnemyInfoLayerCtl.js", "../UI/EnterGameAnimCtl.js", "../UI/GuideCtl.js", "../UI/TouchScreenLayer.js", "../UI/TowerInfoLayer.js", "../UI/typescript.js", "../UI/WeaponUpdateCellPrefab.js", "../UI/WeaponInfoCtl.js", "../UI/\u9053\u5177/KuangBaoSkill.js", "../UI/\u9053\u5177/TreePrefab.js", "../util/AdsController.js", "../util/Besize.js"], function (_export, _context) {
   "use strict";
 
   return {
-    setters: [function (_BaseObjectJs) {}, function (_BossControllerJs) {}, function (_utilStateJs) {}, function (_TowerBuildBaseTowerBuildBaseJs) {}, function (_utilBezierNJs) {}, function (_utilMy2ArrayJs) {}, function (_GroundTiledGroundTiledJs) {}, function (_GroundMapCtlJs) {}, function (_utilFindPathWithAStartJs) {}, function (_EnemysEnemyBaseJs) {}, function (_EnemysEnemyBulletJs) {}, function (_EnemyControllerJs) {}, function (_TowerBuildBaseCtlJs) {}, function (_DataPlayerDataJs) {}, function (_UIMenuMenuUIBaseJs) {}, function (_utilToolJs) {}, function (_UIGoldCtlJs) {}, function (_UIMenuUpdateTowerUIJs) {}, function (_UIMenuBuildTowerUITowerIconJs) {}, function (_UIMenuBuildTowerUIJs) {}, function (_UIGameWinGameResultGoldCellJs) {}, function (_UIGameWinGameWinPrefabJs) {}, function (_UIUIControllerJs) {}, function (_UISkillCtlJs) {}, function (_TowersTowerBaseJs) {}, function (_EffectWinGoldAnimEffectJs) {}, function (_HomeHomeIconJs) {}, function (_GameControllerJs) {}, function (_BulletBaseJs) {}, function (_ChooseWeaponInfoRateCtlJs) {}, function (_EnemysEnemyColonyComJs) {}, function (_EnemysEnemyCubeJs) {}, function (_EnemysWinGoldJs) {}, function (_SkillComponentCrazyRotateSkillJs) {}, function (_UIAStartFindPathJs) {}, function (_UIEnemyHealthBarCtlJs) {}, function (_UIInfoLayerCtlBaseJs) {}, function (_UIMonsterInfoLayerJs) {}, function (_UITouchScreenLayerJs) {}, function (_UITowerInfoLayerJs) {}, function (_UITypescriptJs) {}, function (_UIWeaponUpdateCellPrefabJs) {}, function (_UIWeaponInfoCtlJs) {}, function (_UIKuangBaoSkillJs) {}, function (_UITreePrefabJs) {}, function (_utilAdsControllerJs) {}, function (_utilBesizeJs) {}, function (_UIEnterGameAnimCtlJs) {}, function (_UIGuideCtlJs) {}, function (_UIDialogCtlJs) {}, function (_UIEnemyInfoCellPrefabJs) {}, function (_UIEnemyInfoLayerCtlJs) {}, function (_AudioCtlJs) {}],
+    setters: [function (_AudioCtlJs) {}, function (_BaseObjectJs) {}, function (_BossControllerJs) {}, function (_utilStateJs) {}, function (_TowerBuildBaseTowerBuildBaseJs) {}, function (_utilBezierNJs) {}, function (_utilMy2ArrayJs) {}, function (_GroundTiledGroundTiledJs) {}, function (_GroundMapCtlJs) {}, function (_utilFindPathWithAStartJs) {}, function (_EnemysEnemyBaseJs) {}, function (_EnemysEnemyBulletJs) {}, function (_EnemyControllerJs) {}, function (_TowerBuildBaseCtlJs) {}, function (_DataPlayerDataJs) {}, function (_UIMenuMenuUIBaseJs) {}, function (_utilToolJs) {}, function (_UIGoldCtlJs) {}, function (_UIMenuUpdateTowerUIJs) {}, function (_UIMenuBuildTowerUITowerIconJs) {}, function (_UIMenuBuildTowerUIJs) {}, function (_UIGameWinGameResultGoldCellJs) {}, function (_UIGameWinGameWinPrefabJs) {}, function (_UIUIControllerJs) {}, function (_UISkillCtlJs) {}, function (_TowersTowerBaseJs) {}, function (_EffectWinGoldAnimEffectJs) {}, function (_HomeHomeIconJs) {}, function (_GameControllerJs) {}, function (_BulletBaseJs) {}, function (_ChooseWeaponInfoRateCtlJs) {}, function (_EnemysEnemyColonyComJs) {}, function (_EnemysEnemyCubeJs) {}, function (_EnemysWinGoldJs) {}, function (_SkillComponentCrazyRotateSkillJs) {}, function (_UIAStartFindPathJs) {}, function (_UIDialogCtlJs) {}, function (_UIEnemyHealthBarCtlJs) {}, function (_UIMonsterInfoLayerJs) {}, function (_UIEnemyInfoCellPrefabJs) {}, function (_UIInfoLayerCtlBaseJs) {}, function (_UIEnemyInfoLayerCtlJs) {}, function (_UIEnterGameAnimCtlJs) {}, function (_UIGuideCtlJs) {}, function (_UITouchScreenLayerJs) {}, function (_UITowerInfoLayerJs) {}, function (_UITypescriptJs) {}, function (_UIWeaponUpdateCellPrefabJs) {}, function (_UIWeaponInfoCtlJs) {}, function (_UIKuangBaoSkillJs) {}, function (_UITreePrefabJs) {}, function (_utilAdsControllerJs) {}, function (_utilBesizeJs) {}],
     execute: function () {}
   };
 });
 
 (function(r) {
+  r('project:///assets/Scripts/AudioCtl.js', 'chunks:///AudioCtl.js');
   r('project:///assets/Scripts/BaseObject.js', 'chunks:///BaseObject.js');
   r('project:///assets/Scripts/BossController.js', 'chunks:///BossController.js');
   r('project:///assets/Scripts/util/State.js', 'chunks:///util/State.js');
@@ -13078,9 +13127,14 @@ System.register("chunks:///_virtual/prerequisite-imports:main", ["../BaseObject.
   r('project:///assets/Scripts/Enemys/WinGold.js', 'chunks:///Enemys/WinGold.js');
   r('project:///assets/Scripts/SkillComponent/CrazyRotateSkill.js', 'chunks:///SkillComponent/CrazyRotateSkill.js');
   r('project:///assets/Scripts/UI/AStartFindPath.js', 'chunks:///UI/AStartFindPath.js');
+  r('project:///assets/Scripts/UI/DialogCtl.js', 'chunks:///UI/DialogCtl.js');
   r('project:///assets/Scripts/UI/EnemyHealthBarCtl.js', 'chunks:///UI/EnemyHealthBarCtl.js');
-  r('project:///assets/Scripts/UI/InfoLayerCtlBase.js', 'chunks:///UI/InfoLayerCtlBase.js');
   r('project:///assets/Scripts/UI/MonsterInfoLayer.js', 'chunks:///UI/MonsterInfoLayer.js');
+  r('project:///assets/Scripts/UI/EnemyInfoCellPrefab.js', 'chunks:///UI/EnemyInfoCellPrefab.js');
+  r('project:///assets/Scripts/UI/InfoLayerCtlBase.js', 'chunks:///UI/InfoLayerCtlBase.js');
+  r('project:///assets/Scripts/UI/EnemyInfoLayerCtl.js', 'chunks:///UI/EnemyInfoLayerCtl.js');
+  r('project:///assets/Scripts/UI/EnterGameAnimCtl.js', 'chunks:///UI/EnterGameAnimCtl.js');
+  r('project:///assets/Scripts/UI/GuideCtl.js', 'chunks:///UI/GuideCtl.js');
   r('project:///assets/Scripts/UI/TouchScreenLayer.js', 'chunks:///UI/TouchScreenLayer.js');
   r('project:///assets/Scripts/UI/TowerInfoLayer.js', 'chunks:///UI/TowerInfoLayer.js');
   r('project:///assets/Scripts/UI/typescript.js', 'chunks:///UI/typescript.js');
@@ -13090,12 +13144,6 @@ System.register("chunks:///_virtual/prerequisite-imports:main", ["../BaseObject.
   r('project:///assets/Scripts/UI/道具/TreePrefab.js', 'chunks:///UI/道具/TreePrefab.js');
   r('project:///assets/Scripts/util/AdsController.js', 'chunks:///util/AdsController.js');
   r('project:///assets/Scripts/util/Besize.js', 'chunks:///util/Besize.js');
-  r('project:///assets/Scripts/UI/EnterGameAnimCtl.js', 'chunks:///UI/EnterGameAnimCtl.js');
-  r('project:///assets/Scripts/UI/GuideCtl.js', 'chunks:///UI/GuideCtl.js');
-  r('project:///assets/Scripts/UI/DialogCtl.js', 'chunks:///UI/DialogCtl.js');
-  r('project:///assets/Scripts/UI/EnemyInfoCellPrefab.js', 'chunks:///UI/EnemyInfoCellPrefab.js');
-  r('project:///assets/Scripts/UI/EnemyInfoLayerCtl.js', 'chunks:///UI/EnemyInfoLayerCtl.js');
-  r('project:///assets/Scripts/AudioCtl.js', 'chunks:///AudioCtl.js');
   r('virtual:///prerequisite-imports:main', 'chunks:///_virtual/prerequisite-imports:main'); 
 })(function(mid, cid) {
     System.register(mid, [cid], function (_export, _context) {

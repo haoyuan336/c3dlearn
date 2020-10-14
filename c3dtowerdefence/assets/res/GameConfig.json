@@ -43,7 +43,6 @@
         "BuildCost": 15,
         "ActiveCost": 100,
         "ShootAudio": "弓箭发射子弹时候音效"
-
     },
     "Tower_3": {
         "CanAttackType": [
@@ -99,7 +98,6 @@
         "NeedRecoverBullet": true,
         "BulletRecoverTime": 4,
         "ShootAudio": "导弹发射的音效"
-
     },
     "Tower_6": {
         "CanAttackType": [
@@ -174,8 +172,7 @@
         "WalkAudio": "",
         "DeadAudio": "",
         "AttackAduio": ""
-
-        },
+    },
     "Enemy_1": {
         "EnemyType": "Enemy_1",
         "BaseAttackNum": 1,
@@ -188,8 +185,8 @@
         "BaseGoldCount": 10,
         "MoveType": "Walk",
         "EnemyIndex": 2,
-        "ShowAudio": "击中音效1"
-
+        "ShowAudio": "击中音效1",
+        "DeadAudio": ""
     },
     "Enemy_2": {
         "EnemyType": "Enemy_2",
@@ -203,8 +200,8 @@
         "BaseGoldCount": 10,
         "MoveType": "Walk",
         "EnemyIndex": 4,
-        "ShowAudio": "击中音效1"
-
+        "ShowAudio": "击中音效1",
+        "DeadAudio": ""
     },
     "Enemy_3": {
         "EnemyType": "Enemy_3",
@@ -218,8 +215,8 @@
         "BaseGoldCount": 10,
         "MoveType": "Fly",
         "EnemyIndex": 6,
-        "ShowAudio": "击中音效1"
-
+        "ShowAudio": "击中音效1",
+        "DeadAudio": ""
     },
     "Enemy_4": {
         "EnemyType": "Enemy_4",
@@ -233,8 +230,8 @@
         "BaseGoldCount": 10,
         "MoveType": "Fly",
         "EnemyIndex": 6,
-        "ShowAudio": "击中音效1"
-
+        "ShowAudio": "击中音效1",
+        "DeadAudio": ""
     },
     "Enemy_5": {
         "EnemyType": "Enemy_5",
@@ -248,8 +245,8 @@
         "BaseGoldCount": 10,
         "MoveType": "Fly",
         "EnemyIndex": 6,
-        "ShowAudio": "击中音效1"
-
+        "ShowAudio": "击中音效1",
+        "DeadAudio": ""
     },
     "Enemy_6": {
         "EnemyType": "Enemy_6",
@@ -263,8 +260,8 @@
         "BaseGoldCount": 10,
         "MoveType": "Fly",
         "EnemyIndex": 6,
-        "ShowAudio": "击中音效1"
-
+        "ShowAudio": "击中音效1",
+        "DeadAudio": ""
     },
     "Enemy_7": {
         "EnemyType": "Enemy_7",
@@ -278,8 +275,8 @@
         "BaseGoldCount": 10,
         "MoveType": "Fly",
         "EnemyIndex": 6,
-        "ShowAudio": "击中音效1"
-
+        "ShowAudio": "击中音效1",
+        "DeadAudio": ""
     },
     "Enemy_8": {
         "EnemyType": "Enemy_8",
@@ -293,8 +290,8 @@
         "BaseGoldCount": 10,
         "MoveType": "Walk",
         "EnemyIndex": 6,
-        "ShowAudio": "击中音效1"
-
+        "ShowAudio": "击中音效1",
+        "DeadAudio": ""
     },
     "Enemy_9": {
         "EnemyType": "Enemy_9",
@@ -308,8 +305,8 @@
         "BaseGoldCount": 10,
         "MoveType": "Walk",
         "EnemyIndex": 6,
-        "ShowAudio": "击中音效1"
-
+        "ShowAudio": "击中音效1",
+        "DeadAudio": ""
     },
     "Enemy_10": {
         "EnemyType": "Enemy_10",
@@ -323,8 +320,8 @@
         "BaseGoldCount": 10,
         "MoveType": "Fly",
         "EnemyIndex": 6,
-        "ShowAudio": "击中音效1"
-        
+        "ShowAudio": "击中音效1",
+        "DeadAudio": ""
     },
     "Enemy_11": {
         "EnemyType": "Enemy_11",
@@ -338,8 +335,8 @@
         "BaseGoldCount": 10,
         "MoveType": "Walk",
         "EnemyIndex": 6,
-        "ShowAudio": "击中音效1"
-        
+        "ShowAudio": "击中音效1",
+        "DeadAudio": ""
     },
     "Enemy_12": {
         "EnemyType": "Enemy_12",
@@ -353,9 +350,8 @@
         "BaseGoldCount": 10,
         "MoveType": "Walk",
         "EnemyIndex": 6,
-        "ShowAudio": "击中音效1"
-        
-
+        "ShowAudio": "击中音效1",
+        "DeadAudio": ""
     },
     "Enemy_13": {
         "EnemyType": "Enemy_12",
@@ -369,8 +365,8 @@
         "BaseGoldCount": 10,
         "MoveType": "Fly",
         "EnemyIndex": 6,
-        "ShowAudio": "击中音效1"
-
+        "ShowAudio": "击中音效1",
+        "DeadAudio": ""
     },
     "EnemyBullet_0": {
         "Mass": 10,
@@ -388,21 +384,28 @@
         "BaseGoldCount": 10,
         "EnemyIndex": 1,
         "MoveType": "Walk",
-        "ShowAudio": "跳跃音效"
+        "ShowAudio": "跳跃音效",
+        "ShootAudio": "跳跃音效",
+        "DeadAudio": "怪兽叫声5"
     },
     "Boss_1": {
+        "Name": "绿绿鸡",
         "EnemyType": "Boss_1",
         "BaseAttackNum": 1,
         "IconSprteFrame": "Enemy_2_Icon",
-        "MoveSpeed": 1.8,
-        "HealthCount": 1000,
+        "MoveSpeed": 5,
+        "HealthCount": 10,
         "BeLockedCount": 10,
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
         "MoveType": "Walk",
-        "EnemyIndex": 3
+        "EnemyIndex": 3,
+        "ShowAudio": "鸡叫1",
+        "ShootAudio": "鸡叫",
+        "DeadAudio": "怪兽叫声5"
     },
     "Boss_2": {
+        "Name": "飞天大南瓜",
         "EnemyType": "Boss_2",
         "BaseAttackNum": 1,
         "IconSprteFrame": "Enemy_3_Icon",
@@ -413,137 +416,174 @@
         "BaseGoldCount": 10,
         "MoveType": "Fly",
         "EnemyBulletType": 0,
-        "EnemyIndex": 5
+        "EnemyIndex": 5,
+        "ShowAudio": "直升机的音效",
+        "ShootAudio": "怪兽叫声8",
+        "DeadAudio": "怪兽叫声5"
     },
     "Boss_3": {
+        "Name": "飞天乌龟",
         "EnemyType": "Boss_3",
         "BaseAttackNum": 1,
         "IconSprteFrame": "海归_Icon",
         "MoveSpeed": 2,
-        "HealthCount": 1000,
+        "HealthCount": 10,
         "BeLockedCount": 10,
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
         "MoveType": "Fly",
         "EnemyBulletType": 0,
-        "EnemyIndex": 7
+        "EnemyIndex": 7,
+        "ShowAudio": "鲸鱼的叫声",
+        "ShootAudio": "怪兽叫声8",
+        "DeadAudio": "怪兽叫声5"
     },
     "Boss_4": {
+        "Name": "空气猫猫怪",
         "EnemyType": "Boss_4",
         "BaseAttackNum": 1,
         "IconSprteFrame": "橘猫_Icon",
         "MoveSpeed": 2,
-        "HealthCount": 1000,
+        "HealthCount": 10,
         "BeLockedCount": 10,
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
         "MoveType": "Fly",
         "EnemyBulletType": 0,
-        "EnemyIndex": 8
+        "EnemyIndex": 8,
+        "ShowAudio": "怪兽叫声9",
+        "ShootAudio": "怪兽叫声8",
+        "DeadAudio": "怪兽叫声5"
     },
     "Boss_5": {
+        "Name": "无敌大鲨鱼",
         "EnemyType": "Boss_5",
         "BaseAttackNum": 1,
         "IconSprteFrame": "鲨鱼_Iconn",
         "MoveSpeed": 2,
-        "HealthCount": 4000,
+        "HealthCount": 40,
         "BeLockedCount": 10,
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
         "MoveType": "Fly",
         "EnemyBulletType": 0,
-        "EnemyIndex": 8
+        "EnemyIndex": 8,
+        "ShowAudio": "怪兽叫声7",
+        "ShootAudio": "怪兽叫声8",
+        "DeadAudio": "怪兽叫声5"
     },
     "Boss_6": {
+        "Name": "比比丘",
         "EnemyType": "Boss_6",
         "BaseAttackNum": 1,
         "IconSprteFrame": "比丘丘_Icon",
         "MoveSpeed": 1.5,
-        "HealthCount": 100,
+        "HealthCount": 10,
         "BeLockedCount": 10,
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
         "MoveType": "Walk",
         "EnemyBulletType": 0,
-        "EnemyIndex": 9
+        "EnemyIndex": 9,
+        "ShowAudio": "怪兽叫声9",
+        "ShootAudio": "怪兽叫声8",
+        "DeadAudio": "怪兽叫声5"
     },
     "Boss_7": {
+        "Name": "无敌肥羊",
         "EnemyType": "Boss_6",
         "BaseAttackNum": 1,
         "IconSprteFrame": "xiaomianyang_icon",
         "MoveSpeed": 1.5,
-        "HealthCount": 100,
+        "HealthCount": 10,
         "BeLockedCount": 10,
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
         "MoveType": "Walk",
         "EnemyBulletType": 0,
-        "EnemyIndex": 10
+        "EnemyIndex": 10,
+        "ShowAudio": "绵羊的叫声",
+        "ShootAudio": "怪兽叫声8",
+        "DeadAudio": "怪兽叫声5"
     },
     "Boss_8": {
+        "Name": "紫八爪鱼",
         "EnemyType": "Boss_8",
         "BaseAttackNum": 1,
         "IconSprteFrame": "卡通章鱼_Icon",
         "MoveSpeed": 1.5,
-        "HealthCount": 10000,
+        "HealthCount": 10,
         "BeLockedCount": 10,
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
         "MoveType": "Fly",
         "EnemyBulletType": 0,
-        "EnemyIndex": 11
+        "EnemyIndex": 11,
+        "ShowAudio": "怪兽叫声2",
+        "ShootAudio": "怪兽叫声8",
+        "DeadAudio": "怪兽叫声5"
     },
     "Boss_9": {
+        "Name": "加速蜗牛",
         "EnemyType": "Boss_9",
         "BaseAttackNum": 1,
         "IconSprteFrame": "卡通蜗牛",
         "MoveSpeed": 0.5,
-        "HealthCount": 10000,
+        "HealthCount": 10,
         "BeLockedCount": 10,
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
         "MoveType": "Walk",
         "EnemyBulletType": 0,
-        "EnemyIndex": 11
+        "EnemyIndex": 11,
+        "ShowAudio": "怪兽叫声2",
+        "ShootAudio": "怪兽叫声8",
+        "DeadAudio": "怪兽叫声5"
     },
     "Boss_10": {
+        "Name": "粉猪",
         "EnemyType": "Boss_10",
         "BaseAttackNum": 1,
         "IconSprteFrame": "卡通猪",
         "MoveSpeed": 0.8,
-        "HealthCount": 10000,
+        "HealthCount": 10,
         "BeLockedCount": 10,
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
         "MoveType": "Walk",
         "EnemyBulletType": 0,
-        "EnemyIndex": 12
+        "EnemyIndex": 12,
+        "DeadAudio": "怪兽叫声5"
     },
     "Boss_11": {
+        "Name": "无敌霸王龙",
         "EnemyType": "Boss_11",
         "BaseAttackNum": 1,
         "IconSprteFrame": "卡通恐龙",
         "MoveSpeed": 0.8,
-        "HealthCount": 1000,
+        "HealthCount": 10,
         "BeLockedCount": 10,
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
         "MoveType": "Walk",
         "EnemyBulletType": 0,
-        "EnemyIndex": 13
+        "EnemyIndex": 13,
+        "DeadAudio": "怪兽叫声5"
     },
     "Boss_12": {
+        "Name": "无敌卡通飞龙",
         "EnemyType": "Boss_12",
         "BaseAttackNum": 1,
         "IconSprteFrame": "卡通飞龙",
         "MoveSpeed": 0.8,
-        "HealthCount": 100000,
+        "HealthCount": 10,
         "BeLockedCount": 10,
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
         "MoveType": "Fly",
         "EnemyBulletType": 0,
-        "EnemyIndex": 14
+        "EnemyIndex": 14,
+        "DeadAudio": "怪兽叫声5"
     },
     "Monster_1": {
         "MoveSpeed": 0.2,
@@ -569,7 +609,6 @@
         "isCollisionGround": false,
         "LeftTime": 3,
         "BoomAudio": "击中音效1"
-
     },
     "Bullet_3": {
         "MoveSpeed": 30,
@@ -579,7 +618,6 @@
         "isCollisionGround": true,
         "LeftTime": 3,
         "BoomAudio": "击中音效1"
-
     },
     "Bullet_4": {
         "MoveSpeed": 40,
@@ -589,7 +627,6 @@
         "isCollisionGround": true,
         "LeftTime": 3,
         "BoomAudio": "击中音效1"
-
     },
     "Bullet_5": {
         "MoveType": "Bezier",
@@ -600,7 +637,6 @@
         "isCollisionGround": true,
         "LeftTime": 10,
         "BoomAudio": "榴弹炮"
-
     },
     "Bullet_6": {
         "MoveType": "SkyDown",
@@ -611,10 +647,9 @@
         "isCollisionGround": true,
         "LeftTime": 10,
         "BoomAudio": "洲际导弹爆炸音效"
-
     },
     "Level_0": {
-        "InitGoldCount": 100,
+        "InitGoldCount": 10000,
         "TowerBuildPos": [
             [
                 3,
@@ -669,7 +704,7 @@
             ],
             [
                 {
-                    "type": 0,
+                    "type": 7,
                     "count": 1
                 }
             ]
