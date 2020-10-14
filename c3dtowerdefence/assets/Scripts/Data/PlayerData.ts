@@ -36,6 +36,11 @@ export class PlayData {
             this.currentActiveSkillCount = Number(this.getLocalData('current-active-skill-count'));
             this.currentGoldCount = Number(this.getLocalData("gold-count")); //获取当前金币个数
             this.currentLevelNum = Number(this.getLocalData("current-level-num")); //获取当前的关卡数
+            let num = this.getQueryString('test-level-num');
+            console.log("test level num", num);
+            if (num) {
+                this.currentLevelNum = Number(num);
+            }
             // this.currentActiveTowerBuildBaseCount = Number(this.getLocalData('active-tower-build-base-count')); //获取当前激活的塔的基座的数量
             this.currentTowerLevelData = JSON.parse(this.getLocalData("tower-level-data"));
             this.currentInitRedHeartCounnt = Number(this.getLocalData("current-init-red-heart-count")); //获取当前初始化的红心的个数
@@ -96,7 +101,7 @@ export class PlayData {
         return localStorage.getItem(key);
     }
     setLocalData(key: string, data: string) {
-        // localStorage.setItem(key, data);
+        localStorage.setItem(key, data);
     }
     updateGoldCount(value: number) {
         this.setLocalData("gold-count", value.toString());
@@ -253,5 +258,10 @@ export class PlayData {
     }
     setIsShowGuide(guideStep: string) {
         this.setLocalData("guide-step-" + guideStep, "true");
+    }
+    getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
     }
 }   

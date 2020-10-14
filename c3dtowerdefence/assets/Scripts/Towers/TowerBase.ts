@@ -204,12 +204,13 @@ export class TowerBase extends BaseObject {
                 }
 
             } else if (attackEnemy === 'Range') {
-                if (this.isShooting) {
-                    return;
-                }
-                this.isShooting = true;
+
                 let targetEnemy = this.findRangeEnemy(deltaTime)
                 if (isValid(targetEnemy)) {
+                    if (this.isShooting) {
+                        return;
+                    }
+                    this.isShooting = true;
                     this.playOneTimeAttackAnim().then(() => {
                         // return this.
                         return this.createOneGuideMissile()
@@ -260,6 +261,7 @@ export class TowerBase extends BaseObject {
 
                     })
 
+                    this.gameController.node.emit("play-audio", this.shootAudio);
                     let shoot = (tw: Tween) => {
                         tw.call(() => {
                             // console.log("发射一枚子弹")
@@ -313,12 +315,16 @@ export class TowerBase extends BaseObject {
             console.log("length", length);
             // let timeScale =  length / this.shootDuraction;
             stateAnim.speed = 1;
+            if (this.readyAduio) {
+                this.gameController.node.emit("play-audio", this.readyAduio);
+            }
             let tw = new Tween(this.node);
             tw.delay(length * this.attackAnimEventTimeOffset)
             tw.call(() => {
                 //         // console.log("发射");
                 //         // let v = v3(0, 1, 0);
                 //         // this.createOneTimeBullet(v, this.getCurrentAttackNum())
+
                 resolve();
             })
             tw.delay(length * (1 - this.attackAnimEventTimeOffset));
@@ -359,9 +365,11 @@ export class TowerBase extends BaseObject {
             if (isValid(this.currentTargetEnemy) && !this.currentTargetEnemy.getComponent(EnemyBase).getIsDead()) {
                 return this.currentTargetEnemy;
 
+            } else {
+                this.currentTargetEnemy = null;
+                return null;
             }
-            this.currentTargetEnemy = null;
-            return null;
+
 
         }
     }
@@ -383,7 +391,7 @@ export class TowerBase extends BaseObject {
                 node.parent = this.node.parent;
                 node.position = startPosNode.worldPosition;
                 node.getComponent(BulletBase).init(this.gameConfig, this.gameController, { baseAttackNum: this.getCurrentAttackNum() });
-
+                this.gameController.node.emit("play-audio", this.shootAudio);
             })
             tw.delay(0.8)
             tw.call(() => {
@@ -541,7 +549,7 @@ export class TowerBase extends BaseObject {
             }
             console.log("shoot one bullet length", length);
 
-            
+
             // stateAnim.setTime(0.5);
             this.scheduleOnce(() => {
                 this.gameController.node.emit("play-audio", this.shootAudio);

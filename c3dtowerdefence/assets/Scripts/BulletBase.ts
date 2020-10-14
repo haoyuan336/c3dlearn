@@ -339,6 +339,7 @@ export class BulletBase extends BaseObject {
         exporeEffectNode.position = this.node.position;
         exporeEffectNode.parent = this.node.parent;
         // this.node.destroy();
+        this.gameController.node.emit('play-audio', this.boomAudio);
         let tw = new Tween(exporeEffectNode);
         tw.by(0.3, {
             scale: v3(5, 5, 5)

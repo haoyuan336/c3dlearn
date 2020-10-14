@@ -60,13 +60,15 @@
         "SkillType": "CrazyRotate",
         "BaseAttackNum": 1,
         "BuildCost": 15,
-        "ActiveCost": 600
+        "ActiveCost": 600,
+        "ShootAudio": "弓箭发射子弹时候音效"
     },
     "Tower_4": {
         "CanAttackType": [
             "Fly",
             "Walk"
         ],
+        "Name": "单管加特林",
         "TowerType": "Tower_4",
         "Type": "Tower",
         "IconSprteFrame": "Tower_3_Icon",
@@ -78,12 +80,14 @@
         "SkillType": "CrazyRotate",
         "BaseAttackNum": 1,
         "BuildCost": 15,
-        "ActiveCost": 1000
+        "ActiveCost": 1000,
+        "ShootAudio": "机关枪"
     },
     "Tower_5": {
         "CanAttackType": [
             "Fly"
         ],
+        "Name": "四发防空导弹",
         "TowerType": "Tower_5",
         "Type": "Tower",
         "IconSprteFrame": "Tower_4_Icon",
@@ -103,6 +107,7 @@
         "CanAttackType": [
             "Fly"
         ],
+        "Name": "六发航空导弹",
         "TowerType": "Tower_6",
         "Type": "Tower",
         "IconSprteFrame": "Tower_6_Icon",
@@ -115,13 +120,15 @@
         "BuildCost": 15,
         "ActiveCost": 1500,
         "NeedRecoverBullet": true,
-        "BulletRecoverTime": 4
+        "BulletRecoverTime": 4,
+        "ShootAudio": "导弹发射的音效"
     },
     "Tower_7": {
         "CanAttackType": [
             "Fly",
             "Walk"
         ],
+        "Name": "双管加特林",
         "TowerType": "Tower_7",
         "Type": "Tower",
         "IconSprteFrame": "Tower_7_Icon",
@@ -135,12 +142,14 @@
         "BuildCost": 15,
         "ActiveCost": 1500,
         "BulletRecoverTime": 0,
-        "IsLockEnemy": true
+        "IsLockEnemy": true,
+        "ShootAudio": "机关枪"
     },
     "Tower_8": {
         "CanAttackType": [
             "Walk"
         ],
+        "Name": "火箭",
         "TowerType": "Tower_8",
         "Type": "Tower",
         "IconSprteFrame": "Tower_8_Icon",
@@ -154,7 +163,9 @@
         "ActiveCost": 1500,
         "NeedRecoverBullet": true,
         "BulletRecoverTime": 4,
-        "AttackType": "Range"
+        "AttackType": "Range",
+        "ReadyAduio": "开门音效1",
+        "ShootAudio": "弓箭发射子弹时候音效"
     },
     "Enemy_0": {
         "EnemyType": "Enemy_0",
@@ -185,7 +196,7 @@
         "BaseGoldCount": 10,
         "MoveType": "Walk",
         "EnemyIndex": 2,
-        "ShowAudio": "击中音效1",
+        "ShowAudio": "drop",
         "DeadAudio": ""
     },
     "Enemy_2": {
@@ -200,7 +211,7 @@
         "BaseGoldCount": 10,
         "MoveType": "Walk",
         "EnemyIndex": 4,
-        "ShowAudio": "击中音效1",
+        "ShowAudio": "drop",
         "DeadAudio": ""
     },
     "Enemy_3": {
@@ -215,7 +226,7 @@
         "BaseGoldCount": 10,
         "MoveType": "Fly",
         "EnemyIndex": 6,
-        "ShowAudio": "击中音效1",
+        "ShowAudio": "drop",
         "DeadAudio": ""
     },
     "Enemy_4": {
@@ -230,7 +241,7 @@
         "BaseGoldCount": 10,
         "MoveType": "Fly",
         "EnemyIndex": 6,
-        "ShowAudio": "击中音效1",
+        "ShowAudio": "drop",
         "DeadAudio": ""
     },
     "Enemy_5": {
@@ -245,7 +256,7 @@
         "BaseGoldCount": 10,
         "MoveType": "Fly",
         "EnemyIndex": 6,
-        "ShowAudio": "击中音效1",
+        "ShowAudio": "drop",
         "DeadAudio": ""
     },
     "Enemy_6": {
@@ -260,7 +271,7 @@
         "BaseGoldCount": 10,
         "MoveType": "Fly",
         "EnemyIndex": 6,
-        "ShowAudio": "击中音效1",
+        "ShowAudio": "drop",
         "DeadAudio": ""
     },
     "Enemy_7": {
@@ -275,7 +286,7 @@
         "BaseGoldCount": 10,
         "MoveType": "Fly",
         "EnemyIndex": 6,
-        "ShowAudio": "击中音效1",
+        "ShowAudio": "drop",
         "DeadAudio": ""
     },
     "Enemy_8": {
@@ -290,7 +301,7 @@
         "BaseGoldCount": 10,
         "MoveType": "Walk",
         "EnemyIndex": 6,
-        "ShowAudio": "击中音效1",
+        "ShowAudio": "drop",
         "DeadAudio": ""
     },
     "Enemy_9": {
@@ -305,7 +316,7 @@
         "BaseGoldCount": 10,
         "MoveType": "Walk",
         "EnemyIndex": 6,
-        "ShowAudio": "击中音效1",
+        "ShowAudio": "drop",
         "DeadAudio": ""
     },
     "Enemy_10": {
@@ -320,7 +331,7 @@
         "BaseGoldCount": 10,
         "MoveType": "Fly",
         "EnemyIndex": 6,
-        "ShowAudio": "击中音效1",
+        "ShowAudio": "drop",
         "DeadAudio": ""
     },
     "Enemy_11": {
@@ -335,7 +346,7 @@
         "BaseGoldCount": 10,
         "MoveType": "Walk",
         "EnemyIndex": 6,
-        "ShowAudio": "击中音效1",
+        "ShowAudio": "drop",
         "DeadAudio": ""
     },
     "Enemy_12": {
@@ -350,7 +361,7 @@
         "BaseGoldCount": 10,
         "MoveType": "Walk",
         "EnemyIndex": 6,
-        "ShowAudio": "击中音效1",
+        "ShowAudio": "drop",
         "DeadAudio": ""
     },
     "Enemy_13": {
@@ -365,7 +376,7 @@
         "BaseGoldCount": 10,
         "MoveType": "Fly",
         "EnemyIndex": 6,
-        "ShowAudio": "击中音效1",
+        "ShowAudio": "drop",
         "DeadAudio": ""
     },
     "EnemyBullet_0": {
@@ -378,7 +389,7 @@
         "BaseAttackNum": 1,
         "IconSprteFrame": "Enemy_1_Icon",
         "MoveSpeed": 0.4,
-        "HealthCount": 50,
+        "HealthCount": 50000,
         "BeLockedCount": 10,
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
@@ -580,7 +591,7 @@
         "BaseAttackNum": 1,
         "IconSprteFrame": "卡通飞龙",
         "MoveSpeed": 0.8,
-        "HealthCount": 10,
+        "HealthCount": 100000,
         "BeLockedCount": 10,
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
@@ -632,7 +643,7 @@
         "isCollisionDestroy": true,
         "isCollisionGround": true,
         "LeftTime": 3,
-        "BoomAudio": "击中音效1"
+        "BoomAudio": ""
     },
     "Bullet_5": {
         "MoveType": "Bezier",
@@ -710,7 +721,7 @@
             ],
             [
                 {
-                    "type": 12,
+                    "type": 0,
                     "count": 1
                 }
             ]

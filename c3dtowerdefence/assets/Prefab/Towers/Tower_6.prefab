@@ -2791,6 +2791,8 @@
     },
     "animSpeedMulOffset": 1,
     "exporeEffectPrefab": null,
+    "daodanweijiPrefab": null,
+    "baozhaEffectPrefab": null,
     "_id": ""
   },
   {
@@ -4143,6 +4145,8 @@
     },
     "animSpeedMulOffset": 1,
     "exporeEffectPrefab": null,
+    "daodanweijiPrefab": null,
+    "baozhaEffectPrefab": null,
     "_id": ""
   },
   {
@@ -5495,6 +5499,8 @@
     },
     "animSpeedMulOffset": 1,
     "exporeEffectPrefab": null,
+    "daodanweijiPrefab": null,
+    "baozhaEffectPrefab": null,
     "_id": ""
   },
   {
@@ -6847,6 +6853,8 @@
     },
     "animSpeedMulOffset": 1,
     "exporeEffectPrefab": null,
+    "daodanweijiPrefab": null,
+    "baozhaEffectPrefab": null,
     "_id": ""
   },
   {
@@ -8199,6 +8207,8 @@
     },
     "animSpeedMulOffset": 1,
     "exporeEffectPrefab": null,
+    "daodanweijiPrefab": null,
+    "baozhaEffectPrefab": null,
     "_id": ""
   },
   {
@@ -9551,6 +9561,8 @@
     },
     "animSpeedMulOffset": 1,
     "exporeEffectPrefab": null,
+    "daodanweijiPrefab": null,
+    "baozhaEffectPrefab": null,
     "_id": ""
   },
   {
