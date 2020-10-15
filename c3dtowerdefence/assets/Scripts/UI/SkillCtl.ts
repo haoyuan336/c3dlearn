@@ -244,22 +244,23 @@ export class SkillCtl extends Component {
 
     }
     addSkillPower(power: number) {
-        if (this.currentSkillPower >= 80) {
-            return;
-        }
-        this.currentSkillPower += power;
+        // if (this.currentSkillPower >= 80) {
+        //     return;
+        // }
+        // this.currentSkillPower += power;
 
 
-        let rate = this.currentSkillPower / 80;
-        if (rate === 1) {
-            this.skillPowerFullEffect.active = true;
-            this.skillDouIcon.active = true;
-            this.skillDouIcon.position = this.skillButtonNode.position;
-        }
-        for (let i = 0; i < this.skillRedBgList.length; i++) {
-            let node = this.skillRedBgList[i];
-            node.position = v3(node.position.x, -80 + rate * 80, node.position.z);
-        }
+        // let rate = this.currentSkillPower / 80;
+        // if (rate === 1) {
+        //     this.skillPowerFullEffect.active = true;
+        //     this.skillDouIcon.active = true;
+        //     this.skillDouIcon.position = this.skillButtonNode.position;
+        // }
+        // for (let i = 0; i < this.skillRedBgList.length; i++) {
+        //     let node = this.skillRedBgList[i];
+        //     node.position = v3(node.position.x, -80 + rate * 80, node.position.z);
+        // }
+        this.gameController.playerData.addPowerCount(power);
     }
     showAddPowerAnimEffect(powerValue: number, pos: Vec3) {
         let node = instantiate(this.addPowerAnim3dPrefab);
@@ -271,7 +272,7 @@ export class SkillCtl extends Component {
         });
         tw.delay(0.6)
         tw.to(0.6, {
-            position: v3(45, 10, 0)
+            position: v3(45, 30, 0)
         });
         tw.call(() => {
             node.destroy();

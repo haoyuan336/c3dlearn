@@ -60,7 +60,7 @@ export class GameWinPrefab extends Component {
         console.log("游戏状态时", succ)
         let allEnemyCount = data.length;
         let allGoldCount = 0;
-        console.log("游戏结果数据是", data);
+        // console.log("游戏结果数据是", data);
         console.log("当前关卡打死的敌人数目种类，获得的金币数目 ")
         if (succ) {
             this.gameController.node.emit("play-audio", "胜利音效");
@@ -68,7 +68,7 @@ export class GameWinPrefab extends Component {
             this.leftButton.getComponent(SpriteComponent).spriteFrame = this.shareButtonSpriteFrame;
             this.rightButton.getComponent(SpriteComponent).spriteFrame = this.nextLevelSpriteFrame;
         } else {
-            this.gameController.node.emit("play-audio", "游戏失败音效")
+            // this.gameController.node.emit("play-audio", "游戏失败音效")
             this.gameResultIconNode.getComponent(SpriteComponent).spriteFrame = this.gameLossIconSpriteFrame;
             this.leftButton.getComponent(SpriteComponent).spriteFrame = this.retryGameButtonSpriteFrame;
             this.rightButton.getComponent(SpriteComponent).spriteFrame = this.saveLifeButtonSpriteFrame;

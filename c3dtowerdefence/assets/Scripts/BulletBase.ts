@@ -188,10 +188,10 @@ export class BulletBase extends BaseObject {
             otherCollider.node.emit("be-attacked", {
                 baseAttackNum: this.baseAttackNum,
                 baseGasNum: this.baseGasNum,
-                cb: (isDead: boolean) => {
+                cb: (isDead: boolean, powerValue: number) => {
                     console.log("是否死了", isDead)
                     if (this.targetTowerBase) {
-                        this.targetTowerBase.enemyDeadByThis(isDead);
+                        this.targetTowerBase.enemyDeadByThis(isDead, powerValue);
                     }
                 }
             });
@@ -375,9 +375,9 @@ export class BulletBase extends BaseObject {
                 node.emit("be-attacked", {
                     baseAttackNum: this.getCurrentAttackNum(),
                     baseGasNum: 0,
-                    cb: (isDead: boolean) => {
+                    cb: (isDead: boolean,powerCount: number) => {
                         if (this.targetTowerBase) {
-                            this.targetTowerBase.enemyDeadByThis(isDead);
+                            this.targetTowerBase.enemyDeadByThis(isDead, powerCount);
                         }
                     }
                 })

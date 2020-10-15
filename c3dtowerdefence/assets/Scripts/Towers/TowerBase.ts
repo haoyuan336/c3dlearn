@@ -622,12 +622,13 @@ export class TowerBase extends BaseObject {
         })
 
     }
-    enemyDeadByThis(isDead: boolean) {
+    enemyDeadByThis(isDead: boolean, powerValue: number) {
         //敌人被此塔打死
         if (isDead) {
             //如果敌人被打死了, 那么此塔增加能量 一个点
             if (isValid(this.skillCtl)) {
-                this.skillCtl.showAddPowerAnimEffect(2, this.node.position);
+                this.skillCtl.showAddPowerAnimEffect(powerValue, this.node.position);
+                
             }
         }
     }

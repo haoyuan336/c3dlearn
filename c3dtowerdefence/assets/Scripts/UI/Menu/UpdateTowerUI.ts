@@ -35,9 +35,9 @@ export class UpdateTowerUI extends MenuUIBase {
         // super.start();
         // }, 0.2)
     }
-    init(gameConfig: Object, gameController: GameController){
-        super.init(gameConfig, gameController);
-    }
+    // init(gameConfig: Object, gameController: GameController){
+    //     super.init(gameConfig, gameController);
+    // }
     onButtonClick(event, customData) {
         find("GameController").emit("player-button-click-audio");
 

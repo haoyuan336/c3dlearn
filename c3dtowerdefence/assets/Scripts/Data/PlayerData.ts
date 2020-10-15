@@ -4,13 +4,14 @@ import { GameController } from "../GameController";
 export class PlayData {
     public currentSkillCount: number = 2;
     public currentActiveSkillCount: number = 3; //当前激活的道具个数
-    public currentGoldCount = 30000; //当前的金币个数
+    public currentGoldCount = 0; //当前的金币个数
     public gameController: GameController = null;
     public currentLevelNum: number = 0;
     public currentTowerLevelData: Object[] = [];
     public currentInitRedHeartCounnt: number = 3;
     public currentRedHeardCount: number = 0;//当前的红心个数
     public currentActiveEnemyMap: Object = {};
+    public currentPowerCount: number = 0; //当前的能量值
     // public currentActiveEnemyMap:
     // public currentActiveTowerBuildBaseCount = 2; //当前激活的建造塔的位置的个数
     constructor(gameCtl) {
@@ -19,7 +20,7 @@ export class PlayData {
         let gameTime = this.getLocalData("game-time");
         console.log("game time", gameTime);
         // this.clearLocalData();
-        this.setLocalData("gold-count", 99999 + '');
+        // this.setLocalData("gold-count", 99999 + '');
         // this.setLocalData('active-tower-build-base-count', '2');
         // this.setLocalData("current-level-num", this.currentLevelNum + '');
         // this.initTowerLevelLocalData(this.gameController.getGameConfig().json);
@@ -34,13 +35,15 @@ export class PlayData {
             this.currentSkillCount = Number(this.getLocalData('current-skill-count'));
             // console.log()
             this.currentActiveSkillCount = Number(this.getLocalData('current-active-skill-count'));
-            this.currentGoldCount = Number(this.getLocalData("gold-count")); //获取当前金币个数
+            // this.currentGoldCount = Number(this.getLocalData("gold-count")); //获取当前金币个数
             this.currentLevelNum = Number(this.getLocalData("current-level-num")); //获取当前的关卡数
-            let num = this.getQueryString('test-level-num');
-            console.log("test level num", num);
-            if (num) {
-                this.currentLevelNum = Number(num);
-            }
+            this.currentPowerCount = Number(this.getLocalData("curent-power-count")); //获取当前的能量值
+            // let num = this.getQueryString('test_level_num');
+            // console.log("test level num", num);
+            // if (num) {
+            //     this.currentLevelNum = Number(num);
+            // }
+            this.currentLevelNum = 5;
             // this.currentActiveTowerBuildBaseCount = Number(this.getLocalData('active-tower-build-base-count')); //获取当前激活的塔的基座的数量
             this.currentTowerLevelData = JSON.parse(this.getLocalData("tower-level-data"));
             this.currentInitRedHeartCounnt = Number(this.getLocalData("current-init-red-heart-count")); //获取当前初始化的红心的个数
@@ -50,7 +53,7 @@ export class PlayData {
             this.setLocalData("game-time", '1');
             this.setLocalData("current-active-skill-count", this.currentActiveSkillCount + '');
             this.setLocalData("current-skill-count", this.currentSkillCount + '');
-            this.setLocalData("gold-count", this.currentGoldCount + '');
+            // this.setLocalData("gold-count", this.currentGoldCount + '');
             this.setLocalData("current-init-red-heart-count", this.currentInitRedHeartCounnt + "");
             this.setLocalData("active-enemy-list", JSON.stringify(this.currentActiveEnemyMap));
             this.initTowerLevelLocalData(this.gameController.getGameConfig().json);
@@ -104,7 +107,7 @@ export class PlayData {
         localStorage.setItem(key, data);
     }
     updateGoldCount(value: number) {
-        this.setLocalData("gold-count", value.toString());
+        // this.setLocalData("gold-count", value.toString());
     }
     getCurrentGoldCount(): number {
         return this.currentGoldCount;
@@ -112,11 +115,11 @@ export class PlayData {
     initGoldCount() {
         //初始化金币个数
         this.currentGoldCount = 0;
-        this.setLocalData('gold-count', this.currentGoldCount + '');
+        // this.setLocalData('gold-count', this.currentGoldCount + '');
     }
     addGoldCount(goldCount: number) {
         this.currentGoldCount += goldCount;
-        this.setLocalData('gold-count', this.currentGoldCount + '');
+        // this.setLocalData('gold-count', this.currentGoldCount + '');
         // if (goldCount > 0) {
         //     this.gameController.node.emit("play-audio", '收集金币')
         // } else {
@@ -126,18 +129,19 @@ export class PlayData {
         this.gameController.node.emit("update-gold-label", this.currentGoldCount, goldCount);
     }
     newGame() {
-        this.currentLevelNum = 0;
+        // this.currentLevelNum = 0;
         this.currentRedHeardCount = this.currentInitRedHeartCounnt;
-        this.setLocalData('current-level-num', this.currentLevelNum + '');//保存当前的关卡数
+        // this.setLocalData('current-level-num', this.currentLevelNum + '');//保存当前的关卡数
         this.currentGoldCount = this.gameController.getGameConfig().json['Level_' + this.currentLevelNum].InitGoldCount;
-        this.setLocalData("gold-count", this.currentGoldCount + '');
+        // this.setLocalData("gold-count", this.currentGoldCount + '');
 
     }
     enterNextLevel() {
         this.currentLevelNum++;
         //获取当前关卡的金币个数
         let goldCount = this.gameController.getGameConfig().json['Level_' + this.currentLevelNum].InitGoldCount;
-        this.addGoldCount(goldCount);
+        // this.addGoldCount(goldCount);
+        this.currentGoldCount = goldCount;
         this.setLocalData('current-level-num', this.currentLevelNum + '');//保存当前的关卡数
     }
     // getCurrentTowerLevelData(towerIndex: number): Object {
@@ -263,5 +267,18 @@ export class PlayData {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
         var r = window.location.search.substr(1).match(reg);
         if (r != null) return unescape(r[2]); return null;
+    }
+    addPowerCount(power: number){
+        this.currentPowerCount += power;
+        this.setLocalData("curent-power-count", this.currentPowerCount.toString());
+        this.gameController.referPowerCountLabel();
+    }
+    getPowerCount():number{
+        //返回当前的能量值
+        return this.currentPowerCount;
+    }
+    recoverRedHeartCount(){
+        //恢复红心的个数
+        this.currentRedHeardCount = this.currentInitRedHeartCounnt;
     }
 }   

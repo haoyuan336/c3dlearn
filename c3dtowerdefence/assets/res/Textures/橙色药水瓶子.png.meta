@@ -2,7 +2,7 @@
   "ver": "1.0.18",
   "importer": "image",
   "imported": true,
-  "uuid": "bd4498d9-1488-408f-acf7-537ba4c4e320",
+  "uuid": "020ed2f8-a6d9-465d-bacb-733af65eb827",
   "files": [
     ".png",
     ".json"
@@ -10,8 +10,8 @@
   "subMetas": {
     "6c48a": {
       "importer": "texture",
-      "uuid": "bd4498d9-1488-408f-acf7-537ba4c4e320@6c48a",
-      "displayName": "特朗普懂帝",
+      "uuid": "020ed2f8-a6d9-465d-bacb-733af65eb827@6c48a",
+      "displayName": "橙色药水瓶子",
       "id": "6c48a",
       "name": "texture",
       "ver": "1.0.19",
@@ -29,13 +29,13 @@
         "premultiplyAlpha": false,
         "anisotropy": 1,
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "bd4498d9-1488-408f-acf7-537ba4c4e320"
+        "imageUuidOrDatabaseUri": "020ed2f8-a6d9-465d-bacb-733af65eb827"
       }
     },
     "f9941": {
       "importer": "sprite-frame",
-      "uuid": "bd4498d9-1488-408f-acf7-537ba4c4e320@f9941",
-      "displayName": "特朗普懂帝",
+      "uuid": "020ed2f8-a6d9-465d-bacb-733af65eb827@f9941",
+      "displayName": "橙色药水瓶子",
       "id": "f9941",
       "name": "spriteFrame",
       "ver": "1.0.8",
@@ -48,26 +48,26 @@
         "trimType": "auto",
         "trimThreshold": 1,
         "rotated": false,
-        "offsetX": 38,
-        "offsetY": -2,
-        "trimX": 176,
-        "trimY": 4,
-        "width": 324,
-        "height": 396,
-        "rawWidth": 600,
-        "rawHeight": 400,
+        "offsetX": 0,
+        "offsetY": 0,
+        "trimX": 0,
+        "trimY": 0,
+        "width": 71,
+        "height": 94,
+        "rawWidth": 71,
+        "rawHeight": 94,
         "borderTop": 0,
         "borderBottom": 0,
         "borderLeft": 0,
         "borderRight": 0,
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "bd4498d9-1488-408f-acf7-537ba4c4e320@6c48a",
+        "imageUuidOrDatabaseUri": "020ed2f8-a6d9-465d-bacb-733af65eb827@6c48a",
         "atlasUuid": ""
       }
     }
   },
   "userData": {
     "type": "sprite-frame",
-    "redirect": "bd4498d9-1488-408f-acf7-537ba4c4e320@f9941"
+    "redirect": "020ed2f8-a6d9-465d-bacb-733af65eb827@f9941"
   }
 }

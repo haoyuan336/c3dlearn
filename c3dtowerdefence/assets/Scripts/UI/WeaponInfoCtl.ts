@@ -45,6 +45,9 @@ export class WeaponInfoCtl extends InfoLayerCtlBase {
     public scrollviewNode: Node = null;
     private weaponIndoCellNodeList: Node[] = [];
 
+    @property({type: Node})
+    public currentPowerLabel: Node = null;
+
     private currentChooseRate: number = 0; //当前选择的倍数
 
     start() {
@@ -65,6 +68,15 @@ export class WeaponInfoCtl extends InfoLayerCtlBase {
             this.referCurrentRedHeartCountUI();
         })
 
+        this.node.on("refer-current-power-label", (power: number)=>{
+            this.currentPowerLabel.getComponent(LabelComponent).string = power.toString(); 
+            
+            this.referCurrentRedHeartCountUI();
+            for (let i = 0 ; i < this.weaponIndoCellNodeList.length ; i ++){
+                let node = this.weaponIndoCellNodeList[i];
+                node.getComponent(WeaponUpdateCellPrefab).referUILabel();
+            }
+        })
 
         // this.node.on("enter-game", ()=>{
         this.initWeaponData();
@@ -75,7 +87,7 @@ export class WeaponInfoCtl extends InfoLayerCtlBase {
         let gameController = this.gameController.getComponent(GameController);
         let cost = gameController.playerData.getAddOneRedHeartCostGoldCount() * this.currentChooseRate;
         this.addRedHeartCostGoldCount.getComponent(LabelComponent).string = cost + '';
-        let currentGoldCount = gameController.playerData.getCurrentGoldCount();
+        let currentGoldCount = gameController.playerData.getPowerCount();
         console.log("current gold count", currentGoldCount);
         console.log("cost", cost);
         if (currentGoldCount < cost) {
@@ -121,12 +133,13 @@ export class WeaponInfoCtl extends InfoLayerCtlBase {
             case 'add-heart-button':
                 //增加红心的按钮
                 let gameController = this.gameController.getComponent(GameController);
-                let currentGoldCount = gameController.playerData.getCurrentGoldCount();
+                let currentGoldCount = gameController.playerData.getPowerCount();
                 let cost = gameController.playerData.getAddOneRedHeartCostGoldCount() * this.currentChooseRate;
                 if (currentGoldCount < cost) {
                     this.node.emit("gold-not-enough");
                 } else {
-                    gameController.playerData.addGoldCount(-cost);
+                    // gameController.playerData.addGoldCount(-cost);
+                    gameController.playerData.addPowerCount(-cost)
                     gameController.playerData.addLocalInitRedHeartCount(this.currentChooseRate);//
                     this.node.emit("refer-red-heart-label");
                 }

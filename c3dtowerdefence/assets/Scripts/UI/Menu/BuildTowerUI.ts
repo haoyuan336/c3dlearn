@@ -16,9 +16,9 @@ export class BuildTowerUI extends MenuUIBase {
     public gameConfig: Object = null;
 
     public towerIconNodeList: Node[] = [];
-    // public gameController: GameController;
-    init(gameConfig, gameCtl: GameController) {
-        super.init(gameConfig, gameCtl);
+    public gameController: GameController;
+    init(gameConfig: Object, gameCtl: GameController) {
+        super.init();
         this.gameController = gameCtl;
         // let currentLevelNum = gameCtl.getCurrentLevelNum();
         // let currentLevelData = gameCtl.getGameConfig().json['Level_' + currentLevelNum];
@@ -27,10 +27,10 @@ export class BuildTowerUI extends MenuUIBase {
         this.referCurrentUI();
         // this.node.on("refer-current-ui", this.referCurrentUI.bind(this), this);
     }
-        // this.node
+    // this.node
     start() {
     }
-    onEnable(){
+    onEnable() {
         // this.referCurrentUI();
     }
     referCurrentUI() {

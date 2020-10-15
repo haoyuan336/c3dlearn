@@ -94,9 +94,11 @@ export class GameController extends Component {
             // this.node.emit("destroy-all-tower");
             // this.node.emit("destroy-all-tower-build-base");
             this.node.emit("destroy-all-enemy", (goldCount) => {
-                this.playerData.addGoldCount(goldCount);
+                // this.playerData.addGoldCount(goldCount);
                 this.showHomeIconEnterAnim().then(() => {
-                    this.node.emit('update-gold-label', this.playerData.getCurrentGoldCount());
+                    this.playerData.recoverRedHeartCount();
+                    this.uiController.emit("refer-red-heart-label");
+                    // this.node.emit('update-gold-label', this.playerData.getCurrentGoldCount());
                     this.state.setState("run");
                     this.node.getComponent(EnemyController).continueGame(); //继续游戏
                 });
@@ -118,7 +120,7 @@ export class GameController extends Component {
         //玩家点击了分享按钮
         return new Promise((resolve, reject) => {
             resolve();
-            this.playerData.addGoldCount(this.playerData.currentGoldCount);
+            // this.playerData.addGoldCount(this.playerData.currentGoldCount);
         })
     }
     playerClickRetryButton() {
@@ -159,7 +161,7 @@ export class GameController extends Component {
 
         this.state.addState("play-start-button-anim", () => {
             // console.log("玩家点中了开始游戏按钮");
-            this.uiController.emit("complete-current-guide"); 
+            this.uiController.emit("complete-current-guide");
             //给ui控制器发送，完成了当前的引导操作
             this.node.emit("play-audio", "按钮音效")
             this.node.emit("play-bg-music");
@@ -192,11 +194,13 @@ export class GameController extends Component {
                 // })
                 .then(() => {
                     // return this.node.getCom
-                    this.node.emit('update-gold-label', this.playerData.getCurrentGoldCount());
                     return this.showUIEnterAnim();
                 }).then(() => {
                     this.state.setState("run");
                     this.node.getComponent(EnemyController).startGame();
+                    this.playerData.newGame();
+                    this.node.emit('update-gold-label', this.playerData.getCurrentGoldCount());
+
                     // this.node.getComponent(GroundMapCtl).startGame();
                 })
         });
@@ -204,7 +208,7 @@ export class GameController extends Component {
         this.state.addState("game-loss", () => {
             console.log("进入游戏失败的状态");
             this.uiController.emit('close-weapon-info-layer')
-            
+
             this.node.getComponent(EnemyController).frozenAllEnemy();
             this.node.getComponent(TowerBuildBaseCtl).frozenAllTowerBuildBase(); //禁锢所有塔的基座
             // this.homeIconTw.stop();
@@ -332,14 +336,14 @@ export class GameController extends Component {
         //进入展示boss 进场的状态
         this.node.emit("show-boss-enter-state");
     }
- 
+
     gameWin(deadEnemyData: DeadEnemyObj[]) {
         //游戏胜利，进入下一关
         //首先展示胜利失败页面
         // this
         //游戏胜利
         // this.uic
-        this.uiController.emit("close-all-ui") ;//重新刷新UI
+        this.uiController.emit("close-all-ui");//重新刷新UI
         this.uiController.emit('close-weapon-info-layer')
         if (this.state.getState() === 'run') {
             this.state.setState("show-game-result"); //进入显示游戏结果的界面
@@ -411,12 +415,16 @@ export class GameController extends Component {
     referRedHeardUI() {
         this.uiController.emit("refer-red-heart-label");
     }
-    activeEnemySuccess(enemyType: string){
+    activeEnemySuccess(enemyType: string) {
         console.log("active enemy succcess", enemyType);
         //
         // this.node.emit("")
         this.uiController.emit("refer-enemy-info-cell", enemyType);
 
     }
-   
+    referPowerCountLabel(){
+        //刷新当前的 能量值
+        this.uiController.emit("refer-current-power-label", this.playerData.currentPowerCount);
+    }
+
 }

@@ -1,0 +1,73 @@
+{
+  "ver": "1.0.18",
+  "importer": "image",
+  "imported": true,
+  "uuid": "bcbcba8c-c089-4533-a9af-753dad704d2f",
+  "files": [
+    ".png",
+    ".json"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "bcbcba8c-c089-4533-a9af-753dad704d2f@6c48a",
+      "displayName": "升级武器背景圆角矩形背景",
+      "id": "6c48a",
+      "name": "texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "bcbcba8c-c089-4533-a9af-753dad704d2f"
+      }
+    },
+    "f9941": {
+      "importer": "sprite-frame",
+      "uuid": "bcbcba8c-c089-4533-a9af-753dad704d2f@f9941",
+      "displayName": "升级武器背景圆角矩形背景",
+      "id": "f9941",
+      "name": "spriteFrame",
+      "ver": "1.0.8",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "trimType": "auto",
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": 0,
+        "offsetY": 0,
+        "trimX": 0,
+        "trimY": 0,
+        "width": 60,
+        "height": 60,
+        "rawWidth": 60,
+        "rawHeight": 60,
+        "borderTop": 16,
+        "borderBottom": 17,
+        "borderLeft": 18,
+        "borderRight": 17,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "bcbcba8c-c089-4533-a9af-753dad704d2f@6c48a",
+        "atlasUuid": ""
+      }
+    }
+  },
+  "userData": {
+    "type": "sprite-frame",
+    "redirect": "bcbcba8c-c089-4533-a9af-753dad704d2f@f9941"
+  }
+}

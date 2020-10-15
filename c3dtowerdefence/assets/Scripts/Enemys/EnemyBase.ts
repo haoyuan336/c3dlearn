@@ -528,7 +528,7 @@ export class EnemyBase extends BaseObject {
             if (this.currentHealthCount <= 0) {
                 this.currentHealthCount = 0;
                 if (this.beAttackedCb) {
-                    this.beAttackedCb(true);
+                    this.beAttackedCb(true, this.getHealthCount());
                     //被打死了
                 }
                 this.state.setState("to-dead");

@@ -74,6 +74,7 @@ export class DialogCtl extends Component {
             this.showTLPOutAnim().then(() => {
                 this.dialogBgNode.active = false;
                 this.dialogLayer.active = false;
+                this.dialogLabel.getComponent(LabelComponent).string = "";
                 resolve();
             })
         })
@@ -90,7 +91,10 @@ export class DialogCtl extends Component {
         }
         //展示一条dialog
         let dialogData = this.currentLevelDialogData[this.currentDialogIndex];
-        let picStr = dialogData['Pic'];
+        // let picStr = dialogData['Pic'];
+        let randomPicIndex = Math.round(Math.random() * 4);
+        //
+        let picStr = "特朗普懂帝" + randomPicIndex;
         loader.loadRes(picStr + '/spriteFrame', SpriteFrame, (err, result) => {
 
             if (!err) {

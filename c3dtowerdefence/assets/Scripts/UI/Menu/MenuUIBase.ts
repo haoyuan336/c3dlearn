@@ -1,12 +1,12 @@
 import { _decorator, Component, Node, Tween, Vec3, v3, find, isValid } from 'cc';
 import { State } from '../../util/State';
 import { TowerBase } from '../../Towers/TowerBase';
-import { BaseObject } from '../../BaseObject';
+// import { BaseObject } from '../../BaseObject';
 import { GameController } from '../../GameController';
 const { ccclass, property } = _decorator;
 
 @ccclass('MenuUIBase')
-export class MenuUIBase extends BaseObject {
+export class MenuUIBase extends Component {
     public state: State = new State();
     protected targetNode: Node = null;
     // start() {
@@ -20,8 +20,8 @@ export class MenuUIBase extends BaseObject {
     //     // }, 0.2)
     // }
 
-    init(gameConfig: Object, gameController: GameController){
-        super.init(gameConfig, gameController);
+    public init(gameConfig?: Object, gameCtl?: GameController) {
+        // super.init(gameConfig, gameController);
         this.state.addState('open-ui', this.openUI.bind(this));
         this.state.addState('close-ui', this.closeUI.bind(this));
     }
