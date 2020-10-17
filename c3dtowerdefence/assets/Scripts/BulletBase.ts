@@ -36,6 +36,8 @@ export class BulletBase extends BaseObject {
 
     @property({ type: Prefab })
     public baozhaEffectPrefab: Prefab = null;
+
+    private moveState: State = new State();
     onLoad() {
         // this.node.on("init-data", (data) => {
 
@@ -100,6 +102,7 @@ export class BulletBase extends BaseObject {
                 let tw = this.processMove(this.movePathList);
                 tw.call(() => {
                     this.state.setState("run");
+                    this.moveState.setState("bezier-end");
                 })
                 tw.start();
             } else {
@@ -215,8 +218,12 @@ export class BulletBase extends BaseObject {
             if (this.getMoveType() === 'Bezier') {
                 if (isValid(this.targetEnemyNode)) {
                     let dir = v3(this.targetEnemyNode.position).add(v3(0, 2, 0)).subtract(this.node.position);
-                    this.node.position = v3(this.node.position).add(dir.multiplyScalar(deltaTime * 0.5 * this.getMoveSpeed()));
-                    // this.node.lookAt(this.targetEnemyNode.position);
+                    this.node.position = v3(this.node.position).add(dir.multiplyScalar(deltaTime * 0.2 * this.getMoveSpeed()));
+
+
+                    if (this.moveState.getState() === 'bezier-end'){
+                        this.node.lookAt(this.targetEnemyNode.position);
+                    }
                 } else {
                     this.node.destroy();
                 }

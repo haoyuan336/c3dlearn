@@ -236,7 +236,7 @@
   },
   {
     "__type__": "cc.UITransformComponent",
-    "_name": "",
+    "_name": "BuildTowerUI<UITransformComponent>",
     "_objFlags": 0,
     "node": {
       "__id__": 1
@@ -263,9 +263,6 @@
       "__id__": 1
     },
     "_enabled": true,
-    "objectType": "default",
-    "rootNode": null,
-    "animSpeedMulOffset": 1,
     "buildTowerUITowerIcon": {
       "__uuid__": "79fa62be-c847-47c8-97eb-ff46b22f3add"
     },
@@ -273,7 +270,7 @@
   },
   {
     "__type__": "cc.ButtonComponent",
-    "_name": "",
+    "_name": "BuildTowerUI<ButtonComponent>",
     "_objFlags": 0,
     "node": {
       "__id__": 1

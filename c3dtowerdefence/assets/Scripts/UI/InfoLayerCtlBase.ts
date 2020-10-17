@@ -141,7 +141,7 @@ export class InfoLayerCtlBase extends Component {
 
     }
     onButtonClick(event, customData) {
-        find("GameController").emit("player-button-click-audio");
+        // find("GameController").emit("player-button-click-audio");
 
         switch (customData) {
             case 'show-info-layer':

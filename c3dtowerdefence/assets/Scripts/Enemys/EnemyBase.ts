@@ -8,6 +8,7 @@ import { BezierN } from '../util/BezierN';
 import { GroundMapCtl } from '../GroundMapCtl';
 import { FindPathWithAStart } from '../util/FindPathWithAStart';
 import { EnemyColonyCom } from './EnemyColonyCom';
+import { UIController } from '../UI/UIController';
 // import { Besize } from '../util/Besize';
 const { ccclass, property } = _decorator;
 @ccclass('EnemyBase')
@@ -39,6 +40,9 @@ export class EnemyBase extends BaseObject {
     // private moveSpeed: number = 0;
     @property({ type: Node })
     public caidaiEffect: Node = null;
+
+
+    private bossHealthBar: Node = null; //boss的血条。
     public init(gameConfig: Object, gameController: GameController, startPos: Vec3, endPos: Vec3) {
         super.init(gameConfig, gameController);
         if (this.getMoveType().indexOf("Fly") > -1) {
@@ -85,7 +89,7 @@ export class EnemyBase extends BaseObject {
         return new Promise((resolve, reject) => {
             let tw = new Tween(node);
             let pos = node.position;
-            tw.delay(0.2 * index)
+            tw.delay(0.1 * index)
             // let moveType = this.getMoveType();
             // tw.set({ scale: v3(0, moveType.indexOf("Fly") > -1 ? 10 : 0, 0) })
             tw.show();
@@ -484,6 +488,10 @@ export class EnemyBase extends BaseObject {
             }
             this.beAttackedCb = data.cb;
             this.currentHealthCount -= data.baseAttackNum;
+            if (this.bossHealthBar){
+                let progressBar = this.bossHealthBar.children[0];
+                progressBar.getComponent(ProgressBarComponent).progress = this.currentHealthCount / this.healthCount;
+            }
             let baseGasNum = data.baseGasNum; //取处基础气值
 
             this.currentGasNum += baseGasNum;
@@ -614,6 +622,9 @@ export class EnemyBase extends BaseObject {
     }
     playBossEnterAnim() {
         //播放boss 的进场动画
+        this.bossHealthBar = find("Canvas").getComponent(UIController).showBossHealthBar();
+
+        
         return new Promise((resolve, reject) => {
             let skeleteAnim = this.rootNode.getComponent(SkeletalAnimationComponent)
             let clips = skeleteAnim.clips;
@@ -643,6 +654,9 @@ export class EnemyBase extends BaseObject {
         // this.node.off('enter-continue-play-move-anim', this.contiuePlayMoveAnim, this);
         if (this.enemyCtl && isValid(this.enemyCtl.node)) {
             this.enemyCtl.node.off("frozen-all-enemy", this.forzenSelf, this);
+        }
+        if (this.bossHealthBar){
+            this.bossHealthBar.position = v3(0,-400,0);
         }
         // this.unschedule(this.shootOneBossBullet);
     }

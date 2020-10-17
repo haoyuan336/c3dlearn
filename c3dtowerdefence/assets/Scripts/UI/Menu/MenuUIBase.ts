@@ -1,9 +1,10 @@
 import { _decorator, Component, Node, Tween, Vec3, v3, find, isValid } from 'cc';
+const { ccclass, property } = _decorator;
+
 import { State } from '../../util/State';
 import { TowerBase } from '../../Towers/TowerBase';
 // import { BaseObject } from '../../BaseObject';
-import { GameController } from '../../GameController';
-const { ccclass, property } = _decorator;
+// import { GameController } from '../../GameController';
 
 @ccclass('MenuUIBase')
 export class MenuUIBase extends Component {
@@ -20,7 +21,7 @@ export class MenuUIBase extends Component {
     //     // }, 0.2)
     // }
 
-    public init(gameConfig?: Object, gameCtl?: GameController) {
+    public init(gameConfig?: Object, gameCtl?: Object) {
         // super.init(gameConfig, gameController);
         this.state.addState('open-ui', this.openUI.bind(this));
         this.state.addState('close-ui', this.closeUI.bind(this));

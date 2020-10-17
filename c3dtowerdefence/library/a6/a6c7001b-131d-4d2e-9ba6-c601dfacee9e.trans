@@ -1,5 +1,6 @@
 {
     "resolveMap": {
-        "../BaseObject": "../BaseObject.ts"
+        "../BaseObject": "../BaseObject.ts",
+        "../util/Tool": "../util/Tool.ts"
     }
 }

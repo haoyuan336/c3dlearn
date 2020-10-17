@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, LabelComponent, loader, SpriteFrame, SpriteComponent } from 'cc';
+import { _decorator, Component, Node, LabelComponent, loader, SpriteFrame, SpriteComponent ,isValid} from 'cc';
 import { BaseObject } from '../../BaseObject';
 import { GameController } from '../../GameController';
 const { ccclass, property } = _decorator;
@@ -29,7 +29,7 @@ export class GameResultGoldCell extends BaseObject {
         loader.loadRes(iconStr + "/spriteFrame",SpriteFrame, (err, result) => {
             // console.log("err", err)
             // console.log("result", result);
-            if (!err){
+            if (!err && isValid(this.enemyIconNode)){
                 this.enemyIconNode.getComponent(SpriteComponent).spriteFrame = result;
             }
         });
@@ -42,7 +42,7 @@ export class GameResultGoldCell extends BaseObject {
         loader.loadRes(iconStr + "/spriteFrame",SpriteFrame, (err, result) => {
             // console.log("err", err)
             // console.log("result", result);
-            if (!err){
+            if (!err && isValid(this.enemyIconNode)){
                 this.enemyIconNode.getComponent(SpriteComponent).spriteFrame = result;
             }
         });

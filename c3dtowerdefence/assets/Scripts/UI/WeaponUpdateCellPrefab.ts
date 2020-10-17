@@ -1,6 +1,7 @@
 import { _decorator, Component, Node, SpriteFrame, loader, SpriteComponent, LabelComponent, find } from 'cc';
 import { BaseObject } from '../BaseObject';
 import { GameController } from '../GameController';
+import { Tool } from '../util/Tool';
 import { WeaponInfoCtl } from './WeaponInfoCtl';
 const { ccclass, property } = _decorator;
 
@@ -104,7 +105,7 @@ export class WeaponUpdateCellPrefab extends BaseObject {
             //获取第一个需要激活的塔的index
             console.log("first need active tower", firstNeedActiveTower);
             let activeCostGoldCount = this.getActiveCostGoldCount();
-            this.costGoldLabel.getComponent(LabelComponent).string = activeCostGoldCount + '';
+            this.costGoldLabel.getComponent(LabelComponent).string = Tool.convertNumToK(activeCostGoldCount);
 
             // let currentGold
             if (firstNeedActiveTower === this.towerIndexType && activeCostGoldCount <= currentGoldCount) {
@@ -117,9 +118,9 @@ export class WeaponUpdateCellPrefab extends BaseObject {
             return;
         }
         let updateCostCount = this.getUpdateLocalLevelCost();
-        this.currentDamageLabel.getComponent(LabelComponent).string = this.getLocalDamageNum() + '';
-        this.costGoldLabel.getComponent(LabelComponent).string = updateCostCount + '';
-        this.addDamageLabel.getComponent(LabelComponent).string = "+" + this.getNextLocallevelAddDamage() + '';
+        this.currentDamageLabel.getComponent(LabelComponent).string = Tool.convertNumToK(this.getCurrentAttackNum());
+        this.costGoldLabel.getComponent(LabelComponent).string = Tool.convertNumToK(updateCostCount);
+        this.addDamageLabel.getComponent(LabelComponent).string = "+" + Tool.convertNumToK(this.getNextLocallevelAddDamage());
         if (currentGoldCount < updateCostCount) {
             // this.updateButtonSpriteFrameGray
             this.updateButtonNode.getComponent(SpriteComponent).spriteFrame = this.updateButtonSpriteFrameGray;
@@ -156,7 +157,8 @@ export class WeaponUpdateCellPrefab extends BaseObject {
                         this.weaponInfoCtl.weaponActived(this.node); //有weapon 被激活了
                     }
                 }
-
+                if (this.getWeaponIsActive())
+                this.weaponInfoCtl.node.emit("show-tower-info", this);
 
                 break;
             case 'WeaponBg':
@@ -164,7 +166,8 @@ export class WeaponUpdateCellPrefab extends BaseObject {
                 //显示塔的详细信息
 
                 // this.node.parent.emit("show-tower-info", this);
-                this.weaponInfoCtl.node.emit("show-tower-info", this);
+                if (this.getWeaponIsActive())
+                    this.weaponInfoCtl.node.emit("show-tower-info", this);
                 break;
             default:
                 break;

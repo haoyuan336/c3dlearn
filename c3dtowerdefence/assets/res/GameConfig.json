@@ -39,7 +39,7 @@
         "ShootRate": 1.2,
         "AttackRange": 15,
         "SkillType": "CrazyRotate",
-        "BaseAttackNum": 1,
+        "BaseAttackNum": 2,
         "BuildCost": 15,
         "ActiveCost": 100,
         "ShootAudio": "射箭音效3"
@@ -58,9 +58,9 @@
         "ShootRate": 2,
         "AttackRange": 15,
         "SkillType": "CrazyRotate",
-        "BaseAttackNum": 10,
+        "BaseAttackNum": 99,
         "BuildCost": 15,
-        "ActiveCost": 600,
+        "ActiveCost": 10000,
         "ShootAudio": "弓箭发射子弹时候音效"
     },
     "Tower_4": {
@@ -78,9 +78,9 @@
         "ShootRate": 0.8,
         "AttackRange": 15,
         "SkillType": "CrazyRotate",
-        "BaseAttackNum": 1,
+        "BaseAttackNum": 500,
         "BuildCost": 15,
-        "ActiveCost": 1000,
+        "ActiveCost": 50000,
         "ShootAudio": "机关枪"
     },
     "Tower_5": {
@@ -96,54 +96,54 @@
         "ShootRate": 1.2,
         "AttackRange": 15,
         "SkillType": "CrazyRotate",
-        "BaseAttackNum": 1,
+        "BaseAttackNum": 9999,
         "BuildCost": 15,
-        "ActiveCost": 1500,
+        "ActiveCost": 190000,
         "NeedRecoverBullet": true,
         "BulletRecoverTime": 4,
         "ShootAudio": "导弹发射的音效"
     },
     "Tower_6": {
         "CanAttackType": [
-            "Fly"
-        ],
-        "Name": "六发航空导弹",
-        "TowerType": "Tower_6",
-        "Type": "Tower",
-        "IconSprteFrame": "Tower_6_Icon",
-        "Index": 5,
-        "BulletType": "BulletOne",
-        "ShootRate": 1.2,
-        "AttackRange": 15,
-        "SkillType": "CrazyRotate",
-        "BaseAttackNum": 1,
-        "BuildCost": 15,
-        "ActiveCost": 1500,
-        "NeedRecoverBullet": true,
-        "BulletRecoverTime": 4,
-        "ShootAudio": "导弹发射的音效"
-    },
-    "Tower_7": {
-        "CanAttackType": [
             "Fly",
             "Walk"
         ],
         "Name": "双管加特林",
-        "TowerType": "Tower_7",
+        "TowerType": "Tower_6",
         "Type": "Tower",
         "IconSprteFrame": "Tower_7_Icon",
-        "Index": 6,
+        "Index": 5,
         "AttackType": "Auto",
         "BulletType": "BulletOne",
         "ShootRate": 0.8,
         "AttackRange": 15,
         "SkillType": "CrazyRotate",
-        "BaseAttackNum": 1,
+        "BaseAttackNum": 500,
         "BuildCost": 15,
-        "ActiveCost": 1500,
+        "ActiveCost": 500000,
         "BulletRecoverTime": 0,
         "IsLockEnemy": true,
         "ShootAudio": "机关枪"
+    },
+    "Tower_7": {
+        "CanAttackType": [
+            "Fly"
+        ],
+        "Name": "六发航空导弹",
+        "TowerType": "Tower_7",
+        "Type": "Tower",
+        "IconSprteFrame": "Tower_6_Icon",
+        "Index": 6,
+        "BulletType": "BulletOne",
+        "ShootRate": 1.2,
+        "AttackRange": 15,
+        "SkillType": "CrazyRotate",
+        "BaseAttackNum": 9999,
+        "BuildCost": 15,
+        "ActiveCost": 1900000,
+        "NeedRecoverBullet": true,
+        "BulletRecoverTime": 4,
+        "ShootAudio": "导弹发射的音效"
     },
     "Tower_8": {
         "CanAttackType": [
@@ -158,9 +158,9 @@
         "ShootRate": 0.2,
         "AttackRange": 20,
         "SkillType": "CrazyRotate",
-        "BaseAttackNum": 10,
+        "BaseAttackNum": 99999,
         "BuildCost": 15,
-        "ActiveCost": 1500,
+        "ActiveCost": 190000000,
         "NeedRecoverBullet": true,
         "BulletRecoverTime": 4,
         "AttackType": "Range",
@@ -220,7 +220,7 @@
         "Name": "小丑鱼",
         "IconSprteFrame": "Fish小丑鱼",
         "MoveSpeed": 6,
-        "HealthCount": 10,
+        "HealthCount": 500,
         "BeLockedCount": 10,
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
@@ -235,7 +235,7 @@
         "Name": "飞天南瓜怪",
         "IconSprteFrame": "Enemy_3_Icon",
         "MoveSpeed": 6,
-        "HealthCount": 10,
+        "HealthCount": 1000,
         "BeLockedCount": 10,
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
@@ -250,7 +250,7 @@
         "Name": "无敌飞天神龟",
         "IconSprteFrame": "Enemy_3_Icon",
         "MoveSpeed": 4,
-        "HealthCount": 10,
+        "HealthCount": 5000,
         "BeLockedCount": 10,
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
@@ -265,7 +265,7 @@
         "Name": "无敌飞天橘猫",
         "IconSprteFrame": "橘猫_Icon",
         "MoveSpeed": 4,
-        "HealthCount": 10,
+        "HealthCount": 10000,
         "BeLockedCount": 10,
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
@@ -280,7 +280,7 @@
         "Name": "无敌飞天鲨鱼",
         "IconSprteFrame": "鲨鱼_Iconn",
         "MoveSpeed": 4,
-        "HealthCount": 10,
+        "HealthCount": 50000,
         "BeLockedCount": 10,
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
@@ -295,7 +295,7 @@
         "Name": "比丘丘",
         "IconSprteFrame": "比丘丘_Icon",
         "MoveSpeed": 1,
-        "HealthCount": 10,
+        "HealthCount": 100000,
         "BeLockedCount": 10,
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
@@ -310,7 +310,7 @@
         "Name": "小肥羊",
         "IconSprteFrame": "xiaomianyang_icon",
         "MoveSpeed": 1,
-        "HealthCount": 10,
+        "HealthCount": 1000000,
         "BeLockedCount": 10,
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
@@ -325,7 +325,7 @@
         "Name": "八爪鱼",
         "IconSprteFrame": "卡通章鱼_Icon",
         "MoveSpeed": 1,
-        "HealthCount": 10,
+        "HealthCount": 5000000,
         "BeLockedCount": 10,
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
@@ -340,7 +340,7 @@
         "Name": "钢铁蜗牛",
         "IconSprteFrame": "卡通蜗牛",
         "MoveSpeed": 0.6,
-        "HealthCount": 10,
+        "HealthCount": 10000000,
         "BeLockedCount": 10,
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
@@ -355,7 +355,7 @@
         "Name": "无敌霸王龙",
         "IconSprteFrame": "卡通恐龙",
         "MoveSpeed": 0.8,
-        "HealthCount": 10,
+        "HealthCount": 20000000,
         "BeLockedCount": 10,
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
@@ -370,7 +370,7 @@
         "Name": "无敌黄金飞龙",
         "IconSprteFrame": "卡通飞龙",
         "MoveSpeed": 1,
-        "HealthCount": 10,
+        "HealthCount": 30000000,
         "BeLockedCount": 10,
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
@@ -404,7 +404,7 @@
         "EnemyType": "Boss_1",
         "BaseAttackNum": 1,
         "IconSprteFrame": "Enemy_2_Icon",
-        "MoveSpeed": 0.6,
+        "MoveSpeed": 1.2,
         "HealthCount": 2000,
         "BeLockedCount": 10,
         "BaseGasNum": 5,
@@ -421,7 +421,7 @@
         "BaseAttackNum": 1,
         "IconSprteFrame": "Enemy_3_Icon",
         "MoveSpeed": 6,
-        "HealthCount": 2000,
+        "HealthCount": 5000,
         "BeLockedCount": 10,
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
@@ -489,7 +489,7 @@
         "BaseAttackNum": 1,
         "IconSprteFrame": "比丘丘_Icon",
         "MoveSpeed": 1.5,
-        "HealthCount": 10000000,
+        "HealthCount": 2000000,
         "BeLockedCount": 10,
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
@@ -506,7 +506,7 @@
         "BaseAttackNum": 1,
         "IconSprteFrame": "xiaomianyang_icon",
         "MoveSpeed": 1.5,
-        "HealthCount": 100000000,
+        "HealthCount": 5000000,
         "BeLockedCount": 10,
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
@@ -523,7 +523,7 @@
         "BaseAttackNum": 1,
         "IconSprteFrame": "卡通章鱼_Icon",
         "MoveSpeed": 1.5,
-        "HealthCount": 1000000000,
+        "HealthCount": 100000000,
         "BeLockedCount": 10,
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
@@ -540,7 +540,7 @@
         "BaseAttackNum": 1,
         "IconSprteFrame": "卡通蜗牛",
         "MoveSpeed": 0.5,
-        "HealthCount": 10000000000,
+        "HealthCount": 500000000,
         "BeLockedCount": 10,
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
@@ -557,7 +557,7 @@
         "BaseAttackNum": 1,
         "IconSprteFrame": "卡通猪",
         "MoveSpeed": 0.8,
-        "HealthCount": 100000000000,
+        "HealthCount": 1000000000,
         "BeLockedCount": 10,
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
@@ -574,7 +574,7 @@
         "BaseAttackNum": 1,
         "IconSprteFrame": "卡通恐龙",
         "MoveSpeed": 0.8,
-        "HealthCount": 1000000000000,
+        "HealthCount": 5000000000,
         "BeLockedCount": 10,
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
@@ -591,7 +591,7 @@
         "BaseAttackNum": 1,
         "IconSprteFrame": "卡通飞龙",
         "MoveSpeed": 0.8,
-        "HealthCount": 10000000000000,
+        "HealthCount": 10000000000,
         "BeLockedCount": 10,
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
@@ -707,7 +707,7 @@
         ],
         "AddEnemyDuraction": [
             2,
-            2,
+            5,
             2,
             2,
             2
@@ -769,6 +769,24 @@
                 {
                     "type": 0,
                     "count": 10
+                }
+            ],
+            [
+                {
+                    "type": 1,
+                    "count": 10
+                }
+            ],
+            [
+                {
+                    "type": 0,
+                    "count": 10
+                }
+            ],
+            [
+                {
+                    "type": 1,
+                    "count": 15
                 }
             ],
             [
@@ -1153,6 +1171,708 @@
             [
                 {
                     "type": 5,
+                    "count": 1
+                }
+            ]
+        ]
+    },
+    "Level_6": {
+        "InitGoldCount": 120,
+        "TowerBuildPos": [
+            [
+                4,
+                4
+            ],
+            [
+                6,
+                6
+            ],
+            [
+                4,
+                6
+            ],
+            [
+                6,
+                4
+            ]
+        ],
+        "ActivedTower": [
+            0,
+            1
+        ],
+        "AddEnemyDuraction": [
+            2,
+            2
+        ],
+        "EnemyType": [
+            [
+                {
+                    "type": 0,
+                    "count": 20
+                },
+                {
+                    "type": 1,
+                    "count": 20
+                }
+            ],
+            [
+                {
+                    "type": 2,
+                    "count": 20
+                }
+            ],
+            [
+                {
+                    "type": 2,
+                    "count": 20
+                }
+            ],
+            [
+                {
+                    "type": 3,
+                    "count": 20
+                }
+            ],
+            [
+                {
+                    "type": 3,
+                    "count": 20
+                }
+            ],
+            [
+                {
+                    "type": 4,
+                    "count": 20
+                }
+            ],
+            [
+                {
+                    "type": 5,
+                    "count": 20
+                }
+            ],
+            [
+                {
+                    "type": 6,
+                    "count": 10
+                },
+                {
+                    "type": 5,
+                    "count": 10
+                }
+            ],
+            [
+                {
+                    "type": 6,
+                    "count": 1
+                }
+            ]
+        ]
+    },
+    "Level_7": {
+        "InitGoldCount": 120,
+        "TowerBuildPos": [
+            [
+                4,
+                4
+            ],
+            [
+                6,
+                6
+            ],
+            [
+                4,
+                6
+            ],
+            [
+                6,
+                4
+            ]
+        ],
+        "ActivedTower": [
+            0,
+            1
+        ],
+        "AddEnemyDuraction": [
+            2,
+            2
+        ],
+        "EnemyType": [
+            [
+                {
+                    "type": 1,
+                    "count": 10
+                },
+                {
+                    "type": 2,
+                    "count": 20
+                }
+            ],
+            [
+                {
+                    "type": 3,
+                    "count": 10
+                },
+                {
+                    "type": 4,
+                    "count": 20
+                }
+            ],
+            [
+                {
+                    "type": 5,
+                    "count": 10
+                },
+                {
+                    "type": 6,
+                    "count": 10
+                }
+            ],
+            [
+                {
+                    "type": 7,
+                    "count": 10
+                },
+                {
+                    "type": 8,
+                    "count": 20
+                }
+            ],
+            [
+                {
+                    "type": 5,
+                    "count": 10
+                },
+                {
+                    "type": 6,
+                    "count": 10
+                }
+            ],
+            [
+                {
+                    "type": 7,
+                    "count": 10
+                },
+                {
+                    "type": 8,
+                    "count": 10
+                }
+            ],
+            [
+                {
+                    "type": 7,
+                    "count": 1
+                }
+            ]
+        ]
+    },
+    "Level_8": {
+        "InitGoldCount": 120,
+        "TowerBuildPos": [
+            [
+                4,
+                4
+            ],
+            [
+                6,
+                6
+            ],
+            [
+                4,
+                6
+            ],
+            [
+                6,
+                4
+            ]
+        ],
+        "ActivedTower": [
+            0,
+            1
+        ],
+        "AddEnemyDuraction": [
+            2,
+            2
+        ],
+        "EnemyType": [
+            [
+                {
+                    "type": 2,
+                    "count": 10
+                },
+                {
+                    "type": 3,
+                    "count": 10
+                },
+                {
+                    "type": 4,
+                    "count": 10
+                }
+            ],
+            [
+                {
+                    "type": 5,
+                    "count": 15
+                },
+                {
+                    "type": 6,
+                    "count": 15
+                },
+                {
+                    "type": 7,
+                    "count": 10
+                }
+            ],
+            [],
+            [
+                {
+                    "type": 7,
+                    "count": 10
+                },
+                {
+                    "type": 8,
+                    "count": 10
+                },
+                {
+                    "type": 5,
+                    "count": 10
+                }
+            ],
+            [
+                {
+                    "type": 6,
+                    "count": 10
+                },
+                {
+                    "type": 7,
+                    "count": 10
+                },
+                {
+                    "type": 8,
+                    "count": 10
+                }
+            ],
+            [
+                {
+                    "type": 7,
+                    "count": 10
+                },
+                {
+                    "type": 8,
+                    "count": 10
+                },
+                {
+                    "type": 9,
+                    "count": 10
+                }
+            ],
+            [
+                {
+                    "type": 8,
+                    "count": 1
+                }
+            ]
+        ]
+    },
+    "Level_9": {
+        "InitGoldCount": 120,
+        "TowerBuildPos": [
+            [
+                3,
+                3
+            ],
+            [
+                7,
+                7
+            ],
+            [
+                4,
+                4
+            ],
+            [
+                6,
+                6
+            ],
+            [
+                4,
+                6
+            ],
+            [
+                6,
+                4
+            ]
+        ],
+        "ActivedTower": [
+            0,
+            1
+        ],
+        "AddEnemyDuraction": [
+            2,
+            2
+        ],
+        "EnemyType": [
+            [
+                {
+                    "type": 4,
+                    "count": 10
+                },
+                {
+                    "type": 4,
+                    "count": 10
+                },
+                {
+                    "type": 5,
+                    "count": 10
+                }
+            ],
+            [
+                {
+                    "type": 6,
+                    "count": 15
+                },
+                {
+                    "type": 6,
+                    "count": 15
+                },
+                {
+                    "type": 8,
+                    "count": 10
+                }
+            ],
+            [],
+            [
+                {
+                    "type": 7,
+                    "count": 10
+                },
+                {
+                    "type": 7,
+                    "count": 10
+                },
+                {
+                    "type": 9,
+                    "count": 10
+                }
+            ],
+            [
+                {
+                    "type": 9,
+                    "count": 10
+                },
+                {
+                    "type": 6,
+                    "count": 10
+                },
+                {
+                    "type": 8,
+                    "count": 10
+                }
+            ],
+            [
+                {
+                    "type": 9,
+                    "count": 10
+                },
+                {
+                    "type": 7,
+                    "count": 10
+                },
+                {
+                    "type": 9,
+                    "count": 10
+                }
+            ],
+            [
+                {
+                    "type": 7,
+                    "count": 10
+                },
+                {
+                    "type": 9,
+                    "count": 10
+                },
+                {
+                    "type": 7,
+                    "count": 10
+                }
+            ],
+            [
+                {
+                    "type": 8,
+                    "count": 10
+                },
+                {
+                    "type": 7,
+                    "count": 10
+                },
+                {
+                    "type": 9,
+                    "count": 10
+                }
+            ],
+            [
+                {
+                    "type": 9,
+                    "count": 1
+                }
+            ]
+        ]
+    },
+    "Level_10": {
+        "InitGoldCount": 120,
+        "TowerBuildPos": [
+            [
+                3,
+                3
+            ],
+            [
+                7,
+                7
+            ],
+            [
+                4,
+                4
+            ],
+            [
+                6,
+                6
+            ],
+            [
+                4,
+                6
+            ],
+            [
+                6,
+                4
+            ]
+        ],
+        "ActivedTower": [
+            0,
+            1
+        ],
+        "AddEnemyDuraction": [
+            2,
+            2
+        ],
+        "EnemyType": [
+            [
+                {
+                    "type": 4,
+                    "count": 10
+                },
+                {
+                    "type": 4,
+                    "count": 10
+                },
+                {
+                    "type": 5,
+                    "count": 10
+                }
+            ],
+            [
+                {
+                    "type": 6,
+                    "count": 15
+                },
+                {
+                    "type": 6,
+                    "count": 15
+                },
+                {
+                    "type": 8,
+                    "count": 10
+                }
+            ],
+            [],
+            [
+                {
+                    "type": 7,
+                    "count": 10
+                },
+                {
+                    "type": 7,
+                    "count": 10
+                },
+                {
+                    "type": 9,
+                    "count": 10
+                }
+            ],
+            [
+                {
+                    "type": 9,
+                    "count": 10
+                },
+                {
+                    "type": 6,
+                    "count": 10
+                },
+                {
+                    "type": 8,
+                    "count": 10
+                }
+            ],
+            [
+                {
+                    "type": 9,
+                    "count": 10
+                },
+                {
+                    "type": 7,
+                    "count": 10
+                },
+                {
+                    "type": 9,
+                    "count": 10
+                }
+            ],
+            [
+                {
+                    "type": 7,
+                    "count": 10
+                },
+                {
+                    "type": 9,
+                    "count": 10
+                },
+                {
+                    "type": 7,
+                    "count": 10
+                }
+            ],
+            [
+                {
+                    "type": 8,
+                    "count": 10
+                },
+                {
+                    "type": 7,
+                    "count": 10
+                },
+                {
+                    "type": 9,
+                    "count": 10
+                }
+            ],
+            [
+                {
+                    "type": 9,
+                    "count": 1
+                }
+            ]
+        ]
+    },
+    "Level_11": {
+        "InitGoldCount": 120,
+        "TowerBuildPos": [
+            [
+                3,
+                3
+            ],
+            [
+                7,
+                7
+            ],
+            [
+                4,
+                4
+            ],
+            [
+                6,
+                6
+            ],
+            [
+                4,
+                6
+            ],
+            [
+                6,
+                4
+            ]
+        ],
+        "ActivedTower": [
+            0,
+            1
+        ],
+        "AddEnemyDuraction": [
+            2,
+            2
+        ],
+        "EnemyType": [
+            [
+                {
+                    "type": 2,
+                    "count": 10
+                },
+                {
+                    "type": 5,
+                    "count": 10
+                }
+            ],
+            [
+                {
+                    "type": 2,
+                    "count": 15
+                },
+                {
+                    "type": 3,
+                    "count": 15
+                }
+            ],
+            [],
+            [
+                {
+                    "type": 3,
+                    "count": 10
+                },
+                {
+                    "type": 4,
+                    "count": 10
+                }
+            ],
+            [
+                {
+                    "type": 5,
+                    "count": 10
+                },
+                {
+                    "type": 6,
+                    "count": 10
+                }
+            ],
+            [
+                {
+                    "type": 7,
+                    "count": 10
+                },
+                {
+                    "type": 8,
+                    "count": 9
+                }
+            ],
+            [
+                {
+                    "type": 8,
+                    "count": 9
+                },
+                {
+                    "type": 9,
+                    "count": 10
+                }
+            ],
+            [
+                {
+                    "type": 10,
+                    "count": 10
+                },
+                {
+                    "type": 11,
+                    "count": 11
+                }
+            ],
+            [
+                {
+                    "type": 10,
                     "count": 1
                 }
             ]

@@ -1,4 +1,5 @@
 import { _decorator, Component, Node, v3, view, Tween, SpriteComponent, Color, instantiate, Prefab, LabelComponent, SpriteFrame, game, UIComponent, isValid, ScrollViewComponent, find } from 'cc';
+import { Tool } from '../util/Tool';
 import { GameController } from './../GameController';
 import { WeaponUpdateCellPrefab } from './../UI/WeaponUpdateCellPrefab';
 import { State } from './../util/State';
@@ -45,7 +46,7 @@ export class WeaponInfoCtl extends InfoLayerCtlBase {
     public scrollviewNode: Node = null;
     private weaponIndoCellNodeList: Node[] = [];
 
-    @property({type: Node})
+    @property({ type: Node })
     public currentPowerLabel: Node = null;
 
     private currentChooseRate: number = 0; //当前选择的倍数
@@ -68,11 +69,11 @@ export class WeaponInfoCtl extends InfoLayerCtlBase {
             this.referCurrentRedHeartCountUI();
         })
 
-        this.node.on("refer-current-power-label", (power: number)=>{
-            this.currentPowerLabel.getComponent(LabelComponent).string = power.toString(); 
-            
+        this.node.on("refer-current-power-label", (power: number) => {
+            this.currentPowerLabel.getComponent(LabelComponent).string = Tool.convertNumToK(power);
+
             this.referCurrentRedHeartCountUI();
-            for (let i = 0 ; i < this.weaponIndoCellNodeList.length ; i ++){
+            for (let i = 0; i < this.weaponIndoCellNodeList.length; i++) {
                 let node = this.weaponIndoCellNodeList[i];
                 node.getComponent(WeaponUpdateCellPrefab).referUILabel();
             }
@@ -86,7 +87,7 @@ export class WeaponInfoCtl extends InfoLayerCtlBase {
     public referCurrentRedHeartCountUI() {
         let gameController = this.gameController.getComponent(GameController);
         let cost = gameController.playerData.getAddOneRedHeartCostGoldCount() * this.currentChooseRate;
-        this.addRedHeartCostGoldCount.getComponent(LabelComponent).string = cost + '';
+        this.addRedHeartCostGoldCount.getComponent(LabelComponent).string = Tool.convertNumToK(cost);
         let currentGoldCount = gameController.playerData.getPowerCount();
         console.log("current gold count", currentGoldCount);
         console.log("cost", cost);
@@ -97,7 +98,8 @@ export class WeaponInfoCtl extends InfoLayerCtlBase {
 
         }
         this.currentInitRedHeartCountLabel.getComponent(LabelComponent).string = gameController.playerData.getCurrentInitRedHeartCount() + '';
-        this.chooseAddRedHeartCountLabel.getComponent(LabelComponent).string = "+" + this.currentChooseRate + "";
+        this.chooseAddRedHeartCountLabel.getComponent(LabelComponent).string = "+" + Tool.convertNumToK(this.currentChooseRate);
+        this.currentPowerLabel.getComponent(LabelComponent).string = Tool.convertNumToK(gameController.playerData.getPowerCount());
     }
     public initWeaponData() {
         //初始化当前武器的相关信息
@@ -151,7 +153,7 @@ export class WeaponInfoCtl extends InfoLayerCtlBase {
                 //关闭
                 //
                 this.node.emit("close-tower-info-layer");
-                break;    
+                break;
             default:
                 break;
         }

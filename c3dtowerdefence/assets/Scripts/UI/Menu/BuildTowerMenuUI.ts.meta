@@ -2,7 +2,7 @@
   "ver": "2.0.14",
   "importer": "typescript",
   "imported": true,
-  "uuid": "e33af514-5bf1-46e2-931f-191af4defdb0",
+  "uuid": "e64053ff-f861-4669-ad3f-aa6a3f89001c",
   "files": [
     ".js",
     ".trans"
@@ -10,6 +10,6 @@
   "subMetas": {},
   "userData": {
     "importAsPlugin": false,
-    "moduleId": "project:///assets/Scripts/UI/Menu/BuildTowerUI.js"
+    "moduleId": "project:///assets/Scripts/UI/Menu/BuildTowerMenuUI.js"
   }
 }

@@ -36,14 +36,17 @@ export class TowerInfoLayer extends Component {
     private currentShowAnimNode: Node = null;
     start() {
         this.node.on('show-tower-info', this.setTowerData.bind(this), this)
-        this.node.on("close-tower-info-layer", ()=>{
+        this.node.on("close-tower-info-layer", () => {
             this.towerInfoLayer.active = false;
         });
+        this.node.on("close-weapon-info-layer", ()=>{
+            this.towerInfoLayer.active = false;
+        })
     }
     setTowerData(target: BaseObject) {
         this.towerInfoLayer.active = true;
         this.currentAttackDamageLabel.getComponent(LabelComponent).string = target.getCurrentAttackNum().toString();
-        this.currentAttackSpeedLabel.getComponent(LabelComponent).string = Math.round(1 / target.getCurrentShootRate()).toString() + '/S';
+        this.currentAttackSpeedLabel.getComponent(LabelComponent).string = target.getCurrentShootRate().toFixed(1) + '/S';
         this.currentAttckRangeLabel.getComponent(LabelComponent).string = Math.floor(target.getCurrentAttackRange()).toString();
         this.towerNameLabel.getComponent(LabelComponent).string = target.getObjectName();
 

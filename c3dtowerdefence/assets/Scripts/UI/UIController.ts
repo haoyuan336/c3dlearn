@@ -1,9 +1,9 @@
-import { _decorator, Component, Node, Prefab, instantiate, CameraComponent, Vec3, isValid, LabelComponent, EventTouch, ButtonComponent, AnimationComponent, Tween, view, v3, SpriteFrame, SpriteComponent, Loader, loader, find, Game, easing } from 'cc';
+import { _decorator, Component, Node, Prefab, instantiate, CameraComponent, Vec3, isValid, LabelComponent, EventTouch, ButtonComponent, AnimationComponent, Tween, view, v3, SpriteFrame, SpriteComponent, Loader, loader, find, Game, easing, ProgressBarComponent } from 'cc';
 import { MenuUIBase } from './Menu/MenuUIBase';
 import { SkillCtl } from './SkillCtl';
 import { GoldCtl } from './GoldCtl';
 import { UpdateTowerUI } from './Menu/UpdateTowerUI';
-import { BuildTowerUI } from './Menu/BuildTowerUI';
+import { BuildTowerMenuUI } from './Menu/BuildTowerMenuUI';
 import { GameWinPrefab } from './GameWin/GameWinPrefab';
 import { DeadEnemyObj } from '../EnemyController';
 import { GameController } from '../GameController';
@@ -44,6 +44,9 @@ export class UIController extends Component {
 
     @property({type: Node})
     public towerInfoLayer: Node = null; //塔的详细信息层
+
+    @property({type: Node})
+    public bossHealthBar: Node = null; //boss 的血条
     // @property({ type: Node })
     // public currentWaveLabelNode: Node = null;
 
@@ -76,7 +79,7 @@ export class UIController extends Component {
             if (!isValid(this.buildUINode)) {
                 this.buildUINode = instantiate(this.buildTowerPrefab);
                 this.buildUINode.parent = this.node;
-                this.buildUINode.getComponent(BuildTowerUI).init(this.gameController.getGameConfig().json, this.gameController);
+                this.buildUINode.getComponent(BuildTowerMenuUI).init(this.gameController.getGameConfig().json, this.gameController);
             }
 
             this.setUINodeTo3dPos(this.buildUINode, node);
@@ -115,6 +118,15 @@ export class UIController extends Component {
         this.node.on("refer-current-tower-menu-ui", this.referTowerBuildMenuUI.bind(this), this);
         this.node.on("close-tower-menu-ui", this.coloseTowerBuildMenuUI.bind(this), this);
     }
+    showBossHealthBar(){
+        let tw = new Tween(this.bossHealthBar);
+        this.bossHealthBar.children[0].getComponent(ProgressBarComponent).progress = 1;
+        tw.to(0.2, {
+            position: v3(0,-280,0)
+        })
+        tw.start();
+        return this.bossHealthBar;
+    }
     // showTowerInfo(target){
     //     if (isValid(this.towerInfoLayer)){
     //         this.towerInfoLayer.active = true;
@@ -124,7 +136,7 @@ export class UIController extends Component {
     // }
     coloseTowerBuildMenuUI() {
         if (isValid(this.buildUINode)) {
-            this.buildUINode.getComponent(BuildTowerUI).close();
+            this.buildUINode.getComponent(BuildTowerMenuUI).close();
         }
         if (isValid(this.updateUINode)) {
             this.updateUINode.getComponent(UpdateTowerUI).close();
@@ -132,14 +144,14 @@ export class UIController extends Component {
     }
     referTowerBuildMenuUI() {
         if (isValid(this.buildUINode)) {
-            this.buildUINode.getComponent(BuildTowerUI).referCurrentUI();
+            this.buildUINode.getComponent(BuildTowerMenuUI).referCurrentUI();
         }
     }
     closeSomeUI() {
         //重新刷新UI
 
         if (isValid(this.buildUINode)) {
-            this.buildUINode.getComponent(BuildTowerUI).close();
+            this.buildUINode.getComponent(BuildTowerMenuUI).close();
         }
         if (isValid(this.updateUINode)) {
             this.updateUINode.getComponent(UpdateTowerUI).close();

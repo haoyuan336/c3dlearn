@@ -4,8 +4,8 @@ import { MenuUIBase } from './MenuUIBase'
 // import { GameController } from '../../GameController';
 import { BuildTowerUITowerIcon } from './BuildTowerUITowerIcon';
 import { GameController } from '../../GameController';
-@ccclass('BuildTowerUI')
-export class BuildTowerUI extends MenuUIBase {
+@ccclass('BuildTowerMenuUI')
+export class BuildTowerMenuUI extends MenuUIBase {
 
     // @property({ type: Prefab })
     // public towerShowAnimPrefabList: Prefab[] = [];

@@ -6,6 +6,7 @@
         "../EnemyController": "../EnemyController.ts",
         "../util/BezierN": "../util/BezierN.ts",
         "../GroundMapCtl": "../GroundMapCtl.ts",
-        "../util/FindPathWithAStart": "../util/FindPathWithAStart.ts"
+        "../util/FindPathWithAStart": "../util/FindPathWithAStart.ts",
+        "../UI/UIController": "../UI/UIController.ts"
     }
 }

@@ -28,7 +28,7 @@ export class PlayData {
         // this.setLocalData("current-init-red-heart-count", this.currentInitRedHeartCounnt + "");
         // this.setLocalData("active-enemy-list", JSON.stringify(this.currentActiveEnemyMap));
         // this.initTowerLevelLocalData(this.gameController.getGameConfig().json);
-
+        this.setLocalData("curent-power-count", "10000000");
         if (gameTime) {
             // 首次进入游戏. 初始化游戏数据
             //不是首次进入游戏，那么初始化一些游戏数据
@@ -38,12 +38,13 @@ export class PlayData {
             // this.currentGoldCount = Number(this.getLocalData("gold-count")); //获取当前金币个数
             this.currentLevelNum = Number(this.getLocalData("current-level-num")); //获取当前的关卡数
             this.currentPowerCount = Number(this.getLocalData("curent-power-count")); //获取当前的能量值
+            // this.currentPowerCount = 100000000;
             // let num = this.getQueryString('test_level_num');
             // console.log("test level num", num);
             // if (num) {
             //     this.currentLevelNum = Number(num);
             // }
-            this.currentLevelNum = 5;
+            this.currentLevelNum = 0;
             // this.currentActiveTowerBuildBaseCount = Number(this.getLocalData('active-tower-build-base-count')); //获取当前激活的塔的基座的数量
             this.currentTowerLevelData = JSON.parse(this.getLocalData("tower-level-data"));
             this.currentInitRedHeartCounnt = Number(this.getLocalData("current-init-red-heart-count")); //获取当前初始化的红心的个数
