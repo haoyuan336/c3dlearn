@@ -199,6 +199,7 @@ export class GroundMapCtl extends Component {
                     if (node) {
                         promiseList.push(this.showEnterAnim(node, index));
                         index++;
+                       
                         // this.showEnterAnim(node, index);
                     }
                 }
@@ -227,6 +228,9 @@ export class GroundMapCtl extends Component {
             tw.delay(index * 0.03);
             tw.call(() => {
                 node.active = true;
+                if (index % 3 === 0) {
+                    find("GameController").emit("play-audio", "drop")
+                }
             })
             tw.to(0.4, { position: v3(pos.x, 0, pos.z) }, { easing: 'elasticOut' })
             tw.call(() => {
@@ -355,11 +359,11 @@ export class GroundMapCtl extends Component {
     // update (deltaTime: number) {
     //     // Your update function goes here.
     // }
-    getObsPosList(){
+    getObsPosList() {
         //获取障碍物列表
         return this.obsNodeList;
     }
-    getMapSize(){
+    getMapSize() {
         return v2(this.mapWidth, this.mapHeight)
     }
 }

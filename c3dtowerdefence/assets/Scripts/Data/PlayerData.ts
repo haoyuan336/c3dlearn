@@ -44,7 +44,7 @@ export class PlayData {
             // if (num) {
             //     this.currentLevelNum = Number(num);
             // }
-            this.currentLevelNum = 0;
+            this.currentLevelNum = 12;
             // this.currentActiveTowerBuildBaseCount = Number(this.getLocalData('active-tower-build-base-count')); //获取当前激活的塔的基座的数量
             this.currentTowerLevelData = JSON.parse(this.getLocalData("tower-level-data"));
             this.currentInitRedHeartCounnt = Number(this.getLocalData("current-init-red-heart-count")); //获取当前初始化的红心的个数

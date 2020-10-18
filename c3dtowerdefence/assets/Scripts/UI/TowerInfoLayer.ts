@@ -39,12 +39,12 @@ export class TowerInfoLayer extends Component {
         this.node.on("close-tower-info-layer", () => {
             this.towerInfoLayer.active = false;
         });
-        this.node.on("close-weapon-info-layer", ()=>{
+        this.node.on("refer-tower-info", this.referTowerInfo.bind(this), this);
+        this.node.on("close-weapon-info-layer", () => {
             this.towerInfoLayer.active = false;
         })
     }
-    setTowerData(target: BaseObject) {
-        this.towerInfoLayer.active = true;
+    referTowerInfo(target: BaseObject) {
         this.currentAttackDamageLabel.getComponent(LabelComponent).string = target.getCurrentAttackNum().toString();
         this.currentAttackSpeedLabel.getComponent(LabelComponent).string = target.getCurrentShootRate().toFixed(1) + '/S';
         this.currentAttckRangeLabel.getComponent(LabelComponent).string = Math.floor(target.getCurrentAttackRange()).toString();
@@ -59,5 +59,9 @@ export class TowerInfoLayer extends Component {
         node.parent = this.towerInfoLayer;
         node.position = v3(this.tower2dAnimNodePos.position);
         this.currentShowAnimNode = node;
+    }
+    setTowerData(target: BaseObject) {
+        this.towerInfoLayer.active = true;
+        this.referTowerInfo(target);
     }
 }

@@ -158,7 +158,7 @@ export class WeaponUpdateCellPrefab extends BaseObject {
                     }
                 }
                 if (this.getWeaponIsActive())
-                this.weaponInfoCtl.node.emit("show-tower-info", this);
+                    this.weaponInfoCtl.node.emit("refer-tower-info", this);
 
                 break;
             case 'WeaponBg':
