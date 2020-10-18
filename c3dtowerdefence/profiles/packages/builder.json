@@ -19,7 +19,7 @@
     "md5Cache": true,
     "mergeStartScene": true,
     "replaceSplashScreen": true,
-    "debug": true
+    "debug": false
   },
   "wechatgame": {
     "wechatgame": {
@@ -38,7 +38,7 @@
           "taskName": "wechatgame-001",
           "platform": "wechatgame",
           "buildPath": "build",
-          "debug": true,
+          "debug": false,
           "md5Cache": true,
           "sourceMaps": false,
           "replaceSplashScreen": true,
@@ -111,12 +111,12 @@
             "displayWatermark": true
           }
         },
-        "message": "build success in 19601 ms!",
+        "message": "build success in 22029 ms!",
         "logMap": {
           "log": 19,
-          "warn": 18,
+          "warn": 16,
           "error": 0,
-          "debug": 279
+          "debug": 286
         }
       }
     ]

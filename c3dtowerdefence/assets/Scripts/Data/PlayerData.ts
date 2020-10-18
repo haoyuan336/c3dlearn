@@ -28,7 +28,7 @@ export class PlayData {
         // this.setLocalData("current-init-red-heart-count", this.currentInitRedHeartCounnt + "");
         // this.setLocalData("active-enemy-list", JSON.stringify(this.currentActiveEnemyMap));
         // this.initTowerLevelLocalData(this.gameController.getGameConfig().json);
-        this.setLocalData("curent-power-count", "10000000");
+        // this.setLocalData("curent-power-count", "10000000");
         if (gameTime) {
             // 首次进入游戏. 初始化游戏数据
             //不是首次进入游戏，那么初始化一些游戏数据
@@ -44,7 +44,7 @@ export class PlayData {
             // if (num) {
             //     this.currentLevelNum = Number(num);
             // }
-            this.currentLevelNum = 12;
+            // this.currentLevelNum = 13;
             // this.currentActiveTowerBuildBaseCount = Number(this.getLocalData('active-tower-build-base-count')); //获取当前激活的塔的基座的数量
             this.currentTowerLevelData = JSON.parse(this.getLocalData("tower-level-data"));
             this.currentInitRedHeartCounnt = Number(this.getLocalData("current-init-red-heart-count")); //获取当前初始化的红心的个数
@@ -195,7 +195,7 @@ export class PlayData {
     getAddOneRedHeartCostGoldCount(): number {
         //获取增加一个红心 需要消耗的金币个数
         let currentRedHeardCount = this.getCurrentInitRedHeartCount();
-        return (1 + currentRedHeardCount) * currentRedHeardCount * 0.5 * 100;
+        return (1 + currentRedHeardCount) * currentRedHeardCount * currentRedHeardCount * 100;
     }
     addLocalInitRedHeartCount(count) {
         //增加本地初始化红心的个数

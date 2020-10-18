@@ -158,7 +158,7 @@
         "ShootRate": 0.2,
         "AttackRange": 20,
         "SkillType": "CrazyRotate",
-        "BaseAttackNum": 1000000,
+        "BaseAttackNum": 10000000,
         "BuildCost": 15,
         "ActiveCost": 190000000,
         "NeedRecoverBullet": true,
@@ -598,6 +598,23 @@
         "MoveType": "Fly",
         "EnemyBulletType": 0,
         "EnemyIndex": 14,
+        "ShowAudio": "鲸鱼的叫声",
+        "ShootAudio": "怪兽叫声8",
+        "DeadAudio": "鲸鱼的叫声"
+    },
+    "Boss_13": {
+        "Name": "大Boss",
+        "EnemyType": "Boss_13",
+        "BaseAttackNum": 1,
+        "IconSprteFrame": "Boss_13_Icon",
+        "MoveSpeed": 0.8,
+        "HealthCount": 50000000000,
+        "BeLockedCount": 10,
+        "BaseGasNum": 5,
+        "BaseGoldCount": 10,
+        "MoveType": "Walk",
+        "EnemyBulletType": 0,
+        "EnemyIndex": 15,
         "ShowAudio": "鲸鱼的叫声",
         "ShootAudio": "怪兽叫声8",
         "DeadAudio": "鲸鱼的叫声"
@@ -1619,7 +1636,7 @@
         ]
     },
     "Level_10": {
-        "InitGoldCount": 120,
+        "InitGoldCount": 900,
         "TowerBuildPos": [
             [
                 3,
@@ -1762,7 +1779,7 @@
         ]
     },
     "Level_11": {
-        "InitGoldCount": 120,
+        "InitGoldCount": 1200,
         "TowerBuildPos": [
             [
                 3,
@@ -1877,7 +1894,7 @@
         ]
     },
     "Level_12": {
-        "InitGoldCount": 120,
+        "InitGoldCount": 1200,
         "TowerBuildPos": [
             [
                 3,
@@ -2022,7 +2039,7 @@
         ]
     },
     "Level_13": {
-        "InitGoldCount": 120,
+        "InitGoldCount": 1100,
         "TowerBuildPos": [
             [
                 3,
@@ -2066,7 +2083,66 @@
             2
         ],
         "EnemyType": [
-            
+            [
+                {
+                    "type": 8,
+                    "count": 20
+                }
+            ],
+            [
+                {
+                    "type": 9,
+                    "count": 20
+                }
+            ],
+            [
+                {
+                    "type": 11,
+                    "count": 20
+                }
+            ],
+            [
+                {
+                    "type": 12,
+                    "count": 20
+                }
+            ],
+            [
+                {
+                    "type": 13,
+                    "count": 20
+                }
+            ],
+            [
+                {
+                    "type": 8,
+                    "count": 20
+                }
+            ],
+            [
+                {
+                    "type": 9,
+                    "count": 20
+                }
+            ],
+            [
+                {
+                    "type": 11,
+                    "count": 20
+                }
+            ],
+            [
+                {
+                    "type": 12,
+                    "count": 20
+                }
+            ],
+            [
+                {
+                    "type": 13,
+                    "count": 20
+                }
+            ],
             [
                 {
                     "type": 13,

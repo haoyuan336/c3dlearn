@@ -1,67 +1,96 @@
-2020-10-18 22:05:08-log: [Package] builder@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] lightmap@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] baidu-mini-game@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] alipay-mini-game@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] bytedance-mini-game@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] android@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] cocos-play@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] huawei-mini-game@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] native@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] mac@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] oppo-mini-game@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] web-desktop@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] vivo-mini-game@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] wechatgame@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] ios@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] web-mobile@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] windows@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] xiaomi-quick-game@1.0.0 enable
-2020-10-18 22:05:06-log: [Package] ui-kit@1.0.0 enable
-2020-10-18 22:05:06-log: [Package] ipc@1.0.0 enable
-2020-10-18 22:05:06-log: [Package] tester@1.0.0 enable
-2020-10-18 22:05:06-log: [Package] preferences@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] engine@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] asset-db@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] console@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] scene@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] packager@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] project-setting@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] about@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] server@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] utils@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] profile@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] assets@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] inspector@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] hierarchy@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] preview@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] animator@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] builder@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] lightmap@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] alipay-mini-game@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] android@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] baidu-mini-game@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] bytedance-mini-game@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] cocos-play@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] huawei-mini-game@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] ios@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] mac@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] oppo-mini-game@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] native@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] vivo-mini-game@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] web-desktop@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] web-mobile@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] wechatgame@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] windows@1.0.0 enable
-2020-10-18 22:05:08-log: [Package] xiaomi-quick-game@1.0.0 enable
-2020-10-18 22:39:08-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-18 22:48:31-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\Enemys\Boss_12.prefab) saved
-2020-10-18 22:54:09-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\Enemys\Boss_12.prefab) saved
-2020-10-18 22:54:34-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\Enemys\Boss_12.prefab) saved
-2020-10-18 22:54:35-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\Enemys\Boss_12.prefab) saved
-2020-10-18 22:54:53-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\Enemys\Boss_13.prefab) saved
-2020-10-18 22:54:55-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\Enemys\Boss_13.prefab) saved
-2020-10-18 22:54:55-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\Enemys\Boss_13.prefab) saved
-2020-10-18 22:55:47-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\Enemys\Boss_13.prefab) saved
-2020-10-18 22:55:48-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\Enemys\Boss_13.prefab) saved
-2020-10-18 22:55:48-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\Enemys\Boss_13.prefab) saved
-2020-10-18 22:55:49-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\Enemys\Boss_13.prefab) saved
+2020-10-19 00:06:46-log: [Package] builder@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] lightmap@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] alipay-mini-game@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] android@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] baidu-mini-game@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] bytedance-mini-game@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] cocos-play@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] huawei-mini-game@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] ios@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] mac@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] native@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] oppo-mini-game@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] vivo-mini-game@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] web-desktop@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] web-mobile@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] wechatgame@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] windows@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] xiaomi-quick-game@1.0.0 enable
+2020-10-19 00:06:44-log: [Package] ui-kit@1.0.0 enable
+2020-10-19 00:06:44-log: [Package] ipc@1.0.0 enable
+2020-10-19 00:06:44-log: [Package] tester@1.0.0 enable
+2020-10-19 00:06:44-log: [Package] preferences@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] engine@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] asset-db@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] console@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] scene@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] packager@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] project-setting@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] about@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] server@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] utils@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] profile@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] assets@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] inspector@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] hierarchy@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] preview@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] animator@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] builder@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] lightmap@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] alipay-mini-game@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] android@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] baidu-mini-game@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] bytedance-mini-game@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] cocos-play@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] huawei-mini-game@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] ios@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] mac@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] native@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] oppo-mini-game@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] vivo-mini-game@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] web-desktop@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] web-mobile@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] wechatgame@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] windows@1.0.0 enable
+2020-10-19 00:06:46-log: [Package] xiaomi-quick-game@1.0.0 enable
+2020-10-19 00:06:50-warn: [Asset DB] Browserslist: caniuse-lite is outdated. Please run the following command: `npx browserslist --update-db`
+2020-10-19 00:07:46-info: asset meta saved
+2020-10-19 00:07:58-info: asset meta saved
+2020-10-19 00:07:59-info: asset meta saved
+2020-10-19 00:08:03-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-19 00:10:46-warn: [Build] Browserslist: caniuse-lite is outdated. Please run the following command: `npx browserslist --update-db`
+2020-10-19 00:10:49-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Enemys\EnemyBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
+2020-10-19 00:10:49-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Enemys\EnemyBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts
+2020-10-19 00:10:49-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Enemys\EnemyBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\Menu\MenuUIBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
+2020-10-19 00:10:49-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\BulletBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Enemys\EnemyBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\Menu\MenuUIBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\BulletBase.ts
+2020-10-19 00:10:49-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Enemys\EnemyBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\Menu\MenuUIBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Enemys\EnemyBase.ts
+2020-10-19 00:10:49-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Enemys\EnemyBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\Menu\MenuUIBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts
+2020-10-19 00:10:49-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts
+2020-10-19 00:10:49-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\Menu\MenuUIBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts
+2020-10-19 00:10:49-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Enemys\EnemyBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\GoldCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
+2020-10-19 00:10:49-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Enemys\EnemyBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\Menu\MenuUIBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
+2020-10-19 00:10:49-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
+2020-10-19 00:10:49-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Enemys\EnemyBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\Menu\UpdateTowerUI.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
+2020-10-19 00:10:49-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Enemys\EnemyBullet.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
+2020-10-19 00:10:49-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Enemys\EnemyBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
+2020-10-19 00:10:49-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\TowerBuildBaseCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
+2020-10-19 00:10:49-warn: [Build] Generated an empty bundle
+2020-10-19 00:10:51-warn: [Build] Browserslist: caniuse-lite is outdated. Please run next command `npm update`
+2020-10-19 00:14:17-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-19 00:14:19-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-19 00:14:31-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Enemys\EnemyBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
+2020-10-19 00:14:31-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Enemys\EnemyBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts
+2020-10-19 00:14:31-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Enemys\EnemyBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\Menu\MenuUIBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
+2020-10-19 00:14:31-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Enemys\EnemyBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\Menu\MenuUIBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Enemys\EnemyBase.ts
+2020-10-19 00:14:31-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\BulletBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Enemys\EnemyBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\Menu\MenuUIBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\BulletBase.ts
+2020-10-19 00:14:31-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Enemys\EnemyBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\Menu\MenuUIBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts
+2020-10-19 00:14:31-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Enemys\EnemyBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\Menu\MenuUIBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
+2020-10-19 00:14:31-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts
+2020-10-19 00:14:31-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\Menu\MenuUIBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Towers\TowerBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\SkillCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts
+2020-10-19 00:14:31-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Enemys\EnemyBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\GoldCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
+2020-10-19 00:14:31-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Enemys\EnemyBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\Menu\UpdateTowerUI.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
+2020-10-19 00:14:31-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Enemys\EnemyBase.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\UI\UIController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
+2020-10-19 00:14:31-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
+2020-10-19 00:14:31-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\EnemyController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\Enemys\EnemyBullet.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
+2020-10-19 00:14:31-warn: [Build] Circular dependency: ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\TowerBuildBaseCtl.ts -> ..\..\..\..\..\workspace\c3dlearn\c3dtowerdefence\assets\Scripts\GameController.ts
+2020-10-19 00:14:31-warn: [Build] Generated an empty bundle
