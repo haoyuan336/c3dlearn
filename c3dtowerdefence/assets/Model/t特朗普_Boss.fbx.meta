@@ -1,0 +1,218 @@
+{
+  "ver": "1.3.21",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "1095e2e7-4e9c-4773-8958-813ca07e120e",
+  "files": [],
+  "subMetas": {
+    "9a84c": {
+      "importer": "gltf-mesh",
+      "uuid": "1095e2e7-4e9c-4773-8958-813ca07e120e@9a84c",
+      "displayName": "",
+      "id": "9a84c",
+      "name": "平面.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "c6d95": {
+      "importer": "gltf-animation",
+      "uuid": "1095e2e7-4e9c-4773-8958-813ca07e120e@c6d95",
+      "displayName": "",
+      "id": "c6d95",
+      "name": "metarig|AttackAnim.animation",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.2083333730697632
+        },
+        "events": []
+      }
+    },
+    "9504f": {
+      "importer": "gltf-animation",
+      "uuid": "1095e2e7-4e9c-4773-8958-813ca07e120e@9504f",
+      "displayName": "",
+      "id": "9504f",
+      "name": "metarig|MoveAnim.animation",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 1,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.2083333730697632
+        },
+        "events": []
+      }
+    },
+    "438fe": {
+      "importer": "gltf-skeleton",
+      "uuid": "1095e2e7-4e9c-4773-8958-813ca07e120e@438fe",
+      "displayName": "",
+      "id": "438fe",
+      "name": "UnnamedSkeleton.skeleton",
+      "ver": "1.0.1",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0,
+        "jointsLength": 33
+      }
+    },
+    "15e7c": {
+      "importer": "gltf-embeded-image",
+      "uuid": "1095e2e7-4e9c-4773-8958-813ca07e120e@15e7c",
+      "displayName": "",
+      "id": "15e7c",
+      "name": "tlp_boss_Texture.png.image",
+      "ver": "1.0.2",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "7d6ab": {
+      "importer": "texture",
+      "uuid": "1095e2e7-4e9c-4773-8958-813ca07e120e@7d6ab",
+      "displayName": "",
+      "id": "7d6ab",
+      "name": "base_color_texture.texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "1095e2e7-4e9c-4773-8958-813ca07e120e@15e7c"
+      }
+    },
+    "22e2a": {
+      "importer": "gltf-material",
+      "uuid": "1095e2e7-4e9c-4773-8958-813ca07e120e@22e2a",
+      "displayName": "",
+      "id": "22e2a",
+      "name": "材质.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "31bcd": {
+      "importer": "gltf-scene",
+      "uuid": "1095e2e7-4e9c-4773-8958-813ca07e120e@31bcd",
+      "displayName": "",
+      "id": "31bcd",
+      "name": "t特朗普_Boss.prefab",
+      "ver": "1.0.11",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "tlp_boss_Texture.png",
+        "uri": "1095e2e7-4e9c-4773-8958-813ca07e120e@15e7c"
+      }
+    ],
+    "animationImportSettings": [
+      {
+        "name": "metarig|AttackAnim",
+        "duration": 1.2083333730697632,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "metarig|AttackAnim",
+            "from": 0,
+            "to": 1.2083333730697632,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "metarig|MoveAnim",
+        "duration": 1.2083333730697632,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "metarig|MoveAnim",
+            "from": 0,
+            "to": 1.2083333730697632,
+            "wrapMode": 2
+          }
+        ]
+      }
+    ],
+    "redirect": "1095e2e7-4e9c-4773-8958-813ca07e120e@31bcd",
+    "assetFinder": {
+      "meshes": [
+        "1095e2e7-4e9c-4773-8958-813ca07e120e@9a84c"
+      ],
+      "skeletons": [
+        "1095e2e7-4e9c-4773-8958-813ca07e120e@438fe"
+      ],
+      "textures": [
+        "1095e2e7-4e9c-4773-8958-813ca07e120e@7d6ab"
+      ],
+      "materials": [
+        "1095e2e7-4e9c-4773-8958-813ca07e120e@22e2a"
+      ],
+      "scenes": [
+        "1095e2e7-4e9c-4773-8958-813ca07e120e@31bcd"
+      ]
+    }
+  }
+}
