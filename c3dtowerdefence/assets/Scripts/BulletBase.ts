@@ -221,7 +221,7 @@ export class BulletBase extends BaseObject {
                     this.node.position = v3(this.node.position).add(dir.multiplyScalar(deltaTime * 0.2 * this.getMoveSpeed()));
 
 
-                    if (this.moveState.getState() === 'bezier-end'){
+                    if (this.moveState.getState() === 'bezier-end') {
                         this.node.lookAt(this.targetEnemyNode.position);
                     }
                 } else {
@@ -334,7 +334,7 @@ export class BulletBase extends BaseObject {
             return a.dis - b.dis;
         })
         // console.log("dis list", disList);
-        if (isValid(disList[0].node)) {
+        if (disList.length > 0 && isValid(disList[0].node)) {
             return disList[0].node.position;
 
         }
@@ -373,21 +373,27 @@ export class BulletBase extends BaseObject {
         //     }
         // });
         let enemyNodeList = this.gameController.node.getComponent(EnemyController).getCurrentEnemyNodeList();
+
+        const attackedEnemy = (node: Node) => {
+            console.log("攻击敌人")
+            node.emit("be-attacked", {
+                baseAttackNum: this.getCurrentAttackNum(),
+                baseGasNum: 0,
+                cb: (isDead: boolean, powerCount: number) => {
+                    console.log("被打死了的 回调", isValid(this.targetTowerBase));
+                    if (this.targetTowerBase) {
+                        this.targetTowerBase.enemyDeadByThis(isDead, powerCount);
+                    }
+                }
+            })
+        }
+
         for (let i = 0; i < enemyNodeList.length; i++) {
             let node = enemyNodeList[i];
             let dis = v3(node.position).subtract(exporeEffectNode.position).length();
             if (dis < 10) {
                 console.log('dis', dis);
-                console.log("攻击敌人")
-                node.emit("be-attacked", {
-                    baseAttackNum: this.getCurrentAttackNum(),
-                    baseGasNum: 0,
-                    cb: (isDead: boolean,powerCount: number) => {
-                        if (this.targetTowerBase) {
-                            this.targetTowerBase.enemyDeadByThis(isDead, powerCount);
-                        }
-                    }
-                })
+                attackedEnemy(node);
             }
         }
         this.node.destroy();

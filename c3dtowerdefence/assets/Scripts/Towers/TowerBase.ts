@@ -390,7 +390,9 @@ export class TowerBase extends BaseObject {
                 let node = instantiate(this.bulletPrefab);
                 node.parent = this.node.parent;
                 node.position = startPosNode.worldPosition;
-                node.getComponent(BulletBase).init(this.gameConfig, this.gameController, { baseAttackNum: this.getCurrentAttackNum() });
+                node.getComponent(BulletBase).init(this.gameConfig, this.gameController, { baseAttackNum: this.getCurrentAttackNum() ,
+                    targetTower: this
+                    });
                 this.gameController.node.emit("play-audio", this.shootAudio);
             })
             tw.delay(0.8)
@@ -624,6 +626,7 @@ export class TowerBase extends BaseObject {
     }
     enemyDeadByThis(isDead: boolean, powerValue: number) {
         //敌人被此塔打死
+        console.log("敌人被此塔打死了");
         if (isDead) {
             //如果敌人被打死了, 那么此塔增加能量 一个点
             if (isValid(this.skillCtl)) {

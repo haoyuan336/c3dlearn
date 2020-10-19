@@ -269,16 +269,17 @@ export class PlayData {
         var r = window.location.search.substr(1).match(reg);
         if (r != null) return unescape(r[2]); return null;
     }
-    addPowerCount(power: number){
+    addPowerCount(power: number) {
+        console.log("增加能量")
         this.currentPowerCount += power;
         this.setLocalData("curent-power-count", this.currentPowerCount.toString());
         this.gameController.referPowerCountLabel();
     }
-    getPowerCount():number{
+    getPowerCount(): number {
         //返回当前的能量值
         return this.currentPowerCount;
     }
-    recoverRedHeartCount(){
+    recoverRedHeartCount() {
         //恢复红心的个数
         this.currentRedHeardCount = this.currentInitRedHeartCounnt;
     }

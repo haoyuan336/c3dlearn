@@ -208,7 +208,7 @@ export class GameController extends Component {
         this.state.addState("game-loss", () => {
             console.log("进入游戏失败的状态");
             this.uiController.emit('close-weapon-info-layer')
-
+            this.node.getComponent(EnemyController).gemeLose();
             this.node.getComponent(EnemyController).frozenAllEnemy();
             this.node.getComponent(TowerBuildBaseCtl).frozenAllTowerBuildBase(); //禁锢所有塔的基座
             // this.homeIconTw.stop();
@@ -357,6 +357,8 @@ export class GameController extends Component {
 
         console.log("进入下一关")
         this.enterGame().then(() => {
+            this.playerData.recoverRedHeartCount();
+            this.uiController.emit("refer-red-heart-label");
             this.node.emit('update-gold-label', this.playerData.getCurrentGoldCount());
             this.state.setState("run");
             this.node.getComponent(EnemyController).startGame();

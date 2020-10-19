@@ -69,6 +69,8 @@ export class EnemyController extends Component {
 
 
     private uiControllerNode: Node = null;
+
+    private isAddedBoss: boolean = false;
     // @property({type: JsonAsset})
     // public GameLevelConfig: JsonAsset = null;
     onLoad() {
@@ -148,23 +150,28 @@ export class EnemyController extends Component {
                 } else if (this.currentWaveIndex === currentWaveData.length - 1) {
 
                     let enemyTypeList = currentWaveData[this.currentWaveIndex];
-                    this.addOneBossEnemy(enemyTypeList);
-                    this.currentWaveIndex++;
+                    this.addOneBossEnemy(enemyTypeList).then(() => {
+                        this.currentWaveIndex++;
+                        return new Promise((resolve, reject) => {
+                            this.allEnemyDeadCb = resolve;
+                        })
+                    }).then(() => {
+                        console.log("游戏胜利");
+                        if (this.state.getState() !== "game-lose") {
+                            this.state.setState("game-win");
+                            this.uiControllerNode.emit("show-end-dialog", this.gameController.getCurrentLevelNum(), () => {
+                                this.gameController.gameWin(this.currentLevelDeadEnemyDataList);
+                            })
+                        }
+                    });
+                    this.state.setState("add-boss-state"); //增加boss 的状态
+
 
                 } else {
                     console.log("敌人增加完毕");
                     this.state.setState("add-enemy-end");
 
-                    Promise.all([
-                        new Promise((resolve, reject) => {
-                            this.allEnemyDeadCb = resolve;
-                        })
-                    ]).then(() => {
-                        console.log("游戏胜利");
-                        this.uiControllerNode.emit("show-end-dialog", this.gameController.getCurrentLevelNum(), () => {
-                            this.gameController.gameWin(this.currentLevelDeadEnemyDataList);
-                        })
-                    })
+
                 }
             }
         }, 4)
@@ -223,20 +230,20 @@ export class EnemyController extends Component {
 
         // }, 3);
 
-        Promise.all([
-            new Promise((resolve, reject) => {
-                this.allWaveAddOverCb = resolve;
-            }),
-            new Promise((resolve, reject) => {
-                // this.allEnemyDeadCb = resolve;
-            })
-        ]).then(() => {
-            console.log("游戏胜利");
-            this.uiControllerNode.emit("show-end-dialog", this.gameController.getCurrentLevelNum(), () => {
-                this.gameController.gameWin(this.currentLevelDeadEnemyDataList);
-            })
+        // Promise.all([
+        //     new Promise((resolve, reject) => {
+        //         this.allWaveAddOverCb = resolve;
+        //     }),
+        //     new Promise((resolve, reject) => {
+        //         // this.allEnemyDeadCb = resolve;
+        //     })
+        // ]).then(() => {
+        //     console.log("游戏胜利");
+        //     this.uiControllerNode.emit("show-end-dialog", this.gameController.getCurrentLevelNum(), () => {
+        //         this.gameController.gameWin(this.currentLevelDeadEnemyDataList);
+        //     })
 
-        })
+        // })
     }
     continueGame() {
         this.currentWaveIndex--;
@@ -262,7 +269,10 @@ export class EnemyController extends Component {
         this.currentLevelDeadEnemyDataList.push(enemyDeadData);
         this.gameController.playerData.activeEnemy(enemyDeadData.enemyType);
     }
-
+    gemeLose() {
+        //游戏失败了
+        this.state.setState("game-lose");
+    }
 
     pauseGame() {
         //暂停游戏
@@ -324,39 +334,36 @@ export class EnemyController extends Component {
     }
     addOneBossEnemy(currentEnemyList: Object[]) {
         console.log("增加一个boss")
-        let indexList: Vec2[] = this.node.getComponent(GroundMapCtl).getInEdageIndexList();
-        let randomIndex = Math.round(Math.random() * (indexList.length - 1));
-        let pos: Vec2 = indexList[randomIndex];
-        let nodeMapList: My2dArray<Node> = this.node.getComponent(GroundMapCtl).getMapNodeList();
-        let node = nodeMapList.getValue(pos.x, pos.y);
-        let type = currentEnemyList[0]['type'];
-        let enemyNode = instantiate(this.bosssPrefabList[type]);
-        // console.log("enemy node", enemyNode)
-        enemyNode.parent = this.node;
-        enemyNode.position = v3(node.position.x, 0, node.position.z);
-        enemyNode.active = false;
-
-        enemyNode.getComponent(EnemyBase).init(this.gameConfig, this.gameController, node.position, this.endPos);
-
-        // this.showEnemyEnterAnim(enemyNode, addEnemyCount);
-        // promiseList.push(enemyNode.getComponent(EnemyBase).showEnemyEnterAnim(addEnemyCount, this, this.gameController, indexV2, new Vec2(5, 5)));
-        // addEnemyCount++;
-        this.enemyNodeList.push(enemyNode);
-        // return new Promise((resolve, reject) => {
-        //     resolve();
-        //     // enemyNode.active = false;
-        // }).then(() => {
-        //     return this.playBossEnterAnim(enemyNode);
-        // }).then(() => {
-        //     //敌人继续播放行走动画
-        //     this.node.emit("enter-continue-play-move-anim")
-        // })
         return new Promise((resolve, reject) => {
-            return this.playBossEnterAnim(enemyNode).then(() => {
-                this.node.emit("enter-continue-play-move-anim");
-                enemyNode.getComponent(EnemyBase).showEnemyEnterAnim(1, this, pos, new Vec2(5, 5));
-                resolve();
-            })
+            this.scheduleOnce(() => {
+                if (this.state.getState() === 'game-lose') {
+                    resolve();
+                    return
+                }
+                let indexList: Vec2[] = this.node.getComponent(GroundMapCtl).getInEdageIndexList();
+                let randomIndex = Math.round(Math.random() * (indexList.length - 1));
+                let pos: Vec2 = indexList[randomIndex];
+                let nodeMapList: My2dArray<Node> = this.node.getComponent(GroundMapCtl).getMapNodeList();
+                let node = nodeMapList.getValue(pos.x, pos.y);
+                let type = currentEnemyList[0]['type'];
+                let enemyNode = instantiate(this.bosssPrefabList[type]);
+                // console.log("enemy node", enemyNode)
+                enemyNode.parent = this.node;
+                enemyNode.position = v3(node.position.x, 0, node.position.z);
+                enemyNode.active = false;
+
+                enemyNode.getComponent(EnemyBase).init(this.gameConfig, this.gameController, node.position, this.endPos);
+
+                // this.showEnemyEnterAnim(enemyNode, addEnemyCount);
+                // promiseList.push(enemyNode.getComponent(EnemyBase).showEnemyEnterAnim(addEnemyCount, this, this.gameController, indexV2, new Vec2(5, 5)));
+                // addEnemyCount++;
+                this.enemyNodeList.push(enemyNode);
+                return this.playBossEnterAnim(enemyNode).then(() => {
+                    this.node.emit("enter-continue-play-move-anim");
+                    enemyNode.getComponent(EnemyBase).showEnemyEnterAnim(1, this, pos, new Vec2(5, 5));
+                    resolve();
+                })
+            }, 5)
         })
 
     }
