@@ -355,14 +355,27 @@ export class GameController extends Component {
     enterNextLevel() {
         this.playerData.enterNextLevel();
 
-        console.log("进入下一关")
-        this.enterGame().then(() => {
-            this.playerData.recoverRedHeartCount();
-            this.uiController.emit("refer-red-heart-label");
-            this.node.emit('update-gold-label', this.playerData.getCurrentGoldCount());
-            this.state.setState("run");
-            this.node.getComponent(EnemyController).startGame();
-        })
+        if (this.playerData.currentLevelNum === 0){
+            this.uiController.emit("show-game-end-info-layer", ()=>{
+                this.enterGame().then(() => {
+                    this.playerData.recoverRedHeartCount();
+                    this.uiController.emit("refer-red-heart-label");
+                    this.node.emit('update-gold-label', this.playerData.getCurrentGoldCount());
+                    this.state.setState("run");
+                    this.node.getComponent(EnemyController).startGame();
+                })
+            })
+        }else{
+            console.log("进入下一关")
+            this.enterGame().then(() => {
+                this.playerData.recoverRedHeartCount();
+                this.uiController.emit("refer-red-heart-label");
+                this.node.emit('update-gold-label', this.playerData.getCurrentGoldCount());
+                this.state.setState("run");
+                this.node.getComponent(EnemyController).startGame();
+            })
+        }
+       
 
         //把所有的tower都销毁掉，
         //把左右的tower 的基座删掉

@@ -264,7 +264,7 @@ export class EnemyController extends Component {
         })
     }
     pushOneEnemyDeadData(enemyDeadData: DeadEnemyObj) {
-        console.log("push one enemy dead data", enemyDeadData);
+        // console.log("push one enemy dead data", enemyDeadData);
 
         this.currentLevelDeadEnemyDataList.push(enemyDeadData);
         this.gameController.playerData.activeEnemy(enemyDeadData.enemyType);
@@ -333,7 +333,7 @@ export class EnemyController extends Component {
 
     }
     addOneBossEnemy(currentEnemyList: Object[]) {
-        console.log("增加一个boss")
+        // console.log("增加一个boss")
         return new Promise((resolve, reject) => {
             this.scheduleOnce(() => {
                 if (this.state.getState() === 'game-lose') {
@@ -383,7 +383,7 @@ export class EnemyController extends Component {
                 typeList.push(waveData['type']);
             }
         }
-        console.log("type list", typeList);
+        // console.log("type list", typeList);
         // console.log("max enemy count", maxEnemyCount);
         // if (maxEnemyCount >= indexList.length) {
         //     console.error("数据错误");
@@ -394,17 +394,17 @@ export class EnemyController extends Component {
         if (this.currentWaveIndex === 0 && this.gameController.getCurrentLevelNum() === 0) {
             randomStartIndex = 0;
         }
-        console.log("current wave", this.currentWaveIndex);
-        console.log("current level", this.gameController.getCurrentLevelNum());
+        // console.log("current wave", this.currentWaveIndex);
+        // console.log("current level", this.gameController.getCurrentLevelNum());
         const createOneEnemy = (index: number, type: number) => {
 
             let startIndex = randomStartIndex + index;
             if (startIndex >= indexList.length) {
                 startIndex -= indexList.length;
             }
-            console.log("index list length", indexList.length);
+            // console.log("index list length", indexList.length);
             let indexV2 = indexList[startIndex];
-            console.log("start index", startIndex);
+            // console.log("start index", startIndex);
             let node = nodeMapList.getValue(indexV2.x, indexV2.y);
 
             // this.scheduleOnce(() => {

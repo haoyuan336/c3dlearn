@@ -1,79 +1,145 @@
-2020-10-19 14:41:49-log: [Package] builder@1.0.0 enable
-2020-10-19 14:41:49-log: [Package] lightmap@1.0.0 enable
-2020-10-19 14:41:49-log: [Package] alipay-mini-game@1.0.0 enable
-2020-10-19 14:41:49-log: [Package] android@1.0.0 enable
-2020-10-19 14:41:49-log: [Package] baidu-mini-game@1.0.0 enable
-2020-10-19 14:41:49-log: [Package] bytedance-mini-game@1.0.0 enable
-2020-10-19 14:41:49-log: [Package] cocos-play@1.0.0 enable
-2020-10-19 14:41:49-log: [Package] huawei-mini-game@1.0.0 enable
-2020-10-19 14:41:49-log: [Package] ios@1.0.0 enable
-2020-10-19 14:41:49-log: [Package] mac@1.0.0 enable
-2020-10-19 14:41:49-log: [Package] native@1.0.0 enable
-2020-10-19 14:41:49-log: [Package] oppo-mini-game@1.0.0 enable
-2020-10-19 14:41:49-log: [Package] vivo-mini-game@1.0.0 enable
-2020-10-19 14:41:49-log: [Package] web-desktop@1.0.0 enable
-2020-10-19 14:41:49-log: [Package] web-mobile@1.0.0 enable
-2020-10-19 14:41:49-log: [Package] windows@1.0.0 enable
-2020-10-19 14:41:49-log: [Package] xiaomi-quick-game@1.0.0 enable
-2020-10-19 14:41:45-log: [Package] ui-kit@1.0.0 enable
-2020-10-19 14:41:45-log: [Package] ipc@1.0.0 enable
-2020-10-19 14:41:45-log: [Package] tester@1.0.0 enable
-2020-10-19 14:41:45-log: [Package] preferences@1.0.0 enable
-2020-10-19 14:41:48-log: [Package] asset-db@1.0.0 enable
-2020-10-19 14:41:48-log: [Package] engine@1.0.0 enable
-2020-10-19 14:41:48-log: [Package] console@1.0.0 enable
-2020-10-19 14:41:48-log: [Package] scene@1.0.0 enable
-2020-10-19 14:41:48-log: [Package] packager@1.0.0 enable
-2020-10-19 14:41:48-log: [Package] project-setting@1.0.0 enable
-2020-10-19 14:41:48-log: [Package] about@1.0.0 enable
-2020-10-19 14:41:48-log: [Package] server@1.0.0 enable
-2020-10-19 14:41:48-log: [Package] utils@1.0.0 enable
-2020-10-19 14:41:48-log: [Package] profile@1.0.0 enable
-2020-10-19 14:41:48-log: [Package] assets@1.0.0 enable
-2020-10-19 14:41:48-log: [Package] hierarchy@1.0.0 enable
-2020-10-19 14:41:48-log: [Package] preview@1.0.0 enable
-2020-10-19 14:41:48-log: [Package] animator@1.0.0 enable
-2020-10-19 14:41:49-log: [Package] wechatgame@1.0.0 enable
-2020-10-19 14:41:49-log: [Package] builder@1.0.0 enable
-2020-10-19 14:41:49-log: [Package] alipay-mini-game@1.0.0 enable
-2020-10-19 14:41:49-log: [Package] baidu-mini-game@1.0.0 enable
-2020-10-19 14:41:49-log: [Package] android@1.0.0 enable
-2020-10-19 14:41:49-log: [Package] bytedance-mini-game@1.0.0 enable
-2020-10-19 14:41:49-log: [Package] lightmap@1.0.0 enable
-2020-10-19 14:41:49-log: [Package] cocos-play@1.0.0 enable
-2020-10-19 14:41:49-log: [Package] huawei-mini-game@1.0.0 enable
-2020-10-19 14:41:49-log: [Package] mac@1.0.0 enable
-2020-10-19 14:41:49-log: [Package] native@1.0.0 enable
-2020-10-19 14:41:49-log: [Package] oppo-mini-game@1.0.0 enable
-2020-10-19 14:41:48-log: [Package] inspector@1.0.0 enable
-2020-10-19 14:41:49-log: [Package] web-desktop@1.0.0 enable
-2020-10-19 14:41:49-log: [Package] wechatgame@1.0.0 enable
-2020-10-19 14:41:49-log: [Package] web-mobile@1.0.0 enable
-2020-10-19 14:41:49-log: [Package] windows@1.0.0 enable
-2020-10-19 14:41:49-log: [Package] xiaomi-quick-game@1.0.0 enable
-2020-10-19 14:41:49-log: [Package] vivo-mini-game@1.0.0 enable
-2020-10-19 14:41:49-log: [Package] ios@1.0.0 enable
-2020-10-19 14:54:13-warn: [Asset DB] Browserslist: caniuse-lite is outdated. Please run the following command: `npx browserslist --update-db`
-2020-10-19 14:54:14-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-19 15:00:12-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-19 15:06:45-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-19 15:06:45-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-19 15:14:30-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-19 15:14:30-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-19 15:26:40-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-19 15:35:59-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-19 16:32:40-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-19 16:38:15-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-19 16:40:31-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-19 16:41:55-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-19 16:45:43-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-19 16:48:29-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-19 16:48:29-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-19 16:48:30-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-19 16:52:14-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-19 16:53:12-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-19 17:08:05-error: [preview-error]Uncaught TypeError: Cannot read property 'InitGoldCount' of undefined in http://localhost:7456/scripting/assets/Scripts/Data/PlayerData.js
-2020-10-19 17:10:07-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-19 17:10:31-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-19 17:11:37-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-19 17:17:31-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-19 17:40:22-log: [Package] builder@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] lightmap@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] alipay-mini-game@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] android@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] baidu-mini-game@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] bytedance-mini-game@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] cocos-play@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] huawei-mini-game@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] ios@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] mac@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] native@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] oppo-mini-game@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] web-mobile@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] wechatgame@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] windows@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] vivo-mini-game@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] xiaomi-quick-game@1.0.0 enable
+2020-10-19 17:40:18-log: [Package] ui-kit@1.0.0 enable
+2020-10-19 17:40:18-log: [Package] tester@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] web-desktop@1.0.0 enable
+2020-10-19 17:40:18-log: [Package] preferences@1.0.0 enable
+2020-10-19 17:40:18-log: [Package] ipc@1.0.0 enable
+2020-10-19 17:40:21-log: [Package] engine@1.0.0 enable
+2020-10-19 17:40:21-log: [Package] asset-db@1.0.0 enable
+2020-10-19 17:40:21-log: [Package] console@1.0.0 enable
+2020-10-19 17:40:21-log: [Package] about@1.0.0 enable
+2020-10-19 17:40:21-log: [Package] project-setting@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] utils@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] profile@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] assets@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] server@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] inspector@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] hierarchy@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] preview@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] animator@1.0.0 enable
+2020-10-19 17:40:21-log: [Package] scene@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] lightmap@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] alipay-mini-game@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] android@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] baidu-mini-game@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] bytedance-mini-game@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] cocos-play@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] huawei-mini-game@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] ios@1.0.0 enable
+2020-10-19 17:40:21-log: [Package] packager@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] mac@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] vivo-mini-game@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] oppo-mini-game@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] web-desktop@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] web-mobile@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] wechatgame@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] windows@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] xiaomi-quick-game@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] builder@1.0.0 enable
+2020-10-19 17:40:22-log: [Package] native@1.0.0 enable
+2020-10-19 17:40:24-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/cannon/cannon-shared-body.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/cannon/cannon-util.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/framework/util.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/assembler/graphics/index.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/assembler/utils.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/cannon/shapes/cannon-shape.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/assembler/label/index.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/assembler/sprite/index.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/renderer/ui/base.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/button-component.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/editbox/edit-box-component.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/label-component.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/mask-component.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/progress-bar-component.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/assembler/mask/index.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/rich-text-component.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/scroll-view-component.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/slider-component.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/scroll-bar-component.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/toggle-container-component.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/layout-component.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/ui-model-component.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/toggle-component.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/view-group-component.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/webview/webView-component.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/label-outline-component.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/widget-component.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/sprite-component.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/graphics-component.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/ui-reorder-component.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/page-view-component.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/page-view-indicator-component.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/ui-static-batch-component.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/widget-manager.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/ui-opacity-component.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/3d/builtin/effects.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/tween/actions/action-manager.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/tween/actions/action-interval.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/tween/actions/action-instant.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/tween/tween-action.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/tween/actions/action.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/tween/set-action.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/framework/instance.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/load-pipeline/plist-parser.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/load-pipeline/uuid-loader.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/load-pipeline/font-loader.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/load-pipeline/pack-downloader.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/load-pipeline/binary-downloader.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/load-pipeline/text-downloader.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/load-pipeline/utils.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/event/callbacks-invoker.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/load-pipeline/asset-loader.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/load-pipeline/asset-table.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/load-pipeline/released-asset-checker.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/platform/event-manager/event-enum.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/scene-graph/base-node-dev.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/scene-graph/scene-globals.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/scene-graph/node-ui-properties.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/components/ui-base/canvas-component.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/components/ui-base/ui-component.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/components/ui-base/ui-transform-component.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/components/ui-base/ui-render-component.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/3d/framework/batched-skinning-model-component.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/components/ui-base/deprecated.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/3d/framework/camera-component.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/3d/framework/directional-light-component.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/3d/framework/light-component.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/3d/framework/model-component.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/3d/framework/skinning-model-component.js failed
+2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/3d/framework/sphere-light-component.js failed
+2020-10-19 17:41:30-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-19 17:41:51-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-19 17:42:35-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-19 17:42:42-warn: [Asset DB] Browserslist: caniuse-lite is outdated. Please run the following command: `npx browserslist --update-db`
+2020-10-19 17:42:43-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-19 17:47:04-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-19 17:50:18-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-19 17:51:31-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-19 17:51:34-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-19 17:57:17-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-19 17:59:25-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-19 17:59:46-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-19 18:00:00-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-19 18:04:58-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-19 18:07:03-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-19 18:12:33-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-19 18:14:06-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-19 18:26:56-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-19 18:43:32-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-19 18:45:31-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved

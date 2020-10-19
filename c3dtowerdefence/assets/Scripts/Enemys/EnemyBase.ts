@@ -536,7 +536,7 @@ export class EnemyBase extends BaseObject {
             if (this.currentHealthCount <= 0) {
                 this.currentHealthCount = 0;
                 if (this.beAttackedCb) {
-                    console.log("被打死了")
+                    // console.log("被打死了")
                     this.beAttackedCb(true, this.getHealthCount());
                     //被打死了
                 }
@@ -554,7 +554,7 @@ export class EnemyBase extends BaseObject {
     playWalkAudio() {
         if (this.walkAudio){
             this.gameController.node.emit("play-audio", this.walkAudio, () => {
-                console.log("音效播放完成", this.state.getState());
+                // console.log("音效播放完成", this.state.getState());
                 if (this.state.getState() === 'run') {
                     this.playWalkAudio();
                 }

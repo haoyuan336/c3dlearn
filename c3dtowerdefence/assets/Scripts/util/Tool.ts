@@ -15,7 +15,7 @@ export class Tool {
             index++;
         }
         endStr = num / (Math.pow(1000, index - 1)) + '';
-        console.log('end Str', endStr);
+        // console.log('end Str', endStr);
         if (endStr.length > 4) {
             endStr = endStr.substring(0, 4);
         }
@@ -23,7 +23,7 @@ export class Tool {
             endStr += key[index - 1];
 
         }
-        console.log('end Str', endStr);
+        // console.log('end Str', endStr);
 
         return endStr;
     }

@@ -89,7 +89,7 @@ export class WeaponInfoCtl extends InfoLayerCtlBase {
         let cost = gameController.playerData.getAddOneRedHeartCostGoldCount() * this.currentChooseRate;
         this.addRedHeartCostGoldCount.getComponent(LabelComponent).string = Tool.convertNumToK(cost);
         let currentGoldCount = gameController.playerData.getPowerCount();
-        console.log("current gold count", currentGoldCount);
+        // console.log("current gold count", currentGoldCount);
         console.log("cost", cost);
         if (currentGoldCount < cost) {
             this.addRedHeartButton.getComponent(SpriteComponent).spriteFrame = this.addRedHeartButtonSpriteFrameGray;

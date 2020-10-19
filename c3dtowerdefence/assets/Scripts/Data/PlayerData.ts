@@ -26,9 +26,9 @@ export class PlayData {
         // this.initTowerLevelLocalData(this.gameController.getGameConfig().json);
         // this.setLocalData("current-init-red-heart-count", this.currentInitRedHeartCounnt + "");
         // this.setLocalData("current-init-red-heart-count", this.currentInitRedHeartCounnt + "");
-        // this.setLocalData("active-enemy-list", JSON.stringify(this.currentActiveEnemyMap));
+        this.setLocalData("active-enemy-list", JSON.stringify(this.currentActiveEnemyMap));
         // this.initTowerLevelLocalData(this.gameController.getGameConfig().json);
-        // this.setLocalData("curent-power-count", "10000000");
+        this.setLocalData("curent-power-count", "999999999");
         if (gameTime) {
             // 首次进入游戏. 初始化游戏数据
             //不是首次进入游戏，那么初始化一些游戏数据
@@ -139,6 +139,10 @@ export class PlayData {
     }
     enterNextLevel() {
         this.currentLevelNum++;
+        if(this.currentLevelNum === 14){
+            this.currentLevelNum = 0;
+        }
+        
         //获取当前关卡的金币个数
         let goldCount = this.gameController.getGameConfig().json['Level_' + this.currentLevelNum].InitGoldCount;
         // this.addGoldCount(goldCount);

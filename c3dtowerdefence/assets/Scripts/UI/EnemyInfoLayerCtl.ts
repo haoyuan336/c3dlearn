@@ -28,11 +28,11 @@ export class EnemyInfoLayerCtl extends InfoLayerCtlBase {
         this.initEnemyData();
         // this.node.on("refer-enemy-data", this.referEnemyData.bind(this), this);
         this.node.on("refer-enemy-info-cell", (enemyType: string) => {
-            console.log("`激活了某个敌人`", enemyType);
+            // console.log("`激活了某个敌人`", enemyType);
             console.log("enemy info cell map", this.enemyInfoCellMap);
 
             if (this.enemyInfoCellMap[enemyType]) {
-                console.log("刷新这个敌人的UI")
+                // console.log("刷新这个敌人的UI")
                 // this.enemyInfoCellMap[enemyType].getComponent(EnemyInfoCellPrefab).referUI();
                 let node = this.enemyInfoCellMap[enemyType];
                 node.getComponent(EnemyInfoCellPrefab).referUI();
@@ -48,7 +48,7 @@ export class EnemyInfoLayerCtl extends InfoLayerCtlBase {
                     break;
                 }
             }
-            console.log("is have", isHave);
+            // console.log("is have", isHave);
             if (isHave) {
                 this.newInfoTipsNode.active = true;
             }
@@ -73,28 +73,28 @@ export class EnemyInfoLayerCtl extends InfoLayerCtlBase {
             }
         }
         //排序
-        console.log("enemy list", enemyList);
+        // console.log("enemy list", enemyList);
         enemyList = enemyList.sort((a, b) => {
             return a.EnemyIndex - b.EnemyIndex;
         });
-        console.log("enemy list", enemyList);
+        // console.log("enemy list", enemyList);
 
         for (let i = 0; i < enemyList.length; i++) {
-            console.log("data = ", enemyList[i]);
+            // console.log("data = ", enemyList[i]);
 
             let node = instantiate(this.enemyInfoCellPrefab);
             node.parent = this.enemyInfoNodeParentNode;
             // console.log("data", enemyList[i]);
             let enemyType = enemyList[i]['EnemyType'];
-            console.log("enemy type", enemyType);
+            // console.log("enemy type", enemyType);
             node.getComponent(EnemyInfoCellPrefab).init(this.gameController, {
                 enemyType: enemyType
             });
             node.getComponent(EnemyInfoCellPrefab).referUI();
             let x = i % 3;
             let y = Math.floor(i / 3);
-            console.log("x", x);
-            console.log("y = ", y);
+            // console.log("x", x);
+            // console.log("y = ", y);
             node.position = v3((3 - 1) * -0.5 * 100 + x * 100, y * -100 - 70, 0);
             this.enemyInfoNodeParentNode.height = node.position.y * -1 + 70;
             this.enemyInfoCellMap[enemyType] = node;

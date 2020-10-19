@@ -103,7 +103,7 @@ export class WeaponUpdateCellPrefab extends BaseObject {
             //如果未激活
             let firstNeedActiveTower = this.gameController.playerData.getFirstNeedToActiveTowerIndex();
             //获取第一个需要激活的塔的index
-            console.log("first need active tower", firstNeedActiveTower);
+            // console.log("first need active tower", firstNeedActiveTower);
             let activeCostGoldCount = this.getActiveCostGoldCount();
             this.costGoldLabel.getComponent(LabelComponent).string = Tool.convertNumToK(activeCostGoldCount);
 

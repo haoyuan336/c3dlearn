@@ -56,7 +56,7 @@ export class EnemyBullet extends BaseObject {
             this.node.position = v3(this.node.position).add(v3(0, this.currentSpeed * deltaTime, 0));
             let dis = this.node.position.y - this.endPos.y;
             if (dis < 1) {
-                console.log("停止");
+                // console.log("停止");
                 this.state.setState("move-end");
             }
         }

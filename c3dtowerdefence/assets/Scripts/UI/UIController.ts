@@ -47,6 +47,9 @@ export class UIController extends Component {
 
     @property({type: Node})
     public bossHealthBar: Node = null; //boss 的血条
+
+    // @property({type: Node})
+    // public showGameEndLayer: Node = null; //显示最后的游戏的结果的层
     // @property({ type: Node })
     // public currentWaveLabelNode: Node = null;
 

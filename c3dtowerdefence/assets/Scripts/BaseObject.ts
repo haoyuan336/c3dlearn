@@ -70,7 +70,7 @@ export class BaseObject extends Component {
         if (objectType) {
             this.objectType = objectType;
         }
-        console.log("base object type", this.objectType);
+        // console.log("base object type", this.objectType);
 
         this.gameController = gameController;
         if (gameConfig[this.objectType].BaseGasNum) {
@@ -200,10 +200,10 @@ export class BaseObject extends Component {
         // console.log("local damage value", localLevel);
 
         let baseDamageNum = this.baseAttackNum;
-        console.log("base damage num", baseDamageNum);
+        // console.log("base damage num", baseDamageNum);
         //1,2,3 = 6  (3+1)*3/2 = 6   1,2,3,4 = 10   5 * 4 / 2 = 10;
         let currentLevelDamage = 1 * (this.currentLevel + 1) * this.currentLevel * 0.5;
-        console.log("current level damage", currentLevelDamage);
+        // console.log("current level damage", currentLevelDamage);
         let localLevelDamage = this.getLocalDamageNum();
 
         return baseDamageNum + currentLevelDamage + localLevelDamage;
@@ -212,9 +212,9 @@ export class BaseObject extends Component {
         // 获取当前永久攻击力 
         // let baseAttackNum = this.baseAttackNum;
         let localLevel = this.gameController.playerData.getCurrentTowerLocalLevel(this.towerIndexType);
-        console.log("local level", localLevel);
+        // console.log("local level", localLevel);
         let localDamage = (1 + localLevel) * localLevel * 0.5;
-        console.log(this.objectType + ":local damage", localDamage);
+        // console.log(this.objectType + ":local damage", localDamage);
         return localDamage;
     }
     getCurrentSkillRotateAngle() {
@@ -225,11 +225,11 @@ export class BaseObject extends Component {
     getCurrentShootRate() {
         // baseAttackNum
         let currentShootRate = this.baseAttackRate;
-        console.log("current shoot rate", currentShootRate);
+        // console.log("current shoot rate", currentShootRate);
         // currentShootRate *= (1 + this.currentLevel * this.currentLevel * 0.01);
         currentShootRate *= (1 + this.currentLevel * this.currentLevel * 0.1);
 
-        console.log("current shoor rate", currentShootRate);
+        // console.log("current shoor rate", currentShootRate);
         //不能太快 设置一个封顶
         if (currentShootRate > 10) {
             currentShootRate = 10;
@@ -259,7 +259,7 @@ export class BaseObject extends Component {
     getUpdateLocalLevelCost() {
         //获取升级本地等级需要的
         let localLevel = this.gameController.playerData.getCurrentTowerLocalLevel(this.towerIndexType);
-        console.log("local level", localLevel);
+        // console.log("local level", localLevel);
         let cost = Math.round(Math.pow((localLevel + 1), 2) * 0.5);
         return cost;
     }
@@ -280,7 +280,7 @@ export class BaseObject extends Component {
         let currentShootRate = this.getCurrentShootRate();
 
         this.shootDuraction = 1 / currentShootRate;
-        console.log("升级之后 的 攻击事件间隔", this.shootDuraction);
+        // console.log("升级之后 的 攻击事件间隔", this.shootDuraction);
 
         this.bulletRecoverTime *= (1 - this.currentLevel * this.currentLevel * 0.1);
         if (this.bulletRecoverTime < 0.2) {
@@ -295,8 +295,8 @@ export class BaseObject extends Component {
     }
     getTowerIsMax(): boolean {
         //获取塔是不是升级满了
-        console.log('current level', this.currentLevel);
-        console.log("tower update max level", this.towerUpdateMaxLevel);
+        // console.log('current level', this.currentLevel);
+        // console.log("tower update max level", this.towerUpdateMaxLevel);
         if (this.currentLevel >= this.towerUpdateMaxLevel) {
             return true;
         }
@@ -312,7 +312,7 @@ export class BaseObject extends Component {
         //更新永久等级
         let localLevel = this.gameController.playerData.getCurrentTowerLocalLevel(this.towerIndexType);
         localLevel += updateLevel;
-        console.log('升级的jishu', updateLevel);
+        // console.log('升级的jishu', updateLevel);
         this.gameController.playerData.updateTowerLocalLevel(this.towerIndexType, localLevel);
         // this.gameController.playerData.update
     }

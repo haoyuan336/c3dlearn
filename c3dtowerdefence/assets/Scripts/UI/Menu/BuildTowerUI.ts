@@ -92,7 +92,7 @@ export class BuildTowerUI extends MenuUIBase {
                 let towerType = towerIconCom.getTowerType();
                 let buildCost = towerIconCom.getCurrentBuildCost();
                 let currentGoldCount = this.gameController.playerData.getCurrentGoldCount();
-                console.log("current gold count", currentGoldCount);
+                // console.log("current gold count", currentGoldCount);
                 if (buildCost <= currentGoldCount && isValid(this.targetNode)) {
                     //金币数目够 可以建造塔了
                     this.gameController.playerData.addGoldCount(buildCost * -1);
