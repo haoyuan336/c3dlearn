@@ -12,7 +12,7 @@ function boot () {
         // load scene
         cc.director.loadScene(launchScene, null,
             function () {
-                cc.view.setDesignResolutionSize(1280, 720, 4);
+                cc.view.setDesignResolutionSize(1280, 720, 3);
                 cc.loader.onProgress = null;
                 console.log('Success to load scene: ' + launchScene);
             }

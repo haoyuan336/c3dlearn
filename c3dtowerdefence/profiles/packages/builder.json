@@ -17,14 +17,16 @@
     "taskName": "wechatgame-001",
     "platform": "wechatgame",
     "md5Cache": true,
-    "mergeStartScene": true,
+    "mergeStartScene": false,
     "replaceSplashScreen": true,
     "debug": false
   },
   "wechatgame": {
     "wechatgame": {
       "appid": "wxb27d263a17ae5528",
-      "buildSubPackage": true
+      "buildSubPackage": true,
+      "remoteServerAddress": "https://chutianba-1251688348.cos.ap-beijing.myqcloud.com/shouhuhuahures/",
+      "separateEngine": false
     }
   },
   "BuildTaskManager": {
@@ -42,7 +44,7 @@
           "md5Cache": true,
           "sourceMaps": false,
           "replaceSplashScreen": true,
-          "mergeStartScene": true,
+          "mergeStartScene": false,
           "startScene": "54d4b3d4-8425-49ae-9814-eff3d81e7c47",
           "compressTexture": true,
           "packAutoAtlas": true,
@@ -56,8 +58,8 @@
           "designResolution": {
             "width": 1280,
             "height": 720,
-            "fitWidth": true,
-            "fitHeight": false
+            "fitWidth": false,
+            "fitHeight": true
           },
           "modules": {
             "includeModules": [
@@ -78,7 +80,7 @@
               "appid": "wxb27d263a17ae5528",
               "buildSubPackage": true,
               "orientation": "landscape",
-              "remoteServerAddress": "",
+              "remoteServerAddress": "https://chutianba-1251688348.cos.ap-beijing.myqcloud.com/shouhuhuahures/",
               "separateEngine": false,
               "subContext": ""
             }
@@ -111,12 +113,12 @@
             "displayWatermark": true
           }
         },
-        "message": "build success in 22029 ms!",
+        "message": "build success in 19360 ms!",
         "logMap": {
           "log": 19,
           "warn": 16,
           "error": 0,
-          "debug": 286
+          "debug": 288
         }
       }
     ]

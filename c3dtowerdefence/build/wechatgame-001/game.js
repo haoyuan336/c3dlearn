@@ -70,7 +70,7 @@ window.__globalAdapter.init(function() {
             // Adjust devicePixelRatio
             cc.view._maxPixelRatio = 4;
             // downloader polyfill
-            remoteDownloader.REMOTE_SERVER_ROOT = '';
+            remoteDownloader.REMOTE_SERVER_ROOT = 'https://chutianba-1251688348.cos.ap-beijing.myqcloud.com/shouhuhuahures/';
             remoteDownloader.SUBCONTEXT_ROOT = '';
             var pipeBeforeDownloader = cc.loader.md5Pipe || cc.loader.subPackPipe || cc.loader.assetLoader;
             cc.loader.insertPipeAfter(pipeBeforeDownloader, remoteDownloader);

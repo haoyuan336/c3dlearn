@@ -65,14 +65,14 @@ export class BaseObject extends Component {
     public readyAduio: string = ""//准备好的音效
 
     // private attackType: string = "normal"//攻击类型a
-    public init(gameConfig: Object, gameController: GameController, startPos?: Vec3, endPos?: Vec3, objectType?: string) {
+    public init(gameConfig: Object, gameController: Node, startPos?: Vec3, endPos?: Vec3, objectType?: string) {
         // this.baseGasNum = gameConfig[]
         if (objectType) {
             this.objectType = objectType;
         }
         // console.log("base object type", this.objectType);
 
-        this.gameController = gameController;
+        this.gameController = gameController.getComponent(GameController);
         if (gameConfig[this.objectType].BaseGasNum) {
             this.baseGasNum = gameConfig[this.objectType].BaseGasNum;
 

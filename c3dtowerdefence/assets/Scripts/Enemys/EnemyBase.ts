@@ -1,6 +1,6 @@
 import { _decorator, Component, Node, CCInteger, v3, Vec3, tween, path, Tween, CameraComponent, Vec2, v2, JsonAsset, game, isValid, ProgressBarComponent, RigidBodyComponent, SkeletalAnimationComponent, ParticleSystemComponent, bezier, find, Quat, SphereColliderComponent, ModelComponent } from 'cc';
 import { State } from './../util/State'
-import { GameController } from './../GameController';
+// import { GameController } from './../GameController';
 // import { Enemy } from './Enemy';
 import { BaseObject } from './../BaseObject'
 import { DeadEnemyObj, EnemyController } from '../EnemyController';
@@ -17,7 +17,7 @@ export class EnemyBase extends BaseObject {
     public state: State = new State();
     public currentPathIndex: number = 0;
     // public moveSpeed: number = 10;
-    public beLockedMaxNum: number = GameController.enemyBeLockMaxNum;
+    public beLockedMaxNum: number = 10;
     public currentbeLockedCount = 0;
     public cameraNode: CameraComponent = null;
     public healthBar: Node = null;
@@ -43,7 +43,7 @@ export class EnemyBase extends BaseObject {
 
 
     private bossHealthBar: Node = null; //boss的血条。
-    public init(gameConfig: Object, gameController: GameController, startPos: Vec3, endPos: Vec3) {
+    public init(gameConfig: Object, gameController, startPos: Vec3, endPos: Vec3) {
         super.init(gameConfig, gameController);
         if (this.getMoveType().indexOf("Fly") > -1) {
             this.node.position = v3(this.node.position.x, 10, this.node.position.z);
