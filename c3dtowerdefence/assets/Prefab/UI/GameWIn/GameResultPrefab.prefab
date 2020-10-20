@@ -2202,6 +2202,8 @@
     "gameLossIconSpriteFrame": {
       "__uuid__": "603cda52-f299-4823-b175-83ec9c24813b@f9941"
     },
+    "shareSaveLifeSpriteFrame": null,
+    "watchVideoSaveLifeSpriteFrame": null,
     "gameResultIconNode": {
       "__id__": 7
     },
