@@ -1,5 +1,6 @@
 import { _decorator, Component, Node, JsonAsset, find, Tween, v3, UIComponent, UITransformComponent } from 'cc';
 import { GameController } from '../GameController';
+import { State } from '../util/State';
 const { ccclass, property } = _decorator;
 
 @ccclass('GuideCtl')
@@ -16,6 +17,8 @@ export class GuideCtl extends Component {
     private gameController: GameController = null;
 
     private guideCompleteCb: Function = null;
+
+    private state: State = new State();
     start() {
         // Your initialization goes here.
         this.gameController = find("GameController").getComponent(GameController);
@@ -24,7 +27,7 @@ export class GuideCtl extends Component {
         this.node.on("show-guide", (cb) => {
             //显示引导层
             let stepStr = "Step_" + this.currentGuideIndex;
-            if (this.guideConfigJsonAsset.json[stepStr]){
+            if (this.guideConfigJsonAsset.json[stepStr]) {
                 let isShowGuide = this.gameController.playerData.getIsShowGuide(stepStr);
                 if (isShowGuide) {
                     if (cb) {
@@ -34,21 +37,26 @@ export class GuideCtl extends Component {
                     this.guideCompleteCb = cb;
                     this.showMaskAnim(stepStr);
                 }
-            }else{
-                if (cb){
+            } else {
+                if (cb) {
                     cb();
                 }
             }
-           
+            this.state.setState("show-guide");
+
         });
 
         this.node.on("complete-current-guide", () => {
             //完成了当前的 引导逻辑
-          
+            if (this.state.getState() === 'show-guide') {
+                this.state.setState('over-guide');
+            } else {
+                return;
+            }
             let stepStr = "Step_" + this.currentGuideIndex;
             this.gameController.playerData.setIsShowGuide(stepStr);
             this.currentGuideIndex++;
-            this.hideMaskAnim().then(()=>{
+            this.hideMaskAnim().then(() => {
                 console.log("引导操作完成");
                 if (this.guideCompleteCb) {
                     console.log("存在回调");
@@ -59,19 +67,19 @@ export class GuideCtl extends Component {
         })
     }
     hideMaskAnim() {
-        return new Promise((resolve, reject)=>{
+        return new Promise((resolve, reject) => {
             let uiTransfrom = this.guideLayer.getComponent(UITransformComponent);
             let tw = new Tween(uiTransfrom);
-            tw.to(0.6, {
+            tw.to(0.4, {
                 width: 1700,
                 height: 1700
             })
-            tw.call(()=>{
+            tw.call(() => {
                 resolve();
             })
             tw.start();
         })
-     
+
     }
     showMaskAnim(stepStr: string) {
         return new Promise((resolve, reject) => {
@@ -85,7 +93,7 @@ export class GuideCtl extends Component {
             // uiTransfrom.width = 1700;
             // uiTransfrom.height = 1700;
             let tw = new Tween(uiTransfrom)
-            
+
             tw.to(time, {
                 width: size.width,
                 height: size.height

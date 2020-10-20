@@ -8,7 +8,7 @@
             "width": 200,
             "height": 200
         },
-        "Time": 0.6,
+        "Time": 0.4,
         "Audio": "第一步引导音频"
     },
     "Step_2": {
@@ -20,19 +20,19 @@
             "width": 100,
             "height": 100
         },
-        "Time": 0.6,
+        "Time": 0.4,
         "Audio": "第二步引导音频"
     },
     "Step_3": {
         "MaskPos": {
             "x": 0,
-            "y": 135
+            "y": 200
         },
         "Size": {
-            "width": 230,
-            "height": 230
+            "width": 100,
+            "height": 100
         },
-        "Time": 0.6,
+        "Time": 0.4,
         "Audio": "第二步引导音频"
     }
 }

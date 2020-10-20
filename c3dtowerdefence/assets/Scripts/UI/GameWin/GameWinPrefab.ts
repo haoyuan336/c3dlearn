@@ -29,6 +29,14 @@ export class GameWinPrefab extends Component {
     @property({ type: SpriteFrame })
     public gameLossIconSpriteFrame: SpriteFrame = null; //游戏失败icon
 
+
+    
+    @property({type: Node})
+    public shareSaveLifeSpriteFrame: SpriteFrame = null; // 分享复活按钮纹理
+
+    @property({type: Node})
+    public watchVideoSaveLifeSpriteFrame: SpriteFrame = null; //看广告复活按钮纹理坐标
+
     @property({ type: Node })
     public gameResultIconNode: Node = null; //游戏结果节点
 
@@ -45,14 +53,17 @@ export class GameWinPrefab extends Component {
     @property({ type: Node })
     public scrollViewNode: Node = null;
 
+
+
     private gameResultState: boolean = null;
     private uiController: UIController = null;
     private gameController: GameController = null;
     private nodeList: Node[] = [];
+    private currentWinPowerCount: number = 0;
     start() {
 
     }
-    setGameResult(succ: boolean, data: DeadEnemyObj[], gameConfig: {}, uiCtl: UIController, gameCtl: GameController) {
+    setGameResult(succ: boolean, data: DeadEnemyObj[], gameConfig: {}, uiCtl: UIController, gameCtl: GameController, videoIsReady: boolean) {
         this.uiController = uiCtl;
         this.gameController = gameCtl;
         this.gameResultState = succ;
@@ -71,7 +82,12 @@ export class GameWinPrefab extends Component {
             // this.gameController.node.emit("play-audio", "游戏失败音效")
             this.gameResultIconNode.getComponent(SpriteComponent).spriteFrame = this.gameLossIconSpriteFrame;
             this.leftButton.getComponent(SpriteComponent).spriteFrame = this.retryGameButtonSpriteFrame;
-            this.rightButton.getComponent(SpriteComponent).spriteFrame = this.saveLifeButtonSpriteFrame;
+            // this.rightButton.getComponent(SpriteComponent).spriteFrame = this.saveLifeButtonSpriteFrame;
+            if (videoIsReady){
+                this.rightButton.getComponent(SpriteComponent).spriteFrame = this.watchVideoSaveLifeSpriteFrame;
+            }else{
+                this.rightButton.getComponent(SpriteComponent).spriteFrame = this.shareSaveLifeSpriteFrame;
+            }
         }
         let enemyTypeMap = {};
         for (let i = 0; i < data.length; i++) {
@@ -99,6 +115,7 @@ export class GameWinPrefab extends Component {
         //     index++;
 
         // }
+        this.currentWinPowerCount = allGoldCount;
         let list = [];
         for (let i in enemyTypeMap) {
             let data = enemyTypeMap[i];
@@ -175,7 +192,7 @@ export class GameWinPrefab extends Component {
                 console.log("分享游戏结果")
                 if (this.gameResultState) {
                     //玩家点击了分享按钮
-                    this.gameController.playerClickShareButton().then(() => {
+                    this.gameController.playerClickShareButton(this.currentWinPowerCount).then(() => {
                         this.gameController.enterNextLevel();
                         this.node.destroy();
                     });

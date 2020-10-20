@@ -48,6 +48,9 @@ export class UIController extends Component {
     @property({type: Node})
     public bossHealthBar: Node = null; //boss 的血条
 
+    @property({type: Node})
+    public buildTowerMenuLayer: Node = null; //建造塔的的ui层
+
     // @property({type: Node})
     // public showGameEndLayer: Node = null; //显示最后的游戏的结果的层
     // @property({ type: Node })
@@ -81,7 +84,7 @@ export class UIController extends Component {
             }
             if (!isValid(this.buildUINode)) {
                 this.buildUINode = instantiate(this.buildTowerPrefab);
-                this.buildUINode.parent = this.node;
+                this.buildUINode.parent = this.buildTowerMenuLayer;
                 this.buildUINode.getComponent(BuildTowerMenuUI).init(this.gameController.getGameConfig().json, this.gameController);
             }
 
@@ -99,7 +102,7 @@ export class UIController extends Component {
             }
             if (!isValid(this.updateUINode)) {
                 this.updateUINode = instantiate(this.updateMenuPrefab);
-                this.updateUINode.parent = this.node;
+                this.updateUINode.parent = this.buildTowerMenuLayer;
                 this.updateUINode.getComponent(UpdateTowerUI).init(this.gameController.getGameConfig().json, this.gameController);
             }
             this.setUINodeTo3dPos(this.updateUINode, targetTower);
@@ -179,14 +182,14 @@ export class UIController extends Component {
         let node = instantiate(this.gameResultPrefab);
         node.parent = this.node;
         let gameConfig = this.gameController.getGameConfig().json
-        node.getComponent(GameWinPrefab).setGameResult(true, deadEnemyData, gameConfig, this, this.gameController);
+        node.getComponent(GameWinPrefab).setGameResult(true, deadEnemyData, gameConfig, this, this.gameController, false);
     }
-    showGameLossUI(deadEnemyData: DeadEnemyObj[]) {
+    showGameLossUI(deadEnemyData: DeadEnemyObj[], videoIsReady: boolean) {
         this.closeSomeUI();
         let node = instantiate(this.gameResultPrefab);
         node.parent = this.node;
         let gameConfig = this.gameController.getGameConfig().json
-        node.getComponent(GameWinPrefab).setGameResult(false, deadEnemyData, gameConfig, this, this.gameController);
+        node.getComponent(GameWinPrefab).setGameResult(false, deadEnemyData, gameConfig, this, this.gameController, videoIsReady);
     }
     showUIEnterAnim(cb) {
         this.node.emit("enter-game");

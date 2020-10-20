@@ -67,8 +67,8 @@ export class EnemyInfoLayerCtl extends InfoLayerCtlBase {
             if (i.indexOf("Boss") > -1) {
                 // if (i.indexOf("Enemy") > -1 || i.indexOf("Boss") > -1) {
 
-                console.log("iu", i);
-                console.log("data", data);
+                // console.log("iu", i);
+                // console.log("data", data);
                 enemyList.push(data);
             }
         }

@@ -1,145 +1,160 @@
-2020-10-19 17:40:22-log: [Package] builder@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] lightmap@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] alipay-mini-game@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] android@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] baidu-mini-game@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] bytedance-mini-game@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] cocos-play@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] huawei-mini-game@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] ios@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] mac@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] native@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] oppo-mini-game@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] web-mobile@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] wechatgame@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] windows@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] vivo-mini-game@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] xiaomi-quick-game@1.0.0 enable
-2020-10-19 17:40:18-log: [Package] ui-kit@1.0.0 enable
-2020-10-19 17:40:18-log: [Package] tester@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] web-desktop@1.0.0 enable
-2020-10-19 17:40:18-log: [Package] preferences@1.0.0 enable
-2020-10-19 17:40:18-log: [Package] ipc@1.0.0 enable
-2020-10-19 17:40:21-log: [Package] engine@1.0.0 enable
-2020-10-19 17:40:21-log: [Package] asset-db@1.0.0 enable
-2020-10-19 17:40:21-log: [Package] console@1.0.0 enable
-2020-10-19 17:40:21-log: [Package] about@1.0.0 enable
-2020-10-19 17:40:21-log: [Package] project-setting@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] utils@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] profile@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] assets@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] server@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] inspector@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] hierarchy@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] preview@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] animator@1.0.0 enable
-2020-10-19 17:40:21-log: [Package] scene@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] lightmap@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] alipay-mini-game@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] android@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] baidu-mini-game@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] bytedance-mini-game@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] cocos-play@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] huawei-mini-game@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] ios@1.0.0 enable
-2020-10-19 17:40:21-log: [Package] packager@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] mac@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] vivo-mini-game@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] oppo-mini-game@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] web-desktop@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] web-mobile@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] wechatgame@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] windows@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] xiaomi-quick-game@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] builder@1.0.0 enable
-2020-10-19 17:40:22-log: [Package] native@1.0.0 enable
-2020-10-19 17:40:24-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/cannon/cannon-shared-body.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/cannon/cannon-util.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/framework/util.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/assembler/graphics/index.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/assembler/utils.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/cannon/shapes/cannon-shape.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/assembler/label/index.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/assembler/sprite/index.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/renderer/ui/base.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/button-component.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/editbox/edit-box-component.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/label-component.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/mask-component.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/progress-bar-component.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/assembler/mask/index.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/rich-text-component.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/scroll-view-component.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/slider-component.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/scroll-bar-component.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/toggle-container-component.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/layout-component.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/ui-model-component.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/toggle-component.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/view-group-component.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/webview/webView-component.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/label-outline-component.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/widget-component.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/sprite-component.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/graphics-component.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/ui-reorder-component.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/page-view-component.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/page-view-indicator-component.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/ui-static-batch-component.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/widget-manager.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/ui/components/ui-opacity-component.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/3d/builtin/effects.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/tween/actions/action-manager.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/tween/actions/action-interval.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/tween/actions/action-instant.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/tween/tween-action.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/tween/actions/action.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/tween/set-action.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/physics/framework/instance.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/load-pipeline/plist-parser.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/load-pipeline/uuid-loader.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/load-pipeline/font-loader.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/load-pipeline/pack-downloader.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/load-pipeline/binary-downloader.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/load-pipeline/text-downloader.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/load-pipeline/utils.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/event/callbacks-invoker.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/load-pipeline/asset-loader.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/load-pipeline/asset-table.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/load-pipeline/released-asset-checker.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/platform/event-manager/event-enum.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/scene-graph/base-node-dev.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/scene-graph/scene-globals.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/scene-graph/node-ui-properties.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/components/ui-base/canvas-component.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/components/ui-base/ui-component.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/components/ui-base/ui-transform-component.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/components/ui-base/ui-render-component.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/3d/framework/batched-skinning-model-component.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/components/ui-base/deprecated.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/3d/framework/camera-component.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/3d/framework/directional-light-component.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/3d/framework/light-component.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/3d/framework/model-component.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/3d/framework/skinning-model-component.js failed
-2020-10-19 17:40:25-error: [preview-error]load http://localhost:7456/scripting/engine/cocos/core/3d/framework/sphere-light-component.js failed
-2020-10-19 17:41:30-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-19 17:41:51-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-19 17:42:35-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-19 17:42:42-warn: [Asset DB] Browserslist: caniuse-lite is outdated. Please run the following command: `npx browserslist --update-db`
-2020-10-19 17:42:43-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-19 17:47:04-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-19 17:50:18-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-19 17:51:31-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-19 17:51:34-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-19 17:57:17-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-19 17:59:25-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-19 17:59:46-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-19 18:00:00-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-19 18:04:58-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-19 18:07:03-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-19 18:12:33-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-19 18:14:06-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-19 18:26:56-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-19 18:43:32-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
-2020-10-19 18:45:31-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 08:31:08-log: [Package] builder@1.0.0 enable
+2020-10-20 08:31:09-log: [Package] lightmap@1.0.0 enable
+2020-10-20 08:31:09-log: [Package] baidu-mini-game@1.0.0 enable
+2020-10-20 08:31:09-log: [Package] bytedance-mini-game@1.0.0 enable
+2020-10-20 08:31:09-log: [Package] huawei-mini-game@1.0.0 enable
+2020-10-20 08:31:09-log: [Package] cocos-play@1.0.0 enable
+2020-10-20 08:31:09-log: [Package] mac@1.0.0 enable
+2020-10-20 08:31:09-log: [Package] android@1.0.0 enable
+2020-10-20 08:31:09-log: [Package] ios@1.0.0 enable
+2020-10-20 08:31:09-log: [Package] native@1.0.0 enable
+2020-10-20 08:31:09-log: [Package] oppo-mini-game@1.0.0 enable
+2020-10-20 08:31:09-log: [Package] alipay-mini-game@1.0.0 enable
+2020-10-20 08:31:09-log: [Package] web-desktop@1.0.0 enable
+2020-10-20 08:31:09-log: [Package] vivo-mini-game@1.0.0 enable
+2020-10-20 08:31:09-log: [Package] windows@1.0.0 enable
+2020-10-20 08:31:09-log: [Package] wechatgame@1.0.0 enable
+2020-10-20 08:31:09-log: [Package] xiaomi-quick-game@1.0.0 enable
+2020-10-20 08:31:09-log: [Package] web-mobile@1.0.0 enable
+2020-10-20 08:30:54-log: [Package] ui-kit@1.0.0 enable
+2020-10-20 08:30:54-log: [Package] ipc@1.0.0 enable
+2020-10-20 08:30:54-log: [Package] tester@1.0.0 enable
+2020-10-20 08:30:54-log: [Package] preferences@1.0.0 enable
+2020-10-20 08:31:06-log: [Package] engine@1.0.0 enable
+2020-10-20 08:31:06-log: [Package] console@1.0.0 enable
+2020-10-20 08:31:07-log: [Package] scene@1.0.0 enable
+2020-10-20 08:31:06-log: [Package] asset-db@1.0.0 enable
+2020-10-20 08:31:07-log: [Package] project-setting@1.0.0 enable
+2020-10-20 08:31:08-log: [Package] server@1.0.0 enable
+2020-10-20 08:31:07-log: [Package] packager@1.0.0 enable
+2020-10-20 08:31:08-log: [Package] utils@1.0.0 enable
+2020-10-20 08:31:08-log: [Package] profile@1.0.0 enable
+2020-10-20 08:31:08-log: [Package] assets@1.0.0 enable
+2020-10-20 08:31:08-log: [Package] inspector@1.0.0 enable
+2020-10-20 08:31:07-log: [Package] about@1.0.0 enable
+2020-10-20 08:31:08-log: [Package] hierarchy@1.0.0 enable
+2020-10-20 08:31:08-log: [Package] animator@1.0.0 enable
+2020-10-20 08:31:09-log: [Package] lightmap@1.0.0 enable
+2020-10-20 08:31:08-log: [Package] builder@1.0.0 enable
+2020-10-20 08:31:09-log: [Package] android@1.0.0 enable
+2020-10-20 08:31:09-log: [Package] alipay-mini-game@1.0.0 enable
+2020-10-20 08:31:09-log: [Package] baidu-mini-game@1.0.0 enable
+2020-10-20 08:31:09-log: [Package] bytedance-mini-game@1.0.0 enable
+2020-10-20 08:31:09-log: [Package] cocos-play@1.0.0 enable
+2020-10-20 08:31:09-log: [Package] huawei-mini-game@1.0.0 enable
+2020-10-20 08:31:08-log: [Package] preview@1.0.0 enable
+2020-10-20 08:31:09-log: [Package] ios@1.0.0 enable
+2020-10-20 08:31:09-log: [Package] native@1.0.0 enable
+2020-10-20 08:31:09-log: [Package] oppo-mini-game@1.0.0 enable
+2020-10-20 08:31:09-log: [Package] vivo-mini-game@1.0.0 enable
+2020-10-20 08:31:09-log: [Package] mac@1.0.0 enable
+2020-10-20 08:31:09-log: [Package] web-desktop@1.0.0 enable
+2020-10-20 08:31:09-log: [Package] web-mobile@1.0.0 enable
+2020-10-20 08:31:09-log: [Package] windows@1.0.0 enable
+2020-10-20 08:31:09-log: [Package] wechatgame@1.0.0 enable
+2020-10-20 08:31:09-log: [Package] xiaomi-quick-game@1.0.0 enable
+2020-10-20 08:31:22-warn: [Scene] Sender does not exist
+2020-10-20 08:32:06-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 08:41:26-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 08:42:49-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 08:47:52-warn: [Asset DB] Browserslist: caniuse-lite is outdated. Please run the following command: `npx browserslist --update-db`
+2020-10-20 08:47:53-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 09:06:31-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 09:14:07-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 09:17:13-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 09:21:15-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 09:25:50-error: [preview-error]Uncaught TypeError: Cannot read property 'Enemy_0' of null in http://localhost:7456/scripting/assets/Scripts/Data/PlayerData.js
+2020-10-20 09:25:52-error: [preview-error]Uncaught TypeError: Cannot read property 'Enemy_0' of null in http://localhost:7456/scripting/assets/Scripts/Data/PlayerData.js
+2020-10-20 09:25:54-error: [preview-error]Uncaught TypeError: Cannot read property 'Enemy_0' of null in http://localhost:7456/scripting/assets/Scripts/Data/PlayerData.js
+2020-10-20 09:25:56-error: [preview-error]Uncaught TypeError: Cannot read property 'Enemy_0' of null in http://localhost:7456/scripting/assets/Scripts/Data/PlayerData.js
+2020-10-20 09:25:58-error: [preview-error]Uncaught TypeError: Cannot read property 'Enemy_0' of null in http://localhost:7456/scripting/assets/Scripts/Data/PlayerData.js
+2020-10-20 09:26:00-error: [preview-error]Uncaught TypeError: Cannot read property 'Enemy_0' of null in http://localhost:7456/scripting/assets/Scripts/Data/PlayerData.js
+2020-10-20 09:26:02-error: [preview-error]Uncaught TypeError: Cannot read property 'Enemy_0' of null in http://localhost:7456/scripting/assets/Scripts/Data/PlayerData.js
+2020-10-20 09:26:04-error: [preview-error]Uncaught TypeError: Cannot read property 'Enemy_0' of null in http://localhost:7456/scripting/assets/Scripts/Data/PlayerData.js
+2020-10-20 09:26:06-error: [preview-error]Uncaught TypeError: Cannot read property 'Enemy_0' of null in http://localhost:7456/scripting/assets/Scripts/Data/PlayerData.js
+2020-10-20 09:26:08-error: [preview-error]Uncaught TypeError: Cannot read property 'Enemy_0' of null in http://localhost:7456/scripting/assets/Scripts/Data/PlayerData.js
+2020-10-20 09:29:27-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 09:35:04-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 09:36:26-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 09:39:04-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 09:42:27-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 09:43:48-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 09:43:52-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 09:46:51-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 10:00:26-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 10:01:42-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 10:01:48-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 10:38:31-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 10:45:57-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 10:46:16-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 10:46:51-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 10:48:17-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 11:28:43-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 11:30:42-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 11:32:50-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 11:42:53-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 11:42:57-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 11:43:04-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 11:43:09-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 11:43:20-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 11:43:26-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 11:43:46-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 11:44:45-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 11:45:54-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 11:46:03-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 11:47:15-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 11:47:26-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 11:47:32-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 11:47:39-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 11:48:56-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 11:55:26-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 15:20:17-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 15:33:38-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 15:36:16-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 15:51:09-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 15:56:34-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 16:07:53-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 16:10:35-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 16:12:34-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 16:21:15-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\GameWIn\GameResultGoldCellPrefab.prefab) saved
+2020-10-20 16:21:18-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\GameWIn\GameResultGoldCellPrefab.prefab) saved
+2020-10-20 16:21:56-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\GameWIn\GameResultPrefab.prefab) saved
+2020-10-20 16:21:57-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\GameWIn\GameResultPrefab.prefab) saved
+2020-10-20 16:22:00-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\GameWIn\GameResultPrefab.prefab) saved
+2020-10-20 16:22:05-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\GameWIn\GameResultPrefab.prefab) saved
+2020-10-20 16:22:07-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 16:23:36-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\GameWIn\GameResultPrefab.prefab) saved
+2020-10-20 16:23:59-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\GameWIn\GameResultPrefab.prefab) saved
+2020-10-20 16:24:06-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\GameWIn\GameResultPrefab.prefab) saved
+2020-10-20 16:24:10-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\GameWIn\GameResultPrefab.prefab) saved
+2020-10-20 16:24:14-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\GameWIn\GameResultPrefab.prefab) saved
+2020-10-20 16:24:15-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\GameWIn\GameResultPrefab.prefab) saved
+2020-10-20 16:33:33-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\GameWIn\GameResultPrefab.prefab) saved
+2020-10-20 16:41:20-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\GameWIn\GameResultPrefab.prefab) saved
+2020-10-20 16:45:16-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\GameWIn\GameResultPrefab.prefab) saved
+2020-10-20 16:45:25-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\GameWIn\GameResultPrefab.prefab) saved
+2020-10-20 16:49:06-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\GameWIn\GameResultPrefab.prefab) saved
+2020-10-20 16:50:15-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\GameWIn\GameResultPrefab.prefab) saved
+2020-10-20 17:06:08-info: asset meta saved
+2020-10-20 17:06:15-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\GameWIn\GameResultPrefab.prefab) saved
+2020-10-20 17:06:31-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\GameWIn\GameResultPrefab.prefab) saved
+2020-10-20 17:06:41-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\GameWIn\GameResultPrefab.prefab) saved
+2020-10-20 17:07:25-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\GameWIn\GameResultPrefab.prefab) saved
+2020-10-20 17:08:21-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\GameWIn\GameResultPrefab.prefab) saved
+2020-10-20 17:09:15-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\GameWIn\GameResultPrefab.prefab) saved
+2020-10-20 17:10:29-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 17:12:39-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 17:13:05-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 17:13:31-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 17:15:20-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 17:15:26-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 17:16:31-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 17:23:25-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 17:24:01-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Scenes\scene.scene) saved
+2020-10-20 17:24:56-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\GameWIn\GameResultPrefab.prefab) saved
+2020-10-20 17:24:57-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\GameWIn\GameResultPrefab.prefab) saved
+2020-10-20 17:25:17-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\GameWIn\GameResultPrefab.prefab) saved
+2020-10-20 17:25:19-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\GameWIn\GameResultPrefab.prefab) saved
+2020-10-20 17:26:08-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\GameWIn\GameResultPrefab.prefab) saved
+2020-10-20 17:26:09-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\GameWIn\GameResultPrefab.prefab) saved
+2020-10-20 17:59:41-info: asset(D:\workspace\c3dlearn\c3dtowerdefence\assets\Prefab\UI\GameWIn\GameResultPrefab.prefab) saved

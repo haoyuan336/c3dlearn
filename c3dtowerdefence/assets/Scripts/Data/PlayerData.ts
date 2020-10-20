@@ -26,9 +26,16 @@ export class PlayData {
         // this.initTowerLevelLocalData(this.gameController.getGameConfig().json);
         // this.setLocalData("current-init-red-heart-count", this.currentInitRedHeartCounnt + "");
         // this.setLocalData("current-init-red-heart-count", this.currentInitRedHeartCounnt + "");
-        this.setLocalData("active-enemy-list", JSON.stringify(this.currentActiveEnemyMap));
+        // this.setLocalData("active-enemy-list", JSON.stringify(this.currentActiveEnemyMap));
         // this.initTowerLevelLocalData(this.gameController.getGameConfig().json);
-        this.setLocalData("curent-power-count", "999999999");
+        // this.setLocalData("curent-power-count", "999999999");
+        // {"Enemy_0":true,"Enemy_1":true,"Boss_7":true,"Boss_14":true,"Boss_13":true,"Boss_12":true,"Boss_11":true,"Boss_10":true,"Boss_9":true,"Boss_8":true"Boss_7":true,"Boss_6":true,"Boss_5":true,"Boss_4":true,"Boss_3":true,"Boss_2":true,"Boss_1":true,"Boss_0":true}
+
+        let map = {};
+        for (let i = 0; i < 14; i++) {
+            map['Boss_' + i] = true;
+        }
+        this.setLocalData("active-enemy-list", JSON.stringify(map));
         if (gameTime) {
             // 首次进入游戏. 初始化游戏数据
             //不是首次进入游戏，那么初始化一些游戏数据
@@ -44,7 +51,7 @@ export class PlayData {
             // if (num) {
             //     this.currentLevelNum = Number(num);
             // }
-            // this.currentLevelNum = 13;
+            this.currentLevelNum = 0;
             // this.currentActiveTowerBuildBaseCount = Number(this.getLocalData('active-tower-build-base-count')); //获取当前激活的塔的基座的数量
             this.currentTowerLevelData = JSON.parse(this.getLocalData("tower-level-data"));
             this.currentInitRedHeartCounnt = Number(this.getLocalData("current-init-red-heart-count")); //获取当前初始化的红心的个数
@@ -101,7 +108,7 @@ export class PlayData {
         localStorage.clear();
     }
     getLocalData(key: string) {
-        console.log('获取游戏数据', key);
+        // console.log('获取游戏数据', key);
         return localStorage.getItem(key);
     }
     setLocalData(key: string, data: string) {
@@ -139,10 +146,10 @@ export class PlayData {
     }
     enterNextLevel() {
         this.currentLevelNum++;
-        if(this.currentLevelNum === 14){
+        if (this.currentLevelNum === 14) {
             this.currentLevelNum = 0;
         }
-        
+
         //获取当前关卡的金币个数
         let goldCount = this.gameController.getGameConfig().json['Level_' + this.currentLevelNum].InitGoldCount;
         // this.addGoldCount(goldCount);

@@ -437,7 +437,7 @@ export class EnemyBase extends BaseObject {
 
         });
         this.state.addState("to-dead", () => {
-            this.enemyCtl.pushOneEnemyDeadData(new DeadEnemyObj(this.objectType, this.getCurrentGoldCount()));
+            this.enemyCtl.pushOneEnemyDeadData(new DeadEnemyObj(this.objectType, this.healthCount));
             if (this.currentMoveTw) {
                 this.currentMoveTw.stop();
             }

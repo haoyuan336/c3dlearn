@@ -699,9 +699,9 @@
     },
     "_lscale": {
       "__type__": "cc.Vec3",
-      "x": 0.4,
-      "y": 0.4,
-      "z": 0.4
+      "x": 1,
+      "y": 1,
+      "z": 1
     },
     "_layer": 1073741824,
     "_euler": {
@@ -723,8 +723,8 @@
     "_priority": 0,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 99,
-      "height": 98
+      "width": 29,
+      "height": 43
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -752,7 +752,7 @@
     },
     "_sharedMaterial": null,
     "_spriteFrame": {
-      "__uuid__": "394bf77d-8371-4c32-a459-48fcf85f6644@f9941"
+      "__uuid__": "ade3afc3-ee21-4523-afaf-314e17eeb1a6@f9941"
     },
     "_type": 0,
     "_fillType": 0,
@@ -813,6 +813,9 @@
       "__id__": 1
     },
     "_enabled": true,
+    "objectType": "default",
+    "rootNode": null,
+    "animSpeedMulOffset": 1,
     "enemyIconNode": {
       "__id__": 4
     },

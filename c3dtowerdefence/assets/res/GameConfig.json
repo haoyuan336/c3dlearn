@@ -23,7 +23,7 @@
         "BaseAttackNum": 1,
         "BuildCost": 10,
         "ActiveCost": 10,
-        "Des": "研发的新炮塔",
+        "Des": "我们只是在瓦罐里面添加了一些易燃的东西，比如说棉花面粉等，然后点燃他，巨大的热能转换成了机械能，这样应该可以暂时的抵抗一下敌人的进攻！",
         "ShootAudio": "打炮发射子弹音效"
     },
     "Tower_2": {
@@ -42,7 +42,8 @@
         "BaseAttackNum": 2,
         "BuildCost": 15,
         "ActiveCost": 100,
-        "ShootAudio": "射箭音效3"
+        "ShootAudio": "射箭音效3",
+        "Des": "有一些木头具有很强的弹性，加上一些柔软的绳索，我们造出了箭塔，这样肯定可以重创敌人吧！"
     },
     "Tower_3": {
         "CanAttackType": [
@@ -61,7 +62,8 @@
         "BaseAttackNum": 99,
         "BuildCost": 15,
         "ActiveCost": 10000,
-        "ShootAudio": "弓箭发射子弹时候音效"
+        "ShootAudio": "弓箭发射子弹时候音效",
+        "Des": "我们相信科技的进步并不是线性增长的，线性增长的只不过是人们的接受能力，只要灵感来临，那么我们就要实现他，使科技跃迁式增长！"
     },
     "Tower_4": {
         "CanAttackType": [
@@ -81,7 +83,8 @@
         "BaseAttackNum": 500,
         "BuildCost": 15,
         "ActiveCost": 50000,
-        "ShootAudio": "机关枪"
+        "ShootAudio": "机关枪",
+        "Des": "只是将瓦罐炮简化一下，放到一个小小的空间里面，再巧妙的做一个连发机构，可以连发的瓦罐炮就做好了，这符合跃迁式增长！"
     },
     "Tower_5": {
         "CanAttackType": [
@@ -101,7 +104,8 @@
         "ActiveCost": 190000,
         "NeedRecoverBullet": true,
         "BulletRecoverTime": 4,
-        "ShootAudio": "导弹发射的音效"
+        "ShootAudio": "导弹发射的音效",
+        "Des": "敌人并不会站在那里等待我们打，所以我们造出了具有追踪功能的子弹，也就是制导子弹，也就是导弹！"
     },
     "Tower_6": {
         "CanAttackType": [
@@ -123,7 +127,8 @@
         "ActiveCost": 500000,
         "BulletRecoverTime": 0,
         "IsLockEnemy": true,
-        "ShootAudio": "机关枪"
+        "ShootAudio": "机关枪",
+        "Des": "敌人的火力太猛了，所以我们改良了机关枪，双管机关枪，这样会给敌人造成双倍的伤害，这不符合跃迁式增长，但是有效！"
     },
     "Tower_7": {
         "CanAttackType": [
@@ -143,7 +148,8 @@
         "ActiveCost": 1900000,
         "NeedRecoverBullet": true,
         "BulletRecoverTime": 4,
-        "ShootAudio": "导弹发射的音效"
+        "ShootAudio": "导弹发射的音效",
+        "Des": "来自天空的敌人的攻击也增加了，所以我们改良了导弹发射器，可以同时发射六发导弹，看起来敌人并不是非常的情愿！可能被我们强大的防御吓到了！"
     },
     "Tower_8": {
         "CanAttackType": [
@@ -165,7 +171,9 @@
         "BulletRecoverTime": 4,
         "AttackType": "Range",
         "ReadyAduio": "开门音效1",
-        "ShootAudio": "弓箭发射子弹时候音效"
+        "ShootAudio": "弓箭发射子弹时候音效",
+        "Des": "我们并不好战，我们崇尚和平，我们造强大的武器，只是为了终结战争！"
+
     },
     "Enemy_0": {
         "EnemyType": "Enemy_0",
@@ -397,7 +405,8 @@
         "MoveType": "Walk",
         "ShowAudio": "跳跃音效",
         "ShootAudio": "跳跃音效",
-        "DeadAudio": "怪兽叫声5"
+        "DeadAudio": "怪兽叫声5",
+        "Des": "我正在土地上快乐的成长，突然就被挖去参加战争，我不懂战争，只学会了跳跃行走。"
     },
     "Boss_1": {
         "Name": "绿绿鸡",
@@ -410,10 +419,11 @@
         "BaseGasNum": 5,
         "BaseGoldCount": 10,
         "MoveType": "Walk",
-        "EnemyIndex": 3,
+        "EnemyIndex": 2,
         "ShowAudio": "鸡叫1",
         "ShootAudio": "鸡叫",
-        "DeadAudio": "怪兽叫声5"
+        "DeadAudio": "怪兽叫声5",
+        "Des": "我本是一只快乐的小鸡，有一天来了一些奇怪的人，给我安装了发条，把我改造成了战争机器"
     },
     "Boss_2": {
         "Name": "飞天大南瓜",
@@ -427,10 +437,11 @@
         "BaseGoldCount": 10,
         "MoveType": "Fly",
         "EnemyBulletType": 0,
-        "EnemyIndex": 5,
+        "EnemyIndex": 3,
         "ShowAudio": "直升机的音效",
         "ShootAudio": "怪兽叫声8",
-        "DeadAudio": "怪兽叫声5"
+        "DeadAudio": "怪兽叫声5",
+        "Des": "你一定见过我的哥哥，我们都向往天空，向往飞翔，他替我去打仗了，给我争取了时间练成了飞行术，我最后还是没有逃过他们的魔掌！"
     },
     "Boss_3": {
         "Name": "飞天乌龟",
@@ -444,10 +455,11 @@
         "BaseGoldCount": 10,
         "MoveType": "Fly",
         "EnemyBulletType": 0,
-        "EnemyIndex": 7,
+        "EnemyIndex": 4,
         "ShowAudio": "鲸鱼的叫声",
         "ShootAudio": "怪兽叫声8",
-        "DeadAudio": "怪兽叫声5"
+        "DeadAudio": "怪兽叫声5",
+        "Des": "海水，我需要海水，可以给我一杯海水么，他们抢走了我的海水,他们威胁我如果赢不了这场战争就永远回不去大海！"
     },
     "Boss_4": {
         "Name": "空气猫猫怪",
@@ -461,10 +473,11 @@
         "BaseGoldCount": 10,
         "MoveType": "Fly",
         "EnemyBulletType": 0,
-        "EnemyIndex": 8,
+        "EnemyIndex": 5,
         "ShowAudio": "怪兽叫声9",
         "ShootAudio": "怪兽叫声8",
-        "DeadAudio": "怪兽叫声5"
+        "DeadAudio": "怪兽叫声5",
+        "Des": "喵。。。安逸，无忧，阳光，慵懒，这些曾经是我的代名词，可是自从那些神秘人的降临打破了这一切的平静，他们用不知道从哪里学来的二流魔法，想把我改造成完美的战争机器，却仅仅是抹掉了我的四肢！"
     },
     "Boss_5": {
         "Name": "无敌大鲨鱼",
@@ -478,10 +491,11 @@
         "BaseGoldCount": 10,
         "MoveType": "Fly",
         "EnemyBulletType": 0,
-        "EnemyIndex": 8,
+        "EnemyIndex": 6,
         "ShowAudio": "怪兽叫声7",
         "ShootAudio": "怪兽叫声8",
-        "DeadAudio": "怪兽叫声5"
+        "DeadAudio": "怪兽叫声5",
+        "Des": "我承认我的外表丑陋，但是我有温柔的内心，因为我的外表，我没有朋友，我渴望朋友。那些人来了，说要做我的朋友，但是要先打赢那场战争！"
     },
     "Boss_6": {
         "Name": "比比丘",
@@ -495,14 +509,15 @@
         "BaseGoldCount": 10,
         "MoveType": "Walk",
         "EnemyBulletType": 0,
-        "EnemyIndex": 9,
+        "EnemyIndex": 7,
         "ShowAudio": "怪兽叫声9",
         "ShootAudio": "怪兽叫声8",
-        "DeadAudio": "怪兽叫声9"
+        "DeadAudio": "怪兽叫声9",
+        "Des": "你看我像具有威胁的动物么？他们以威胁他们安全为由把我关了起来，限制了我的自由，承诺如果帮他们打败你，就会还我自由！"
     },
     "Boss_7": {
         "Name": "无敌肥羊",
-        "EnemyType": "Boss_6",
+        "EnemyType": "Boss_7",
         "BaseAttackNum": 1,
         "IconSprteFrame": "xiaomianyang_icon",
         "MoveSpeed": 1.5,
@@ -512,10 +527,11 @@
         "BaseGoldCount": 10,
         "MoveType": "Walk",
         "EnemyBulletType": 0,
-        "EnemyIndex": 10,
+        "EnemyIndex":8,
         "ShowAudio": "绵羊的叫声",
         "ShootAudio": "怪兽叫声8",
-        "DeadAudio": "绵羊的叫声"
+        "DeadAudio": "绵羊的叫声",
+        "Des": "咩！我只吃草，他们来了，喂我吃了一些奇怪的东西，我感觉我暴躁起来了，脑子里面总是有一个声音在回荡，代！代！代！代！代！那是什么意思，我只有横冲直撞去抵抗那个恼人的声音！"
     },
     "Boss_8": {
         "Name": "紫八爪鱼",
@@ -529,10 +545,11 @@
         "BaseGoldCount": 10,
         "MoveType": "Fly",
         "EnemyBulletType": 0,
-        "EnemyIndex": 11,
+        "EnemyIndex": 9,
         "ShowAudio": "怪兽叫声2",
         "ShootAudio": "怪兽叫声8",
-        "DeadAudio": "怪兽叫声5"
+        "DeadAudio": "怪兽叫声5",
+        "Des": "只有保持最安全的颜色，才能在这弱肉强食的世界生存下去，可是无论我如何的千变万化，仍然没有逃出他们的魔爪，他们调整了我的变色系统，选择了我最讨厌的颜色！"
     },
     "Boss_9": {
         "Name": "加速蜗牛",
@@ -546,10 +563,11 @@
         "BaseGoldCount": 10,
         "MoveType": "Walk",
         "EnemyBulletType": 0,
-        "EnemyIndex": 11,
+        "EnemyIndex": 10,
         "ShowAudio": "怪兽叫声2",
         "ShootAudio": "怪兽叫声8",
-        "DeadAudio": "怪兽叫声5"
+        "DeadAudio": "怪兽叫声5",
+        "Des": "慢一些，慢一些，速度太快我的房子会掉。他们骗我吃了一些奇怪的东西，我的速度太快，停不下来，我的房子，不要夺走我的房子！"
     },
     "Boss_10": {
         "Name": "粉猪",
@@ -563,10 +581,11 @@
         "BaseGoldCount": 10,
         "MoveType": "Walk",
         "EnemyBulletType": 0,
-        "EnemyIndex": 12,
+        "EnemyIndex": 11,
         "ShowAudio": "猪的出场音效",
         "ShootAudio": "怪兽叫声8",
-        "DeadAudio": "猪死了的音效"
+        "DeadAudio": "猪死了的音效",
+        "Des": "他们使用了好多手段，迫使我屈服，我皮糙肉厚的我怕啥，可是他们把我改造成了这个颜色，我的颜值一旦毁了，我就没有活下去的意志了，任由他们摆布了！"
     },
     "Boss_11": {
         "Name": "无敌霸王龙",
@@ -580,10 +599,12 @@
         "BaseGoldCount": 10,
         "MoveType": "Walk",
         "EnemyBulletType": 0,
-        "EnemyIndex": 13,
+        "EnemyIndex": 12,
         "ShowAudio": "猴子的叫声类似",
         "ShootAudio": "怪兽叫声8",
-        "DeadAudio": "猴子的叫声类似"
+        "DeadAudio": "猴子的叫声类似",
+        "Des": "我已经活了很多年了，死亡是我几百年的期盼，他们说去战场把，你会如愿以偿，我来了，并没有遇见死亡！"
+
     },
     "Boss_12": {
         "Name": "无敌卡通飞龙",
@@ -597,10 +618,11 @@
         "BaseGoldCount": 10,
         "MoveType": "Fly",
         "EnemyBulletType": 0,
-        "EnemyIndex": 14,
+        "EnemyIndex": 13,
         "ShowAudio": "鲸鱼的叫声",
         "ShootAudio": "怪兽叫声8",
-        "DeadAudio": "鲸鱼的叫声"
+        "DeadAudio": "鲸鱼的叫声",
+        "Des": "咳咳咳，请问你见到过我的老朋友么，我们都在寻找死去的方法，我希望他已经如愿以偿了，听说他来到这里了！"
     },
     "Boss_13": {
         "Name": "大Boss",
@@ -614,10 +636,12 @@
         "BaseGoldCount": 10,
         "MoveType": "Walk",
         "EnemyBulletType": 0,
-        "EnemyIndex": 15,
+        "EnemyIndex": 14,
         "ShowAudio": "鲸鱼的叫声",
         "ShootAudio": "怪兽叫声8",
-        "DeadAudio": "鲸鱼的叫声"
+        "DeadAudio": "鲸鱼的叫声",
+        "Des": "哦，我的朋友，我没有你想象的那么坏，我只不过装的残忍一些，这样他们就会畏惧我，他们就会永远的臣服于我，所以我必须打败你，否则我的地位不保！现在我已经被你打败了，我的时代已经过去了！"
+
     },
     "Monster_1": {
         "MoveSpeed": 0.2,
