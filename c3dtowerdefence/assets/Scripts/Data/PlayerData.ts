@@ -13,6 +13,7 @@ export class PlayerData {
     public currentActiveEnemyMap: Object = {};
     public currentPowerCount: number = 0; //当前的能量值
     public gameConfig: Object = null;
+    public guideIsOver: boolean = false; //引导功能是否结束了
     // public currentActiveEnemyMap:
     // public currentActiveTowerBuildBaseCount = 2; //当前激活的建造塔的位置的个数
     // constructor(gameCtl) {
@@ -63,6 +64,7 @@ export class PlayerData {
             this.currentInitRedHeartCounnt = Number(this.getLocalData("current-init-red-heart-count")); //获取当前初始化的红心的个数
             this.currentActiveEnemyMap = JSON.parse(this.getLocalData("active-enemy-list")); //获取当前激活的敌人的列表
             console.log("current active enemy map", this.currentActiveEnemyMap);
+            this.guideIsOver = Boolean(this.getLocalData("guide-is-over"));
         } else {
             this.setLocalData("game-time", '1');
             this.setLocalData("current-active-skill-count", this.currentActiveSkillCount + '');
@@ -296,5 +298,10 @@ export class PlayerData {
     recoverRedHeartCount() {
         //恢复红心的个数
         this.currentRedHeardCount = this.currentInitRedHeartCounnt;
+    }
+    setGuideOver(){
+        console.log("引导结束")
+        this.guideIsOver = true;
+        this.setLocalData("guide-is-over", 'true');
     }
 }   

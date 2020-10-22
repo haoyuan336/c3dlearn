@@ -282,6 +282,10 @@ export class EnemyController extends Component {
     gemeLose() {
         //游戏失败了
         this.state.setState("game-lose");
+        for (let i = 0 ; i < this.enemyNodeList.length ; i ++){
+            let enemyNode = this.enemyNodeList[i];
+            enemyNode.getComponent(EnemyBase).forzenSelf();
+        }
     }
 
     pauseGame() {

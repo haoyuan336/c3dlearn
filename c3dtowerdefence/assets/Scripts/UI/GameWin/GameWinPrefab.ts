@@ -62,7 +62,7 @@ export class GameWinPrefab extends Component {
     private nodeList: Node[] = [];
     private currentWinPowerCount: number = 0;
     start() {
-
+        GameInstance.getInstance().hideBannerAds();
     }
     setGameResult(succ: boolean, data: DeadEnemyObj[], gameConfig: {}, videoIsReady: boolean) {
         // this.uiController = uiCtl;

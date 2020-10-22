@@ -39,6 +39,7 @@ export class GuideCtl extends Component {
                     this.showMaskAnim(stepStr);
                 }
             } else {
+                GameInstance.getInstance().getPlayerData().setGuideOver();
                 if (cb) {
                     cb();
                 }
@@ -51,6 +52,8 @@ export class GuideCtl extends Component {
             //完成了当前的 引导逻辑
             if (this.state.getState() === 'show-guide') {
                 this.state.setState('over-guide');
+                GameInstance.getInstance().getPlayerData().setGuideOver();
+
             } else {
                 return;
             }

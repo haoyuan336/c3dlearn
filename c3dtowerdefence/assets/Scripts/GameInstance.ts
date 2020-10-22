@@ -94,6 +94,10 @@ export class GameInstance {
     }
     showBannerAds() {
         //展示banner 广告
+        console.log("guide is over", this.playerData.guideIsOver);
+        if(!this.playerData.guideIsOver){
+            return;
+        }
         this.adsCtl.showBannerAds();
     }
     hideBannerAds() {
