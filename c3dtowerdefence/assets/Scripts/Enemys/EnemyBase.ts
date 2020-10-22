@@ -496,9 +496,12 @@ export class EnemyBase extends BaseObject {
             }
             this.beAttackedCb = data.cb;
             this.currentHealthCount -= data.baseAttackNum;
-            if (this.bossHealthBar) {
-                let progressBar = this.bossHealthBar.children[0];
-                progressBar.getComponent(ProgressBarComponent).progress = this.currentHealthCount / this.healthCount;
+            // if (this.bossHealthBar) {
+            //     let progressBar = this.bossHealthBar.children[0];
+            //     progressBar.getComponent(ProgressBarComponent).progress = this.currentHealthCount / this.healthCount;
+            // }
+            if (this.objectType.indexOf('Boss') > -1) {
+                GameInstance.getInstance().getUICtlNode().emit("update-boss-health-bar", this.currentHealthCount / this.healthCount);
             }
             let baseGasNum = data.baseGasNum; //取处基础气值
 
@@ -665,7 +668,9 @@ export class EnemyBase extends BaseObject {
         if (this.enemyCtlNode && isValid(this.enemyCtlNode)) {
             this.enemyCtlNode.off("frozen-all-enemy", this.forzenSelf, this);
         }
-        GameInstance.getInstance().getUICtlNode().emit("hide-boss-health-bar");
+        if (this.objectType.indexOf("Boss") > -1) {
+            GameInstance.getInstance().getUICtlNode().emit("hide-boss-health-bar");
+        }
         // if (this.bossHealthBar) {
         //     this.bossHealthBar.position = v3(0, -400, 0);
         // }

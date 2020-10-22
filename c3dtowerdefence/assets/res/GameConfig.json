@@ -421,7 +421,7 @@
         "MoveType": "Walk",
         "EnemyIndex": 2,
         "ShowAudio": "鸡叫1",
-        "ShootAudio": "鸡叫",
+        "ShootAudio": "鸡叫1",
         "DeadAudio": "怪兽叫声5",
         "Des": "我本是一只快乐的小鸡，有一天来了一些奇怪的人，给我安装了发条，把我改造成了战争机器"
     },

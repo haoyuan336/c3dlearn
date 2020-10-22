@@ -161,6 +161,7 @@ export class SkillCtl extends Component {
                 }, 0.1);
             }
         })
+        this.node.on("show-add-power-anim-effect", this.showAddPowerAnimEffect.bind(this)); 
     }
     startCheckSkillNode() {
         let promiseList = [

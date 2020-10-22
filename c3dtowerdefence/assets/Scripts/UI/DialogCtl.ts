@@ -1,4 +1,5 @@
 import { _decorator, Component, Node, JsonAsset, SpriteComponent, LabelComponent, loader, SpriteFrame, v3, Tween, find } from 'cc';
+import { GameInstance } from '../GameInstance';
 const { ccclass, property } = _decorator;
 
 @ccclass('DialogCtl')
@@ -82,7 +83,7 @@ export class DialogCtl extends Component {
     }
     showOneDialog() {
         if (this.currentDialogIndex >= this.currentLevelDialogData.length) {
-
+            // GameInstance.getInstance().hideBannerAds();
             if (this.dialogOverCb) {
                 this.dialogOverCb();
             }
@@ -122,7 +123,7 @@ export class DialogCtl extends Component {
     }
     showTLPEnterAnim() {
         return new Promise((resolve, reject) => {
-
+            GameInstance.getInstance().hideBannerAds();
             if (this.dialogPicNode.position.x > -500) {
                 resolve();
             } else {
@@ -141,6 +142,8 @@ export class DialogCtl extends Component {
     }
     showTLPOutAnim() {
         return new Promise((resolve, reject) => {
+            GameInstance.getInstance().showBannerAds();
+
             let tw = new Tween(this.dialogPicNode)
             tw.to(0.2, {
                 position: v3(-1000, -161, 0)

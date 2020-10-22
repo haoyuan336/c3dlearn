@@ -47,9 +47,13 @@ export class GameInstance {
         this.gameCtlNode.emit("retry-game");
     }
     playerClickSaveLifeButton() {
+
         return new Promise((resolve, reject) => {
-            this.gameCtlNode.emit('player-click-save-life-button', () => {
-                resolve();
+            this.adsCtl.watchVideoAds().then((state) => {
+                if (state === 'succ') {
+                    resolve();
+                    this.gameCtlNode.emit("player-click-save-life-button");
+                }
             })
         })
     }
@@ -57,7 +61,7 @@ export class GameInstance {
         this.playerData.addPowerCount(power);
         this.uiCtlNode.emit("refer-current-power-label", this.playerData.currentPowerCount);
     }
-    addGoldCount(count: number){
+    addGoldCount(count: number) {
         this.playerData.addGoldCount(count);
         this.uiCtlNode.emit("update-gold-label", count);
     }
@@ -76,7 +80,7 @@ export class GameInstance {
 
     }
     enterNextLevel() {
-     
+
         this.playerData.addOneNextLevel();
         this.playerData.initCurrentGoldCount();
         this.playerData.initRedHeartCount();
@@ -88,8 +92,11 @@ export class GameInstance {
         // this.currentGoldCount = goldCount;
         // this.setLocalData('current-level-num', this.currentLevelNum + '');//保存当前的关卡数
     }
-    showBannerAds(){
+    showBannerAds() {
         //展示banner 广告
         this.adsCtl.showBannerAds();
+    }
+    hideBannerAds() {
+        this.adsCtl.hideBannerAds();
     }
 }

@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, view, Tween, v3, SpriteComponent ,find} from 'cc';
+import { _decorator, Component, Node, view, Tween, v3, SpriteComponent, find } from 'cc';
 import { State } from '../util/State';
 const { ccclass, property } = _decorator;
 
@@ -59,7 +59,7 @@ export class InfoLayerCtlBase extends Component {
             // }
         });
     }
-    closeUICb(){
+    closeUICb() {
 
     }
     showCtlInfoButtonn() {
@@ -68,7 +68,7 @@ export class InfoLayerCtlBase extends Component {
             let tw = new Tween(this.ctlShowButton);
             let dir = this.hideDir === 'Right' ? 1 : -1;
             tw.to(0.1, {
-                position: v3(v * 0.5 * dir - 100 * dir, 0, 0)
+                position: v3(v * 0.5 * dir - 120 * dir, 0, 0)
             })
             tw.call(() => {
                 resolve();
@@ -104,9 +104,12 @@ export class InfoLayerCtlBase extends Component {
             //     let node = this.weaponIndoCellNodeList[i];
             //     node.getComponent(WeaponUpdateCellPrefab).referCurrentDamage();
             // }
+            let dir = this.hideDir === 'Right' ? 1 : -1;
+
+            let widthDis = (view.getVisibleSize().width - 1280) / 2;
             let tw = new Tween(this.bectledLayerNode);
             tw.to(0.2, {
-                position: v3(0, 0, 0)
+                position: v3(widthDis * dir, 0, 0)
             })
             tw.call(() => {
                 resolve();

@@ -95,57 +95,74 @@ export class GameController extends Component {
         // tw.start();
 
     }
+
+
+
     playerClickSaveLifeButton(cb) {
+        this.node.emit("destroy-all-enemy", (goldCount) => {
+            // this.playerData.addGoldCount(goldCount);
+            this.showHomeIconEnterAnim().then(() => {
+                // this.playerData.recoverRedHeartCount();
+                GameInstance.getInstance().getPlayerData().recoverRedHeartCount();
+                // this.uiController.emit("refer-red-heart-label");
+                GameInstance.getInstance().getUICtlNode().emit("refer-red-heart-label");
+                // this.node.emit('update-gold-label', this.playerData.getCurrentGoldCount());
+                this.state.setState("run");
+                this.node.getComponent(EnemyController).continueGame(); //继续游戏
+            });
+        });
+
+
         //玩家点击了 立即复活按钮
-        return new Promise((resolve, reject) => {
-            let videoIsReady = this.adsCtl.getVideoIsReady();
-            //根据视频广告是否准备好了，进行看广告复活，还是分享复活
-            if (videoIsReady) {
-                this.adsCtl.watchVideoAds().then(() => {
-                    resolve();
-                    if (cb) {
-                        cb()
-                    }
-                    if (isValid(this.homeIconNode)) {
-                        this.homeIconNode.active = false;
-                    }
-                    this.node.emit("destroy-all-enemy", (goldCount) => {
-                        // this.playerData.addGoldCount(goldCount);
-                        this.showHomeIconEnterAnim().then(() => {
-                            // this.playerData.recoverRedHeartCount();
-                            GameInstance.getInstance().getPlayerData().recoverRedHeartCount();
-                            // this.uiController.emit("refer-red-heart-label");
-                            GameInstance.getInstance().getUICtlNode().emit("refer-red-heart-label");
-                            // this.node.emit('update-gold-label', this.playerData.getCurrentGoldCount());
-                            this.state.setState("run");
-                            this.node.getComponent(EnemyController).continueGame(); //继续游戏
-                        });
-                    });
-                })
-            } else {
-                this.adsCtl.shareTo().then(() => {
-                    resolve();
-                    if (cb) {
-                        cb();
-                    }
-                    if (isValid(this.homeIconNode)) {
-                        this.homeIconNode.active = false;
-                    }
-                    this.node.emit("destroy-all-enemy", (goldCount) => {
-                        // this.playerData.addGoldCount(goldCount);
-                        this.showHomeIconEnterAnim().then(() => {
-                            // this.playerData.recoverRedHeartCount();
-                            GameInstance.getInstance().getPlayerData().recoverRedHeartCount();
-                            // this.uiController.emit("refer-red-heart-label");
-                            GameInstance.getInstance().getUICtlNode().emit("refer-red-heart-label");
-                            // this.node.emit('update-gold-label', this.playerData.getCurrentGoldCount());
-                            this.state.setState("run");
-                            this.node.getComponent(EnemyController).continueGame(); //继续游戏
-                        });
-                    });
-                })
-            }
-        })
+        // return new Promise((resolve, reject) => {
+        //     let videoIsReady = this.adsCtl.getVideoIsReady();
+        //     //根据视频广告是否准备好了，进行看广告复活，还是分享复活
+        //     if (videoIsReady) {
+        //         this.adsCtl.watchVideoAds().then(() => {
+        //             resolve();
+        //             if (cb) {
+        //                 cb()
+        //             }
+        //             if (isValid(this.homeIconNode)) {
+        //                 this.homeIconNode.active = false;
+        //             }
+        //             this.node.emit("destroy-all-enemy", (goldCount) => {
+        //                 // this.playerData.addGoldCount(goldCount);
+        //                 this.showHomeIconEnterAnim().then(() => {
+        //                     // this.playerData.recoverRedHeartCount();
+        //                     GameInstance.getInstance().getPlayerData().recoverRedHeartCount();
+        //                     // this.uiController.emit("refer-red-heart-label");
+        //                     GameInstance.getInstance().getUICtlNode().emit("refer-red-heart-label");
+        //                     // this.node.emit('update-gold-label', this.playerData.getCurrentGoldCount());
+        //                     this.state.setState("run");
+        //                     this.node.getComponent(EnemyController).continueGame(); //继续游戏
+        //                 });
+        //             });
+        //         })
+        //     } else {
+        //         this.adsCtl.shareTo().then(() => {
+        //             resolve();
+        //             if (cb) {
+        //                 cb();
+        //             }
+        //             if (isValid(this.homeIconNode)) {
+        //                 this.homeIconNode.active = false;
+        //             }
+        //             this.node.emit("destroy-all-enemy", (goldCount) => {
+        //                 // this.playerData.addGoldCount(goldCount);
+        //                 this.showHomeIconEnterAnim().then(() => {
+        //                     // this.playerData.recoverRedHeartCount();
+        //                     GameInstance.getInstance().getPlayerData().recoverRedHeartCount();
+        //                     // this.uiController.emit("refer-red-heart-label");
+        //                     GameInstance.getInstance().getUICtlNode().emit("refer-red-heart-label");
+        //                     // this.node.emit('update-gold-label', this.playerData.getCurrentGoldCount());
+        //                     this.state.setState("run");
+        //                     this.node.getComponent(EnemyController).continueGame(); //继续游戏
+        //                 });
+        //             });
+        //         })
+        //     }
+        // })
     }
     playerClickShareButton(winPowerCount: number) {
         //玩家点击了分享按钮
@@ -211,7 +228,7 @@ export class GameController extends Component {
             // console.log("玩家点中了开始游戏按钮");
             // this.uiController.emit("complete-current-guide");
             GameInstance.getInstance().getUICtlNode().emit("complete-current-guide");
-            GameInstance.getInstance().showBannerAds();
+            // GameInstance.getInstance().showBannerAds();
             //给ui控制器发送，完成了当前的引导操作
             this.node.emit("play-audio", "按钮音效")
             this.node.emit("play-bg-music");

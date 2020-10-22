@@ -78,8 +78,8 @@ export class UIController extends Component {
         // this.gameController = find("GameController").getComponent(GameController);
         let screenSize = view.getVisibleSize();
         let width = screenSize.width;
-        this.enemyInfoButton.position = v3(width * -0.5 - 100, 0, 0);
-        this.towerInfoButton.position = v3(width * 0.5 + 100, 0, 0);
+        this.enemyInfoButton.position = v3(width * -0.5 - 150, 0, 0);
+        this.towerInfoButton.position = v3(width * 0.5 + 150, 0, 0);
 
         console.log("ui controller start")
         GameInstance.getInstance().getGameCtlNode().on("touch-base-build-base", (node: Node) => {
@@ -133,7 +133,11 @@ export class UIController extends Component {
         this.node.on("close-all-ui", this.closeSomeUI.bind(this), this);
         this.node.on("refer-current-tower-menu-ui", this.referTowerBuildMenuUI.bind(this), this);
         this.node.on("close-tower-menu-ui", this.coloseTowerBuildMenuUI.bind(this), this);
+        this.node.on("update-boss-health-bar", this.updateBossHealthBar.bind(this), this);
         // this.node.on("update-gold-label", );
+    }
+    updateBossHealthBar(rate: number){
+        this.bossHealthBar.children[0].getComponent(ProgressBarComponent).progress = rate;
     }
     showBossHealthBar() {
         let tw = new Tween(this.bossHealthBar);
@@ -225,7 +229,7 @@ export class UIController extends Component {
                     let dir = index === 0 ? -1 : 1;
                     let tw = new Tween(node);
                     tw.to(0.4, {
-                        position: v3(- dir * 100 + screenWidth * 0.5 * dir, 0, 0)
+                        position: v3(- dir * 120 + screenWidth * 0.5 * dir, 0, 0)
                     });
                     tw.call(() => {
                         console.log("进场结束");

@@ -72,8 +72,8 @@ export class GuideCtl extends Component {
             let uiTransfrom = this.guideLayer.getComponent(UITransformComponent);
             let tw = new Tween(uiTransfrom);
             tw.to(0.4, {
-                width: 1700,
-                height: 1700
+                width: 2200,
+                height: 2200
             })
             tw.call(() => {
                 resolve();

@@ -636,7 +636,8 @@ export class TowerBase extends BaseObject {
             // if (isValid(this.skillCtl)) {
             //     this.skillCtl.showAddPowerAnimEffect(powerValue, this.node.position);
 
-            // }
+            // }bei
+            GameInstance.getInstance().getUICtlNode().emit("show-add-power-anim-effect", powerValue, this.node.position);
         }
     }
     releaseSkill() {
