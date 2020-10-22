@@ -113,12 +113,12 @@
             "displayWatermark": true
           }
         },
-        "message": "build success in 19360 ms!",
+        "message": "build success in 16102 ms!",
         "logMap": {
           "log": 19,
-          "warn": 16,
+          "warn": 1,
           "error": 0,
-          "debug": 288
+          "debug": 290
         }
       }
     ]

@@ -27,7 +27,7 @@ export class AudioCtl extends Component {
                 if (!err) {
                     this.audioMap[audioStr] = result;
                 } else {
-                    console.log("音频加载失败", err);
+                    // console.log("音频加载失败", err);
                 }
             })
         }
@@ -39,7 +39,7 @@ export class AudioCtl extends Component {
         this.node.on("play-audio", (audioStr, cb) => {
 
 
-            console.log("player- audio", audioStr);
+            // console.log("player- audio", audioStr);
             this.playAudio(audioStr, cb);
         })
         this.node.on("player-button-click-audio", () => {
@@ -63,13 +63,13 @@ export class AudioCtl extends Component {
         })
     }
     playAudio(audioStr, cb) {
-        console.log("播放音乐文件", audioStr);
+        // console.log("播放音乐文件", audioStr);
         if (audioStr) {
 
             if (this.audioMap[audioStr]) {
-                console.log("存在此音频，直接播放", audioStr);
+                // console.log("存在此音频，直接播放", audioStr);
                 this.audioMap[audioStr].on("ended", () => {
-                    console.log("音效播放完成");
+                    // console.log("音效播放完成");
                     if (cb) {
                         cb();
                     }
@@ -79,7 +79,7 @@ export class AudioCtl extends Component {
             } else {
                 loader.loadRes('音乐文件/' + audioStr, AudioClip, (err, result: AudioClip) => {
                     if (err) {
-                        console.log("load audio err", err)
+                        // console.log("load audio err", err)
                     } else {
                         this.audioMap[audioStr] = result;
                         // AudioSourceComponent

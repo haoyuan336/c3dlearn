@@ -1,3 +1,5 @@
 {
-    "resolveMap": {}
+    "resolveMap": {
+        "../GameInstance": "../GameInstance.ts"
+    }
 }

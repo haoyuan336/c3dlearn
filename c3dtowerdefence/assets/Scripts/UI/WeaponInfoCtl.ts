@@ -1,6 +1,7 @@
-import { _decorator, Component, Node, v3, view, Tween, SpriteComponent, Color, instantiate, Prefab, LabelComponent, SpriteFrame, game, UIComponent, isValid, ScrollViewComponent, find } from 'cc';
+import { _decorator, Component, Node, v3, view, Tween, SpriteComponent, Color, instantiate, Prefab, LabelComponent, SpriteFrame, game, UIComponent, isValid, ScrollViewComponent, find, Game, JsonAsset } from 'cc';
+import { GameInstance } from '../GameInstance';
 import { Tool } from '../util/Tool';
-import { GameController } from './../GameController';
+// import { GameController } from './../GameController';
 import { WeaponUpdateCellPrefab } from './../UI/WeaponUpdateCellPrefab';
 import { State } from './../util/State';
 import { InfoLayerCtlBase } from './InfoLayerCtlBase';
@@ -18,8 +19,8 @@ export class WeaponInfoCtl extends InfoLayerCtlBase {
     // public weaponInfoButton: Node = null;
     // private state: State = new State();
 
-    @property({ type: GameController })
-    public gameController: GameController = null;
+    // @property({ type: GameController })
+    // public gameController: GameController = null;
 
     @property({ type: Prefab })
     public updateWeaponInfoCellPrefab: Prefab = null;
@@ -48,6 +49,9 @@ export class WeaponInfoCtl extends InfoLayerCtlBase {
 
     @property({ type: Node })
     public currentPowerLabel: Node = null;
+
+    @property({type: JsonAsset})
+    public gameConfigJsonAsset: JsonAsset = null;
 
     private currentChooseRate: number = 0; //当前选择的倍数
 
@@ -85,10 +89,10 @@ export class WeaponInfoCtl extends InfoLayerCtlBase {
         //
     }
     public referCurrentRedHeartCountUI() {
-        let gameController = this.gameController.getComponent(GameController);
-        let cost = gameController.playerData.getAddOneRedHeartCostGoldCount() * this.currentChooseRate;
+        // let gameController = this.gameController.getComponent(GameController);
+        let cost = GameInstance.getInstance().getPlayerData().getAddOneRedHeartCostGoldCount() * this.currentChooseRate;
         this.addRedHeartCostGoldCount.getComponent(LabelComponent).string = Tool.convertNumToK(cost);
-        let currentGoldCount = gameController.playerData.getPowerCount();
+        let currentGoldCount =  GameInstance.getInstance().getPlayerData().getPowerCount();
         // console.log("current gold count", currentGoldCount);
         console.log("cost", cost);
         if (currentGoldCount < cost) {
@@ -97,15 +101,15 @@ export class WeaponInfoCtl extends InfoLayerCtlBase {
             this.addRedHeartButton.getComponent(SpriteComponent).spriteFrame = this.addRedHeartButtonSpriteFrameLight;
 
         }
-        this.currentInitRedHeartCountLabel.getComponent(LabelComponent).string = gameController.playerData.getCurrentInitRedHeartCount() + '';
+        this.currentInitRedHeartCountLabel.getComponent(LabelComponent).string =  GameInstance.getInstance().getPlayerData().getCurrentInitRedHeartCount() + '';
         this.chooseAddRedHeartCountLabel.getComponent(LabelComponent).string = "+" + Tool.convertNumToK(this.currentChooseRate);
-        this.currentPowerLabel.getComponent(LabelComponent).string = Tool.convertNumToK(gameController.playerData.getPowerCount());
+        this.currentPowerLabel.getComponent(LabelComponent).string = Tool.convertNumToK( GameInstance.getInstance().getPlayerData().getPowerCount());
     }
     public initWeaponData() {
         //初始化当前武器的相关信息
-        let gameController = this.gameController.getComponent(GameController);
-        let gameConfig = this.gameController.getComponent(GameController).getGameConfig().json;
-        let towerLevelData = this.gameController.playerData.getCurrentTowersLocalLevelData();
+        // let gameController = this.gameController.getComponent(GameController);
+        // let gameConfig = this.gameController.getComponent(GameController).getGameConfig().json;
+        let towerLevelData =  GameInstance.getInstance().getPlayerData().getCurrentTowersLocalLevelData();
 
 
 
@@ -113,12 +117,12 @@ export class WeaponInfoCtl extends InfoLayerCtlBase {
             let data = towerLevelData[i];
             let node = instantiate(this.updateWeaponInfoCellPrefab);
             node.parent = this.weaponCellParentNode;
-            node.getComponent(WeaponUpdateCellPrefab).setData(data, gameController, gameConfig, this);
+            node.getComponent(WeaponUpdateCellPrefab).setData(data, this.gameConfigJsonAsset.json, this);
             node.position = v3(0, -i * (node.height + 10) - (node.height + 10) * 0.5 - 5, 0);
             this.weaponCellParentNode.height = node.position.y * -1 + node.height * 0.5 + 10;
             this.weaponIndoCellNodeList.push(node);
         }
-        this.gameController.node.on("update-gold-label", () => {
+       GameInstance.getInstance().getGameCtlNode().on("update-gold-label", () => {
             this.referCurrentRedHeartCountUI();
         })
     }
@@ -134,15 +138,15 @@ export class WeaponInfoCtl extends InfoLayerCtlBase {
         switch (customData) {
             case 'add-heart-button':
                 //增加红心的按钮
-                let gameController = this.gameController.getComponent(GameController);
-                let currentGoldCount = gameController.playerData.getPowerCount();
-                let cost = gameController.playerData.getAddOneRedHeartCostGoldCount() * this.currentChooseRate;
+                // let gameController = this.gameController.getComponent(GameController);
+                let currentGoldCount = GameInstance.getInstance().getPlayerData().getPowerCount();
+                let cost = GameInstance.getInstance().getPlayerData().getAddOneRedHeartCostGoldCount() * this.currentChooseRate;
                 if (currentGoldCount < cost) {
                     this.node.emit("gold-not-enough");
                 } else {
                     // gameController.playerData.addGoldCount(-cost);
-                    gameController.playerData.addPowerCount(-cost)
-                    gameController.playerData.addLocalInitRedHeartCount(this.currentChooseRate);//
+                    GameInstance.getInstance().addPowerCount(-cost)
+                    GameInstance.getInstance().getPlayerData().addLocalInitRedHeartCount(this.currentChooseRate);//
                     this.node.emit("refer-red-heart-label");
                 }
                 this.referCurrentRedHeartCountUI();

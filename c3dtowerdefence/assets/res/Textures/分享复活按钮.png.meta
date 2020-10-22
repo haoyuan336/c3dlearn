@@ -31,10 +31,43 @@
         "isUuid": true,
         "imageUuidOrDatabaseUri": "acf7da27-c0c4-495a-a85b-901a87c1fba2"
       }
+    },
+    "f9941": {
+      "importer": "sprite-frame",
+      "uuid": "acf7da27-c0c4-495a-a85b-901a87c1fba2@f9941",
+      "displayName": "分享复活按钮",
+      "id": "f9941",
+      "name": "spriteFrame",
+      "ver": "1.0.8",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "trimType": "auto",
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": 0,
+        "offsetY": 0,
+        "trimX": 0,
+        "trimY": 0,
+        "width": 199,
+        "height": 94,
+        "rawWidth": 199,
+        "rawHeight": 94,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "acf7da27-c0c4-495a-a85b-901a87c1fba2@6c48a",
+        "atlasUuid": ""
+      }
     }
   },
   "userData": {
-    "type": "texture",
-    "redirect": "acf7da27-c0c4-495a-a85b-901a87c1fba2@6c48a"
+    "type": "sprite-frame",
+    "redirect": "acf7da27-c0c4-495a-a85b-901a87c1fba2@f9941"
   }
 }

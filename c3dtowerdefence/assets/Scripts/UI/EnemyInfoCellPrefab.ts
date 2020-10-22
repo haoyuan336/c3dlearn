@@ -1,6 +1,7 @@
 import { _decorator, Component, Node, Prefab, Game, loader, SpriteFrame, SpriteComponent, find } from 'cc';
 import { BaseObject } from '../BaseObject';
-import { GameController } from '../GameController';
+import { GameInstance } from '../GameInstance';
+// import { GameController } from '../GameController';
 import { EnemyInfoLayerCtl } from './EnemyInfoLayerCtl';
 import { MonsterInfoLayer } from './MonsterInfoLayer';
 const { ccclass, property } = _decorator;
@@ -14,15 +15,15 @@ export class EnemyInfoCellPrefab extends BaseObject {
 
 
     public uiControllerNode: Node = null;
-    public init(gameController: GameController, data: Object) {
+    public init(gameConfig: Object, data: Object) {
         let enemyType = data["enemyType"];
         console.log("enemy type", enemyType);
         this.uiControllerNode = find('Canvas');
-        let gameConfig = gameController.getGameConfig().json;
+        // let gameConfig = GameInstance.getInstance().getGameConfig().json;
         // super.objectType = enemyType;
         // console.log("super object type", super.objectType);
-        super.init(gameConfig, gameController, null, null, enemyType);
-        this.gameController.node.on("refer-enemy-info-cell", () => {
+        super.init(gameConfig, null, null, enemyType);
+        GameInstance.getInstance().getGameCtlNode().on("refer-enemy-info-cell", () => {
             this.referUI();
         })
         this.node.on("click", this.onButtonClick.bind(this), this);

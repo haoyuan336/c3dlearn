@@ -1,5 +1,6 @@
 import { _decorator, Component, Node, JsonAsset, find, Tween, v3, UIComponent, UITransformComponent } from 'cc';
-import { GameController } from '../GameController';
+// import { GameController } from '../GameController';
+import { GameInstance } from '../GameInstance';
 import { State } from '../util/State';
 const { ccclass, property } = _decorator;
 
@@ -14,21 +15,21 @@ export class GuideCtl extends Component {
 
     private currentGuideIndex: number = 1;
 
-    private gameController: GameController = null;
+    // private gameController: GameController = null;
 
     private guideCompleteCb: Function = null;
 
     private state: State = new State();
     start() {
         // Your initialization goes here.
-        this.gameController = find("GameController").getComponent(GameController);
+        // this.gameController = find("GameController").getComponent(GameController);
     }
     onLoad() {
         this.node.on("show-guide", (cb) => {
             //显示引导层
             let stepStr = "Step_" + this.currentGuideIndex;
             if (this.guideConfigJsonAsset.json[stepStr]) {
-                let isShowGuide = this.gameController.playerData.getIsShowGuide(stepStr);
+                let isShowGuide = GameInstance.getInstance().getPlayerData().getIsShowGuide(stepStr);
                 if (isShowGuide) {
                     if (cb) {
                         cb();
@@ -54,7 +55,7 @@ export class GuideCtl extends Component {
                 return;
             }
             let stepStr = "Step_" + this.currentGuideIndex;
-            this.gameController.playerData.setIsShowGuide(stepStr);
+            GameInstance.getInstance().getPlayerData().setIsShowGuide(stepStr);
             this.currentGuideIndex++;
             this.hideMaskAnim().then(() => {
                 console.log("引导操作完成");

@@ -1,12 +1,13 @@
-import { _decorator, PhysicsRayResult, Component, Node, Vec2, Vec3, Quat, v3, v2, Prefab, instantiate, JsonAsset, CameraComponent, find, ColliderComponent, SkeletalAnimationComponent, isValid, CCFloat, Tween, NodePool, v4 } from 'cc';
+import { _decorator, PhysicsRayResult, Component, Node, Vec2, Vec3, Quat, v3, v2, Prefab, instantiate, JsonAsset, CameraComponent, find, ColliderComponent, SkeletalAnimationComponent, isValid, CCFloat, Tween, NodePool, v4, Game } from 'cc';
 import { State } from './../util/State';
-import { GameController } from './../GameController'
+// import { GameController } from './../GameController'
 import { EnemyBase } from './../Enemys/EnemyBase'
 import { BulletBase } from './../BulletBase';
 import { BaseObject } from './../BaseObject'
 import { EnemyController } from '../EnemyController';
 import { TowerBuildBase } from '../TowerBuildBase/TowerBuildBase';
-import { SkillCtl } from '../UI/SkillCtl';
+// import { SkillCtl } from '../UI/SkillCtl';
+import { GameInstance } from '../GameInstance';
 const { ccclass, property } = _decorator;
 
 @ccclass('TowerBase')
@@ -47,7 +48,7 @@ export class TowerBase extends BaseObject {
     public attackRangeNode: Node = null;
 
 
-    private skillCtl: SkillCtl = null;
+    // private skillCtl: SkillCtl = null;
 
     // private isCanAttack: 
     private currentShootBulletIndex: number = 0;
@@ -60,12 +61,12 @@ export class TowerBase extends BaseObject {
     // private shootAudio: string = "";//子弹发射时候的音效
 
 
-    init(gameConfig: Object, gameController: GameController) {
-        super.init(gameConfig, gameController);
-        this.skillCtl = find("Canvas").getComponent(SkillCtl);
+    init(gameConfig: Object) {
+        super.init(gameConfig);
+        // this.skillCtl = find("Canvas").getComponent(SkillCtl);
         this.gameConfig = gameConfig;
         console.log('tower base init');
-        this.node.emit("init", gameConfig, gameController);
+        this.node.emit("init", gameConfig);
 
         // this.shootAudio = 
         // this.node.on("weapon-euler-angles-init", ()=>{
@@ -77,7 +78,7 @@ export class TowerBase extends BaseObject {
         this.state.setState("run");
         // let moveDistance = this.bulletStartPos.worldPosition.y - 0.5; //子弹的发射高度 - 敌人的 高度
         // let accY = GameController.accY;
-        this.gameController = find("GameController").getComponent(GameController);
+        // this.gameController = find("GameController").getComponent(GameController);
 
         // this.gameConfig = this.gameController.getComponent(GameController).getGameConfig().json;
 
@@ -85,8 +86,8 @@ export class TowerBase extends BaseObject {
         // this.attackRate = attackRate;
         // this.shootDuraction = 1 / this.baseAttackRate;
 
-        this.gameController.node.on("touch-screen-to-3d", this.touchScreenTo3d.bind(this), this);
-        this.gameController.node.on("destroy-all-tower", this.destroyAllTower.bind(this), this);
+        GameInstance.getInstance().getGameCtlNode().on("touch-screen-to-3d", this.touchScreenTo3d.bind(this), this);
+        GameInstance.getInstance().getGameCtlNode().on("destroy-all-tower", this.destroyAllTower.bind(this), this);
         this.state.addState("releas-skill", () => {
             if (this.currentTargetEnemy) {
                 this.currentTargetEnemy = null;
@@ -118,8 +119,8 @@ export class TowerBase extends BaseObject {
                         if (this.towerBuildBase) {
                             this.towerBuildBase.getComponent(TowerBuildBase).unSetTargetTower(this.node);
                         }
-                        this.gameController.getComponent(GameController).showAddGoldAnimEffect(this.getDestroyCount(), v3(this.node.position.x, 0, this.node.position.z).add(randomPos));
-
+                        // this.gameController.getComponent(GameController).showAddGoldAnimEffect(this.getDestroyCount(), v3(this.node.position.x, 0, this.node.position.z).add(randomPos));
+                        GameInstance.getInstance().getGameCtlNode().emit("show-add-gold-anim-effect", this.getDestroyCount(), v3(this.node.position.x, 0, this.node.position.z).add(randomPos))
                         this.node.destroy();
 
                     }, stateAnim.length)
@@ -127,8 +128,8 @@ export class TowerBase extends BaseObject {
                     this.node.destroy();
                     if (this.towerBuildBase) {
                         this.towerBuildBase.getComponent(TowerBuildBase).unSetTargetTower(this.node);
-                        this.gameController.getComponent(GameController).showAddGoldAnimEffect(this.getDestroyCount(), v3(this.node.position.x, 0, this.node.position.z).add(randomPos));
-
+                        // this.gameController.getComponent(GameController).showAddGoldAnimEffect(this.getDestroyCount(), v3(this.node.position.x, 0, this.node.position.z).add(randomPos));
+                        GameInstance.getInstance().getGameCtlNode().emit("show-add-gold-anim-effect", this.getDestroyCount(), v3(this.node.position.x, 0, this.node.position.z).add(randomPos))
                     }
                 }
 
@@ -136,8 +137,8 @@ export class TowerBase extends BaseObject {
                 this.node.destroy();
                 if (this.towerBuildBase) {
                     this.towerBuildBase.getComponent(TowerBuildBase).unSetTargetTower(this.node);
-                    this.gameController.getComponent(GameController).showAddGoldAnimEffect(this.getDestroyCount(), v3(this.node.position.x, 0, this.node.position.z).add(randomPos));
-
+                    // this.gameController.getComponent(GameController).showAddGoldAnimEffect(this.getDestroyCount(), v3(this.node.position.x, 0, this.node.position.z).add(randomPos));
+                    GameInstance.getInstance().getGameCtlNode().emit("show-add-gold-anim-effect", this.getDestroyCount(), v3(this.node.position.x, 0, this.node.position.z).add(randomPos))
                 }
             }
             // if (skeleteAnim.clips.length < 3) {
@@ -167,7 +168,8 @@ export class TowerBase extends BaseObject {
             let result = resultList[i];
             if (result.collider.node.uuid === this.node.uuid) {
                 //点中了此塔
-                this.gameController.node.emit("touch-tower", this.node);
+                // this.gameController.node.emit("touch-tower", this.node);
+                GameInstance.getInstance().getGameCtlNode().emit("touch-tower", this.node);
                 break;
             }
         }
@@ -176,8 +178,8 @@ export class TowerBase extends BaseObject {
     }
     onDestroy() {
         console.log("销毁");
-        this.gameController.node.off('touch-screen-to-3d', this.touchScreenTo3d, this);
-        this.gameController.node.on("destroy-all-tower", this.destroyAllTower, this);
+        GameInstance.getInstance().getGameCtlNode().off('touch-screen-to-3d', this.touchScreenTo3d, this);
+        GameInstance.getInstance().getGameCtlNode().off("destroy-all-tower", this.destroyAllTower, this);
     }
     toDestroy() {
         //去销毁
@@ -261,7 +263,7 @@ export class TowerBase extends BaseObject {
 
                     })
 
-                    this.gameController.node.emit("play-audio", this.shootAudio);
+                    GameInstance.getInstance().getGameCtlNode().emit("play-audio", this.shootAudio);
                     let shoot = (tw: Tween) => {
                         tw.call(() => {
                             // console.log("发射一枚子弹")
@@ -316,7 +318,7 @@ export class TowerBase extends BaseObject {
             // let timeScale =  length / this.shootDuraction;
             stateAnim.speed = 1;
             if (this.readyAduio) {
-                this.gameController.node.emit("play-audio", this.readyAduio);
+                GameInstance.getInstance().getGameCtlNode().emit("play-audio", this.readyAduio);
             }
             let tw = new Tween(this.node);
             tw.delay(length * this.attackAnimEventTimeOffset)
@@ -342,7 +344,7 @@ export class TowerBase extends BaseObject {
         // console.log("寻找范围内敌人");
         // return new Promise((resolve, reject) => {
         if (this.currentTargetEnemy === null) {
-            let enemyNodeList = this.gameController.getComponent(EnemyController).getCurrentEnemyNodeList();
+            let enemyNodeList = GameInstance.getInstance().getGameCtlNode().getComponent(EnemyController).getCurrentEnemyNodeList();
             for (let i = 0; i < enemyNodeList.length; i++) {
                 let node = enemyNodeList[i];
                 if (isValid(node) && this.getCanAttackEnemy(node) &&
@@ -390,10 +392,12 @@ export class TowerBase extends BaseObject {
                 let node = instantiate(this.bulletPrefab);
                 node.parent = this.node.parent;
                 node.position = startPosNode.worldPosition;
-                node.getComponent(BulletBase).init(this.gameConfig, this.gameController, { baseAttackNum: this.getCurrentAttackNum() ,
+                node.getComponent(BulletBase).init(this.gameConfig, {
+                    baseAttackNum: this.getCurrentAttackNum(),
                     targetTower: this
-                    });
-                this.gameController.node.emit("play-audio", this.shootAudio);
+                });
+                GameInstance.getInstance().getGameCtlNode().emit("play-audio", this.shootAudio);
+                // GameInstance
             })
             tw.delay(0.8)
             tw.call(() => {
@@ -412,7 +416,7 @@ export class TowerBase extends BaseObject {
         // this.node.rotate(new Quat(0,0.001,0,0));
         // this.node.eulerAngles = new Vec3(0,90,0);
         if (this.currentTargetEnemy === null) {
-            let enemyNodeList = this.gameController.getComponent(EnemyController).getCurrentEnemyNodeList();
+            let enemyNodeList = GameInstance.getInstance().getGameCtlNode().getComponent(EnemyController).getCurrentEnemyNodeList();
             let minLength = 10000;
             let targetEnemyNode: Node = undefined;
             for (let i = 0; i < enemyNodeList.length; i++) {
@@ -554,7 +558,7 @@ export class TowerBase extends BaseObject {
 
             // stateAnim.setTime(0.5);
             this.scheduleOnce(() => {
-                this.gameController.node.emit("play-audio", this.shootAudio);
+                GameInstance.getInstance().getGameCtlNode().emit("play-audio", this.shootAudio);
                 // if (isValid(this.currentTargetEnemy)) {
                 this.createOneTimeBullet(currentShootDiraction).then(() => {
                     resolve();
@@ -582,7 +586,7 @@ export class TowerBase extends BaseObject {
                     // direction.
                     // let randomVec = v3(Math.random() * 2, Math.random() * 2, Math.random() * 2);
                     // direction.add(randomVec);
-                    bulletNode.getComponent(BulletBase).init(this.gameConfig, this.gameController, {
+                    bulletNode.getComponent(BulletBase).init(this.gameConfig, {
                         direction: direction,
                         targetEnemy: this.currentTargetEnemy,
                         baseAttackNum: this.getCurrentAttackNum(),
@@ -629,10 +633,10 @@ export class TowerBase extends BaseObject {
         console.log("敌人被此塔打死了");
         if (isDead) {
             //如果敌人被打死了, 那么此塔增加能量 一个点
-            if (isValid(this.skillCtl)) {
-                this.skillCtl.showAddPowerAnimEffect(powerValue, this.node.position);
-                
-            }
+            // if (isValid(this.skillCtl)) {
+            //     this.skillCtl.showAddPowerAnimEffect(powerValue, this.node.position);
+
+            // }
         }
     }
     releaseSkill() {

@@ -1,7 +1,8 @@
 import { _decorator, Component, Node, Prefab, SpriteFrame, SpriteComponent, instantiate, v3, Tween, LabelComponent, ScrollViewComponent, find } from 'cc';
 import { DeadEnemyObj } from '../../EnemyController';
-import { GameController } from '../../GameController';
-import { UIController } from '../UIController';
+import { GameInstance } from '../../GameInstance';
+// import { GameController } from '../../GameController';
+// import { UIController } from '../UIController';
 import { GameResultGoldCell } from './GameResultGoldCell';
 const { ccclass, property } = _decorator;
 
@@ -30,11 +31,11 @@ export class GameWinPrefab extends Component {
     public gameLossIconSpriteFrame: SpriteFrame = null; //游戏失败icon
 
 
-    
-    @property({type: Node})
+
+    @property({ type: SpriteFrame })
     public shareSaveLifeSpriteFrame: SpriteFrame = null; // 分享复活按钮纹理
 
-    @property({type: Node})
+    @property({ type: SpriteFrame })
     public watchVideoSaveLifeSpriteFrame: SpriteFrame = null; //看广告复活按钮纹理坐标
 
     @property({ type: Node })
@@ -56,16 +57,16 @@ export class GameWinPrefab extends Component {
 
 
     private gameResultState: boolean = null;
-    private uiController: UIController = null;
-    private gameController: GameController = null;
+    // private uiController: UIController = null;
+    // private gameController: GameController = null;
     private nodeList: Node[] = [];
     private currentWinPowerCount: number = 0;
     start() {
 
     }
-    setGameResult(succ: boolean, data: DeadEnemyObj[], gameConfig: {}, uiCtl: UIController, gameCtl: GameController, videoIsReady: boolean) {
-        this.uiController = uiCtl;
-        this.gameController = gameCtl;
+    setGameResult(succ: boolean, data: DeadEnemyObj[], gameConfig: {}, videoIsReady: boolean) {
+        // this.uiController = uiCtl;
+        // this.gameController = gameCtl;
         this.gameResultState = succ;
         this.gameConfig = gameConfig;
         console.log("游戏状态时", succ)
@@ -74,7 +75,7 @@ export class GameWinPrefab extends Component {
         // console.log("游戏结果数据是", data);
         console.log("当前关卡打死的敌人数目种类，获得的金币数目 ")
         if (succ) {
-            this.gameController.node.emit("play-audio", "胜利音效");
+            GameInstance.getInstance().getGameCtlNode().emit("play-audio", "胜利音效");
             this.gameResultIconNode.getComponent(SpriteComponent).spriteFrame = this.gameWinIconSpriteFrame;
             this.leftButton.getComponent(SpriteComponent).spriteFrame = this.shareButtonSpriteFrame;
             this.rightButton.getComponent(SpriteComponent).spriteFrame = this.nextLevelSpriteFrame;
@@ -83,9 +84,9 @@ export class GameWinPrefab extends Component {
             this.gameResultIconNode.getComponent(SpriteComponent).spriteFrame = this.gameLossIconSpriteFrame;
             this.leftButton.getComponent(SpriteComponent).spriteFrame = this.retryGameButtonSpriteFrame;
             // this.rightButton.getComponent(SpriteComponent).spriteFrame = this.saveLifeButtonSpriteFrame;
-            if (videoIsReady){
+            if (videoIsReady) {
                 this.rightButton.getComponent(SpriteComponent).spriteFrame = this.watchVideoSaveLifeSpriteFrame;
-            }else{
+            } else {
                 this.rightButton.getComponent(SpriteComponent).spriteFrame = this.shareSaveLifeSpriteFrame;
             }
         }
@@ -163,7 +164,7 @@ export class GameWinPrefab extends Component {
         let tw = new Tween(node);
         // let iconStr = this.gameConfig[objKey].IconSpriteFrame;
         // node.getComponent(GameResultGoldCell).setData(obj['count'], obj['winGoldCount'], iconStr);
-        node.getComponent(GameResultGoldCell).init(this.gameController, cellData);
+        node.getComponent(GameResultGoldCell).init(this.gameConfig, cellData);
         node.position = v3(0, this.nodeList.length * -100 - 50, 0);
         this.gameResultNode.height = node.position.y * -1 + 60;
         this.nodeList.push(node);
@@ -192,13 +193,19 @@ export class GameWinPrefab extends Component {
                 console.log("分享游戏结果")
                 if (this.gameResultState) {
                     //玩家点击了分享按钮
-                    this.gameController.playerClickShareButton(this.currentWinPowerCount).then(() => {
-                        this.gameController.enterNextLevel();
+                    // this.gameController.playerClickShareButton(this.currentWinPowerCount).then(() => {
+                    //     this.gameController.enterNextLevel();
+                    //     this.node.destroy();
+                    // });
+
+                    // GameInstance.getInstance().getGameCtlNode().emit("player-click-s")
+                    GameInstance.getInstance().playerClickShareButton(this.currentWinPowerCount).then(() => {
                         this.node.destroy();
-                    });
+                    })
                 } else {
                     //玩家点击了，重新开始按钮
-                    this.gameController.playerClickRetryButton();
+                    // this.gameController.playerClickRetryButton();
+                    GameInstance.getInstance().playerClickRetryButton();
                     this.node.destroy();
                 }
                 break;
@@ -207,9 +214,10 @@ export class GameWinPrefab extends Component {
                     //如果是胜利的话，那么玩家点击的就是下一关游戏的按钮
                     console.log("进入下一关")
                     this.node.destroy();
-                    this.uiController.playerClickNextLevelButton();
+                    // this.uiController.playerClickNextLevelButton();
+                    GameInstance.getInstance().getGameCtlNode().emit('player-click-next-level-button');
                 } else {
-                    this.gameController.playerClickSaveLifeButton().then(() => {
+                    GameInstance.getInstance().playerClickSaveLifeButton().then(() => {
                         this.node.destroy(); //玩家点了立即复活按钮
                     });
                 }

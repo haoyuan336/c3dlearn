@@ -3,23 +3,22 @@ const { ccclass, property } = _decorator;
 import { MenuUIBase } from './MenuUIBase'
 // import { GameController } from '../../GameController';
 import { BuildTowerUITowerIcon } from './BuildTowerUITowerIcon';
-import { GameController } from '../../GameController';
+import { GameInstance } from '../../GameInstance';
+// import { GameController } from '../../GameController';
 @ccclass('BuildTowerMenuUI')
 export class BuildTowerMenuUI extends MenuUIBase {
-
     // @property({ type: Prefab })
     // public towerShowAnimPrefabList: Prefab[] = [];
-
     @property({ type: Prefab })
     public buildTowerUITowerIcon: Prefab = null;
 
     public gameConfig: Object = null;
 
     public towerIconNodeList: Node[] = [];
-    public gameController: GameController;
-    init(gameConfig: Object, gameCtl: GameController) {
-        super.init();
-        this.gameController = gameCtl;
+    // public gameController: GameController;
+    init(gameConfig: Object) {
+        super.init(gameConfig);
+        // this.gameController = gameCtl;
         // let currentLevelNum = gameCtl.getCurrentLevelNum();
         // let currentLevelData = gameCtl.getGameConfig().json['Level_' + currentLevelNum];
         // let activedTowerIndexList: number[] = currentLevelData.ActivedTower;
@@ -27,16 +26,9 @@ export class BuildTowerMenuUI extends MenuUIBase {
         this.referCurrentUI();
         // this.node.on("refer-current-ui", this.referCurrentUI.bind(this), this);
     }
-    // this.node
-    // start() {
-    // }
-    // onEnable() {
-    //     // this.referCurrentUI();
-    // }
+   
     referCurrentUI() {
-        let activedTowerIndexList: number[] = this.gameController.playerData.getCurrentActiveTowerList();
-
-
+        let activedTowerIndexList: number[] = GameInstance.getInstance().getPlayerData().getCurrentActiveTowerList();
         let length = activedTowerIndexList.length;
         let dis = length - this.towerIconNodeList.length;
         console.log("dis", dis);
@@ -62,7 +54,7 @@ export class BuildTowerMenuUI extends MenuUIBase {
             // node.addComponent(ButtonComponent);
             // node.on("click", this.onButtonClick.bind(this));
             // node.parent = this.node;
-            node.getComponent(BuildTowerUITowerIcon).init(activedTowerIndexList[i], this.gameController, this.gameConfig);
+            node.getComponent(BuildTowerUITowerIcon).init(activedTowerIndexList[i], this.gameConfig);
             let scale = 60 / node.width;
             node.scale = v3(scale, scale, 1);
             let v = v2(0, 1);
@@ -77,10 +69,8 @@ export class BuildTowerMenuUI extends MenuUIBase {
     }
     onButtonClick(event: ButtonComponent, customData) {
         find("GameController").emit("player-button-click-audio");
-
         if (customData === 'close') {
             this.state.setState("close-ui");
-
             return;
         }
         let nodeName = event.node.name;
@@ -91,22 +81,17 @@ export class BuildTowerMenuUI extends MenuUIBase {
             if (towerIconCom) {
                 let towerType = towerIconCom.getTowerType();
                 let buildCost = towerIconCom.getCurrentBuildCost();
-                let currentGoldCount = this.gameController.playerData.getCurrentGoldCount();
+                let currentGoldCount = GameInstance.getInstance().getPlayerData().getCurrentGoldCount();
                 // console.log("current gold count", currentGoldCount);
                 if (buildCost <= currentGoldCount && isValid(this.targetNode)) {
                     //金币数目够 可以建造塔了
-                    this.gameController.playerData.addGoldCount(buildCost * -1);
+                    GameInstance.getInstance().addGoldCount(buildCost * -1);
                     this.state.setState("close-ui");
                     find("GameController").emit("build-one-tower", towerType, this.targetNode);
                 } else {
                     find("Canvas").emit('gold-not-enough');
                 }
             }
-            // let index = nodeName.substring(nodeName.length - 1, nodeName.length);
-            // console.log("index", index);
-            // this.state.setState('close-ui');
-            // find("GameController").emit("build-one-tower", index, this.targetNode);
         }
-
     }
 }

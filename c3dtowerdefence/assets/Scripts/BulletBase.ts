@@ -1,18 +1,19 @@
 import { _decorator, Component, Node, Vec3, v3, v2, Vec2, math, ColliderComponent, SphereColliderComponent, TriggerEventType, ITriggerEvent, isValid, Quat, path, Tween, Prefab, instantiate, find } from 'cc';
 import { State } from './util/State';
-import { GameController } from './GameController';
+// import { GameController } from './GameController';
 import { BaseObject } from './BaseObject'
 import { EnemyBase } from './Enemys/EnemyBase';
 import { TowerBase } from './Towers/TowerBase';
 import { BezierN } from './util/BezierN';
 import { EnemyController } from './EnemyController';
+import { GameInstance } from './GameInstance';
 const { ccclass, property } = _decorator;
 
 @ccclass('BulletBase')
 export class BulletBase extends BaseObject {
     private state: State = new State();
     private speedY: number = 0;
-    private accY: number = GameController.accY;
+    // private accY: number = GameController.accY;
     private currentDirection: Vec3 = v3(0, 0);
     // private moveSpeed: number = 20;
     private currentInitSpeedY = 6; //弹起的初始速度
@@ -53,8 +54,8 @@ export class BulletBase extends BaseObject {
 
 
     }
-    init(gameConfig: {}, gameController: GameController, data) {
-        super.init(gameConfig, gameController);
+    init(gameConfig: {}, data) {
+        super.init(gameConfig);
 
         this.baseAttackNum += data.baseAttackNum;
         this.targetTowerBase = data.targetTower;
@@ -171,7 +172,8 @@ export class BulletBase extends BaseObject {
         if (otherCollider && otherCollider.getComponent(EnemyBase) && !otherCollider.getComponent(EnemyBase).getIsDead()) {
             console.log("base attack num", this.baseAttackNum);
             if (this.getIsCollisionDestroy()) {
-                this.gameController.node.emit("play-audio", this.getBoomAudioStr());
+                // this.gameController.node.emit("play-audio", this.getBoomAudioStr());
+                GameInstance.getInstance().getGameCtlNode().emit("play-audio", this.getBoomAudioStr());
                 this.state.setState("enter-to-destroy");
                 if (isValid(this.exporeEffectPrefab)) {
                     this.rootNode.active = false;
@@ -265,9 +267,9 @@ export class BulletBase extends BaseObject {
 
                 }
             } else {
-                this.speedY += this.accY * deltaTime;
+                // this.speedY += this.accY * deltaTime;
                 let pos = this.node.position;
-                let y = pos.y + this.speedY * deltaTime;
+                // let y = pos.y + this.speedY * deltaTime;
                 let direction = this.currentDirection.normalize();
                 let v = direction.multiplyScalar(this.moveSpeed * deltaTime);
                 if (v.y < 0) {
@@ -278,7 +280,7 @@ export class BulletBase extends BaseObject {
                 if (this.node.getPosition().y <= 0) {
                     // this.node.destroy()
                     if (this.isCollisionGround) {
-                        this.speedY = this.currentInitSpeedY;
+                        // this.speedY = this.currentInitSpeedY;
                         this.currentInitSpeedY += this.currentCostAcc;
                         if (this.currentInitSpeedY < 0) {
                             this.state.setState('sleep');
@@ -294,7 +296,7 @@ export class BulletBase extends BaseObject {
     }
     checkDownPos(): Vec3 {
         //计算落地点
-        let enemyNodeList = this.gameController.node.getComponent(EnemyController).getCurrentEnemyNodeList();
+        let enemyNodeList = GameInstance.getInstance().getGameCtlNode().getComponent(EnemyController).getCurrentEnemyNodeList();
         if (enemyNodeList.length === 0) {
             this.node.destroy();
             return;
@@ -346,7 +348,7 @@ export class BulletBase extends BaseObject {
         exporeEffectNode.position = this.node.position;
         exporeEffectNode.parent = this.node.parent;
         // this.node.destroy();
-        this.gameController.node.emit('play-audio', this.boomAudio);
+        GameInstance.getInstance().getGameCtlNode().emit('play-audio', this.boomAudio);
         let tw = new Tween(exporeEffectNode);
         tw.by(0.3, {
             scale: v3(5, 5, 5)
@@ -372,7 +374,7 @@ export class BulletBase extends BaseObject {
         //         }
         //     }
         // });
-        let enemyNodeList = this.gameController.node.getComponent(EnemyController).getCurrentEnemyNodeList();
+        let enemyNodeList =GameInstance.getInstance().getGameCtlNode().getComponent(EnemyController).getCurrentEnemyNodeList();
 
         const attackedEnemy = (node: Node) => {
             console.log("攻击敌人")

@@ -1,5 +1,5 @@
 {
     "resolveMap": {
-        "./GameController": "GameController.ts"
+        "./GameInstance": "GameInstance.ts"
     }
 }

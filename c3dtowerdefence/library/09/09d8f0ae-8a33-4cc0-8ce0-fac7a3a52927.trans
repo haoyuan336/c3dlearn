@@ -1,6 +1,6 @@
 {
     "resolveMap": {
-        "./GroundMapCtl": "GroundMapCtl.ts",
-        "./GameController": "GameController.ts"
+        "./GameInstance": "GameInstance.ts",
+        "./GroundMapCtl": "GroundMapCtl.ts"
     }
 }

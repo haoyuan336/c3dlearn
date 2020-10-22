@@ -1,6 +1,7 @@
 import { _decorator, Component, Node, CCString, Vec3, v3, CCFloat, game, TERRAIN_HEIGHT_BASE, SpriteFrame, Quat, isValid } from 'cc';
 // import { EnemyBase } from './Enemys/EnemyBase';
-import { GameController } from './GameController';
+// import { GameController } from './GameController';
+import { GameInstance } from './GameInstance';
 const { ccclass, property } = _decorator;
 
 @ccclass('BaseObject')
@@ -33,7 +34,7 @@ export class BaseObject extends Component {
 
     public leftTime: number = 0; // 生命周期
 
-    public gameController: GameController = null;
+    // public gameController: GameController = null;
 
     public towerIndexType: number = 0; //当前塔的序号信息
     public iconSpriteFrame: string = null; //icon的精灵帧
@@ -65,14 +66,16 @@ export class BaseObject extends Component {
     public readyAduio: string = ""//准备好的音效
 
     // private attackType: string = "normal"//攻击类型a
-    public init(gameConfig: Object, gameController: Node, startPos?: Vec3, endPos?: Vec3, objectType?: string) {
+    public init(gameConfig: Object, startPos?: Vec3, endPos?: Vec3, objectType?: string) {
         // this.baseGasNum = gameConfig[]
+        // console.log("game config", gameConfig);
+        // console.log("object type", objectType);
         if (objectType) {
             this.objectType = objectType;
         }
         // console.log("base object type", this.objectType);
 
-        this.gameController = gameController.getComponent(GameController);
+        // this.gameController = gameController.getComponent(GameController);
         if (gameConfig[this.objectType].BaseGasNum) {
             this.baseGasNum = gameConfig[this.objectType].BaseGasNum;
 
@@ -211,7 +214,8 @@ export class BaseObject extends Component {
     getLocalDamageNum() {
         // 获取当前永久攻击力 
         // let baseAttackNum = this.baseAttackNum;
-        let localLevel = this.gameController.playerData.getCurrentTowerLocalLevel(this.towerIndexType);
+        // let localLevel = this.gameController.playerData.getCurrentTowerLocalLevel(this.towerIndexType);
+        let localLevel = GameInstance.getInstance().getPlayerData().getCurrentTowerLocalLevel(this.towerIndexType);
         // console.log("local level", localLevel);
         let localDamage = (1 + localLevel) * localLevel * 0.5;
         // console.log(this.objectType + ":local damage", localDamage);
@@ -258,14 +262,14 @@ export class BaseObject extends Component {
     }
     getUpdateLocalLevelCost() {
         //获取升级本地等级需要的
-        let localLevel = this.gameController.playerData.getCurrentTowerLocalLevel(this.towerIndexType);
+        let localLevel = GameInstance.getInstance().getPlayerData().getCurrentTowerLocalLevel(this.towerIndexType);
         // console.log("local level", localLevel);
         let cost = Math.round(Math.pow((localLevel + 1), 2) * 0.5);
         return cost;
     }
     getNextLocallevelAddDamage(): number {
         //获取下一级增加多少 上海值
-        let localLevel = this.gameController.playerData.getCurrentTowerLocalLevel(this.towerIndexType);
+        let localLevel = GameInstance.getInstance().getPlayerData().getCurrentTowerLocalLevel(this.towerIndexType);
         return localLevel + 1;
     }
     getDestroyCount(): number {
@@ -306,14 +310,14 @@ export class BaseObject extends Component {
         return this.iconSpriteFrame;
     }
     getWeaponIsActive(): boolean {
-        return this.gameController.playerData.getWeaponIsActive(this.towerIndexType);
+        return GameInstance.getInstance().getPlayerData().getWeaponIsActive(this.towerIndexType);
     }
     updateLocalLevel(updateLevel) {
         //更新永久等级
-        let localLevel = this.gameController.playerData.getCurrentTowerLocalLevel(this.towerIndexType);
+        let localLevel = GameInstance.getInstance().getPlayerData().getCurrentTowerLocalLevel(this.towerIndexType);
         localLevel += updateLevel;
         // console.log('升级的jishu', updateLevel);
-        this.gameController.playerData.updateTowerLocalLevel(this.towerIndexType, localLevel);
+        GameInstance.getInstance().getPlayerData().updateTowerLocalLevel(this.towerIndexType, localLevel);
         // this.gameController.playerData.update
     }
     getActiveCostGoldCount() {
@@ -322,7 +326,7 @@ export class BaseObject extends Component {
     }
     activeWeapon() {
         //激活武器
-        this.gameController.playerData.activeTower(this.towerIndexType);
+        GameInstance.getInstance().getPlayerData().activeTower(this.towerIndexType);
 
     }
     getMoveType() {
@@ -395,15 +399,15 @@ export class BaseObject extends Component {
     }
     getEnemyIsActive() {
         //获得当前敌人是否激活了
-        return this.gameController.playerData.getEnemyIsActive(this.objectType);
+        return GameInstance.getInstance().getPlayerData().getEnemyIsActive(this.objectType);
     }
     getIsShowed() {
         //获取是否展示过
-        return this.gameController.playerData.getIsShowed(this.objectType);
+        return GameInstance.getInstance().getPlayerData().getIsShowed(this.objectType);
 
     }
     setShowed(){
-        this.gameController.playerData.setShowed(this.objectType);
+        GameInstance.getInstance().getPlayerData().setShowed(this.objectType);
     }
     getIsColony(): boolean {
         return this.isConlony;

@@ -1,5 +1,6 @@
 import { _decorator, Component, Node, Tween, v3, view, LabelComponent, find, instantiate, tween, ProgressBarComponent } from 'cc';
-import { GameController } from '../GameController';
+// import { GameController } from '../GameController';
+import { GameInstance } from '../GameInstance';
 import { Tool } from '../util/Tool';
 const { ccclass, property } = _decorator;
 
@@ -39,13 +40,13 @@ export class GoldCtl extends Component {
         //     this.updateLabel(currentLevel, currentWave);
 
         // });
-        let gameCtlNode = find('GameController');
-        gameCtlNode.on("refer-current-wave-level", (level, wave) => {
+        // let gameCtlNode = find('GameController');
+        this.node.on("refer-current-wave-level", (level, wave) => {
             // currentWave = wave;
             this.updateLevelLabel(level, wave);
         });
-        gameCtlNode.on("update-gold-label", (goldCount: number, addGoldCount: number) => {
-            this.updateGoldCountLabel(goldCount, addGoldCount);
+        this.node.on("update-gold-label", (addGoldCount: number) => {
+            this.updateGoldCountLabel(addGoldCount);
         });
         // gameCtlNode.on("refer-current-wave")
         this.node.on("gold-not-enough", () => {
@@ -57,9 +58,9 @@ export class GoldCtl extends Component {
             tw.start();
         });
         this.node.on("refer-red-heart-label", () => {
-            let gameController = gameCtlNode.getComponent(GameController);
-            let currentRedHeartCount = gameController.playerData.getCurrentRedHeartCount();
-            let currentInitRedHeartCount = gameController.playerData.getCurrentInitRedHeartCount();
+            // let gameController = gameCtlNode.getComponent(GameController);
+            let currentRedHeartCount = GameInstance.getInstance().getPlayerData().getCurrentRedHeartCount();
+            let currentInitRedHeartCount = GameInstance.getInstance().getPlayerData().getCurrentInitRedHeartCount();
             this.redHeartCountLabel.getComponent(LabelComponent).string = currentInitRedHeartCount + "/" + currentRedHeartCount;
             let progress = currentRedHeartCount / currentInitRedHeartCount;
             this.redHeartProgressBar.getComponent(ProgressBarComponent).progress = progress;
@@ -68,7 +69,11 @@ export class GoldCtl extends Component {
     updateLevelLabel(level, wave) {
         this.currentLevelLabel.getComponent(LabelComponent).string = (level + 1) + '-' + (wave + 1);
     }
-    updateGoldCountLabel(goldCount: number, addGoldCount?: number) {
+    updateGoldCountLabel(addGoldCount?: number) {
+
+        let goldCount = GameInstance.getInstance().getPlayerData().getCurrentGoldCount();
+
+
         let endStr = Tool.convertNumToK(goldCount);
         this.currentGoldLabel.getComponent(LabelComponent).string = endStr;
 

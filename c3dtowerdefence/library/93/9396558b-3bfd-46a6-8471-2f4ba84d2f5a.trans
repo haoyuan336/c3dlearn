@@ -1,12 +1,11 @@
 {
     "resolveMap": {
         "./../util/State": "../util/State.ts",
-        "./../GameController": "../GameController.ts",
         "./../Enemys/EnemyBase": "../Enemys/EnemyBase.ts",
         "./../BulletBase": "../BulletBase.ts",
         "./../BaseObject": "../BaseObject.ts",
         "../EnemyController": "../EnemyController.ts",
         "../TowerBuildBase/TowerBuildBase": "../TowerBuildBase/TowerBuildBase.ts",
-        "../UI/SkillCtl": "../UI/SkillCtl.ts"
+        "../GameInstance": "../GameInstance.ts"
     }
 }

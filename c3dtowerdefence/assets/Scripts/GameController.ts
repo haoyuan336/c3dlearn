@@ -5,13 +5,14 @@ import { DeadEnemyObj, EnemyController } from './EnemyController';
 import { GroundMapCtl } from './GroundMapCtl';
 // import { UIController } from './UI/UIController';
 import { TowerBuildBaseCtl } from './TowerBuildBaseCtl';
-import { PlayData } from './Data/PlayerData';
+// import { PlayerData } from './Data/PlayerData';
 import { BaseObject } from './BaseObject';
 import { TowerBase } from './Towers/TowerBase';
 import { BezierN } from './util/BezierN';
 import { WinGoldAnimEffect } from './Effect/WinGoldAnimEffect';
 import { HomeIcon } from './Home/HomeIcon';
 import { AdsController } from './util/AdsController';
+import { GameInstance } from './GameInstance';
 // import { WeaponInfoCtl } from './WeaponInfoCtl';
 const { ccclass, property } = _decorator;
 
@@ -40,8 +41,8 @@ export class GameController extends Component {
     // public currentLevelNum: number = 0;
 
 
-    @property({ type: Node })
-    public uiController: Node = null;
+    // @property({ type: Node })
+    // public uiController: Node = null;
 
     @property({ type: Node })
     public plate: Node = null; //星球
@@ -53,7 +54,7 @@ export class GameController extends Component {
 
     public homeIconNode: Node = null;
 
-    public playerData: PlayData = null;
+    // public playerData: PlayerData = null;
 
     @property({ type: Prefab })
     public goldAnim3dPrefab: Prefab = null;
@@ -65,12 +66,21 @@ export class GameController extends Component {
     // @property({ type: Node })
     // public testNode: Node = null;
     onLoad() {
-        this.playerData = new PlayData(this);
-
+        // this.playerData = new PlayerData();
+        GameInstance.getInstance().setGameCtlNode(this.node, this.gameConfigJson.json);
         // this.node.eulerAngles
         let tw = new Tween(this.plate);
         tw.repeatForever(new Tween(this.plate).to(20, { eulerAngles: v3(0, 360, 0) }).set({ eulerAngles: v3(0, 0, 0) }))
         tw.start();
+
+
+        this.node.on("show-game-win-layer", this.gameWin.bind(this));
+        this.node.on("player-click-next-level-button", this.enterNextLevel.bind(this));
+        this.node.on("enter-next-level", this.enterNextLevel.bind(this));
+        this.node.on('retry-game', this.playerClickRetryButton.bind(this));
+        this.node.on('player-click-save-life-button', this.playerClickSaveLifeButton.bind(this));
+        this.node.on("enemy-to-attacked", this.enemyAttacked.bind(this));
+        this.node.on("show-add-gold-anim-effect", this.showAddGoldAnimEffect.bind(this));
         // let bezier = new BezierN([v3(0, 0, 0), v3(10, 30, 10), v3(20, 3, 0),v3(20, 100, 30)]);
         // let pointList: Vec3[] = bezier.getPointList(10);
         // console.log("point", pointList);
@@ -85,7 +95,7 @@ export class GameController extends Component {
         // tw.start();
 
     }
-    playerClickSaveLifeButton() {
+    playerClickSaveLifeButton(cb) {
         //玩家点击了 立即复活按钮
         return new Promise((resolve, reject) => {
             let videoIsReady = this.adsCtl.getVideoIsReady();
@@ -93,14 +103,19 @@ export class GameController extends Component {
             if (videoIsReady) {
                 this.adsCtl.watchVideoAds().then(() => {
                     resolve();
+                    if (cb) {
+                        cb()
+                    }
                     if (isValid(this.homeIconNode)) {
                         this.homeIconNode.active = false;
                     }
                     this.node.emit("destroy-all-enemy", (goldCount) => {
                         // this.playerData.addGoldCount(goldCount);
                         this.showHomeIconEnterAnim().then(() => {
-                            this.playerData.recoverRedHeartCount();
-                            this.uiController.emit("refer-red-heart-label");
+                            // this.playerData.recoverRedHeartCount();
+                            GameInstance.getInstance().getPlayerData().recoverRedHeartCount();
+                            // this.uiController.emit("refer-red-heart-label");
+                            GameInstance.getInstance().getUICtlNode().emit("refer-red-heart-label");
                             // this.node.emit('update-gold-label', this.playerData.getCurrentGoldCount());
                             this.state.setState("run");
                             this.node.getComponent(EnemyController).continueGame(); //继续游戏
@@ -110,14 +125,19 @@ export class GameController extends Component {
             } else {
                 this.adsCtl.shareTo().then(() => {
                     resolve();
+                    if (cb) {
+                        cb();
+                    }
                     if (isValid(this.homeIconNode)) {
                         this.homeIconNode.active = false;
                     }
                     this.node.emit("destroy-all-enemy", (goldCount) => {
                         // this.playerData.addGoldCount(goldCount);
                         this.showHomeIconEnterAnim().then(() => {
-                            this.playerData.recoverRedHeartCount();
-                            this.uiController.emit("refer-red-heart-label");
+                            // this.playerData.recoverRedHeartCount();
+                            GameInstance.getInstance().getPlayerData().recoverRedHeartCount();
+                            // this.uiController.emit("refer-red-heart-label");
+                            GameInstance.getInstance().getUICtlNode().emit("refer-red-heart-label");
                             // this.node.emit('update-gold-label', this.playerData.getCurrentGoldCount());
                             this.state.setState("run");
                             this.node.getComponent(EnemyController).continueGame(); //继续游戏
@@ -138,7 +158,8 @@ export class GameController extends Component {
         // })
         return new Promise((resolve, reject) => {
             this.adsCtl.shareTo().then(() => {
-                this.playerData.addPowerCount(winPowerCount);
+                // this.playerData.addPowerCount(winPowerCount);
+                GameInstance.getInstance().addPowerCount(winPowerCount);
                 resolve();
             })
         })
@@ -147,10 +168,14 @@ export class GameController extends Component {
     playerClickRetryButton() {
         //玩家点击了 重试一次的按钮
         // this.playerData.currentLevelNum = 0
-        this.playerData.newGame();
+        // this.playerData.newGame();
+
         this.enterGame().then(() => {
-            this.uiController.emit("refer-red-heart-label");
-            this.node.emit('update-gold-label', this.playerData.getCurrentGoldCount());
+            // this.uiController.emit("refer-red-heart-label");
+            GameInstance.getInstance().getUICtlNode().emit("refer-red-heart-label");
+            // this.node.emit('update-gold-label', this.playerData.getCurrentGoldCount());
+            this.node.emit('update-gold-label', GameInstance.getInstance().getPlayerData().getCurrentGoldCount());
+
             this.state.setState("run");
             this.node.getComponent(EnemyController).startGame();
         })
@@ -166,11 +191,13 @@ export class GameController extends Component {
 
         this.node.on("build-one-tower", (index, towerBaseNode: Node) => {
             //建造一座塔
-            this.uiController.emit("complete-current-guide");
+            // this.uiController.emit("complete-current-guide");
+            GameInstance.getInstance().getUICtlNode().emit("complete-current-guide");
+
             if (index < this.towersPrefabList.length) {
                 let node = instantiate(this.towersPrefabList[index]);
                 node.parent = this.node;
-                node.getComponent(TowerBase).init(this.gameConfigJson.json, this);
+                node.getComponent(TowerBase).init(this.gameConfigJson.json);
                 let pos = v3(towerBaseNode.position.x, 0, towerBaseNode.position.z);
                 node.setPosition(pos);
                 towerBaseNode.getComponent(TowerBuildBase).setTargetTower(node);
@@ -182,7 +209,9 @@ export class GameController extends Component {
 
         this.state.addState("play-start-button-anim", () => {
             // console.log("玩家点中了开始游戏按钮");
-            this.uiController.emit("complete-current-guide");
+            // this.uiController.emit("complete-current-guide");
+            GameInstance.getInstance().getUICtlNode().emit("complete-current-guide");
+            GameInstance.getInstance().showBannerAds();
             //给ui控制器发送，完成了当前的引导操作
             this.node.emit("play-audio", "按钮音效")
             this.node.emit("play-bg-music");
@@ -219,8 +248,10 @@ export class GameController extends Component {
                 }).then(() => {
                     this.state.setState("run");
                     this.node.getComponent(EnemyController).startGame();
-                    this.playerData.newGame();
-                    this.node.emit('update-gold-label', this.playerData.getCurrentGoldCount());
+                    // this.playerData.newGame();
+                    GameInstance.getInstance().newGame();
+                    // this.node.emit('update-gold-label', this.playerData.getCurrentGoldCount());
+                    // this.node.emit('update-gold-label', GameInstance.getInstance().getPlayerData().getCurrentGoldCount());
 
                     // this.node.getComponent(GroundMapCtl).startGame();
                 })
@@ -228,7 +259,9 @@ export class GameController extends Component {
 
         this.state.addState("game-loss", () => {
             console.log("进入游戏失败的状态");
-            this.uiController.emit('close-weapon-info-layer')
+            // this.uiController.emit('close-weapon-info-layer')
+            GameInstance.getInstance().getUICtlNode().emit("close-weapon-info-layer");
+
             this.node.getComponent(EnemyController).gemeLose();
             this.node.getComponent(EnemyController).frozenAllEnemy();
             this.node.getComponent(TowerBuildBaseCtl).frozenAllTowerBuildBase(); //禁锢所有塔的基座
@@ -237,7 +270,7 @@ export class GameController extends Component {
             let deadEnemyData = this.node.getComponent(EnemyController).getDeadEnemyData();
             this.scheduleOnce(() => {
                 // this.uiController.showGameLossUI(deadEnemyData)
-                this.uiController.emit("show-game-loss-ui", deadEnemyData, this.adsCtl.getVideoIsReady());
+                GameInstance.getInstance().getUICtlNode().emit("show-game-loss-ui", deadEnemyData, this.adsCtl.getVideoIsReady());
             }, 0.6);
         })
         // this.node.on("")
@@ -255,7 +288,7 @@ export class GameController extends Component {
         return new Promise((resolve, reject) => {
             // return this.uiController.showUIEnterAnim()
             // 
-            this.uiController.emit("show-ui-enter-anim", () => {
+            GameInstance.getInstance().getUICtlNode().emit("show-ui-enter-anim", () => {
                 resolve();
             });
         })
@@ -340,9 +373,10 @@ export class GameController extends Component {
         return this.gameConfigJson;
     }
 
-    getCurrentLevelNum() {
-        return this.playerData.currentLevelNum;
-    }
+    // getCurrentLevelNum() {
+    //     // return this.playerData.currentLevelNum;
+    //     return GameInstance.getInstance().getPlayerData().currentLevelNum;
+    // }
     showAddGoldAnimEffect(goldCount: number, targetPos: Vec3) {
         let node = instantiate(this.goldAnim3dPrefab);
         node.parent = this.node;
@@ -364,24 +398,26 @@ export class GameController extends Component {
         // this
         //游戏胜利
         // this.uic
-        this.uiController.emit("close-all-ui");//重新刷新UI
-        this.uiController.emit('close-weapon-info-layer')
+        GameInstance.getInstance().getUICtlNode().emit("close-all-ui");//重新刷新UI
+        GameInstance.getInstance().getUICtlNode().emit('close-weapon-info-layer')
         if (this.state.getState() === 'run') {
             this.state.setState("show-game-result"); //进入显示游戏结果的界面
             // this.uiController.showGameWinUI(deadEnemyData);
-            this.uiController.emit("show-game-win-ui", deadEnemyData);
+            GameInstance.getInstance().getUICtlNode().emit("show-game-win-ui", deadEnemyData);
         }
 
     }
     enterNextLevel() {
-        this.playerData.enterNextLevel();
+        // this.playerData.enterNextLevel();
+        // GameInstance.getInstance().getPlayerData().enterNextLevel();
+        GameInstance.getInstance().enterNextLevel();
 
-        if (this.playerData.currentLevelNum === 0) {
-            this.uiController.emit("show-game-end-info-layer", () => {
+        if (GameInstance.getInstance().getPlayerData().currentLevelNum === 0) {
+            GameInstance.getInstance().getUICtlNode().emit("show-game-end-info-layer", () => {
                 this.enterGame().then(() => {
-                    this.playerData.recoverRedHeartCount();
-                    this.uiController.emit("refer-red-heart-label");
-                    this.node.emit('update-gold-label', this.playerData.getCurrentGoldCount());
+                    GameInstance.getInstance().getPlayerData().recoverRedHeartCount();
+                    GameInstance.getInstance().getUICtlNode().emit("refer-red-heart-label");
+                    this.node.emit('update-gold-label', GameInstance.getInstance().getPlayerData().getCurrentGoldCount());
                     this.state.setState("run");
                     this.node.getComponent(EnemyController).startGame();
                 })
@@ -389,9 +425,9 @@ export class GameController extends Component {
         } else {
             console.log("进入下一关")
             this.enterGame().then(() => {
-                this.playerData.recoverRedHeartCount();
-                this.uiController.emit("refer-red-heart-label");
-                this.node.emit('update-gold-label', this.playerData.getCurrentGoldCount());
+                GameInstance.getInstance().getPlayerData().recoverRedHeartCount();
+                GameInstance.getInstance().getUICtlNode().emit("refer-red-heart-label");
+                this.node.emit('update-gold-label', GameInstance.getInstance().getPlayerData().getCurrentGoldCount());
                 this.state.setState("run");
                 this.node.getComponent(EnemyController).startGame();
             })
@@ -426,7 +462,7 @@ export class GameController extends Component {
     showCurrentLevelIconAnim() {
         return new Promise((resolve, reject) => {
             //显示当前是第一关的icon
-            this.uiController.emit("show-current-level-icon-anim", () => {
+            GameInstance.getInstance().getUICtlNode().emit("show-current-level-icon-anim", () => {
                 if (resolve) {
                     resolve();
                 }
@@ -437,10 +473,11 @@ export class GameController extends Component {
         console.log("敌人发动了攻击", num)
         // this.playerData.add
         if (this.state.getState() === 'run') {
-            let currentRedHeartCount = this.playerData.getCurrentRedHeartCount();
+            let currentRedHeartCount = GameInstance.getInstance().getPlayerData().getCurrentRedHeartCount();
             if (currentRedHeartCount > 0) {
-                this.playerData.addRedHeartCount(-1);
-                if (this.playerData.getCurrentRedHeartCount() === 0) {
+                GameInstance.getInstance().getPlayerData().addRedHeartCount(-1);
+                GameInstance.getInstance().getUICtlNode().emit("refer-red-heart-label");
+                if (GameInstance.getInstance().getPlayerData().getCurrentRedHeartCount() === 0) {
                     console.log("游戏结束");
                     this.state.setState("game-loss");
                 }
@@ -449,18 +486,19 @@ export class GameController extends Component {
 
     }
     referRedHeardUI() {
-        this.uiController.emit("refer-red-heart-label");
+        GameInstance.getInstance().getUICtlNode().emit("refer-red-heart-label");
     }
-    activeEnemySuccess(enemyType: string) {
-        console.log("active enemy succcess", enemyType);
-        //
-        // this.node.emit("")
-        this.uiController.emit("refer-enemy-info-cell", enemyType);
-
-    }
+    // activeEnemySuccess(enemyType: string) {
+    //     console.log("active enemy succcess", enemyType);
+    //     //
+    //     // this.node.emit("")
+    //     // this.uiController.emit("refer-enemy-info-cell", enemyType);
+    //     GameInstance.getInstance().getUICtlNode().emit("refer-enemy-info-cell", enemyType);
+    // }
     referPowerCountLabel() {
         //刷新当前的 能量值
-        this.uiController.emit("refer-current-power-label", this.playerData.currentPowerCount);
+        // this.uiController.emit("refer-current-power-label", GameInstance.getInstance().getPlayerData().currentPowerCount);
+        GameInstance.getInstance().getUICtlNode().emit("refer-current-power-label", GameInstance.getInstance().getPlayerData().currentPowerCount);
     }
 
 }

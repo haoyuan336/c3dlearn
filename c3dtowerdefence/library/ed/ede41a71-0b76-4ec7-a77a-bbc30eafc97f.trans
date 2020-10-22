@@ -1,6 +1,7 @@
 {
     "resolveMap": {
         "../BaseObject": "../BaseObject.ts",
+        "../GameInstance": "../GameInstance.ts",
         "./MonsterInfoLayer": "MonsterInfoLayer.ts"
     }
 }

@@ -1,21 +1,27 @@
-import { getTypedArrayConstructor, sys } from "cc";
-import { GameController } from "../GameController";
+// import { getTypedArrayConstructor, sys } from "cc";
+// import { GameController } from "../GameController";
 
-export class PlayData {
+export class PlayerData {
     public currentSkillCount: number = 2;
     public currentActiveSkillCount: number = 3; //当前激活的道具个数
     public currentGoldCount = 0; //当前的金币个数
-    public gameController: GameController = null;
+    // public gameController: GameController = null;
     public currentLevelNum: number = 0;
     public currentTowerLevelData: Object[] = [];
     public currentInitRedHeartCounnt: number = 3;
     public currentRedHeardCount: number = 0;//当前的红心个数
     public currentActiveEnemyMap: Object = {};
     public currentPowerCount: number = 0; //当前的能量值
+    public gameConfig: Object = null;
     // public currentActiveEnemyMap:
     // public currentActiveTowerBuildBaseCount = 2; //当前激活的建造塔的位置的个数
-    constructor(gameCtl) {
-        this.gameController = gameCtl;
+    // constructor(gameCtl) {
+    // setGameConfig(gameConfig: Object) {
+    //     this.gameConfig = gameConfig;
+    // }
+    constructor(gameConfig: Object) {
+        this.gameConfig = gameConfig;
+        // this.gameController = gameCtl;
         // localStorage.setItem
         let gameTime = this.getLocalData("game-time");
         console.log("game time", gameTime);
@@ -31,11 +37,11 @@ export class PlayData {
         // this.setLocalData("curent-power-count", "999999999");
         // {"Enemy_0":true,"Enemy_1":true,"Boss_7":true,"Boss_14":true,"Boss_13":true,"Boss_12":true,"Boss_11":true,"Boss_10":true,"Boss_9":true,"Boss_8":true"Boss_7":true,"Boss_6":true,"Boss_5":true,"Boss_4":true,"Boss_3":true,"Boss_2":true,"Boss_1":true,"Boss_0":true}
 
-        let map = {};
-        for (let i = 0; i < 14; i++) {
-            map['Boss_' + i] = true;
-        }
-        this.setLocalData("active-enemy-list", JSON.stringify(map));
+        // let map = {};
+        // for (let i = 0; i < 14; i++) {
+        //     map['Boss_' + i] = true;
+        // }
+        // this.setLocalData("active-enemy-list", JSON.stringify(map));
         if (gameTime) {
             // 首次进入游戏. 初始化游戏数据
             //不是首次进入游戏，那么初始化一些游戏数据
@@ -51,7 +57,7 @@ export class PlayData {
             // if (num) {
             //     this.currentLevelNum = Number(num);
             // }
-            this.currentLevelNum = 0;
+            // this.currentLevelNum = 0;
             // this.currentActiveTowerBuildBaseCount = Number(this.getLocalData('active-tower-build-base-count')); //获取当前激活的塔的基座的数量
             this.currentTowerLevelData = JSON.parse(this.getLocalData("tower-level-data"));
             this.currentInitRedHeartCounnt = Number(this.getLocalData("current-init-red-heart-count")); //获取当前初始化的红心的个数
@@ -64,7 +70,7 @@ export class PlayData {
             // this.setLocalData("gold-count", this.currentGoldCount + '');
             this.setLocalData("current-init-red-heart-count", this.currentInitRedHeartCounnt + "");
             this.setLocalData("active-enemy-list", JSON.stringify(this.currentActiveEnemyMap));
-            this.initTowerLevelLocalData(this.gameController.getGameConfig().json);
+            this.initTowerLevelLocalData(gameConfig);
 
             // this.setLocalData("active-tower-build-base-count", this.currentActiveTowerBuildBaseCount + ''); //保存当前激活塔的基座的数量
         }
@@ -120,11 +126,11 @@ export class PlayData {
     getCurrentGoldCount(): number {
         return this.currentGoldCount;
     }
-    initGoldCount() {
-        //初始化金币个数
-        this.currentGoldCount = 0;
-        // this.setLocalData('gold-count', this.currentGoldCount + '');
-    }
+    // initGoldCount() {
+    //     //初始化金币个数
+    //     this.currentGoldCount = 0;
+    //     // this.setLocalData('gold-count', this.currentGoldCount + '');
+    // }
     addGoldCount(goldCount: number) {
         this.currentGoldCount += goldCount;
         // this.setLocalData('gold-count', this.currentGoldCount + '');
@@ -134,27 +140,22 @@ export class PlayData {
         //     this.gameController.node.emit("play-audio", '消费金币')
 
         // }
-        this.gameController.node.emit("update-gold-label", this.currentGoldCount, goldCount);
+        // this.gameController.node.emit("update-gold-label", this.currentGoldCount, goldCount);
     }
-    newGame() {
-        // this.currentLevelNum = 0;
+    initRedHeartCount() {
         this.currentRedHeardCount = this.currentInitRedHeartCounnt;
-        // this.setLocalData('current-level-num', this.currentLevelNum + '');//保存当前的关卡数
-        this.currentGoldCount = this.gameController.getGameConfig().json['Level_' + this.currentLevelNum].InitGoldCount;
-        // this.setLocalData("gold-count", this.currentGoldCount + '');
 
     }
-    enterNextLevel() {
+    initCurrentGoldCount() {
+        this.currentGoldCount = this.gameConfig['Level_' + this.currentLevelNum].InitGoldCount;
+
+    }
+    addOneNextLevel() {
         this.currentLevelNum++;
         if (this.currentLevelNum === 14) {
             this.currentLevelNum = 0;
         }
-
-        //获取当前关卡的金币个数
-        let goldCount = this.gameController.getGameConfig().json['Level_' + this.currentLevelNum].InitGoldCount;
-        // this.addGoldCount(goldCount);
-        this.currentGoldCount = goldCount;
-        this.setLocalData('current-level-num', this.currentLevelNum + '');//保存当前的关卡数
+        this.setLocalData('current-level-num', this.currentLevelNum + '');
     }
     // getCurrentTowerLevelData(towerIndex: number): Object {
     //     return this.currentTowerLevelData[towerIndex];
@@ -221,7 +222,7 @@ export class PlayData {
     }
     addRedHeartCount(count: number) {
         this.currentRedHeardCount += count;
-        this.gameController.referRedHeardUI();
+        // this.gameController.referRedHeardUI();
     }
     getCurrentActiveTowerList() {
         //获取当前激活的塔的列表
@@ -247,7 +248,7 @@ export class PlayData {
         }
         return false;
     }
-    activeEnemy(enemyType: string) {
+    activeEnemy(enemyType: string): Boolean {
         //激活一个敌人
         if (!this.currentActiveEnemyMap[enemyType]) {
             this.currentActiveEnemyMap[enemyType] = true;
@@ -255,9 +256,11 @@ export class PlayData {
             console.log("current active enemy map", this.currentActiveEnemyMap);
             this.setLocalData("active-enemy-list", JSON.stringify(this.currentActiveEnemyMap));
             console.log("data = ", this.getLocalData("active-enemy-list"));
-            this.gameController.activeEnemySuccess(enemyType);
+            // this.gameController.activeEnemySuccess(enemyType);
             // this.gameController
+            return true;
         }
+        return false;
     }
     getIsShowed(objectType: string) {
         let isShow = Boolean(this.getLocalData("set-object-showed" + objectType));
@@ -284,7 +287,7 @@ export class PlayData {
         console.log("增加能量")
         this.currentPowerCount += power;
         this.setLocalData("curent-power-count", this.currentPowerCount.toString());
-        this.gameController.referPowerCountLabel();
+        // this.gameController.referPowerCountLabel();
     }
     getPowerCount(): number {
         //返回当前的能量值

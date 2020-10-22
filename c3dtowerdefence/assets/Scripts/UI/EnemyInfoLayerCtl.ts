@@ -1,6 +1,6 @@
-import { _decorator, Component, Node, view, Tween, v3, Prefab, instantiate, JsonAsset ,find} from 'cc';
+import { _decorator, Component, Node, view, Tween, v3, Prefab, instantiate, JsonAsset, find } from 'cc';
 import { BaseObject } from '../BaseObject';
-import { GameController } from '../GameController';
+// import { GameController } from '../GameController';
 import { State } from '../util/State';
 import { EnemyInfoCellPrefab } from './EnemyInfoCellPrefab';
 import { InfoLayerCtlBase } from './InfoLayerCtlBase';
@@ -8,8 +8,12 @@ const { ccclass, property } = _decorator;
 
 @ccclass('EnemyInfoLayerCtl')
 export class EnemyInfoLayerCtl extends InfoLayerCtlBase {
-    @property({ type: GameController })
-    public gameController: GameController = null;
+    // @property({ type: GameController })
+    // public gameController: GameController = null;
+
+    @property({ type: JsonAsset })
+    public gameConfigJsonAsset: JsonAsset = null;
+
     @property({ type: Node })
     public enemyInfoNodeParentNode: Node = null;
 
@@ -60,7 +64,7 @@ export class EnemyInfoLayerCtl extends InfoLayerCtlBase {
     }
     initEnemyData() {
         // let currentActiveEnemyList = this.gameController.playerData.getCurrentActiveEnemyList();
-        let gameConfig = this.gameController.getGameConfig().json;
+        let gameConfig = this.gameConfigJsonAsset.json;
         let enemyList = [];
         for (let i in gameConfig) {
             let data = gameConfig[i];
@@ -87,7 +91,7 @@ export class EnemyInfoLayerCtl extends InfoLayerCtlBase {
             // console.log("data", enemyList[i]);
             let enemyType = enemyList[i]['EnemyType'];
             // console.log("enemy type", enemyType);
-            node.getComponent(EnemyInfoCellPrefab).init(this.gameController, {
+            node.getComponent(EnemyInfoCellPrefab).init(this.gameConfigJsonAsset.json, {
                 enemyType: enemyType
             });
             node.getComponent(EnemyInfoCellPrefab).referUI();

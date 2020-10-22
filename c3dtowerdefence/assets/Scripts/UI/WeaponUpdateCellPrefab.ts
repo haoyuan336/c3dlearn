@@ -1,6 +1,7 @@
-import { _decorator, Component, Node, SpriteFrame, loader, SpriteComponent, LabelComponent, find } from 'cc';
+import { _decorator, Component, Node, SpriteFrame, loader, SpriteComponent, LabelComponent, find, Game } from 'cc';
 import { BaseObject } from '../BaseObject';
-import { GameController } from '../GameController';
+import { GameInstance } from '../GameInstance';
+// import { GameController } from '../GameController';
 import { Tool } from '../util/Tool';
 import { WeaponInfoCtl } from './WeaponInfoCtl';
 const { ccclass, property } = _decorator;
@@ -53,21 +54,21 @@ export class WeaponUpdateCellPrefab extends BaseObject {
         this.currentChooseRate = rateNum;
         this.referUILabel();
     }
-    public setData(data: Object, gameController: GameController, gameConfig: Object, weaponCtl: WeaponInfoCtl) {
+    public setData(data: Object, gameConfig: Object, weaponCtl: WeaponInfoCtl) {
         console.log("初始化数据", data);
         // let iconStr = data['IconSprteFrame'];
         // this.gameController.uiController.on("on-gold-count-refer-event", ()=>{
         //     //注册当前金币个数改变的消息
         // });
         this.weaponInfoCtl = weaponCtl;
-        gameController.node.on("update-gold-label", () => {
+        GameInstance.getInstance().getGameCtlNode().on("update-gold-label", () => {
             //根据当前的
             this.referUILabel();//更新uiLabel
 
         });
         let towerType = data['TowerType'];
         this.objectType = towerType;
-        super.init(gameConfig, gameController);
+        super.init(gameConfig);
         let isActive = data['isActive'];
         if (isActive) {
             this.showWeaponIcon();
@@ -88,7 +89,7 @@ export class WeaponUpdateCellPrefab extends BaseObject {
     referUILabel() {
         let isActive = this.getWeaponIsActive();
         // let currentGoldCount = this.gameController.playerData.getCurrentGoldCount();
-        let currentGoldCount = this.gameController.playerData.getPowerCount();
+        let currentGoldCount = GameInstance.getInstance().getPlayerData().getPowerCount();
 
         let canAttackTypeList = this.getCanAttackMoveTypeList();
         for (let i = 0; i < canAttackTypeList.length; i++) {
@@ -101,7 +102,7 @@ export class WeaponUpdateCellPrefab extends BaseObject {
         }
         if (!isActive) {
             //如果未激活
-            let firstNeedActiveTower = this.gameController.playerData.getFirstNeedToActiveTowerIndex();
+            let firstNeedActiveTower = GameInstance.getInstance().getPlayerData().getFirstNeedToActiveTowerIndex();
             //获取第一个需要激活的塔的index
             // console.log("first need active tower", firstNeedActiveTower);
             let activeCostGoldCount = this.getActiveCostGoldCount();
@@ -135,13 +136,13 @@ export class WeaponUpdateCellPrefab extends BaseObject {
             case 'update-button':
                 console.log("升级按钮");
                 let isActive = this.getWeaponIsActive();
-                let currentGoldCount = this.gameController.playerData.getPowerCount(); //当前的金币个数
+                let currentGoldCount = GameInstance.getInstance().getPlayerData().getPowerCount(); //当前的金币个数
 
                 if (isActive) {
                     let updateCost = this.getUpdateLocalLevelCost(); //获取升级下一级需要的金币数
                     if (updateCost <= currentGoldCount) {
                         this.updateLocalLevel(this.currentChooseRate);
-                        this.gameController.playerData.addPowerCount(-updateCost);
+                        GameInstance.getInstance().addPowerCount(-updateCost);
                         this.referUILabel();
                     } else {
 
@@ -150,7 +151,7 @@ export class WeaponUpdateCellPrefab extends BaseObject {
                     let activeCost = this.getActiveCostGoldCount();
                     if (activeCost <= currentGoldCount) {
                         this.activeWeapon();
-                        this.gameController.playerData.addPowerCount(-activeCost);
+                        GameInstance.getInstance().addPowerCount(-activeCost);
                         this.referUILabel();
                         this.showWeaponIcon();
                         this.weaponInfoCtl.node.emit("refer-current-tower-menu-ui");

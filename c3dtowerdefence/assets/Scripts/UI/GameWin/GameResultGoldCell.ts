@@ -1,6 +1,6 @@
 import { _decorator, Component, Node, LabelComponent, loader, SpriteFrame, SpriteComponent ,isValid} from 'cc';
 import { BaseObject } from '../../BaseObject';
-import { GameController } from '../../GameController';
+// import { GameController } from '../../GameController';
 const { ccclass, property } = _decorator;
 
 @ccclass('GameResultGoldCell')
@@ -16,11 +16,11 @@ export class GameResultGoldCell extends BaseObject {
     start() {
         // Your initialization goes here.
     }
-    init(gameController: GameController, data: Object){
+    init(gameConfig: Object ,data: Object){
         // super.init()
-        let gameConfig = gameController.getGameConfig().json;
+        // let gameConfig = gameController.getGameConfig().json;
         let type =  data['key'];
-        super.init(gameConfig, gameController, null,null,type);
+        super.init(gameConfig, null,null,type);
         let iconStr = this.getIconSprteFrame();
         this.enemyCountLabel.getComponent(LabelComponent).string = data["enemyCount"] + '';
         this.winGoldCountLabel.getComponent(LabelComponent).string = data["winGoldCount"] + '';

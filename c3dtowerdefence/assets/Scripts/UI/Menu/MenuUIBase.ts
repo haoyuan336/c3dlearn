@@ -9,7 +9,7 @@ import { TowerBase } from '../../Towers/TowerBase';
 @ccclass('MenuUIBase')
 export class MenuUIBase extends Component {
     public state: State = new State();
-    protected targetNode: Node = null;
+    public targetNode: Node = null;
     // start() {
     //     // console.log('menu ui base');
     //     // this.state.addState('open-ui', this.openUI.bind(this));
@@ -21,7 +21,7 @@ export class MenuUIBase extends Component {
     //     // }, 0.2)
     // }
 
-    public init(gameConfig?: Object, gameCtl?: Object) {
+    init(gameConfig: Object) {
         // super.init(gameConfig, gameController);
         this.state.addState('open-ui', this.openUI.bind(this));
         this.state.addState('close-ui', this.closeUI.bind(this));

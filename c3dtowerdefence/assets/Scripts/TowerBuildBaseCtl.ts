@@ -1,7 +1,8 @@
-import { _decorator, Component, Node, Prefab, v2, instantiate, v3, Tween } from 'cc';
+import { _decorator, Component, Node, Prefab, v2, instantiate, v3, Tween, JsonAsset } from 'cc';
+import { GameInstance } from './GameInstance';
 import { GroundMapCtl } from './GroundMapCtl';
 import My2dArray from './util/My2Array';
-import { GameController } from './GameController';
+// import { GameController } from './GameController';
 const { ccclass, property } = _decorator;
 
 @ccclass('TowerBuildBaseCtl')
@@ -9,15 +10,20 @@ export class TowerBuildBaseCtl extends Component {
     @property({ type: Prefab })
     public towerBuildBasePrefab: Prefab = null;
 
+    @property({ type: JsonAsset })
+    public gameConfigJsonAsset: JsonAsset = null;
     private groundTiledNodeList: My2dArray<Node> = null;
     // private towerBuildBaseList: Node[] = [];
-    private gameController: GameController = null;
+    // private gameController: GameController = null;
+
+
     showTowerBuildBaseEnterAnim() {
-        this.gameController = this.node.getComponent(GameController);
+        // this.gameController = this.node.getComponent(GameController);
         // this.mapWidth = this.node.getComponent(GroundMapCtl).mapWidth;
         // this.mapHeight = this.node.getComponent(GroundMapCtl).mapHeight;
         // let currentActiveTowerBuildCount = this.gameController.playerData.currentActiveTowerBuildBaseCount;
-        let towerBasePosList = this.gameController.getGameConfig().json['Level_' + this.gameController.getCurrentLevelNum()]['TowerBuildPos'];
+        let currentLevelNum = GameInstance.getInstance().getPlayerData().currentLevelNum;
+        let towerBasePosList = this.gameConfigJsonAsset.json['Level_' + currentLevelNum]['TowerBuildPos'];
         //     v2(4, 4),
         //     v2(4, 6),
         //     v2(6, 4),
@@ -66,14 +72,14 @@ export class TowerBuildBaseCtl extends Component {
             })
             tw.to(0.5, { position: v3(pos.x, 0, pos.z) }, { easing: "bounceOut" });
             tw.call(() => {
-                this.gameController.node.emit("play-audio", 'drop');
+                GameInstance.getInstance().getGameCtlNode().emit("play-audio", 'drop');
                 resolve();
             })
             tw.start()
         })
     }
 
-    frozenAllTowerBuildBase(){
+    frozenAllTowerBuildBase() {
         this.node.emit("frozen-tower-build-base");
     }
     // update (deltaTime: number) {

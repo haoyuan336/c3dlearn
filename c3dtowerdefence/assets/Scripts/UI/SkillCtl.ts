@@ -3,8 +3,9 @@ import { GameController } from '../GameController';
 import { TowerBase } from '../Towers/TowerBase';
 import { BaseObject } from '../BaseObject';
 import { KuangBaoSkill } from './道具/KuangBaoSkill';
-import { UIController } from './UIController';
+// import { UIController } from './UIController';
 import { State } from '../util/State';
+import { GameInstance } from '../GameInstance';
 const { ccclass, property } = _decorator;
 
 @ccclass('SkillCtl')
@@ -133,7 +134,7 @@ export class SkillCtl extends Component {
                 console.log("点中了 技能点")
                 this.currentTouchNode = this.skillDouIcon;
                 this.startCheckSkillNode();
-                this.node.getComponent(UIController).setHoldSkillIcon(true);
+                // this.node.getComponent(UIController).setHoldSkillIcon(true);
             }
         });
         this.node.on(Node.EventType.TOUCH_MOVE, (event: EventTouch) => {
@@ -151,7 +152,7 @@ export class SkillCtl extends Component {
                 console.log("释放")
                 this.scheduleOnce(() => {
                     // this.gameController.setHoldSkillIcon(false);
-                    this.node.getComponent(UIController).setHoldSkillIcon(false);
+                    // this.node.getComponent(UIController).setHoldSkillIcon(false);
 
                     if (this.timeoutResolve) {
                         this.timeoutResolve('timeout');
@@ -260,7 +261,7 @@ export class SkillCtl extends Component {
         //     let node = this.skillRedBgList[i];
         //     node.position = v3(node.position.x, -80 + rate * 80, node.position.z);
         // }
-        this.gameController.playerData.addPowerCount(power);
+        GameInstance.getInstance().addPowerCount(power);
     }
     showAddPowerAnimEffect(powerValue: number, pos: Vec3) {
         let node = instantiate(this.addPowerAnim3dPrefab);

@@ -5,10 +5,10 @@
         "./EnemyController": "EnemyController.ts",
         "./GroundMapCtl": "GroundMapCtl.ts",
         "./TowerBuildBaseCtl": "TowerBuildBaseCtl.ts",
-        "./Data/PlayerData": "Data/PlayerData.ts",
         "./Towers/TowerBase": "Towers/TowerBase.ts",
         "./Effect/WinGoldAnimEffect": "Effect/WinGoldAnimEffect.ts",
         "./Home/HomeIcon": "Home/HomeIcon.ts",
-        "./util/AdsController": "util/AdsController.ts"
+        "./util/AdsController": "util/AdsController.ts",
+        "./GameInstance": "GameInstance.ts"
     }
 }

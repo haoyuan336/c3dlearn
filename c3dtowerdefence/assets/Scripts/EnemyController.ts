@@ -1,13 +1,14 @@
-import { _decorator, Component, Node, JsonAsset, Prefab, instantiate, v3, Vec2, Tween, random, Vec3, CameraComponent, find, profiler, isValid, Scheduler } from 'cc';
+import { _decorator, Component, Node, JsonAsset, Prefab, instantiate, v3, Vec2, Tween, random, Vec3, CameraComponent, find, profiler, isValid, Scheduler, Game } from 'cc';
 import { State } from './util/State';
 import { EnemyBase } from './Enemys/EnemyBase'
 import { GroundMapCtl } from './GroundMapCtl';
 import { GroundTiled } from './GroundTiled/GroundTiled';
 import My2dArray from './util/My2Array';
 import { WinGoldAnimEffect } from './Effect/WinGoldAnimEffect';
-import { GameController } from './GameController';
+// import { GameController } from './GameController';
 // import { UIController } from './UI/UIController';
 import { EnemyBullet } from './Enemys/EnemyBullet';
+import { GameInstance } from './GameInstance';
 
 const { ccclass, property } = _decorator;
 export class DeadEnemyObj {
@@ -60,7 +61,7 @@ export class EnemyController extends Component {
     // private currentWaveTime: number = 0;
     // private currentWaveDuraction: number = 1;
 
-    public gameController: GameController = null;
+    // public gameController: GameController = null;
     private allWaveAddOverCb = null; //所有的波次的敌人都增加完毕的回调
     private allEnemyDeadCb = null; //所有的敌人都死了的回调 
     private boosIsLive = false; //boss还活着？
@@ -71,8 +72,8 @@ export class EnemyController extends Component {
     private uiControllerNode: Node = null;
 
     private isAddedBoss: boolean = false;
-    // @property({type: JsonAsset})
-    // public GameLevelConfig: JsonAsset = null;
+    @property({ type: JsonAsset })
+    public gameConfigJsonAsset: JsonAsset = null;
     onLoad() {
         this.node.on("destroy-all-enemy", (cb) => {
             //删除当前的所有敌人
@@ -88,15 +89,18 @@ export class EnemyController extends Component {
             }
         });
         this.node.on("init-level-label", () => {
-            this.node.emit("refer-current-wave-level", this.gameController.getCurrentLevelNum(), 0);
+            this.node.emit("refer-current-wave-level", GameInstance.getInstance().getPlayerData().currentLevelNum, 0);
         })
+        this.node.on("boss-shoot-one-egg", this.bossShootOneEgg.bind(this));
+        this.node.on("remove-enemy-in-list", this.removeEnemyInList.bind(this));
+        this.node.on("push-one-enemy-dead-data", this.pushOneEnemyDeadData.bind(this));
     }
     start() {
         this.uiControllerNode = find("Canvas");
 
         // Your initialization goes here.
         this.gameConfig = this.gameConfigRes.json;
-        this.gameController = this.node.getComponent(GameController);
+        // this.gameController = this.node.getComponent(GameController);
         this.endPos = v3(0, 0, 0);
         // this.state.addState("enter-next-wave", () => {
 
@@ -141,7 +145,7 @@ export class EnemyController extends Component {
             if (this.state.getState() === "start-add-enemy") {
                 //开始增加敌人
                 let currentWaveData = this.waveData['EnemyType'];
-                this.node.emit("refer-current-wave-level", this.gameController.getCurrentLevelNum(), this.currentWaveIndex);
+                GameInstance.getInstance().getUICtlNode().emit("refer-current-wave-level", GameInstance.getInstance().getPlayerData().currentLevelNum, this.currentWaveIndex);
                 if (this.currentWaveIndex <= currentWaveData.length - 2) {
                     let enemyTypeList = currentWaveData[this.currentWaveIndex];
                     this.addOneWaveEnemy(enemyTypeList);
@@ -159,8 +163,8 @@ export class EnemyController extends Component {
                         console.log("游戏胜利");
                         if (this.state.getState() !== "game-lose") {
                             this.state.setState("game-win");
-                            this.uiControllerNode.emit("show-end-dialog", this.gameController.getCurrentLevelNum(), () => {
-                                this.gameController.gameWin(this.currentLevelDeadEnemyDataList);
+                            this.uiControllerNode.emit("show-end-dialog", GameInstance.getInstance().getPlayerData().currentLevelNum, () => {
+                                GameInstance.getInstance().getGameCtlNode().emit("show-game-win-layer", this.currentLevelDeadEnemyDataList);
                             })
                         }
                     });
@@ -198,12 +202,12 @@ export class EnemyController extends Component {
         this.currentLevelDeadEnemyDataList = [];
         //在这里需要初始化一些游戏数据 
         this.currentWaveIndex = 0;
-        this.waveData = this.gameConfig['Level_' + this.gameController.getCurrentLevelNum()];
+        this.waveData = this.gameConfigJsonAsset.json['Level_' + GameInstance.getInstance().getPlayerData().currentLevelNum];
         // this.waveData = this.GameLevelConfig.json['Level_' + this.gameController.getCurrentLevelNum()];
 
+        GameInstance.getInstance().getUICtlNode().emit("refer-current-wave-level", GameInstance.getInstance().getPlayerData().currentLevelNum, this.currentWaveIndex);
 
-
-        this.uiControllerNode.emit("show-start-dialog", this.gameController.getCurrentLevelNum(), () => {
+        this.uiControllerNode.emit("show-start-dialog", GameInstance.getInstance().getPlayerData().currentLevelNum, () => {
             // console.log("开始对话内容播放结束");
             // this.scheduleOnce(() => {
             //     this.state.setState("enter-next-wave");
@@ -247,7 +251,7 @@ export class EnemyController extends Component {
     }
     continueGame() {
         this.currentWaveIndex--;
-        this.waveData = this.gameConfig['Level_' + this.gameController.getCurrentLevelNum()];
+        this.waveData = this.gameConfigJsonAsset.json['Level_' + GameInstance.getInstance().getPlayerData().currentLevelNum];
         // this.waveData = this.GameLevelConfig['Level_' + this.gameController.getCurrentLevelNum()];
 
         this.state.setState("start-add-enemy");
@@ -260,14 +264,20 @@ export class EnemyController extends Component {
             })
         ]).then(() => {
             console.log("游戏胜利");
-            this.gameController.gameWin(this.currentLevelDeadEnemyDataList);
+            // this.gameController.gameWin(this.currentLevelDeadEnemyDataList);
+            GameInstance.getInstance().getGameCtlNode().emit("show-game-win-layer", this.currentLevelDeadEnemyDataList);
         })
     }
-    pushOneEnemyDeadData(enemyDeadData: DeadEnemyObj) {
+    pushOneEnemyDeadData(enemyType: string, healthCount: number) {
         // console.log("push one enemy dead data", enemyDeadData);
-
+        let enemyDeadData = new DeadEnemyObj(enemyType, healthCount);
         this.currentLevelDeadEnemyDataList.push(enemyDeadData);
-        this.gameController.playerData.activeEnemy(enemyDeadData.enemyType);
+        // this.gameController.playerData.activeEnemy(enemyDeadData.enemyType);
+        let result = GameInstance.getInstance().getPlayerData().activeEnemy(enemyDeadData.enemyType);
+        if (result) {
+            GameInstance.getInstance().getUICtlNode().emit("refer-enemy-info-cell", enemyDeadData.enemyType);
+
+        }
     }
     gemeLose() {
         //游戏失败了
@@ -352,7 +362,7 @@ export class EnemyController extends Component {
                 enemyNode.position = v3(node.position.x, 0, node.position.z);
                 enemyNode.active = false;
 
-                enemyNode.getComponent(EnemyBase).init(this.gameConfig, this.gameController, node.position, this.endPos);
+                enemyNode.getComponent(EnemyBase).init(this.gameConfigJsonAsset.json, node.position, this.endPos);
 
                 // this.showEnemyEnterAnim(enemyNode, addEnemyCount);
                 // promiseList.push(enemyNode.getComponent(EnemyBase).showEnemyEnterAnim(addEnemyCount, this, this.gameController, indexV2, new Vec2(5, 5)));
@@ -360,7 +370,7 @@ export class EnemyController extends Component {
                 this.enemyNodeList.push(enemyNode);
                 return this.playBossEnterAnim(enemyNode).then(() => {
                     this.node.emit("enter-continue-play-move-anim");
-                    enemyNode.getComponent(EnemyBase).showEnemyEnterAnim(1, this, pos, new Vec2(5, 5));
+                    enemyNode.getComponent(EnemyBase).showEnemyEnterAnim(1, this.node, pos, new Vec2(5, 5));
                     resolve();
                 })
             }, 5)
@@ -391,7 +401,7 @@ export class EnemyController extends Component {
         // }、
         let randomStartIndex = Math.round(Math.random() * indexList.length);
 
-        if (this.currentWaveIndex === 0 && this.gameController.getCurrentLevelNum() === 0) {
+        if (this.currentWaveIndex === 0 && GameInstance.getInstance().getPlayerData().currentLevelNum === 0) {
             randomStartIndex = 0;
         }
         // console.log("current wave", this.currentWaveIndex);
@@ -419,10 +429,10 @@ export class EnemyController extends Component {
                     enemyNode.position = v3(node.position.x, 0, node.position.z);
                     enemyNode.active = false;
 
-                    enemyNode.getComponent(EnemyBase).init(this.gameConfig, this.gameController, node.position, this.endPos);
+                    enemyNode.getComponent(EnemyBase).init(this.gameConfig, node.position, this.endPos);
                     this.enemyNodeList.push(enemyNode);
 
-                    promiseList.push(enemyNode.getComponent(EnemyBase).showEnemyEnterAnim(index, this, indexV2, new Vec2(5, 5)));
+                    promiseList.push(enemyNode.getComponent(EnemyBase).showEnemyEnterAnim(index, this.node, indexV2, new Vec2(5, 5)));
                 }
             } else {
                 // promiseList.push(Promise.resolve())
@@ -498,9 +508,9 @@ export class EnemyController extends Component {
     getCurrentEnemyNodeList() {
         return this.enemyNodeList;
     }
-    enemyAttacked(num: number) {
-        this.gameController.getComponent(GameController).enemyAttacked(num);
-    }
+    // enemyAttacked(num: number) {
+    //     // this.gameController.getComponent(GameController).enemyAttacked(num);
+    // }
     frozenAllEnemy() {
         //冰冻所有敌人
         // for (let i = 0 ; i < this.enem){
@@ -519,7 +529,7 @@ export class EnemyController extends Component {
             let node = instantiate(this.enemyBulletPrefabList[bulletType]);
             node.parent = this.node;
             node.position = enemyNode.position;
-            node.getComponent(EnemyBullet).init(this.gameController.getGameConfig().json, this.gameController, this.endPos);
+            node.getComponent(EnemyBullet).init(this.gameConfigJsonAsset.json, this.endPos);
         }
     }
     getDeadEnemyData() {

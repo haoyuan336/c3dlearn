@@ -1,14 +1,15 @@
-import { _decorator, Component, Node, CCInteger, v3, Vec3, tween, path, Tween, CameraComponent, Vec2, v2, JsonAsset, game, isValid, ProgressBarComponent, RigidBodyComponent, SkeletalAnimationComponent, ParticleSystemComponent, bezier, find, Quat, SphereColliderComponent, ModelComponent } from 'cc';
+import { _decorator, Component, Node, CCInteger, v3, Vec3, tween, path, Tween, CameraComponent, Vec2, v2, JsonAsset, game, isValid, ProgressBarComponent, RigidBodyComponent, SkeletalAnimationComponent, ParticleSystemComponent, bezier, find, Quat, SphereColliderComponent, ModelComponent, Game } from 'cc';
 import { State } from './../util/State'
 // import { GameController } from './../GameController';
 // import { Enemy } from './Enemy';
 import { BaseObject } from './../BaseObject'
-import { DeadEnemyObj, EnemyController } from '../EnemyController';
+// import { DeadEnemyObj } from '../EnemyController';
 import { BezierN } from '../util/BezierN';
 import { GroundMapCtl } from '../GroundMapCtl';
 import { FindPathWithAStart } from '../util/FindPathWithAStart';
 import { EnemyColonyCom } from './EnemyColonyCom';
-import { UIController } from '../UI/UIController';
+// import { UIController } from '../UI/UIController';
+import { GameInstance } from '../GameInstance';
 // import { Besize } from '../util/Besize';
 const { ccclass, property } = _decorator;
 @ccclass('EnemyBase')
@@ -26,7 +27,8 @@ export class EnemyBase extends BaseObject {
     public currentHealthCount: number = 0;
     // private endPos: Vec3 = null;
     // private startPos: Vec3 = null;
-    private enemyCtl: EnemyController = null;
+    // private enemyCtl: EnemyController = null;
+    private enemyCtlNode: Node = null;
     private currentMoveTw: Tween = null;
     // private gameController: GameController = null;
     private groundMapCtl: GroundMapCtl = null;
@@ -43,8 +45,8 @@ export class EnemyBase extends BaseObject {
 
 
     private bossHealthBar: Node = null; //boss的血条。
-    public init(gameConfig: Object, gameController, startPos: Vec3, endPos: Vec3) {
-        super.init(gameConfig, gameController);
+    public init(gameConfig: Object, startPos: Vec3, endPos: Vec3) {
+        super.init(gameConfig);
         if (this.getMoveType().indexOf("Fly") > -1) {
             this.node.position = v3(this.node.position.x, 10, this.node.position.z);
         }
@@ -78,10 +80,10 @@ export class EnemyBase extends BaseObject {
         }
     }
 
-    showEnemyEnterAnim(index: number, enemtCtl: EnemyController, startPos: Vec2, endPos: Vec2) {
+    showEnemyEnterAnim(index: number, enemtCtl: Node, startPos: Vec2, endPos: Vec2) {
         let node = this.node;
-        this.enemyCtl = enemtCtl;
-        this.enemyCtl.node.on("frozen-all-enemy", this.forzenSelf.bind(this), this);
+        this.enemyCtlNode = enemtCtl;
+        this.enemyCtlNode.on("frozen-all-enemy", this.forzenSelf.bind(this), this);
 
         // this.gameController = gameCtl;
         // this.enemyCtl.node.on('enter-show-boss-enter-state', this.enterShowBossEnter, this);
@@ -156,8 +158,9 @@ export class EnemyBase extends BaseObject {
         //1首先设置一条敌人需要飞过的控制点\
         // let endPoint = this.groundMapCtl.getMapNodeList().getValue(endPos.x, endPos.y).position;
         // this.node.position = endPoint;
-        this.gameController.node.emit("play-audio", this.getShowAudio());
+        // this.gameController.node.emit("play-audio", this.getShowAudio());
 
+        GameInstance.getInstance().getGameCtlNode().emit('play-audio', this.getShowAudio());
         if (this.state.getState() !== 'run') {
             //当前的游戏状态是run , 如果当前的状态不是运行状态，那么需要打断飞行移动
             return;
@@ -282,7 +285,7 @@ export class EnemyBase extends BaseObject {
     }
     proceeWalkLogic(startPos: Vec2, endPos: Vec2) {
         //处理走路的逻辑
-        this.gameController.node.emit("play-audio", this.getShowAudio());
+        GameInstance.getInstance().getGameCtlNode().emit("play-audio", this.getShowAudio());
 
         if (this.state.getState() !== 'run') {
             return;
@@ -333,14 +336,15 @@ export class EnemyBase extends BaseObject {
             let stateAnim = skeleteAnim.getState(this.currentBoneAnimName);
             let animLength = stateAnim.length;
             stateAnim.repeatCount = 1;
-            this.gameController.node.emit("play-audio", this.shootAudio);
+            GameInstance.getInstance().getGameCtlNode().emit("play-audio", this.shootAudio);
             let tw = new Tween(this.node);
             tw.delay(this.animSpeedMulOffset * animLength)
             tw.call(() => {
                 console.log("普通敌人发动攻击", this.getBaseAttackDamage());
                 // this.enemyCtl.
                 // this.gameController.getComponent(GameController).beatt
-                this.gameController.enemyAttacked(this.getBaseAttackDamage());
+                // this.gameController.enemyAttacked(this.getBaseAttackDamage());
+                GameInstance.getInstance().getGameCtlNode().emit("enemy-to-attacked", this.getBaseAttackDamage());
             })
             tw.delay((1 - this.animSpeedMulOffset) * animLength)
             tw.call(() => {
@@ -392,8 +396,9 @@ export class EnemyBase extends BaseObject {
             let tw = new Tween(this.node);
             tw.delay(this.animSpeedMulOffset * animLength)
             tw.call(() => {
-                this.enemyCtl.bossShootOneEgg(this.node);
-                this.gameController.node.emit("play-audio", this.shootAudio);
+                // this.enemyCtl.bossShootOneEgg(this.node);
+                this.enemyCtlNode.emit("boss-shoot-one-egg", this.node);
+                GameInstance.getInstance().getGameCtlNode().emit("play-audio", this.shootAudio);
 
             })
             tw.delay((1 - this.animSpeedMulOffset) * animLength)
@@ -432,12 +437,14 @@ export class EnemyBase extends BaseObject {
         //     }, this.animSpeedMulOffset * animLength);
         // })
         this.state.addState("over", () => {
-            this.enemyCtl.removeEnemyInList(this.node);
+            // this.enemyCtl.removeEnemyInList(this.node);
+            this.enemyCtlNode.emit("remove-enemy-in-list", this.node);
             this.node.destroy();
 
         });
         this.state.addState("to-dead", () => {
-            this.enemyCtl.pushOneEnemyDeadData(new DeadEnemyObj(this.objectType, this.healthCount));
+            // this.enemyCtl.pushOneEnemyDeadData(new DeadEnemyObj(this.objectType, this.healthCount));
+            this.enemyCtlNode.emit("push-one-enemy-dead-data", this.objectType, this.healthCount);
             if (this.currentMoveTw) {
                 this.currentMoveTw.stop();
             }
@@ -446,8 +453,9 @@ export class EnemyBase extends BaseObject {
             this.unscheduleAllCallbacks();
             tw.by(0.1, { scale: v3(1, 1, 1) })
             tw.call(() => {
-                if (this.deadAudio){
-                    this.gameController.node.emit("play-audio", this.deadAudio);
+                if (this.deadAudio) {
+                    // this.gameController.node.emit("play-audio", this.deadAudio);
+                    GameInstance.getInstance().getGameCtlNode().emit("play-audio", this.deadAudio);
 
                 }
                 this.node.position = v3(this.node.position.x, 0, this.node.position.z)
@@ -459,7 +467,7 @@ export class EnemyBase extends BaseObject {
                     this.caidaiEffect.active = true;
                 }
                 // this.enemyCtl.addEnemyAddGoldAnim(this.getCurrentGoldCount(), v3(this.node.position.x, 0, this.node.position.z));
-                this.gameController.showAddGoldAnimEffect(this.getCurrentGoldCount(), v3(this.node.position.x, 0, this.node.position.z));
+                GameInstance.getInstance().getGameCtlNode().emit("show-add-gold-anim-effect", this.getCurrentGoldCount(), v3(this.node.position.x, 0, this.node.position.z));
             });
             tw.delay(1)
             tw.call(() => {
@@ -488,7 +496,7 @@ export class EnemyBase extends BaseObject {
             }
             this.beAttackedCb = data.cb;
             this.currentHealthCount -= data.baseAttackNum;
-            if (this.bossHealthBar){
+            if (this.bossHealthBar) {
                 let progressBar = this.bossHealthBar.children[0];
                 progressBar.getComponent(ProgressBarComponent).progress = this.currentHealthCount / this.healthCount;
             }
@@ -552,15 +560,15 @@ export class EnemyBase extends BaseObject {
         // this.state.setState("ready");
     }
     playWalkAudio() {
-        if (this.walkAudio){
-            this.gameController.node.emit("play-audio", this.walkAudio, () => {
+        if (this.walkAudio) {
+            GameInstance.getInstance().getGameCtlNode().emit("play-audio", this.walkAudio, () => {
                 // console.log("音效播放完成", this.state.getState());
                 if (this.state.getState() === 'run') {
                     this.playWalkAudio();
                 }
             })
         }
-       
+
     }
     getIsDead(): boolean {
         if (this.state.getState() === 'over' || this.state.getState() === 'to-dead') {
@@ -623,9 +631,10 @@ export class EnemyBase extends BaseObject {
     }
     playBossEnterAnim() {
         //播放boss 的进场动画
-        this.bossHealthBar = find("Canvas").getComponent(UIController).showBossHealthBar();
+        // this.bossHealthBar = find("Canvas").getComponent(UIController).showBossHealthBar();
 
-        
+        GameInstance.getInstance().getUICtlNode().emit("show-boss-health-bar");
+
         return new Promise((resolve, reject) => {
             let skeleteAnim = this.rootNode.getComponent(SkeletalAnimationComponent)
             let clips = skeleteAnim.clips;
@@ -653,12 +662,13 @@ export class EnemyBase extends BaseObject {
     onDestroy() {
         // this.node.off('enter-show-boss-enter-state', this.enterShowBossEnter, this);
         // this.node.off('enter-continue-play-move-anim', this.contiuePlayMoveAnim, this);
-        if (this.enemyCtl && isValid(this.enemyCtl.node)) {
-            this.enemyCtl.node.off("frozen-all-enemy", this.forzenSelf, this);
+        if (this.enemyCtlNode && isValid(this.enemyCtlNode)) {
+            this.enemyCtlNode.off("frozen-all-enemy", this.forzenSelf, this);
         }
-        if (this.bossHealthBar){
-            this.bossHealthBar.position = v3(0,-400,0);
-        }
+        GameInstance.getInstance().getUICtlNode().emit("hide-boss-health-bar");
+        // if (this.bossHealthBar) {
+        //     this.bossHealthBar.position = v3(0, -400, 0);
+        // }
         // this.unschedule(this.shootOneBossBullet);
     }
     getColonyComCtl() {

@@ -1,19 +1,20 @@
 import { _decorator, Component, Node, Vec3, v3, Tween } from 'cc';
 import { BaseObject } from '../BaseObject';
-import { GameController } from '../GameController';
+import { GameInstance } from '../GameInstance';
+// import { GameController } from '../GameController';
 import { State } from '../util/State';
 const { ccclass, property } = _decorator;
 
 @ccclass('EnemyBullet')
 export class EnemyBullet extends BaseObject {
     private state: State = new State();
-    private accY: number = GameController.accY;
+    private accY: number = -1;
     private currentSpeed: number = 0;
     private endPos: Vec3 = null;
     @property({ type: Node })
     public caidaiEffect: Node = null;
 
-    
+
     start() {
         // Your initialization goes here.
 
@@ -26,7 +27,8 @@ export class EnemyBullet extends BaseObject {
             tw.hide()
             tw.call(() => {
                 //爆炸结束
-                this.gameController.enemyAttacked(this.getBaseAttackDamage());
+                // this.gameController.enemyAttacked(this.getBaseAttackDamage());
+                GameInstance.getInstance().getGameCtlNode().emit("enemy-to-attacked", this.getBaseAttackDamage());
                 this.caidaiEffect.active = true;
             })
             tw.delay(0.8 + Math.random() * 0.5),
@@ -37,8 +39,8 @@ export class EnemyBullet extends BaseObject {
             tw.start();
         })
     }
-    init(gameConfig, gameCtl, endPos: Vec3) {
-        super.init(gameConfig, gameCtl);
+    init(gameConfig, endPos: Vec3) {
+        super.init(gameConfig);
         this.endPos = endPos;
         this.caidaiEffect.eulerAngles = v3(0, Math.random() * 360, 0)
         let scale = Math.random() * 0.2 + 0.8;

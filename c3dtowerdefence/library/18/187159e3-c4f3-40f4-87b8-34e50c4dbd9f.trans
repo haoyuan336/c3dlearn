@@ -2,8 +2,7 @@
     "resolveMap": {
         "./MenuUIBase": "MenuUIBase.ts",
         "../../Towers/TowerBase": "../../Towers/TowerBase.ts",
-        "../../GameController": "../../GameController.ts",
-        "../../BaseObject": "../../BaseObject.ts",
-        "../../util/Tool": "../../util/Tool.ts"
+        "../../util/Tool": "../../util/Tool.ts",
+        "../../GameInstance": "../../GameInstance.ts"
     }
 }

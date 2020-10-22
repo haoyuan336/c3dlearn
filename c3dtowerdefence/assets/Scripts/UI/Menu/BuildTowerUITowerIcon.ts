@@ -1,5 +1,5 @@
 import { _decorator, Component, Node, Prefab, find, instantiate, v3, LabelComponent, isValid } from 'cc';
-import { GameController } from '../../GameController';
+// import { GameController } from '../../GameController';
 import { BaseObject } from '../../BaseObject';
 const { ccclass, property } = _decorator;
 
@@ -24,7 +24,7 @@ export class BuildTowerUITowerIcon extends BaseObject {
     start() {
         // Your initialization goes here.
     }
-    init(type: number, gameController: GameController, gameConfig: Object) {
+    init(type: number, gameConfig: Object) {
         this.gameConfig = gameConfig;
         this.towerType = type;
         // console.log("初始化塔的类型", type, this.gameConfig);
@@ -58,7 +58,7 @@ export class BuildTowerUITowerIcon extends BaseObject {
         //     }
         // }
         console.log('object type', this.objectType);
-        super.init(this.gameConfig, gameController);
+        super.init(this.gameConfig);
         this.costGoldLabel.getComponent(LabelComponent).string = this.buildCost + '';
 
     }

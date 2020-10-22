@@ -2,7 +2,7 @@
     "resolveMap": {
         "../GameController": "../GameController.ts",
         "../Towers/TowerBase": "../Towers/TowerBase.ts",
-        "./UIController": "UIController.ts",
-        "../util/State": "../util/State.ts"
+        "../util/State": "../util/State.ts",
+        "../GameInstance": "../GameInstance.ts"
     }
 }

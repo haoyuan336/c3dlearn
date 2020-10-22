@@ -1,5 +1,6 @@
 import { _decorator, Component, Node, SkeletalAnimationComponent, Tween, v3, find } from 'cc';
 import { GameController } from '../GameController';
+import { GameInstance } from '../GameInstance';
 const { ccclass, property } = _decorator;
 
 @ccclass('WinGoldAnimEffect')
@@ -53,7 +54,8 @@ export class WinGoldAnimEffect extends Component {
         })
         tw.call(() => {
             // find("GameController").emit("")
-            gameController.playerData.addGoldCount(goldCount);
+            // gameController.playerData.addGoldCount(goldCount);
+            GameInstance.getInstance().addGoldCount(goldCount);
             this.node.destroy();
         })
         tw.start();

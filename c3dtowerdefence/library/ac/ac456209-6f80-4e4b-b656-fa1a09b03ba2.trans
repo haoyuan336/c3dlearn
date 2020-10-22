@@ -6,6 +6,6 @@
         "./Menu/UpdateTowerUI": "Menu/UpdateTowerUI.ts",
         "./Menu/BuildTowerMenuUI": "Menu/BuildTowerMenuUI.ts",
         "./GameWin/GameWinPrefab": "GameWin/GameWinPrefab.ts",
-        "../GameController": "../GameController.ts"
+        "../GameInstance": "../GameInstance.ts"
     }
 }

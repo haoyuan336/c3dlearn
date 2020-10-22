@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, Prefab, instantiate, CameraComponent, Vec3, isValid, LabelComponent, EventTouch, ButtonComponent, AnimationComponent, Tween, view, v3, SpriteFrame, SpriteComponent, Loader, loader, find, Game, easing, ProgressBarComponent } from 'cc';
+import { _decorator, Component, Node, Prefab, instantiate, CameraComponent, Vec3, isValid, LabelComponent, EventTouch, ButtonComponent, AnimationComponent, Tween, view, v3, SpriteFrame, SpriteComponent, Loader, loader, find, Game, easing, ProgressBarComponent, JsonAsset } from 'cc';
 import { MenuUIBase } from './Menu/MenuUIBase';
 import { SkillCtl } from './SkillCtl';
 import { GoldCtl } from './GoldCtl';
@@ -6,8 +6,9 @@ import { UpdateTowerUI } from './Menu/UpdateTowerUI';
 import { BuildTowerMenuUI } from './Menu/BuildTowerMenuUI';
 import { GameWinPrefab } from './GameWin/GameWinPrefab';
 import { DeadEnemyObj } from '../EnemyController';
-import { GameController } from '../GameController';
+// import { GameController } from '../GameController';
 import { TowerInfoLayer } from './TowerInfoLayer';
+import { GameInstance } from '../GameInstance';
 const { ccclass, property } = _decorator;
 
 @ccclass('UIController')
@@ -18,7 +19,9 @@ export class UIController extends Component {
     @property({ type: Prefab })
     public updateMenuPrefab: Prefab = null;
     // @property({ type: GameController })
-    public gameController: GameController = null;
+    // public gameController: GameController = null;
+    @property({ type: JsonAsset })
+    public gameConfigJsonAsset: JsonAsset = null;
 
     @property({ type: Node })
     public cameraNode: Node = null;
@@ -42,13 +45,13 @@ export class UIController extends Component {
     @property({ type: Node })
     public currentLevelLabelIcon: Node = null;
 
-    @property({type: Node})
+    @property({ type: Node })
     public towerInfoLayer: Node = null; //塔的详细信息层
 
-    @property({type: Node})
+    @property({ type: Node })
     public bossHealthBar: Node = null; //boss 的血条
 
-    @property({type: Node})
+    @property({ type: Node })
     public buildTowerMenuLayer: Node = null; //建造塔的的ui层
 
     // @property({type: Node})
@@ -61,18 +64,25 @@ export class UIController extends Component {
 
     // @property({ type: Prefab })
     // public goAnimPrefab: Prefab = null;
+    onLoad() {
+        GameInstance.getInstance().setUICtlNode(this.node);
+        this.node.on("show-boss-health-bar", this.showBossHealthBar.bind(this));
+        this.node.on("hide-boss-health-bar", () => {
+            this.bossHealthBar.position = v3(0, -400, 0);
+        })
+    }
     start() {
         // loader.loadRes("Enemy_0_Icon/spriteFrame",SpriteFrame, (err, result)=>{
         //     console.log("err", err)
         // })
-        this.gameController = find("GameController").getComponent(GameController);
+        // this.gameController = find("GameController").getComponent(GameController);
         let screenSize = view.getVisibleSize();
         let width = screenSize.width;
         this.enemyInfoButton.position = v3(width * -0.5 - 100, 0, 0);
         this.towerInfoButton.position = v3(width * 0.5 + 100, 0, 0);
 
         console.log("ui controller start")
-        this.gameController.node.on("touch-base-build-base", (node: Node) => {
+        GameInstance.getInstance().getGameCtlNode().on("touch-base-build-base", (node: Node) => {
             //玩家点中了塔的基座
             //显示建造tower 的UI
             this.node.emit("complete-current-guide");
@@ -85,13 +95,13 @@ export class UIController extends Component {
             if (!isValid(this.buildUINode)) {
                 this.buildUINode = instantiate(this.buildTowerPrefab);
                 this.buildUINode.parent = this.buildTowerMenuLayer;
-                this.buildUINode.getComponent(BuildTowerMenuUI).init(this.gameController.getGameConfig().json, this.gameController);
+                this.buildUINode.getComponent(BuildTowerMenuUI).init(this.gameConfigJsonAsset.json);
             }
 
             this.setUINodeTo3dPos(this.buildUINode, node);
             this.buildUINode.getComponent(MenuUIBase).open(node);
         })
-        this.gameController.node.on("touch-tower", (targetTower: Node) => {
+        GameInstance.getInstance().getGameCtlNode().on("touch-tower", (targetTower: Node) => {
             //点中了tower
             //如果托着技能点，那么不需要显示UI
             if (this.isHoldSkillIcon) {
@@ -103,7 +113,7 @@ export class UIController extends Component {
             if (!isValid(this.updateUINode)) {
                 this.updateUINode = instantiate(this.updateMenuPrefab);
                 this.updateUINode.parent = this.buildTowerMenuLayer;
-                this.updateUINode.getComponent(UpdateTowerUI).init(this.gameController.getGameConfig().json, this.gameController);
+                this.updateUINode.getComponent(UpdateTowerUI).init(this.gameConfigJsonAsset.json);
             }
             this.setUINodeTo3dPos(this.updateUINode, targetTower);
             // this.updateUINode.getComponent(MenuUIBase).open(targetTower);
@@ -123,12 +133,13 @@ export class UIController extends Component {
         this.node.on("close-all-ui", this.closeSomeUI.bind(this), this);
         this.node.on("refer-current-tower-menu-ui", this.referTowerBuildMenuUI.bind(this), this);
         this.node.on("close-tower-menu-ui", this.coloseTowerBuildMenuUI.bind(this), this);
+        // this.node.on("update-gold-label", );
     }
-    showBossHealthBar(){
+    showBossHealthBar() {
         let tw = new Tween(this.bossHealthBar);
         this.bossHealthBar.children[0].getComponent(ProgressBarComponent).progress = 1;
         tw.to(0.2, {
-            position: v3(0,-280,0)
+            position: v3(0, -280, 0)
         })
         tw.start();
         return this.bossHealthBar;
@@ -167,7 +178,7 @@ export class UIController extends Component {
         // let label = new Node();
         let tw = new Tween(this.currentLevelLabelIcon);
         this.currentLevelLabelIcon.active = true;
-        this.currentLevelLabelIcon.getComponent(LabelComponent).string = "第" + (this.gameController.getCurrentLevelNum() + 1) + '关';
+        this.currentLevelLabelIcon.getComponent(LabelComponent).string = "第" + (GameInstance.getInstance().getPlayerData().currentLevelNum + 1) + '关';
         tw.set({ scale: v3(2, 2, 2) })
         tw.to(0.5, { scale: v3(1, 1, 1) }, { easing: "backOut" })
         tw.delay(0.8);
@@ -181,15 +192,15 @@ export class UIController extends Component {
     showGameWinUI(deadEnemyData: DeadEnemyObj[]) {
         let node = instantiate(this.gameResultPrefab);
         node.parent = this.node;
-        let gameConfig = this.gameController.getGameConfig().json
-        node.getComponent(GameWinPrefab).setGameResult(true, deadEnemyData, gameConfig, this, this.gameController, false);
+        let gameConfig = this.gameConfigJsonAsset.json
+        node.getComponent(GameWinPrefab).setGameResult(true, deadEnemyData, gameConfig, false);
     }
     showGameLossUI(deadEnemyData: DeadEnemyObj[], videoIsReady: boolean) {
         this.closeSomeUI();
         let node = instantiate(this.gameResultPrefab);
         node.parent = this.node;
-        let gameConfig = this.gameController.getGameConfig().json
-        node.getComponent(GameWinPrefab).setGameResult(false, deadEnemyData, gameConfig, this, this.gameController, videoIsReady);
+        // let gameConfig = this.gameController.getGameConfig().json
+        node.getComponent(GameWinPrefab).setGameResult(false, deadEnemyData, this.gameConfigJsonAsset.json, videoIsReady);
     }
     showUIEnterAnim(cb) {
         this.node.emit("enter-game");
@@ -247,7 +258,7 @@ export class UIController extends Component {
                 //玩家点击了开始游戏按钮
                 console.log("event", event);
                 event.target.destroy();
-                this.gameController.node.emit("player-click-game");
+                GameInstance.getInstance().getGameCtlNode().emit("player-click-game");
                 break;
             default:
                 break;
@@ -276,10 +287,11 @@ export class UIController extends Component {
             tw.start();
         })
     }
-    public playerClickNextLevelButton() {
-        //玩家点击了下一关的按钮
-        this.gameController.enterNextLevel();
-    }
+    // public playerClickNextLevelButton() {
+    //     //玩家点击了下一关的按钮
+    //     // this.gameController.enterNextLevel();
+    //     // GameInstance.getInstance().getGameCtlNode().emit("player-click-next-level-button")
+    // }
     // watchAds(){
     //     return this.gameController.getComponent(GameController).watchAds();
     // }
